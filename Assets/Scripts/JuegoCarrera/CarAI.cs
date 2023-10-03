@@ -9,6 +9,7 @@ public class CarAI : MonoBehaviour
     [SerializeField] private float _speedReductionOnWaypointAproach;
 
     public Waypoint CurrentWaypoint;
+    public Waypoint PreviousWaypoint;
     public bool CarInProximity;
     public bool WaitingForGreenLight;
 
@@ -20,8 +21,9 @@ public class CarAI : MonoBehaviour
 
     int _numberOfWaypoints;
 
-    Transform _targetWaypoint = null;
-
+    Transform _targetToGo = null;
+    Vector3 _targetPos;
+    
 
     private void Awake()
     {
@@ -30,21 +32,22 @@ public class CarAI : MonoBehaviour
 
     private void Start()
     {
-        _targetWaypoint = CurrentWaypoint.transform;
+        
         _initialMaxSpeed = _carController.MaxSpeed;
+        PreviousWaypoint=CurrentWaypoint;
+        _targetToGo = CurrentWaypoint.transform;
     }
 
     private void FixedUpdate()
     {
+        FollowWaypoint();
+
         Vector2 inputVector = Vector2.zero;
-        if (CanMove)
-        {
             inputVector.y = ApplyThrottleOrBreak(TurnTowardTargetClamped());
             inputVector.x = TurnTowardTargetClamped();
-        }
-        else _carController.MaxSpeed = 0;
 
         _carController.SetInputVector(inputVector);
+
         OnWaypointAproached();
     }
 
@@ -53,31 +56,9 @@ public class CarAI : MonoBehaviour
        
             float distance = Vector3.Distance(transform.position, CurrentWaypoint.transform.position);
             
-            if (distance < CurrentWaypoint._distanceToReachWaypoint)
+            if (distance <= CurrentWaypoint._distanceToReachWaypoint)
             {
                     NextWaypoint();
-            }
-
-            if (CarInProximity)
-            {
-                if (_carController.MaxSpeed == _initialMaxSpeed) ReduceSpeed();
-            }
-            else
-            {
-                if (_carController.MaxSpeed < _initialMaxSpeed / _speedReductionOnWaypointAproach)
-                {
-                    _carController.MaxSpeed = _initialMaxSpeed;
-                }else if (distance > _distanceToSlowForWaypoint && _carController.MaxSpeed != _initialMaxSpeed)
-                {
-                    _carController.MaxSpeed = _initialMaxSpeed;
-                }
-            }
-
-            if (!CurrentWaypoint._carSlowsDown) return;
-
-            if (distance < _distanceToSlowForWaypoint && _carController.MaxSpeed == _initialMaxSpeed)
-            {
-                ReduceSpeed();
             }
               
     }
@@ -102,7 +83,7 @@ public class CarAI : MonoBehaviour
     }
 
     private float TurnTowardTargetClamped(){
-        Vector2 vectorToTarget = CurrentWaypoint.transform.position - transform.position;
+        Vector2 vectorToTarget = _targetPos - transform.position;
         //Debug.LogWarning(vectorToTarget);
         vectorToTarget.Normalize();
 
@@ -114,16 +95,59 @@ public class CarAI : MonoBehaviour
         return steerAmount;
     }
 
+
+    void FollowWaypoint(){
+        if(CurrentWaypoint!=null){
+            _targetToGo=CurrentWaypoint.transform;
+            //_targetPos=CurrentWaypoint.transform.position;
+
+            //float distanceToWaypoint=(_targetPos-transform.position).magnitude;
+            Vector3 nearestPointOnLine=FindNearestPointOnLine(PreviousWaypoint.transform.position, CurrentWaypoint.transform.position, transform.position);
+            Vector3 distance=CurrentWaypoint.transform.position-transform.position;
+            distance/=10;
+                float segments=(nearestPointOnLine-transform.position).magnitude/10f;            
+                _targetPos=nearestPointOnLine+distance;
+                     
+            
+            Debug.DrawLine(transform.position, _targetPos, Color.cyan);
+        }
+    }
+    
+    Vector3 FindNearestPointOnLine(Vector3 lineStart, Vector3 lineEnd, Vector3 pos){
+        Vector3 lineHeadingEnd=(lineEnd-lineStart);
+        float maxDist=lineHeadingEnd.magnitude;
+        lineHeadingEnd.Normalize();
+
+        Vector3 lineVectorStartToPos=pos-lineStart;
+        float dotProduct=Vector2.Dot(lineVectorStartToPos,lineHeadingEnd);
+        dotProduct=Mathf.Clamp(dotProduct,0f,maxDist);
+
+        return lineStart + lineHeadingEnd*dotProduct;
+    }
+
     private float ApplyThrottleOrBreak(float inputX)
     {
+
         return 5.05f - Mathf.Abs(inputX) / 1;
     }
 
     public void NextWaypoint()
     {
-        Debug.LogWarning("CA;B");
+        PreviousWaypoint=CurrentWaypoint;
         CurrentWaypoint=CurrentWaypoint.FollowingWaypoints[0];
-        _targetWaypoint=CurrentWaypoint.transform;
+        _targetToGo=CurrentWaypoint.transform;
+    }
+
+    Vector2 FindNearestPointOnLine(Vector2 lineStartPos, Vector2 lineEndPos, Vector2 point){
+        Vector2 lineToEnd=lineEndPos-lineStartPos;
+        lineEndPos.Normalize();
+
+        //Projection
+        Vector2 lineVectorStartToPoint=point-lineStartPos;
+        float dotProduct=Vector2.Dot(lineVectorStartToPoint,lineToEnd);
+        dotProduct=Mathf.Clamp(dotProduct,0f,7f);
+
+        return lineStartPos + lineToEnd*dotProduct;
     }
 
     private Waypoint PickRandom(List<Waypoint> followingWaypoints)

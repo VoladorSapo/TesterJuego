@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CarController : MonoBehaviour
 {
@@ -41,10 +42,13 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        
     }
     private void Start()
     {
         _rb.drag = _defaultDrag;
+        PauseController.Instance.SetPausedEvents(Pause,UnPause);
     }
 
     private void FixedUpdate()
@@ -161,6 +165,20 @@ public class CarController : MonoBehaviour
         _accelerationInput = inputVector.y;
     }
 
+
+
+    //Pausa
+    Vector2 storedSpeed;
+    public void Pause(){
+        storedSpeed=_rb.velocity;
+        _rb.velocity=Vector2.zero;
+        this.enabled=false;
+    }
+
+    public void UnPause(){
+        this.enabled=true;
+        _rb.velocity=storedSpeed;
+    }
 
     /*private void OnCollisionStay2D(Collision2D collision){
         if ((_obstacleLayer.value & (1 << collision.gameObject.layer)) != 0)

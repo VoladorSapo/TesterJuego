@@ -11,15 +11,16 @@ public class CarAIController : MonoBehaviour
     [SerializeField] private float _driftFactor;
     [SerializeField] private float _turnFactor;
     [SerializeField] private float _turnLimitFactor;
+    [SerializeField] private float _turnReactionTime;
     [SerializeField] private float _maintainTurnTime;
     private float _maintainTurnTimer;
-    private float prevAngle=0;
     [SerializeField] private float _turnAngles;
     [SerializeField] private float _dragFactor;
     [SerializeField] private float _dragSpeed;
 
     [SerializeField] float _accelerationInput;
     [SerializeField] float _turnInput;
+    float _currentTurnInput;
 
     [SerializeField] float _rotationAngle=0;
 
@@ -34,8 +35,12 @@ public class CarAIController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        
     }
 
+    void Start(){
+        PauseController.Instance.SetPausedEvents(Pause,UnPause);
+    }
     private void FixedUpdate()
     {
         if(_maintainTurnTimer>0){_maintainTurnTimer-=Time.deltaTime;}
@@ -73,11 +78,12 @@ public class CarAIController : MonoBehaviour
 
     void ApplyTurn()
     {
+        _currentTurnInput=Mathf.Lerp(_currentTurnInput,_turnInput,Time.deltaTime*_turnReactionTime);
 
-        _rotationAngle+=_turnInput*_turnFactor;
+        _rotationAngle+=_currentTurnInput*_turnFactor;
         float finalRotation=FixedAngle(_rotationAngle);
-        _rb.MoveRotation(finalRotation);
-        Debug.Log(_rb.rotation);
+        _rb.SetRotation(finalRotation);
+        
 
     }
     float FixedAngle(float rotationAngle){
@@ -107,5 +113,20 @@ public class CarAIController : MonoBehaviour
         _turnInput = -inputVector.x;
         _accelerationInput = inputVector.y;
     }
+    public Vector2 GetVelocity(){
+        return _rb.velocity;
+    }
 
+
+    Vector2 storedSpeed;
+    public void Pause(){
+        storedSpeed=_rb.velocity;
+        _rb.velocity=Vector2.zero;
+        this.enabled=false;
+    }
+
+    public void UnPause(){
+        this.enabled=true;
+        _rb.velocity=storedSpeed;
+    }
 }
