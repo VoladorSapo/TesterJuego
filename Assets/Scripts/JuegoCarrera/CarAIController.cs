@@ -18,10 +18,10 @@ public class CarAIController : MonoBehaviour
     [SerializeField] private float _dragFactor;
     [SerializeField] private float _dragSpeed;
 
-    float _accelerationInput;
-    float _turnInput;
+    [SerializeField] float _accelerationInput;
+    [SerializeField] float _turnInput;
 
-    float _rotationAngle=0;
+    [SerializeField] float _rotationAngle=0;
 
     float _velocityVsUp;
 
@@ -73,18 +73,17 @@ public class CarAIController : MonoBehaviour
 
     void ApplyTurn()
     {
-        if(_maintainTurnTimer>0){return;}
-
-        _rotationAngle += -_turnInput * _turnFactor;
-        _rb.MoveRotation(FixedAngle(_rotationAngle));
-        if(prevAngle!=_rb.rotation){
-            prevAngle=_rb.rotation;
-            _maintainTurnTimer=_maintainTurnTime;
-        }
+        _rotationAngle+=_turnInput*_turnFactor;
+        float finalRotation=FixedAngle(_rotationAngle);
+        _rb.MoveRotation(finalRotation);
+        Debug.Log(_rb.rotation);
     }
     float FixedAngle(float rotationAngle){
-        if(rotationAngle<0){rotationAngle+=360f;}
+        //rotationAngle=_rb.rotation+rotationAngle;
         rotationAngle=rotationAngle%360f;
+        if(rotationAngle<0){rotationAngle+=360f;}
+        
+
 
         int dividedAngle=(int)((rotationAngle+_turnAngles/2)/_turnAngles);
         float returnAngle=dividedAngle*_turnAngles;
@@ -102,7 +101,8 @@ public class CarAIController : MonoBehaviour
 
     public void SetInputVector(Vector2 inputVector)
     {
-        _turnInput = inputVector.x;
+        //Debug.LogWarning(inputVector.x==0);
+        _turnInput = -inputVector.x;
         _accelerationInput = inputVector.y;
     }
 

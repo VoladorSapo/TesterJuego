@@ -156,6 +156,10 @@ Transform:
   - {fileID: 629650862}
   - {fileID: 509017185}
   - {fileID: 1831102078}
+  - {fileID: 1357749313}
+  - {fileID: 790494539}
+  - {fileID: 1694034347}
+  - {fileID: 1252804149}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -209,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 10
   _accelerationFactor: 3.5
-  _driftFactor: 0.5
+  _driftFactor: 0.2
   _turnFactor: 3.5
   _turnAngles: 18
   _turnLimitFactor: 4.5
@@ -368,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSlowsDown: 0
-  _distanceToReachWaypoint: 1
+  _distanceToReachWaypoint: 2
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1831102079}
@@ -382,7 +386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509017183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.62, y: 4.3, z: 8.54016}
+  m_LocalPosition: {x: 8.73, y: 13.36, z: 8.54016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -440,15 +444,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6522080e9fa2a494aa2087d601cad83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 5
+  MaxSpeed: 10
   _accelerationFactor: 2.5
-  _driftFactor: 0.5
-  _turnFactor: 3.5
+  _driftFactor: 0.2
+  _turnFactor: 2
   _turnLimitFactor: 4.5
-  _maintainTurnTime: 0.04
+  _maintainTurnTime: 0.045
   _turnAngles: 18
   _dragFactor: 2.5
   _dragSpeed: 2.5
+  _accelerationInput: 0
+  _turnInput: 0
+  _rotationAngle: 0
 --- !u!61 &555290606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -556,7 +563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555290603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.59, y: 0.48, z: 0}
+  m_LocalPosition: {x: 6.96, y: 1.63, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -593,7 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSlowsDown: 0
-  _distanceToReachWaypoint: 1
+  _distanceToReachWaypoint: 2
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 509017184}
@@ -607,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614132146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.49, y: 3.16, z: 8.54016}
+  m_LocalPosition: {x: 4.28, y: 8.72, z: 8.54016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -639,7 +646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629650861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.94, y: -2.15, z: 8.54016}
+  m_LocalPosition: {x: 22.56, y: -4.55, z: 8.54016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -659,12 +666,165 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSlowsDown: 0
-  _distanceToReachWaypoint: 1
+  _distanceToReachWaypoint: 2
+  WPweight: 1
+  FollowingWaypoints:
+  - {fileID: 1694034346}
+  PreviousWaypoints:
+  - {fileID: 790494538}
+--- !u!1 &790494537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790494539}
+  - component: {fileID: 790494538}
+  m_Layer: 0
+  m_Name: Waypoint 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790494538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790494537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33f4a15ff8562747820fdb16450fb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carSlowsDown: 0
+  _distanceToReachWaypoint: 2
+  WPweight: 1
+  FollowingWaypoints:
+  - {fileID: 629650863}
+  PreviousWaypoints:
+  - {fileID: 1357749312}
+--- !u!4 &790494539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790494537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.86, y: 4.37, z: 8.54016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 56281123}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1252804148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252804149}
+  - component: {fileID: 1252804150}
+  m_Layer: 0
+  m_Name: Waypoint 8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252804149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252804148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.72, y: -3.41, z: 8.54016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 56281123}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252804150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252804148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33f4a15ff8562747820fdb16450fb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carSlowsDown: 0
+  _distanceToReachWaypoint: 2
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1951912604}
   PreviousWaypoints:
+  - {fileID: 1694034346}
+--- !u!1 &1357749311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357749313}
+  - component: {fileID: 1357749312}
+  m_Layer: 0
+  m_Name: Waypoint 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357749312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357749311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33f4a15ff8562747820fdb16450fb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carSlowsDown: 0
+  _distanceToReachWaypoint: 2
+  WPweight: 1
+  FollowingWaypoints:
+  - {fileID: 790494538}
+  PreviousWaypoints:
   - {fileID: 1831102079}
+--- !u!4 &1357749313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357749311}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.02, y: 11.78, z: 8.54016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 56281123}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503412348
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +944,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 194841216}
+--- !u!1 &1694034345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694034347}
+  - component: {fileID: 1694034346}
+  m_Layer: 0
+  m_Name: Waypoint 7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1694034346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694034345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33f4a15ff8562747820fdb16450fb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carSlowsDown: 0
+  _distanceToReachWaypoint: 2
+  WPweight: 1
+  FollowingWaypoints:
+  - {fileID: 1252804150}
+  PreviousWaypoints:
+  - {fileID: 629650863}
+--- !u!4 &1694034347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694034345}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.04, y: -6.04, z: 8.54016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 56281123}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831102077
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +1020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831102077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.67, y: 5.37, z: 8.54016}
+  m_LocalPosition: {x: 16.09, y: 14.2, z: 8.54016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -829,10 +1040,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSlowsDown: 0
-  _distanceToReachWaypoint: 1
+  _distanceToReachWaypoint: 2
   WPweight: 1
   FollowingWaypoints:
-  - {fileID: 629650863}
+  - {fileID: 1357749312}
   PreviousWaypoints:
   - {fileID: 509017184}
 --- !u!1 &1951912603
@@ -865,12 +1076,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carSlowsDown: 0
-  _distanceToReachWaypoint: 1
+  _distanceToReachWaypoint: 2
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 614132147}
   PreviousWaypoints:
-  - {fileID: 629650863}
+  - {fileID: 1252804150}
 --- !u!4 &1951912605
 Transform:
   m_ObjectHideFlags: 0
@@ -879,7 +1090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951912603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 2, z: 8.54016}
+  m_LocalPosition: {x: 3.62, y: 2.5, z: 8.54016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

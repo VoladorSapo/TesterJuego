@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class Waypoint : MonoBehaviour
 {
     public bool _carSlowsDown;
-    public float _distanceToReachWaypoint=1;
+    public float _distanceToReachWaypoint=2;
 
     [Range(0f,1f)] public float WPweight=1;
     public List<Waypoint> FollowingWaypoints=new List<Waypoint>();

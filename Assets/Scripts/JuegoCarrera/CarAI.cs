@@ -39,8 +39,8 @@ public class CarAI : MonoBehaviour
         Vector2 inputVector = Vector2.zero;
         if (CanMove)
         {
-            inputVector.x = TurnTowardTarget();
-            inputVector.y = ApplyThrottleOrBreak(inputVector.x);
+            inputVector.y = ApplyThrottleOrBreak(TurnTowardTargetClamped());
+            inputVector.x = TurnTowardTargetClamped();
         }
         else _carController.MaxSpeed = 0;
 
@@ -52,7 +52,7 @@ public class CarAI : MonoBehaviour
     {
        
             float distance = Vector3.Distance(transform.position, CurrentWaypoint.transform.position);
-            Debug.Log((distance < CurrentWaypoint._distanceToReachWaypoint)+", "+distance+", "+CurrentWaypoint._distanceToReachWaypoint);
+            
             if (distance < CurrentWaypoint._distanceToReachWaypoint)
             {
                     NextWaypoint();
@@ -93,17 +93,30 @@ public class CarAI : MonoBehaviour
         //Debug.LogWarning(vectorToTarget);
         vectorToTarget.Normalize();
 
+        float angleToTarget = -Vector2.SignedAngle(transform.up, vectorToTarget);
+        //Debug.Log(angleToTarget);
+        
+        //float steerAmount = Mathf.Clamp(angleToTarget/45f, -1, 1);
+        //Debug.LogWarning(steerAmount);
+        return angleToTarget/3.5f;
+    }
+
+    private float TurnTowardTargetClamped(){
+        Vector2 vectorToTarget = CurrentWaypoint.transform.position - transform.position;
+        //Debug.LogWarning(vectorToTarget);
+        vectorToTarget.Normalize();
+
         float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
         //Debug.Log(angleToTarget);
         
-        float steerAmount = Mathf.Clamp(-angleToTarget/90f, -1, 1);
+        float steerAmount = Mathf.Clamp(-angleToTarget/45f, -1, 1);
         //Debug.LogWarning(steerAmount);
         return steerAmount;
     }
 
     private float ApplyThrottleOrBreak(float inputX)
     {
-        return 1.05f - Mathf.Abs(inputX) / 1;
+        return 5.05f - Mathf.Abs(inputX) / 1;
     }
 
     public void NextWaypoint()
