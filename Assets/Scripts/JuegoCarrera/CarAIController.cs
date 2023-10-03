@@ -73,10 +73,12 @@ public class CarAIController : MonoBehaviour
 
     void ApplyTurn()
     {
+
         _rotationAngle+=_turnInput*_turnFactor;
         float finalRotation=FixedAngle(_rotationAngle);
         _rb.MoveRotation(finalRotation);
         Debug.Log(_rb.rotation);
+
     }
     float FixedAngle(float rotationAngle){
         //rotationAngle=_rb.rotation+rotationAngle;
