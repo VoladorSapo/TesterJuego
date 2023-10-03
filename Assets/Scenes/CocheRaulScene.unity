@@ -211,7 +211,7 @@ MonoBehaviour:
   _accelerationFactor: 3.5
   _driftFactor: 0.5
   _turnFactor: 3.5
-  _turnAngles: 18
+  _turnAngles: 30
   _turnLimitFactor: 4.5
   _stopVelocityTreshhold: 0.125
   _defaultDrag: 0.02
@@ -445,8 +445,13 @@ MonoBehaviour:
   _driftFactor: 0.5
   _turnFactor: 3.5
   _turnLimitFactor: 4.5
+<<<<<<< Updated upstream
   _maintainTurnTime: 0.04
   _turnAngles: 18
+=======
+  _maintainTurnTime: 0.045
+  _turnAngles: 30
+>>>>>>> Stashed changes
   _dragFactor: 2.5
   _dragSpeed: 2.5
 --- !u!61 &555290606

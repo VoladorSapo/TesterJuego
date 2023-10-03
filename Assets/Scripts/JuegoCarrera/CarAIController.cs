@@ -73,6 +73,7 @@ public class CarAIController : MonoBehaviour
 
     void ApplyTurn()
     {
+<<<<<<< Updated upstream
         if(_maintainTurnTimer>0){return;}
 
         _rotationAngle += -_turnInput * _turnFactor;
@@ -81,6 +82,12 @@ public class CarAIController : MonoBehaviour
             prevAngle=_rb.rotation;
             _maintainTurnTimer=_maintainTurnTime;
         }
+=======
+        _rotationAngle+=_turnInput*_turnFactor;
+        float finalRotation=FixedAngle(_rotationAngle);
+        _rb.rotation=finalRotation;
+        Debug.Log(_rb.rotation);
+>>>>>>> Stashed changes
     }
     float FixedAngle(float rotationAngle){
         if(rotationAngle<0){rotationAngle+=360f;}
