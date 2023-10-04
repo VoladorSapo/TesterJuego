@@ -22,6 +22,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private LayerMask _obstacleLayer;
     public float _accelerationInput;
     public float _turnInput;
+    [HideInInspector] public Waypoint CurrentWaypoint;
 
 
     [Header("\nPlayerInput")]
@@ -42,7 +43,7 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-
+        CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
         
     }
     private void Start()
@@ -81,7 +82,7 @@ public class CarController : MonoBehaviour
         else _rb.drag = _defaultDrag;
 
         if (_velocityVsUp > _maxSpeed && _accelerationInput > 0) return;
-        if (_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) return;
+        //if (_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) return;
         if (_rb.velocity.sqrMagnitude > _maxSpeed * _maxSpeed && _accelerationInput > 0) return;
 
         if (_accelerationInput == 0)
