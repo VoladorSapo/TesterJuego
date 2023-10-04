@@ -14,7 +14,7 @@ public class CarAIController : MonoBehaviour
     [SerializeField] private float _turnReactionTime;
     [SerializeField] private float _maintainTurnTime;
     private float _maintainTurnTimer;
-    [SerializeField] private float _turnAngles;
+    public float _turnAngles;
     [SerializeField] private float _dragFactor;
     [SerializeField] private float _dragSpeed;
 
