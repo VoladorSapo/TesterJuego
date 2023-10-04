@@ -17,6 +17,7 @@ public class CarAI : MonoBehaviour
     public Transform HeadTransform;
     [SerializeField] private float _detectRadius;
     [SerializeField] private float _detectDistance;
+    [SerializeField] private float _maxAvoidInfluence;
     [SerializeField] bool isAvoidingCars=true;
     [SerializeField] private float updateAvoidAngleTime;
 
@@ -49,7 +50,6 @@ public class CarAI : MonoBehaviour
 
         _carController.SetInputVector(inputVector);
 
-        OnWaypointAproached();
     }
 
     private void OnWaypointAproached()
@@ -87,11 +87,18 @@ public class CarAI : MonoBehaviour
 
     private float TurnTowardTargetClamped(){
         Vector2 vectorToTarget = _targetPos - transform.position;
-        //Debug.LogWarning(vectorToTarget);
         vectorToTarget.Normalize();
 
-        if(isAvoidingCars)
-            AvoidCars(vectorToTarget, out vectorToTarget);
+        Vector2 vectorAvoidance=Vector2.zero;
+        //Debug.LogWarning(vectorToTarget);
+        
+
+        if(isAvoidingCars){
+            AvoidCars(vectorToTarget, out vectorAvoidance);
+            if(vectorAvoidance.magnitude>(_targetPos - transform.position).magnitude){vectorToTarget=vectorAvoidance;}
+        }
+        
+        
 
         float angleToTarget = Vector2.SignedAngle(transform.up, vectorToTarget);
         //Debug.Log(angleToTarget);
@@ -110,8 +117,7 @@ public class CarAI : MonoBehaviour
             //float distanceToWaypoint=(_targetPos-transform.position).magnitude;
             Vector3 nearestPointOnLine=FindNearestPointOnLine(PreviousWaypoint.transform.position, CurrentWaypoint.transform.position, transform.position);
             Vector3 distance=CurrentWaypoint.transform.position-transform.position;
-            distance/=10;
-                float segments=(nearestPointOnLine-transform.position).magnitude/10f;            
+            distance/=8;           
                 _targetPos=nearestPointOnLine+distance;
                      
             
@@ -172,18 +178,17 @@ public class CarAI : MonoBehaviour
 
     bool IsCarInFrontOfAICar(out Vector3 position, out Vector3 otherCarRightVector){
 
-        Collider2D col=this.GetComponent<Collider2D>();
-        col.enabled=false;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(),GetComponent<Collider2D>(),true);
 
         RaycastHit2D raycastHit2D = Physics2D.CircleCast(HeadTransform.position+transform.up*0.5f,_detectRadius, transform.up, _detectDistance, carMask);
 
-        col.enabled=true;
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(),GetComponent<Collider2D>(),false);
         if(raycastHit2D.collider!=null){
             Debug.DrawRay(transform.position, transform.up*_detectDistance, Color.red);
 
             position=raycastHit2D.collider.transform.position;
 
-            otherCarRightVector=raycastHit2D.collider.transform.right;
+            otherCarRightVector=-raycastHit2D.collider.transform.right;
             return true;
         }
         else{
@@ -203,20 +208,20 @@ public class CarAI : MonoBehaviour
             newVectorToTargetUnlerp.Normalize();
 
             float distanceToTarget=(_targetPos-transform.position).magnitude;
-            float targetInfluence=Mathf.Clamp(6f/distanceToTarget,0.3f,1f);
-            float avoidInfluence=1-targetInfluence;
+            float targetInfluence=Mathf.Clamp(_maxAvoidInfluence/distanceToTarget,0.5f,_maxAvoidInfluence);
+            float avoidInfluence=_maxAvoidInfluence-targetInfluence;
+            avoidInfluence/=distanceToOtherCar;
 
-            newVectorToTarget=Quaternion.AngleAxis(_carController._turnAngles*distanceToOtherCar,Vector3.forward)*newVectorToTargetUnlerp*avoidInfluence*Mathf.Sign(Vector3.Cross(transform.up,newVectorToTargetUnlerp).z);
+            newVectorToTarget=Quaternion.AngleAxis(_carController._turnAngles*distanceToOtherCar,Vector3.forward)*newVectorToTargetUnlerp;
             
             newVectorToTarget=Vector2.Lerp(newVectorToTarget,newVectorToTargetUnlerp,Time.fixedDeltaTime*updateAvoidAngleTime);
             newVectorToTarget.Normalize();
+            newVectorToTarget*=distanceToOtherCar;
             //Debug.DrawRay(transform.position,newVectorToTarget*10, Color.yellow);
             Debug.DrawRay(transform.position,newVectorToTarget*10,Color.green);
             
-            //_carController.MaxSpeed=14f;
             return;
         }
         newVectorToTarget=vectorToTarget;
-        //_carController.MaxSpeed=Mathf.Lerp(_carController.MaxSpeed,10f,Time.fixedDeltaTime*1f);
     }
 }

@@ -14,12 +14,13 @@ public class WaypointManager : EditorWindow
     }
 
     public Transform WaypointRoot;
-
+    public GameObject WaypointPrefab;
     private void OnGUI()
     {
         SerializedObject obj = new SerializedObject(this);
 
         EditorGUILayout.PropertyField(obj.FindProperty("WaypointRoot"));
+        EditorGUILayout.PropertyField(obj.FindProperty("WaypointPrefab"));
 
         if (WaypointRoot == null) EditorGUILayout.HelpBox("Debes seleccionar un WaypointRoot", MessageType.Warning);
         else
@@ -50,7 +51,7 @@ public class WaypointManager : EditorWindow
         {
             CreateNewWaypoint();
         }
-        if(Selection.activeGameObject != null && Selection.activeGameObject.GetComponent<Waypoint>()) 
+        if(WaypointRoot.childCount>0) 
         {
             
             if(GUILayout.Button("Crear Waypoint Antes"))
@@ -82,16 +83,18 @@ public class WaypointManager : EditorWindow
 
     void CreateNewWaypoint()
     {
-        GameObject waypointObject = new GameObject("Waypoint " + WaypointRoot.childCount, typeof(Waypoint));
+        GameObject waypointObject = Instantiate(WaypointPrefab);
+        waypointObject.name="Waypoint"+WaypointRoot.childCount;
         waypointObject.transform.SetParent(WaypointRoot, false);
 
         Vector2 pos=SceneView.lastActiveSceneView.camera.transform.position;
         waypointObject.transform.position=pos;
-        Waypoint waypoint=waypointObject.GetComponent<Waypoint>();
     }
 
     void RemoveWaypoint(){
         Waypoint selectedWaypoint=Selection.activeGameObject.GetComponent<Waypoint>();
+        if(selectedWaypoint==null){return;}
+
         foreach(Waypoint wp in selectedWaypoint.FollowingWaypoints){
             wp.PreviousWaypoints.Remove(selectedWaypoint);
         }
@@ -103,7 +106,10 @@ public class WaypointManager : EditorWindow
 
     void CreateNextWaypoint(){
         Waypoint selectedWaypoint=Selection.activeGameObject.GetComponent<Waypoint>();
-        GameObject waypointObject = new GameObject("Waypoint " + WaypointRoot.childCount, typeof(Waypoint));
+        if(selectedWaypoint==null){return;}
+
+        GameObject waypointObject = Instantiate(WaypointPrefab);
+        waypointObject.name="Waypoint"+WaypointRoot.childCount;
         waypointObject.transform.SetParent(WaypointRoot, false);
 
         Waypoint waypoint=waypointObject.GetComponent<Waypoint>();
@@ -124,7 +130,10 @@ public class WaypointManager : EditorWindow
 
     void CreatePrevWaypoint(){
         Waypoint selectedWaypoint=Selection.activeGameObject.GetComponent<Waypoint>();
-        GameObject waypointObject = new GameObject("Waypoint " + WaypointRoot.childCount, typeof(Waypoint));
+        if(selectedWaypoint==null){return;}
+        
+        GameObject waypointObject = Instantiate(WaypointPrefab);
+        waypointObject.name="Waypoint"+WaypointRoot.childCount;
         waypointObject.transform.SetParent(WaypointRoot, false);
 
         Waypoint waypoint=waypointObject.GetComponent<Waypoint>();

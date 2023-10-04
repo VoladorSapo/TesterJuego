@@ -18,6 +18,10 @@ public class WaypointEditor
         }
         Gizmos.DrawSphere(waypoint.transform.position, 0.5f);
 
+        Vector2 up=waypoint.transform.up*5f;
+        Gizmos.color=Color.blue;
+        Gizmos.DrawLine(new Vector3(-up.y,up.x,0)+waypoint.transform.position,new Vector3(up.y,-up.x,0)+waypoint.transform.position);
+
         if(waypoint.FollowingWaypoints!=null){
             foreach(Waypoint wp in waypoint.FollowingWaypoints){
                 Gizmos.color=Color.red;

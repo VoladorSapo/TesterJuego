@@ -9,12 +9,13 @@ public class Waypoint : MonoBehaviour
 {
     public bool _carSlowsDown;
     public float _distanceToReachWaypoint=5;
+    public LayerMask carMask;
 
     [Range(0f,1f)] public float WPweight=1;
     public List<Waypoint> FollowingWaypoints=new List<Waypoint>();
-    private List<Waypoint> followWP=new List<Waypoint>();
+    //private List<Waypoint> followWP=new List<Waypoint>();
     public List<Waypoint> PreviousWaypoints=new List<Waypoint>();
-    private List<Waypoint> prevWP=new List<Waypoint>();
+    //private List<Waypoint> prevWP=new List<Waypoint>();
 
     /*private void OnValidate(){
         if(!FollowingWaypoints.SequenceEqual(followWP)){
@@ -42,6 +43,25 @@ public class Waypoint : MonoBehaviour
         list1.Clear();
         for(int i=0; i<lis2.Count; i++){
             list1.Add(lis2[i]);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col){
+        //Debug.Log("ja");
+        CarAI carAI=col.gameObject.GetComponent<CarAI>();
+        CarController carPlayer=col.gameObject.GetComponent<CarController>();
+        if((carMask.value & (1 << col.gameObject.layer)) != 0){
+
+            if(carPlayer!=null && carPlayer.CurrentWaypoint.name==this.gameObject.name){
+                carPlayer.gameObject.GetComponent<PositionRace>().PassedWaypoint();
+                carPlayer.CurrentWaypoint=FollowingWaypoints[0];
+            }
+
+            if(carAI!=null && carAI.CurrentWaypoint.name==this.gameObject.name){
+                carAI.gameObject.GetComponent<PositionRace>().PassedWaypoint();
+                carAI.CurrentWaypoint=FollowingWaypoints[0];
+                carAI.PreviousWaypoint=this;
+            }
         }
     }
 }
