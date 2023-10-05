@@ -15,6 +15,7 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float slowingair;
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
+    [SerializeField] float turn;
     [SerializeField] float speedpower;
     [SerializeField] float jumpForce;
     [SerializeField] float touchgroundmax;
@@ -62,12 +63,32 @@ public class PlatormerPlayerController : MonoBehaviour
         {
         }
         else {
-            print("ole beti");
             float difftomax = (speed * moveAxisX) - rb2d.velocity.x;
-            float rate = (Mathf.Abs(difftomax) > 0.001) ? acceleration : deceleration;
+            float Velocity = rb2d.velocity.x;
+            Velocity += moveAxisX;
+            if (Mathf.Abs(moveAxisX) < 0.01)
+            {
+                print("decceleration");
+                Velocity *= Mathf.Pow(1 - deceleration, speedpower);
+            }
+           else if(Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity))
+            {
+                print("turn");
+                Velocity *= Mathf.Pow(1 - turn, speedpower);
 
-            float move = Mathf.Pow(Mathf.Abs(difftomax) * rate, speedpower) * Mathf.Sign(difftomax);
-            rb2d.AddForce(new Vector2(move * slowing, 0));
+            }
+            else
+            {
+                print("acceleration");
+                Velocity *= Mathf.Pow(1 - acceleration, speedpower);
+
+            }
+            //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
+            //float rate =Mathf.Abs(moveAxisX) > 0 ? acceleration : deceleration;
+            //print(rate);
+            //float move = Mathf.Pow(Mathf.Abs(difftomax) * rate, speedpower) * Mathf.Sign(difftomax);
+            //rb2d.AddForce(new Vector2(move * slowing, 0));
+            rb2d.velocity = new Vector2(Velocity, rb2d.velocity.y);
         }
         if (raycasts.ground && rb2d.velocity.y <= 0.5)
         {
