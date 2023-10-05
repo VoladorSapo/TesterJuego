@@ -152,7 +152,7 @@ MonoBehaviour:
   MaxSpeed: 10
   _accelerationFactor: 2.5
   _driftFactor: 0.1
-  _turnFactor: 5
+  _turnFactor: 4
   _turnLimitFactor: 4.5
   _turnReactionTime: 10
   _maintainTurnTime: 0.045
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentWaypoint: {fileID: 0}
   PreviousWaypoint: {fileID: 0}
+  _divideSegments: 4
   carMask:
     serializedVersion: 2
     m_Bits: 8

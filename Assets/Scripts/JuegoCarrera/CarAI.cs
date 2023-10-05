@@ -11,6 +11,7 @@ public class CarAI : MonoBehaviour
     [Header("Path")]
     public Waypoint CurrentWaypoint;
     public Waypoint PreviousWaypoint;
+    [SerializeField] private float _divideSegments;
 
     [Header("Detect Cars")]
     public LayerMask carMask;
@@ -117,7 +118,7 @@ public class CarAI : MonoBehaviour
             //float distanceToWaypoint=(_targetPos-transform.position).magnitude;
             Vector3 nearestPointOnLine=FindNearestPointOnLine(PreviousWaypoint.transform.position, CurrentWaypoint.transform.position, transform.position);
             Vector3 distance=CurrentWaypoint.transform.position-transform.position;
-            distance/=8;           
+            distance/=_divideSegments;           
                 _targetPos=nearestPointOnLine+distance;
                      
             
