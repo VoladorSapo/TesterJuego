@@ -24,6 +24,7 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float pressjump;
     [SerializeField] float fallforce; //Pa que baje mas rapido
     [SerializeField] float gravityforce;
+    [SerializeField] bool jumping;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,28 +60,74 @@ public class PlatormerPlayerController : MonoBehaviour
         {
             _sprite.flipX = false;
         }
+        if (pressjump > 0 && touchground > 0)
+        {
+            jumping = true;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+
+            rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            touchground = 0;
+            pressjump = 0;
+        }
+        if (raycasts.onSlope)
+        {
+            rb2d.gravityScale = 0;
+            if (moveAxisX != 0)
+            {
+                rb2d.AddForce(gravityforce * -raycasts.slopeperpendicular * 0);
+            }
+            Debug.DrawRay(transform.position - new Vector3(0,0.5f), gravityforce * -raycasts.slopeperpendicular, Color.cyan);
+        }
+        else if (rb2d.velocity.y < 0)
+        {
+            rb2d.gravityScale = gravityforce * fallforce;
+            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale * fallforce,Color.cyan);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale,Color.cyan);
+
+            rb2d.gravityScale = gravityforce;
+        }
         if (moveAxisX > 0 && raycasts.rightwall || moveAxisX < 0 && raycasts.leftwall)
         {
         }
         else {
-            float difftomax = (speed * moveAxisX) - rb2d.velocity.x;
-            float Velocity = rb2d.velocity.x;
-            Velocity += moveAxisX;
+            Vector2 Velocity = rb2d.velocity;
+            //if (!raycasts.onSlope)
+            //{
+            //    Velocity = rb2d.velocity.x;
+            //}
+            //else
+            //{
+            //    Velocity = rb2d
+            //}
+            if (raycasts.onSlope)
+            {
+                print("cha");
+
+                Velocity += raycasts.slopeperpendicular * -moveAxisX * -Mathf.Sign(raycasts.slopeperpendicular.x);//* Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad);
+                print(Velocity);
+            }
+            else
+            {
+                Velocity += new Vector2(moveAxisX,0);
+            }
             if (Mathf.Abs(moveAxisX) < 0.01)
             {
                 print("decceleration");
-                Velocity *= Mathf.Pow(1 - deceleration, speedpower);
+                Velocity *= Mathf.Pow(1 - deceleration, speedpower) * slowing;
             }
-           else if(Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity))
+           else if(Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
             {
                 print("turn");
-                Velocity *= Mathf.Pow(1 - turn, speedpower);
+                Velocity *= Mathf.Pow(1 - turn, speedpower) * slowing;
 
             }
             else
             {
                 print("acceleration");
-                Velocity *= Mathf.Pow(1 - acceleration, speedpower);
+                Velocity *= Mathf.Pow(1 - acceleration, speedpower) * slowing;
 
             }
             //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
@@ -88,31 +135,33 @@ public class PlatormerPlayerController : MonoBehaviour
             //print(rate);
             //float move = Mathf.Pow(Mathf.Abs(difftomax) * rate, speedpower) * Mathf.Sign(difftomax);
             //rb2d.AddForce(new Vector2(move * slowing, 0));
-            rb2d.velocity = new Vector2(Velocity, rb2d.velocity.y);
+            if (raycasts.onSlope && moveAxisX == 0 && !jumping)
+
+            {
+                rb2d.velocity = Vector2.zero;
+
+            }
+            else if (!raycasts.ground || jumping)
+            {
+
+                rb2d.velocity = new Vector2(Velocity.x, rb2d.velocity.y);
+            }
+            else
+            {
+                    rb2d.velocity = Velocity;
+            }
+            Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
         }
-        if (raycasts.ground && rb2d.velocity.y <= 0.5)
+        if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX !=0))
         {
+            print("tocando suelo");
             touchground = touchgroundmax;
+            jumping = false;
+            //rb2d.AddForce(new Vector2(Mathf.Sin( raycasts.groundangle * Mathf.Deg2Rad), Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad))*2f, ForceMode2D.Impulse);
 
         }
 
-        if (pressjump > 0 && touchground > 0)
-        {
+        
 
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-
-            rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            touchground = 0;
-            pressjump = 0;
-        }
-
-        if (rb2d.velocity.y < 0)
-        {
-            rb2d.gravityScale = gravityforce * fallforce;
-        }
-        else
-        {
-            rb2d.gravityScale = gravityforce;
-        }
     }
 }
