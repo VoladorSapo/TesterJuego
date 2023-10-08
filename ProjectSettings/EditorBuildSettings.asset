@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Zelda/protoZelda.unity
+    guid: 4c3a7c1e8a47c61479b3fefdf6914766
+  - enabled: 1
+    path: Assets/Scenes/Zelda/RoomTest.unity
+    guid: 79911f493e0cfa84b931ac4f54916107
   m_configObjects: {}
