@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CarAIController : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class CarAIController : MonoBehaviour
     }
 
     void Start(){
-        PauseController.Instance.SetPausedEvents(Pause,UnPause);
+        //PauseController.Instance.SetPausedEvents(Pause,UnPause);
     }
     private void FixedUpdate()
     {
@@ -52,6 +53,15 @@ public class CarAIController : MonoBehaviour
     void ApplyForce()
     {
 
+        DragControl();
+
+        _forceVector = transform.up * _accelerationInput * _accelerationFactor;
+
+        _rb.AddForce(_forceVector, ForceMode2D.Force);
+        
+    }
+
+    void DragControl(){
         _velocityVsUp = Vector2.Dot(transform.up, _rb.velocity);
 
         if (_velocityVsUp > MaxSpeed)
@@ -70,12 +80,12 @@ public class CarAIController : MonoBehaviour
         }
         else _rb.drag = 0;
 
-        _forceVector = transform.up * _accelerationInput * _accelerationFactor;
-
-        _rb.AddForce(_forceVector, ForceMode2D.Force);
-        
+        if(HasTileDrag(transform.position)){
+            _rb.drag = _dragFactor;
+        }else{
+            _rb.drag=0.2f;
+        }
     }
-
     void ApplyTurn()
     {
         _currentTurnInput=Mathf.Lerp(_currentTurnInput,_turnInput,Time.deltaTime*_turnReactionTime);
@@ -128,5 +138,22 @@ public class CarAIController : MonoBehaviour
     public void UnPause(){
         this.enabled=true;
         _rb.velocity=storedSpeed;
+    }
+
+    bool HasTileDrag(Vector3 CarPos){
+        if(CarreraManager.Instance.NormalTilemap==null){return false;}
+        Vector3Int mapPos=new Vector3Int(Mathf.FloorToInt(CarPos.x),Mathf.FloorToInt(CarPos.y),0);
+        Tile NormalTile=(Tile) CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
+        Tile GlicthedTile=(Tile) CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
+
+        
+        if((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile))){
+            //Debug.LogWarning(CarPos+", "+_NormalTilemap.WorldToCell(mapPos));
+            return true;
+        }else{
+            
+            return false;
+        }
+
     }
 }

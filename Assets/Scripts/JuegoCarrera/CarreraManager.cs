@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class CarreraManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class CarreraManager : MonoBehaviour
 
 
     [Header("Stages")]
-    public List<string> allStages;
+    
     //[HideInInspector] 
     public int indexSelectedStage;
 
@@ -28,8 +29,13 @@ public class CarreraManager : MonoBehaviour
     [Header("Los Coches Activos")]
     public List<PositionRace> allPositions;
 
+
+    [Header("Propiedades de las carreras")]
+    public List<Tile> NoDragTiles;
+    [HideInInspector] public Tilemap NormalTilemap;
+    [HideInInspector] public Tilemap GlitchedTilemap;
+
     //Inicio
-    bool isGameSet=false;
     void Awake()
     {
         if(Instance==null){
@@ -38,21 +44,23 @@ public class CarreraManager : MonoBehaviour
         }else{
             Destroy(this);
         }
+
+        
     }
 
+    void Start(){
+        if(GameObject.Find("NormalTilemap")!=null)
+            NormalTilemap=GameObject.Find("NormalTilemap").GetComponent<Tilemap>();
+        
+        if(GameObject.Find("GlitchedTilemap")!=null)
+            GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
+    }
     public void Update(){
-        if(!allStages.Contains(SceneManager.GetActiveScene().name)){
-            isGameSet=false;
-            KillMouseInputs();
-        }
-        if(allStages.Contains(SceneManager.GetActiveScene().name) && !isGameSet){
-            isGameSet=true;
-            SetRace();
-        }
+        
     }
 
-    public void PlayRace(){
-        //SceneManager.LoadScene(allStages[indexSelectedStage]);
+    public void GoToRace(){
+        //SceneManager.LoadScene(allStages[indexSelectedStage].name);
     }
 
     //SetRace
@@ -121,12 +129,12 @@ public class CarreraManager : MonoBehaviour
     }
     
     GameObject lastSelected;
-    void KillMouseInputs(){
+    public void KillMouseInputs(){
         Cursor.visible=false;
         Cursor.lockState=CursorLockMode.Locked;
-        if(EventSystem.current.currentSelectedGameObject==null){
+        if(Event.current!= null && EventSystem.current.currentSelectedGameObject==null){
             EventSystem.current.SetSelectedGameObject(lastSelected);
-        }else{
+        }else if(Event.current!= null){
             lastSelected=EventSystem.current.currentSelectedGameObject;
         }
     }

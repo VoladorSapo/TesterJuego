@@ -6,6 +6,9 @@ using UnityEngine;
 public class CamaraCoche : MonoBehaviour
 { 
     [SerializeField] Transform _player;
+    void Awake(){
+        _player=GameObject.Find("PlayerCar").transform;
+    }
     void Update()
     {
         if(_player!=null){

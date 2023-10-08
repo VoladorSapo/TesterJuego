@@ -33,6 +33,10 @@ public class CarAI : MonoBehaviour
     private void Awake()
     {
         _carController = GetComponent<CarAIController>();
+        if(GameObject.Find("Waypoint0")!=null){
+            CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
+            PreviousWaypoint=CurrentWaypoint.PreviousWaypoints[0];
+        }
     }
 
     private void Start()
@@ -178,18 +182,14 @@ public class CarAI : MonoBehaviour
     }
 
     bool IsCarInFrontOfAICar(out Vector3 position, out Vector3 otherCarRightVector){
-
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(),GetComponent<Collider2D>(),true);
-
+       
         RaycastHit2D raycastHit2D = Physics2D.CircleCast(HeadTransform.position+transform.up*0.5f,_detectRadius, transform.up, _detectDistance, carMask);
-
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(),GetComponent<Collider2D>(),false);
         if(raycastHit2D.collider!=null){
             Debug.DrawRay(transform.position, transform.up*_detectDistance, Color.red);
 
             position=raycastHit2D.collider.transform.position;
 
-            otherCarRightVector=-raycastHit2D.collider.transform.right;
+            otherCarRightVector=raycastHit2D.collider.transform.right;
             return true;
         }
         else{
@@ -202,7 +202,10 @@ public class CarAI : MonoBehaviour
     void AvoidCars(Vector2 vectorToTarget, out Vector2 newVectorToTarget){
         if(IsCarInFrontOfAICar(out Vector3 otherCarPosition, out Vector3 otherCarRightVector)){
             Vector2 avoidanceVector=Vector2.zero;
-            avoidanceVector=Vector2.Reflect((otherCarPosition-transform.position).normalized,otherCarRightVector);
+
+            avoidanceVector=Vector2.Reflect((otherCarPosition-transform.position).normalized,otherCarRightVector)
+            *-Mathf.Sign( Vector3.Dot((otherCarPosition-transform.position).normalized,otherCarRightVector));
+
             float distanceToOtherCar=1/(otherCarPosition-transform.position).magnitude;
 
             Vector2 newVectorToTargetUnlerp=avoidanceVector;
@@ -217,7 +220,7 @@ public class CarAI : MonoBehaviour
             
             newVectorToTarget=Vector2.Lerp(newVectorToTarget,newVectorToTargetUnlerp,Time.fixedDeltaTime*updateAvoidAngleTime);
             newVectorToTarget.Normalize();
-            newVectorToTarget*=distanceToOtherCar;
+            newVectorToTarget*=distanceToOtherCar*20f;
             //Debug.DrawRay(transform.position,newVectorToTarget*10, Color.yellow);
             Debug.DrawRay(transform.position,newVectorToTarget*10,Color.green);
             

@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2143378071
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -149,12 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6522080e9fa2a494aa2087d601cad83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
+  MaxSpeed: 5
   _accelerationFactor: 2.5
   _driftFactor: 0.1
   _turnFactor: 4
   _turnLimitFactor: 4.5
-  _turnReactionTime: 10
+  _turnReactionTime: 12.5
   _maintainTurnTime: 0.045
   _turnAngles: 22.5
   _dragFactor: 2.5
@@ -176,13 +176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentWaypoint: {fileID: 0}
   PreviousWaypoint: {fileID: 0}
-  _divideSegments: 4
+  _divideSegments: 3.5
   carMask:
     serializedVersion: 2
     m_Bits: 8
   HeadTransform: {fileID: 5443383887790424187}
   _detectRadius: 1.2
-  _detectDistance: 8
+  _detectDistance: 3
   _maxAvoidInfluence: 10
   isAvoidingCars: 1
   updateAvoidAngleTime: 8

@@ -13,6 +13,6 @@ public class CharButton : ButtonSelection
 
     public void SetPlayer(){
         CarreraManager.Instance.SetPlayerSprite(SpriteIndex);
-        CarreraManager.Instance.PlayRace();
+        CarreraManager.Instance.GoToRace();
     }
 }

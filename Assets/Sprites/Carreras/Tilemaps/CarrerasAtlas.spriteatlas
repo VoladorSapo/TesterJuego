@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CarrerasAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1629551156, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1604025027, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 471384718, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1426221317, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1245463520, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 261715622, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -653499837, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 110726379, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1928746285, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1019098731, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 202174888, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1368706522, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -858416781, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -587066101, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1224377558, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 941943724, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1131978608, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 749957539, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -806472599, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 244816031, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1191242206, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -832970627, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 494068643, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 272471393, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 892599777, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1593452143, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 726966870, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1241361212, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1451572020, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -146499956, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -992464250, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -486305711, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1776193603, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1445512052, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1315263125, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1579511408, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -2046889933, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1671908944, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1494268230, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 377534036, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1214060617, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -625343727, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -343774044, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1816905499, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 1272504180, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 232307036, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1609656321, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 433955090, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -766757775, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1227715770, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1142411039, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -1197748644, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -638308038, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -156987430, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Paper_Tileset_30
+  - Paper_Tileset_31
+  - Paper_Tileset_32
+  - Paper_Tileset_52
+  - Paper_Tileset_33
+  - Paper_Tileset_53
+  - Paper_Tileset_34
+  - Paper_Tileset_50
+  - Paper_Tileset_35
+  - Paper_Tileset_51
+  - Paper_Tileset_45
+  - Paper_Tileset_36
+  - Paper_Tileset_44
+  - Paper_Tileset_37
+  - Paper_Tileset_47
+  - Paper_Tileset_38
+  - Paper_Tileset_46
+  - Paper_Tileset_39
+  - Paper_Tileset_41
+  - Paper_Tileset_40
+  - Paper_Tileset_43
+  - Paper_Tileset_42
+  - Paper_Tileset_49
+  - Paper_Tileset_48
+  - Paper_Tileset_3
+  - Paper_Tileset_2
+  - Paper_Tileset_1
+  - Paper_Tileset_0
+  - Paper_Tileset_7
+  - Paper_Tileset_6
+  - Paper_Tileset_5
+  - Paper_Tileset_4
+  - Paper_Tileset_9
+  - Paper_Tileset_8
+  - Paper_Tileset_23
+  - Paper_Tileset_22
+  - Paper_Tileset_21
+  - Paper_Tileset_20
+  - Paper_Tileset_16
+  - Paper_Tileset_27
+  - Paper_Tileset_17
+  - Paper_Tileset_26
+  - Paper_Tileset_14
+  - Paper_Tileset_25
+  - Paper_Tileset_15
+  - Paper_Tileset_24
+  - Paper_Tileset_12
+  - Paper_Tileset_13
+  - Paper_Tileset_10
+  - Paper_Tileset_29
+  - Paper_Tileset_11
+  - Paper_Tileset_28
+  - Paper_Tileset_18
+  - Paper_Tileset_19
+  m_RenderDataMap: {}
+  m_Tag: CarrerasAtlas
+  m_IsVariant: 0

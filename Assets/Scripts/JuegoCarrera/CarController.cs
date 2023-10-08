@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 public class CarController : MonoBehaviour
 {
     // Borja:
 
     [Header("Settings")]
+
+    [Header("Factors")]
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _accelerationFactor;
     [SerializeField] private float _driftFactor;
@@ -15,13 +18,22 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _turnAngles;
     [SerializeField] private float _turnLimitFactor;
     [SerializeField] private float _stopVelocityTreshhold;
+
+    [Header("Drag")]
     [SerializeField] private float _defaultDrag;
     [SerializeField] private float _dragFactor;
     [SerializeField] private float _dragSpeed;
     [SerializeField] private float _minSpeedToSkid;
+    [Header("Obstacles")]
     [SerializeField] private LayerMask _obstacleLayer;
+
+
+
+    [Header("Controls")]
     public float _accelerationInput;
     public float _turnInput;
+
+    [Header("Waypoint")]
     [HideInInspector] public Waypoint CurrentWaypoint;
 
 
@@ -43,12 +55,16 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
-        
+
+        if(GameObject.Find("Waypoint0")!=null){
+            CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
+        }
     }
     private void Start()
     {
         _rb.drag = _defaultDrag;
+
+        if(PauseController.Instance!=null)
         PauseController.Instance.SetPausedEvents(Pause,UnPause);
     }
 
@@ -73,6 +89,16 @@ public class CarController : MonoBehaviour
     void ApplyForce()
     {
         //if(derrailing){return;}
+       
+
+        DragControl();
+
+        _forceVector = transform.up * _accelerationInput * _accelerationFactor;
+
+        _rb.AddForce(_forceVector, ForceMode2D.Force);
+    }
+
+    void DragControl(){
         _velocityVsUp = Vector2.Dot(transform.up, _rb.velocity);
 
         if (_velocityVsUp > _maxSpeed)
@@ -92,10 +118,13 @@ public class CarController : MonoBehaviour
         }
         else _rb.drag = _defaultDrag;
 
-        _forceVector = transform.up * _accelerationInput * _accelerationFactor;
-
-        _rb.AddForce(_forceVector, ForceMode2D.Force);
+        if(HasTileDrag(transform.position)){
+            _rb.drag = _dragFactor;
+        }else{
+            _rb.drag=_defaultDrag;
+        }
     }
+
 
     void ApplyTurn()
     {
@@ -179,6 +208,25 @@ public class CarController : MonoBehaviour
     public void UnPause(){
         this.enabled=true;
         _rb.velocity=storedSpeed;
+    }
+
+    //Otros
+    bool HasTileDrag(Vector3 CarPos){
+        if(CarreraManager.Instance.NormalTilemap==null){return false;}
+
+        Vector3Int mapPos=new Vector3Int(Mathf.FloorToInt(CarPos.x),Mathf.FloorToInt(CarPos.y),0);
+        Tile NormalTile=(Tile) CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
+        Tile GlicthedTile=(Tile) CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
+
+        
+        if((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile))){
+            //Debug.LogWarning(CarPos+", "+_NormalTilemap.WorldToCell(mapPos));
+            return true;
+        }else{
+            
+            return false;
+        }
+
     }
 
     /*private void OnCollisionStay2D(Collision2D collision){
