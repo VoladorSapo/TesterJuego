@@ -20,7 +20,10 @@ public class PlatformerRaycast : MonoBehaviour
     public bool ground;
     public bool leftwall;
     public bool rightwall;
-
+    public float groundangle;
+    public float groundangleold;
+    public bool onSlope;
+    public Vector2 slopeperpendicular;
     public float raycastdistside;
     public float raycastdistdown;
     // Start is called before the first frame update
@@ -39,7 +42,7 @@ public class PlatformerRaycast : MonoBehaviour
     void Update()
     {
         raycast_left_mid = Physics2D.Raycast(player.transform.position, Vector2.left, raycastdistside, layers);
-        Debug.DrawLine(transform.position, transform.position + raycastdistside * Vector3.left,Color.red);
+        Debug.DrawLine(transform.position, transform.position + raycastdistside * Vector3.left, Color.red);
         raycast_left_up = Physics2D.Raycast(upcastpivot.transform.position, Vector2.left, raycastdistside, layers);
         Debug.DrawLine(upcastpivot.transform.position, upcastpivot.transform.position + raycastdistside * Vector3.left, Color.red);
         raycast_left_down = Physics2D.Raycast(downcastpivot.transform.position, Vector2.left, raycastdistside, layers);
@@ -53,15 +56,53 @@ public class PlatformerRaycast : MonoBehaviour
         raycast_downmid = Physics2D.Raycast(downcastpivot.transform.position, Vector2.down, raycastdistdown, layers);
         Debug.DrawLine(downcastpivot.transform.position, downcastpivot.transform.position + raycastdistdown * Vector3.down, Color.red);
 
-        raycast_downleft = Physics2D.Raycast(downcastpivot.transform.position, Vector2.down, raycastdistdown, layers);
-       // Debug.DrawRay(downcastpivot.transform.position, Vector2.down);
+        raycast_downleft = Physics2D.Raycast(downcastpivot.transform.position - new Vector3(0.5f, 0, 0), Vector2.down, raycastdistdown, layers);
+        Debug.DrawLine(downcastpivot.transform.position - new Vector3(0.5f, 0, 0), downcastpivot.transform.position - new Vector3(0.5f, 0, 0) + raycastdistdown * Vector3.down, Color.red);
 
-        raycast_downright = Physics2D.Raycast(downcastpivot.transform.position, Vector2.down, raycastdistdown, layers);
-      //  Debug.DrawRay(downcastpivot.transform.position, Vector2.down);
+        raycast_downright = Physics2D.Raycast(downcastpivot.transform.position + new Vector3(0.5f, 0, 0), Vector2.down, raycastdistdown, layers);
+        Debug.DrawLine(downcastpivot.transform.position + new Vector3(0.5f, 0, 0), downcastpivot.transform.position + new Vector3(0.5f, 0, 0) + raycastdistdown * Vector3.down, Color.red);
 
-        ground = raycast_downmid;
-        leftwall = raycast_left_down || raycast_left_mid || raycast_left_up;
-        rightwall = raycast_right_mid || raycast_right_up || raycast_right_down;
+        ground = raycast_downmid || raycast_downleft || raycast_downright;
+        leftwall = (raycast_left_down && raycast_downleft.normal != raycast_left_down.normal || raycast_left_mid && raycast_downleft.normal != raycast_left_mid.normal || raycast_left_up && raycast_downleft.normal != raycast_left_up.normal);
 
+        rightwall = (raycast_right_mid && raycast_downright.normal != raycast_right_mid.normal || raycast_right_up && raycast_downright.normal != raycast_right_up.normal || raycast_right_down && raycast_downright.normal != raycast_right_down.normal);
+
+        float angleleft = Vector2.Angle(raycast_downleft.normal, Vector2.up);
+        float angleright = Vector2.Angle(raycast_downright.normal, Vector2.up);
+        if(angleleft != 0)
+        {
+            groundangle = angleleft;
+            slopeperpendicular = Vector2.Perpendicular(raycast_downleft.normal).normalized;
+            groundangle *= Mathf.Sign(slopeperpendicular.y);
+            slopeperpendicular *= Mathf.Sign(slopeperpendicular.y);
+            Debug.DrawRay(raycast_downleft.point, slopeperpendicular, Color.blue);
+
+        }
+        else if(angleright != 0)
+        {
+            groundangle = angleright;
+            slopeperpendicular = Vector2.Perpendicular(raycast_downright.normal).normalized;
+            groundangle *= Mathf.Sign(slopeperpendicular.y);
+            slopeperpendicular *= Mathf.Sign(slopeperpendicular.y);
+            Debug.DrawRay(raycast_downright.point, slopeperpendicular, Color.blue);
+        }
+        else
+        {
+            groundangle = Vector2.Angle(raycast_downmid.normal, Vector2.up);
+            slopeperpendicular = Vector2.Perpendicular(raycast_downmid.normal).normalized;
+            groundangle *= Mathf.Sign(slopeperpendicular.y);
+            slopeperpendicular *= Mathf.Sign(slopeperpendicular.y);
+            Debug.DrawRay(raycast_downmid.point, slopeperpendicular, Color.blue);
+        }
+        if (groundangle != 0)
+        {
+            onSlope = true;
+        }
+        else
+        {
+            onSlope = false;
+        }
+     
+        // (Vector2.Angle(Vector2.down, raycast_downmid.normal) - 180) * Mathf.Sign(raycast_downmid.normal.x);
     }
 }
