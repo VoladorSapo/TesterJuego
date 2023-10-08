@@ -25,12 +25,40 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float fallforce; //Pa que baje mas rapido
     [SerializeField] float gravityforce;
     [SerializeField] bool jumping;
+    [SerializeField] Vector3 spawnPoint;
+   [SerializeField] LayerMask damage;
+    [SerializeField] LayerMask win;
+
     // Start is called before the first frame update
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print(collision.gameObject.layer);
+        if( (damage.value & 1 << collision.gameObject.layer) > 0)
+        {
+            Die();
+        }
+        if (collision.gameObject.layer == win)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        transform.position = spawnPoint;
+        rb2d.velocity = Vector2.zero;
+    }
+    public void Win()
+    {
+
+    }
     void Start()
     {
         _sprite = GetComponentInChildren<SpriteRenderer>();
         raycasts = GetComponent<PlatformerRaycast>();
         rb2d = GetComponent<Rigidbody2D>();
+        spawnPoint = GameObject.Find("SpawnPoint").transform.position;
+        transform.position = spawnPoint;
     }
     private void Update()
     {
@@ -104,32 +132,36 @@ public class PlatormerPlayerController : MonoBehaviour
             //}
             if (raycasts.onSlope)
             {
-                print("cha");
+               // print("cha");
 
                 Velocity += raycasts.slopeperpendicular * -moveAxisX * -Mathf.Sign(raycasts.slopeperpendicular.x);//* Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad);
-                print(Velocity);
+               // print(Velocity);
             }
             else
             {
                 Velocity += new Vector2(moveAxisX,0);
+               // print(Velocity);
+
             }
             if (Mathf.Abs(moveAxisX) < 0.01)
             {
-                print("decceleration");
+                //print("decceleration");
                 Velocity *= Mathf.Pow(1 - deceleration, speedpower) * slowing;
             }
            else if(Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
             {
-                print("turn");
+                //print("turn");
                 Velocity *= Mathf.Pow(1 - turn, speedpower) * slowing;
 
             }
             else
             {
-                print("acceleration");
+               // print("acceleration");
                 Velocity *= Mathf.Pow(1 - acceleration, speedpower) * slowing;
 
             }
+          //  print(Velocity);
+
             //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
             //float rate =Mathf.Abs(moveAxisX) > 0 ? acceleration : deceleration;
             //print(rate);
@@ -148,6 +180,7 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             else
             {
+                print("helo");
                     rb2d.velocity = Velocity;
             }
             Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
