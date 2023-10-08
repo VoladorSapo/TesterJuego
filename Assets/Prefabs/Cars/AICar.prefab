@@ -181,7 +181,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   HeadTransform: {fileID: 5443383887790424187}
-  _detectRadius: 1.2
+  _detectRadius: 1.1
   _detectDistance: 3
   _maxAvoidInfluence: 10
   isAvoidingCars: 1
