@@ -182,6 +182,8 @@ public class PlatormerPlayerController : MonoBehaviour
             {
                 print("helo");
                     rb2d.velocity = Velocity;
+                //rb2d.velocity = new Vector2(0.9f * moveAxisX, rb2d.velocity.y);
+
             }
             Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
         }
