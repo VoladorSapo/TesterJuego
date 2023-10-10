@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
-public class CarController : MonoBehaviour
+public class CarController : MonoBehaviour, IPauseSystem 
 {
-    // Borja:
 
     [Header("Settings")]
 
@@ -24,6 +23,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float _dragFactor;
     [SerializeField] private float _dragSpeed;
     [SerializeField] private float _minSpeedToSkid;
+
+    
     [Header("Obstacles")]
     [SerializeField] private LayerMask _obstacleLayer;
 
@@ -65,7 +66,7 @@ public class CarController : MonoBehaviour
         _rb.drag = _defaultDrag;
 
         if(PauseController.Instance!=null)
-        PauseController.Instance.SetPausedEvents(Pause,UnPause);
+        SetEvents();
     }
 
     private void FixedUpdate()
@@ -205,7 +206,7 @@ public class CarController : MonoBehaviour
         this.enabled=false;
     }
 
-    public void UnPause(){
+    public void Unpause(){
         this.enabled=true;
         _rb.velocity=storedSpeed;
     }
@@ -227,6 +228,11 @@ public class CarController : MonoBehaviour
             return false;
         }
 
+    }
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }
 
     /*private void OnCollisionStay2D(Collision2D collision){

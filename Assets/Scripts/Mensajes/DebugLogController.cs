@@ -20,6 +20,6 @@ public class DebugLogController : MonoBehaviour
 
     public void AddLog(string text)
     {
-        insta
+        //insta
     }
 }

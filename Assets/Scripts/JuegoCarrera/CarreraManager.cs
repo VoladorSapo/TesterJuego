@@ -10,6 +10,9 @@ public class CarreraManager : MonoBehaviour
 {
     public static CarreraManager Instance;
 
+    //Menu Carreras
+    public bool killMouse;
+
     //Calculo de Distancia
     Transform WaypointRoot;
     [HideInInspector] public int totalWaypointsInTrack=10;
@@ -17,16 +20,14 @@ public class CarreraManager : MonoBehaviour
 
 
     [Header("Stages")]
-    
-    //[HideInInspector] 
-    public int indexSelectedStage;
+    public string SelectedStage;
 
     [Header("Sprites de los Coches")]
     public List<Sprite> allSprites;
     private List<Sprite> availableSprites;
     [SerializeField] private int indexPlayerSprite;
 
-    [Header("Los Coches Activos")]
+    //Los coches activos
     public List<PositionRace> allPositions;
 
 
@@ -49,18 +50,18 @@ public class CarreraManager : MonoBehaviour
     }
 
     void Start(){
-        if(GameObject.Find("NormalTilemap")!=null)
-            NormalTilemap=GameObject.Find("NormalTilemap").GetComponent<Tilemap>();
         
-        if(GameObject.Find("GlitchedTilemap")!=null)
-            GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
     }
     public void Update(){
-        
+        if(killMouse)
+        KillMouseInputs();
     }
 
     public void GoToRace(){
-        //SceneManager.LoadScene(allStages[indexSelectedStage].name);
+        Canvas canvas=FindObjectOfType<Canvas>();
+        canvas.enabled=false;
+        
+        SceneManager.LoadScene(SelectedStage);
     }
 
     //SetRace
@@ -77,13 +78,19 @@ public class CarreraManager : MonoBehaviour
             ai.PreviousWaypoint=ai.CurrentWaypoint.PreviousWaypoints[0];
         }
 
-        WaypointRoot=GameObject.Find("WaypointRoot").transform;
+        WaypointRoot=GameObject.Find("WaypointRoot")?.transform;
 
         allPositions=GameObject.FindObjectsOfType<PositionRace>().ToList();
         foreach(PositionRace player in allPositions){
             player.WaypointsPassed=0;
             player.playerName=player.gameObject.name;
         }
+
+        if(GameObject.Find("NormalTilemap")!=null)
+            NormalTilemap=GameObject.Find("NormalTilemap").GetComponent<Tilemap>();
+        
+        if(GameObject.Find("GlitchedTilemap")!=null)
+            GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
     }
     void setSprites(){
         availableSprites=new List<Sprite>(allSprites);
@@ -132,9 +139,10 @@ public class CarreraManager : MonoBehaviour
     public void KillMouseInputs(){
         Cursor.visible=false;
         Cursor.lockState=CursorLockMode.Locked;
-        if(Event.current!= null && EventSystem.current.currentSelectedGameObject==null){
+        if(EventSystem.current?.currentSelectedGameObject==null){
+            if(lastSelected!=null)
             EventSystem.current.SetSelectedGameObject(lastSelected);
-        }else if(Event.current!= null){
+        }else if(EventSystem.current.currentSelectedGameObject!=null){
             lastSelected=EventSystem.current.currentSelectedGameObject;
         }
     }

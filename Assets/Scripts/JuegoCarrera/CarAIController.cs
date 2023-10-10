@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CarAIController : MonoBehaviour
+public class CarAIController : MonoBehaviour, IPauseSystem
 {
 
     [Header("Settings")]
@@ -40,7 +40,7 @@ public class CarAIController : MonoBehaviour
     }
 
     void Start(){
-        //PauseController.Instance.SetPausedEvents(Pause,UnPause);
+        SetEvents();
     }
     private void FixedUpdate()
     {
@@ -135,7 +135,7 @@ public class CarAIController : MonoBehaviour
         this.enabled=false;
     }
 
-    public void UnPause(){
+    public void Unpause(){
         this.enabled=true;
         _rb.velocity=storedSpeed;
     }
@@ -155,5 +155,10 @@ public class CarAIController : MonoBehaviour
             return false;
         }
 
+    }
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }
 }

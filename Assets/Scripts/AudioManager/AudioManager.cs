@@ -158,6 +158,48 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //Cambio de sonido/musica
+    public void ChangeMusicTo(string currMusicName, float fadeOutTime, string newMusicName, float fadeInTime){
+        StartCoroutine(FadeOutThenFadeIn(currMusicName,fadeOutTime,newMusicName,fadeInTime));
+    }
+    IEnumerator FadeOutThenFadeIn(string currMusicName, float fadeOutTime, string newMusicName, float fadeInTime){
+        string realName= System.Array.Find(_sounds, sound => sound.name == currMusicName).audioClip.name;
+        AudioSource audioSource=GetComponents<AudioSource>().Where(a => a.clip.name==realName).ToArray()[0];
+
+        float startVolume = audioSource.volume;
+        float startTime = Time.time;
+
+        while (Time.time < startTime + fadeOutTime)
+        {
+            if(audioSource==null){yield break;}
+            float elapsedTime = Time.time - startTime;
+            float normalizedTime = elapsedTime / fadeOutTime;
+            float newVolume = Mathf.Lerp(startVolume, 0f, normalizedTime);
+
+            audioSource.volume = newVolume;
+            yield return null;
+        }
+        
+        audioSource.Stop();
+        Destroy(audioSource);
+
+        AudioSource audioSourceNew=gameObject.AddComponent<AudioSource>();
+        startVolume = 0f;
+        startTime = Time.time;
+        float desiredVolume=System.Array.Find(_sounds, sound=> sound.name==name).volume;
+
+        while (Time.time < startTime + fadeInTime)
+        {
+            if(audioSource==null){yield break;}
+            float elapsedTime = Time.time - startTime;
+            float normalizedTime = elapsedTime / fadeInTime;
+            float newVolume = Mathf.Lerp(startVolume, desiredVolume, normalizedTime);
+
+            audioSourceNew.volume = newVolume;
+            yield return null;
+        }
+    }
+
     //Parar sonido/musica
     public void StopAllSoundsWithName(string name)
     {
@@ -180,7 +222,6 @@ public class AudioManager : MonoBehaviour
 
     public void StopSoundwithName(string name, float fadeOutTime){
         string realName= System.Array.Find(_sounds, sound => sound.name == name).audioClip.name;
-        Debug.Log(realName);
         AudioSource[] _audioSources=GetComponents<AudioSource>();
         foreach(AudioSource a in _audioSources){
             if(a.clip.name==realName){

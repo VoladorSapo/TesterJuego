@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ using UnityEngine.UI;
 public class PauseController : MonoBehaviour
 {
     public static PauseController Instance;
-    public UnityEvent pauseEvent;
-    public UnityEvent unpauseEvent;
+    public event Action pauseEvent;
+    public event Action unpauseEvent;
     bool isPaused=false;
 
     void Awake(){
@@ -22,18 +23,18 @@ public class PauseController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetPausedEvents(UnityAction pause, UnityAction unpause){
-        pauseEvent.AddListener(pause);
-        unpauseEvent.AddListener(unpause);
+    public void SetPausedEvents(Action pause, Action unpause){
+        pauseEvent+=pause;
+        unpauseEvent+=unpause;
     }
     void Update(){
         if(Input.GetKeyDown(KeyCode.P)){
             isPaused=!isPaused;
 
             if(isPaused)
-            pauseEvent.Invoke();
+            pauseEvent?.Invoke();
             else
-            unpauseEvent.Invoke();
+            unpauseEvent?.Invoke();
         }
     }
 }

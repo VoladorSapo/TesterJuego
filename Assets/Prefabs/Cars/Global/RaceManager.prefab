@@ -82,3 +82,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 464d68b26abb7f943bb1e1a7c3de2291, type: 2}
   - {fileID: 11400000, guid: 02c072831f0ee59498bc2b708354f8a8, type: 2}
   - {fileID: 11400000, guid: 5c7bc947c3a3d8541b31cd0bc0cfad57, type: 2}
+  NormalTilemap: {fileID: 0}
+  GlitchedTilemap: {fileID: 0}

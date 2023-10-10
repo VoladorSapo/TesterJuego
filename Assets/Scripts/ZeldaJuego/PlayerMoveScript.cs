@@ -4,7 +4,7 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerMoveScript : MonoBehaviour
+public class PlayerMoveScript : MonoBehaviour, IPauseSystem
 {
     //Tilemap
     private Tilemap groundTileMap;
@@ -22,6 +22,8 @@ public class PlayerMoveScript : MonoBehaviour
     void Start(){
         if(GameObject.Find("GroundTilemap")!=null)
         groundTileMap=GameObject.Find("GroundTilemap").GetComponent<Tilemap>();
+
+        SetEvents();
     }
     void Update(){
         float H=Input.GetAxisRaw("Horizontal");
@@ -55,5 +57,20 @@ public class PlayerMoveScript : MonoBehaviour
         }
         H1=H; V1=V; return;
 
+    }
+
+    public void Pause()
+    {
+        this.enabled=false;
+    }
+
+    public void Unpause()
+    {
+        this.enabled=true;
+    }
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }
 }

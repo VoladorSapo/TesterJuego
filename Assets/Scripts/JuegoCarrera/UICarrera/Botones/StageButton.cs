@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class StageButton : ButtonSelection
 {
-    [SerializeField] private int stageIndex;
+    [SerializeField] private string stageName;
     [SerializeField] private int lapsOfStage;
     public override void OnSelect(BaseEventData eventData)
     {
@@ -15,7 +15,7 @@ public class StageButton : ButtonSelection
     }
 
     public void SetLaps(){
-        CarreraManager.Instance.indexSelectedStage=stageIndex;
+        CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.numberOfLaps=lapsOfStage;
     }
 }

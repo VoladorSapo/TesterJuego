@@ -31,6 +31,10 @@ public class RoomManager : MonoBehaviour
         SceneManager.LoadScene(newSceneName);
     }
 
+    public void ChangeMusicTo(string currMusic, string newMusic, float fadeOutTime, float fadeInTime){
+        AudioManager.Instance?.ChangeMusicTo(currMusic,fadeOutTime,newMusic,fadeInTime);
+    }
+
     void Update(){
         currentScene=SceneManager.GetActiveScene().name;
         if(previousScene!=currentScene){
