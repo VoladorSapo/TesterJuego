@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narrativePart: 0
+  prevNarrativePart: 0
+  allPlatformLevels: []
   allStages:
   - Stage1Car
   - Stage2Car
@@ -52,3 +54,5 @@ MonoBehaviour:
   - Stage4Car
   menuScenes:
   - MenuCar
+  zeldaPrefab: {fileID: 7116350652226476657, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
+  posZeldaInicio: {x: 0, y: 0, z: 0}

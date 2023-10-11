@@ -15,7 +15,7 @@ public class CarreraManager : MonoBehaviour
 
     //Calculo de Distancia
     Transform WaypointRoot;
-    [HideInInspector] public int totalWaypointsInTrack=10;
+    public int totalWaypointsInTrack=10;
     [HideInInspector] public int numberOfLaps;
 
 
@@ -89,8 +89,12 @@ public class CarreraManager : MonoBehaviour
         if(GameObject.Find("NormalTilemap")!=null)
             NormalTilemap=GameObject.Find("NormalTilemap").GetComponent<Tilemap>();
         
-        if(GameObject.Find("GlitchedTilemap")!=null)
+        if(GameObject.Find("GlitchedTilemap")!=null){
             GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
+            GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=false;
+        }
+
+        
     }
     void setSprites(){
         availableSprites=new List<Sprite>(allSprites);

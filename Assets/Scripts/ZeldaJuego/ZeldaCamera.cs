@@ -7,12 +7,15 @@ public class ZeldaCamera : MonoBehaviour
 {
     [SerializeField] Transform _player;
     void Start(){
-        _player=GameObject.FindGameObjectWithTag("ZeldaPlayer").transform;
+        if(GameObject.FindGameObjectWithTag("Player")!=null)
+        _player=GameObject.FindGameObjectWithTag("Player").transform;
     }
-    void Update()
+    void LateUpdate()
     {
         if(_player!=null){
             transform.position=new Vector3(_player.transform.position.x, _player.transform.position.y, transform.position.z);
+        }else if(GameObject.FindGameObjectWithTag("Player")!=null){
+            _player=GameObject.FindGameObjectWithTag("Player").transform;
         }
         //No Rotation
         if(transform.parent!=null)

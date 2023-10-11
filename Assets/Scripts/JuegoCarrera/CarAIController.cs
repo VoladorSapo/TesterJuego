@@ -147,7 +147,9 @@ public class CarAIController : MonoBehaviour, IPauseSystem
         Tile GlicthedTile=(Tile) CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
 
         
-        if((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile))){
+        if((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile))
+        && !((GlicthedTile!=null && CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile)) && (NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)))
+        ){
             //Debug.LogWarning(CarPos+", "+_NormalTilemap.WorldToCell(mapPos));
             return true;
         }else{

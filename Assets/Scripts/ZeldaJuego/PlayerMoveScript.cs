@@ -18,11 +18,12 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
 
     void Awake(){
         _rb=GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(this);
     }
     void Start(){
         if(GameObject.Find("GroundTilemap")!=null)
         groundTileMap=GameObject.Find("GroundTilemap").GetComponent<Tilemap>();
-
+        
         SetEvents();
     }
     void Update(){

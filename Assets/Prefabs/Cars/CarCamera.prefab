@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2232145906874749819}
   - component: {fileID: 2232145906874749816}
   - component: {fileID: 2232145906874749829}
+  - component: {fileID: 1033044480330180014}
   - component: {fileID: 2232145906874749828}
   m_Layer: 0
   m_Name: CarCamera
@@ -106,6 +107,22 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1033044480330180014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232145906874749817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a120bc7502d5942a8220c54707bb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shdr_bc: {fileID: 0}
+  shdr_vram: {fileID: 0}
+  shdr_crt: {fileID: 0}
+  shdr_unsync: {fileID: 0}
 --- !u!114 &2232145906874749828
 MonoBehaviour:
   m_ObjectHideFlags: 0
