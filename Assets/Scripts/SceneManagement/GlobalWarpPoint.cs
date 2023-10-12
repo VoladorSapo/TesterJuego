@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GlobalWarpPoint : MonoBehaviour
 {
-    [Header("Scene Change")]
+    [Header("Scene Change (Vacio == No Cambia Escena)")]
     public string nextScene;
 
     [Header("Position Change")]
     public Vector3 nextPosition;
 
-    [Header("Narrative Change (-1 == Nada)")]
+    [Header("Narrative Change (-1 == No Cambia)")]
     public int nextNarrativePart;
 
     [Header("Music Change")]
@@ -31,8 +31,11 @@ public class GlobalWarpPoint : MonoBehaviour
             if(other.GetComponent<Rigidbody2D>()!=null){
                 other.GetComponent<Rigidbody2D>().velocity=Vector2.zero;
             }
-            DontDestroyOnLoad(other.gameObject);
-            SceneManager.LoadSceneAsync(nextScene);
+
+            if(nextScene!=""){
+                DontDestroyOnLoad(other.gameObject);
+                SceneManager.LoadSceneAsync(nextScene);
+            }
             //other.gameObject.transform.position=nextPosition;
             
             
