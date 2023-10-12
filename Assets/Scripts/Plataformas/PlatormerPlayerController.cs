@@ -18,6 +18,7 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float turn;
     [SerializeField] float speedpower;
     [SerializeField] float jumpForce;
+    [SerializeField] float doublejumpForce;
     [SerializeField] float touchgroundmax;
     [SerializeField] float touchground;
     [SerializeField] float pressjumpmax;
@@ -25,8 +26,11 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float fallforce; //Pa que baje mas rapido
     [SerializeField] float gravityforce;
     [SerializeField] bool jumping;
+    [SerializeField] bool canDoubleJump;
+    [SerializeField] int extraJumps;
+    [SerializeField] int currentextraJumps;
     [SerializeField] Vector3 spawnPoint;
-   [SerializeField] LayerMask damage;
+    [SerializeField] LayerMask damage;
     [SerializeField] LayerMask win;
 
     // Start is called before the first frame update
@@ -34,7 +38,7 @@ public class PlatormerPlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(collision.gameObject.layer);
-        if( (damage.value & 1 << collision.gameObject.layer) > 0)
+        if ((damage.value & 1 << collision.gameObject.layer) > 0)
         {
             Die();
         }
@@ -45,6 +49,8 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     public void Die()
     {
+        currentextraJumps = 0;
+
         transform.position = spawnPoint;
         rb2d.velocity = Vector2.zero;
     }
@@ -54,6 +60,7 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     void Start()
     {
+        currentextraJumps = 0;
         _sprite = GetComponentInChildren<SpriteRenderer>();
         raycasts = GetComponent<PlatformerRaycast>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -88,14 +95,22 @@ public class PlatormerPlayerController : MonoBehaviour
         {
             _sprite.flipX = false;
         }
-        if (pressjump > 0 && touchground > 0)
+        if (pressjump > 0 && (touchground > 0 || (canDoubleJump && currentextraJumps < extraJumps)))
         {
+            print("heheheheh");
+            float force = jumpForce;
+            if (jumping)
+            {
+                force = doublejumpForce;
+                currentextraJumps++;
+            }
             jumping = true;
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
 
-            rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
             touchground = 0;
             pressjump = 0;
+
         }
         if (raycasts.onSlope)
         {
@@ -104,23 +119,24 @@ public class PlatormerPlayerController : MonoBehaviour
             {
                 rb2d.AddForce(gravityforce * -raycasts.slopeperpendicular * 0);
             }
-            Debug.DrawRay(transform.position - new Vector3(0,0.5f), gravityforce * -raycasts.slopeperpendicular, Color.cyan);
+            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), gravityforce * -raycasts.slopeperpendicular, Color.cyan);
         }
         else if (rb2d.velocity.y < 0)
         {
             rb2d.gravityScale = gravityforce * fallforce;
-            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale * fallforce,Color.cyan);
+            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale * fallforce, Color.cyan);
         }
         else
         {
-            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale,Color.cyan);
+            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale, Color.cyan);
 
             rb2d.gravityScale = gravityforce;
         }
         if (moveAxisX > 0 && raycasts.rightwall || moveAxisX < 0 && raycasts.leftwall)
         {
         }
-        else {
+        else
+        {
             Vector2 Velocity = rb2d.velocity;
             //if (!raycasts.onSlope)
             //{
@@ -132,15 +148,15 @@ public class PlatormerPlayerController : MonoBehaviour
             //}
             if (raycasts.onSlope)
             {
-               // print("cha");
+                // print("cha");
 
                 Velocity += raycasts.slopeperpendicular * -moveAxisX * -Mathf.Sign(raycasts.slopeperpendicular.x);//* Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad);
-               // print(Velocity);
+                                                                                                                  // print(Velocity);
             }
             else
             {
-                Velocity += new Vector2(moveAxisX,0);
-               // print(Velocity);
+                Velocity += new Vector2(moveAxisX, 0);
+                // print(Velocity);
 
             }
             if (Mathf.Abs(moveAxisX) < 0.01)
@@ -148,7 +164,7 @@ public class PlatormerPlayerController : MonoBehaviour
                 //print("decceleration");
                 Velocity *= Mathf.Pow(1 - deceleration, speedpower) * slowing;
             }
-           else if(Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
+            else if (Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
             {
                 //print("turn");
                 Velocity *= Mathf.Pow(1 - turn, speedpower) * slowing;
@@ -156,11 +172,11 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             else
             {
-               // print("acceleration");
+                // print("acceleration");
                 Velocity *= Mathf.Pow(1 - acceleration, speedpower) * slowing;
 
             }
-          //  print(Velocity);
+            //  print(Velocity);
 
             //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
             //float rate =Mathf.Abs(moveAxisX) > 0 ? acceleration : deceleration;
@@ -181,22 +197,23 @@ public class PlatormerPlayerController : MonoBehaviour
             else
             {
                 print("helo");
-                    rb2d.velocity = Velocity;
+                rb2d.velocity = Velocity;
                 //rb2d.velocity = new Vector2(0.9f * moveAxisX, rb2d.velocity.y);
 
             }
             Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
         }
-        if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX !=0))
+        if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0))
         {
             print("tocando suelo");
             touchground = touchgroundmax;
+            currentextraJumps = 0;
             jumping = false;
             //rb2d.AddForce(new Vector2(Mathf.Sin( raycasts.groundangle * Mathf.Deg2Rad), Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad))*2f, ForceMode2D.Impulse);
 
         }
 
-        
+
 
     }
 }

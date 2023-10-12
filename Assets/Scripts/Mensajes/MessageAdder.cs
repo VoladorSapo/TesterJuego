@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MessageAdder : MonoBehaviour
 {
@@ -10,34 +11,63 @@ public class MessageAdder : MonoBehaviour
     int currentConversation;
     int rundown;
     public List<string> texts;
-   List<List<MessageClass>> currentMessages;
+    List<List<MessageClass>> currentMessages; //Los mensajes que se van a añadir
+   static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversación
     [SerializeField] private GameObject MessagePrefab;
-        // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
-        currentMessages = new List<List<MessageClass>>();
         rundown = 0;
         CloseBoard();
-        for (int i = 0; i < TextConversations.Count; i++)
+        print(currentMessages == null);
+        if (wholeMessages == null || wholeMessages.Count == 0)
         {
-            currentMessages.Add(new List<MessageClass>());
-            TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
+            currentMessages = new List<List<MessageClass>>();
+
+            wholeMessages = new List<List<MessageClass>>();
+            for (int i = 0; i < TextConversations.Count; i++)
+            {
+                currentMessages.Add(new List<MessageClass>());
+
+                wholeMessages.Add(new List<MessageClass>());
+                TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
+                TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
         }
+        else
+        {
+            currentMessages = new List<List<MessageClass>>();
+
+            for (int i = 0; i < TextConversations.Count; i++)
+            {
+                currentMessages.Add(new List<MessageClass>());
+
+                foreach (MessageClass message in wholeMessages[i])
+                {
+                    AddMessage(message.text, message.type, i);
+                }
+                TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
+                TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+            }
+        }
+        
     }
 
     void AddMessage(string text, int type, int list)
     {
-       GameObject mensajeobject = Instantiate(MessagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
+        GameObject mensajeobject = Instantiate(MessagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
         MensajeObjeto _mensaje = mensajeobject.GetComponent<MensajeObjeto>();
         IEnumerator courutine = _mensaje.setMessage(text, type);
         _mensaje.StartCoroutine(courutine);
 
     }
-    void AddMessageList(MessageClass[] messages,int conversation)
+    void AddMessageList(MessageClass[] messages, int conversation)
     {
-        if ( currentMessages[conversation].Count == 0)
+        if (currentMessages[conversation].Count == 0)
         {
             currentMessages[conversation].AddRange(messages);
+            wholeMessages[conversation].AddRange(messages);
             currentConversation = conversation;
             AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].type, conversation);
             currentMessages[conversation].RemoveAt(0);
@@ -50,6 +80,7 @@ public class MessageAdder : MonoBehaviour
         else
         {
             currentMessages[conversation].AddRange(messages);
+            wholeMessages[conversation].AddRange(messages);
             currentConversation = conversation;
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
             {
@@ -60,7 +91,7 @@ public class MessageAdder : MonoBehaviour
     }
     int WaitTime(string text, int time, bool waitfixed)
     {
-        
+
         int wait = waitfixed ? time : text.ToCharArray().Length + time;
         return wait;
     }
@@ -68,7 +99,7 @@ public class MessageAdder : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        foreach (MessageClass message in currentMessages[currentConversation])
+        foreach (MessageClass message in currentMessages[currentConversation].ToArray())
         {
             AddMessage(message.text, message.type, currentConversation);
             // yield return new WaitForSeconds(WaitTime(message.text,message.time,message.waitTimeFixed));
@@ -80,6 +111,8 @@ public class MessageAdder : MonoBehaviour
     {
         MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
+        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
+
         IEnumerator courutine = AddAllMessages();
         StartCoroutine(courutine);
 
@@ -87,10 +120,13 @@ public class MessageAdder : MonoBehaviour
     public void ChangeConversation(int conver)
     {
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
+        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         currentConversation = conver;
         MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
+        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
+
         if (currentMessages[currentConversation].Count > 0)
         {
             IEnumerator courutine = AddAllMessages();
@@ -101,6 +137,8 @@ public class MessageAdder : MonoBehaviour
     {
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
+        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
+
 
     }
     // Update is called once per frame
@@ -121,11 +159,23 @@ public class MessageAdder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Montate en mi motora", false), new MessageClass(1, 0, "Desayuna con huevo", false) , new MessageClass(0, 0, "Toma Mango", false) }, 0);
+            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Montate en mi motora", false), new MessageClass(1, 0, "Desayuna con huevo", false), new MessageClass(0, 0, "Toma Mango", false) }, 0);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
             AddMessageList(new MessageClass[] { new MessageClass(0, 0, "*Se quita la ropa*", false), new MessageClass(1, 0, "*Le nalgea*", false) }, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                SceneManager.LoadScene(4);
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+
+            }
         }
     }
 }
