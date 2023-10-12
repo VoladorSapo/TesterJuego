@@ -16,9 +16,9 @@ TagManager:
   - Stage
   - Damage
   - Win
-  - 
-  - 
-  - 
+  - Box
+  - DynamicBox
+  - Player
   - 
   - 
   - 

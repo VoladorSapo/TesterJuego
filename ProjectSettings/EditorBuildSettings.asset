@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zelda/RoomTest.unity
     guid: 79911f493e0cfa84b931ac4f54916107
+  - enabled: 1
+    path: Assets/Scenes/Mensajes.unity
+    guid: ac75ff6b18c9df645a8ce4cbb343ab6c
+  - enabled: 1
+    path: Assets/Scenes/Mensajes2.unity
+    guid: 46c294bd53cfa544589f37dd877af630
   m_configObjects: {}

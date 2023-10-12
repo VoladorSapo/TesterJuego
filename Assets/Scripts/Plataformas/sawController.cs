@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class sawController : MonoBehaviour
 {
-   [SerializeField] Vector3[] points;
-    [SerializeField]int objective;
+    [SerializeField] Vector3[] points;
+    [SerializeField] int objective;
     GameObject saw;
     [SerializeField] float speed;
     [SerializeField] float spinspeed;
@@ -25,7 +25,7 @@ public class sawController : MonoBehaviour
         points = new Vector3[transform.childCount - 1];
         for (int i = 1; i <= points.Length; i++)
         {
-            points[i-1] = transform.GetChild(i).transform.position;
+            points[i - 1] = transform.GetChild(i).transform.position;
         }
         objective = 0;
     }

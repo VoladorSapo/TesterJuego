@@ -32,7 +32,7 @@ public class MensajeObjeto : MonoBehaviour
         
         layout.SetLayoutVertical();
         layout.SetLayoutHorizontal();
-        GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
+       GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
 
     }
 
