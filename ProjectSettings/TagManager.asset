@@ -46,3 +46,6 @@ TagManager:
   - name: CarLayer
     uniqueID: 2151589225
     locked: 0
+  - name: CanvaLayer
+    uniqueID: 1911167077
+    locked: 0

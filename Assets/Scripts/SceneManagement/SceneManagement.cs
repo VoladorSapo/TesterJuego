@@ -28,6 +28,8 @@ public class SceneManagement : MonoBehaviour
     Scene previousScene;
 
     //Para cambios de escenas
+    //Camara Global
+    CamaraGlobal camaraGlobal;
 
 
     void Awake(){
@@ -38,6 +40,8 @@ public class SceneManagement : MonoBehaviour
     }
     void Start(){
         currentScene=SceneManager.GetActiveScene();
+        camaraGlobal=CamaraGlobal.Instance;
+        CamaraGlobal.Instance.SetPlayer(GameObject.Find("PlayerCar").transform); //Temporal
     }
     void Update()
     {   
@@ -72,8 +76,7 @@ public class SceneManagement : MonoBehaviour
         }
     }
     void ConstantChanges(){
-        if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar")){
-            Debug.Log("w");
+        if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
             ChangePlayerToCar();
         }
     }
@@ -93,5 +96,18 @@ public class SceneManagement : MonoBehaviour
 
     void ChangePlayerToCar(){
             Destroy(GameObject.Find("Capsule"));
+    }
+
+
+    //Transiciones
+    public void ApplyTransitionEffect(string nameFX, bool fluctuate, bool isTemporary, bool activate, float time){
+        if(!isTemporary)
+        camaraGlobal.cameraFX.ActivateEffect(nameFX,fluctuate,activate);
+        else
+        camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time);
+    }
+
+    public void ApplyTransitionEffect(TransitionData data){
+        ApplyTransitionEffect(data.nameFX,data.fluctuate,data.isTemporary,data.activate,data.time);
     }
 }

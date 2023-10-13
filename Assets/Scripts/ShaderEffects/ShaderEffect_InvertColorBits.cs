@@ -5,30 +5,35 @@ using UnityEngine;
 
 public class ShaderEffect_InvertColorBits : MonoBehaviour
 {
-   [SerializeField] [Range(1f,20f)] private int numRectangles;
+   [SerializeField] [Range(1f,20f)] private int numRectanglesTotal;
+   [SerializeField] [Range(1f,20f)] private int setNumRectangles;
    [SerializeField] private Vector2 limitSize;
 
    [SerializeField] private float changeRateTime;
     private float changeTimer;
     
     private Vector4[] rectProp;
-    private Material material;
+    private Material m_material;
+	private Shader shader;
 
-    // Creates a private material used to the effect
-	void Awake ()
-	{
-       
-		material = new Material( Shader.Find("Custom/InvertColors") );
+	private Material material {
+			get {
+				if (m_material == null) {
+					shader = Shader.Find("Custom/InvertColors");
+					m_material = new Material(shader) {hideFlags = HideFlags.DontSave};
+				}
+
+				return m_material;
+			}
 	}
 
     void CreateRectangles(){
-        rectProp=new Vector4[numRectangles];
-        for(int i=0; i<numRectangles; i++){
+        rectProp=new Vector4[numRectanglesTotal];
+        for(int i=0; i<setNumRectangles; i++){
             rectProp[i].x=Random.Range(0f,1f);
             rectProp[i].y=Random.Range(0f,1f);
             rectProp[i].z=Random.Range(0f,limitSize.x);
             rectProp[i].w=Random.Range(0f,limitSize.y);
-
         }
     }
 
@@ -40,13 +45,15 @@ public class ShaderEffect_InvertColorBits : MonoBehaviour
             changeTimer-=Time.deltaTime;
         }
     }
-	// Postprocess the image
-	void OnRenderImage (RenderTexture source, RenderTexture destination)
-	{
-        material.SetVector("_Rect1",rectProp[0]);
-        material.SetVector("_Rect2",rectProp[1]);
-        material.SetVector("_Rect3",rectProp[2]);
-        material.SetInt("_NumRects",numRectangles);
-		Graphics.Blit (source, destination, material);
+	
+    public void OnRenderImage(RenderTexture src, RenderTexture dest) {
+			if (material && rectProp.Length > 0) {
+				
+				material.SetVectorArray("_RectArray", rectProp);
+                material.SetInt("_NumRects",setNumRectangles);
+				Graphics.Blit(src, dest, material);
+			} else {
+				Graphics.Blit(src, dest);
+			}
 	}
 }

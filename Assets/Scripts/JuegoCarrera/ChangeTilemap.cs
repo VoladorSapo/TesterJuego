@@ -27,6 +27,6 @@ public class ChangeTilemap : MonoBehaviour
     void GlitchTiles(){
         if(CarreraManager.Instance.GlitchedTilemap!=null)
         CarreraManager.Instance.GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=true;
-        CameraEffects.Instance.ActivateTemporaryEffect("shdr_bc",true,5f);
+        SceneManagement.Instance.ApplyTransitionEffect(new TransitionData("bc",true,true,true,5f));
     }
 }
