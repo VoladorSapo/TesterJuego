@@ -43,16 +43,16 @@
 				_ProcessedTex = _MainTex;
 
 				v2f j = i;
-				i.uv.y += _ValueX;
-				if (i.uv.y > 0)
-					j.uv.y = i.uv.y - 1;
+				i.uv.x += _ValueX;
+				if (i.uv.x > 0)
+					j.uv.x = i.uv.x - 1;
 				else
-					j.uv.y = i.uv.y + 1;
+					j.uv.x = i.uv.x + 1;
 
 		       	float4 m = tex2D(_MainTex, i.uv);
 				float4 p = tex2D(_ProcessedTex, j.uv);
 
-				if (_ValueX < 0 && -i.uv.y + _ValueX < _ValueX || _ValueX > 0 && 1 - i.uv.y + _ValueX > _ValueX ) 
+				if (_ValueX < 0 && -i.uv.x + _ValueX < _ValueX || _ValueX > 0 && 1 - i.uv.x + _ValueX > _ValueX ) 
 					return m;
 				else
 					return p;	

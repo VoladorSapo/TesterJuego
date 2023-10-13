@@ -22904,68 +22904,6 @@ Transform:
   m_Father: {fileID: 1445257177}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &1758061534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232145906874749817, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-  m_PrefabInstance: {fileID: 1778716164}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1758061535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758061534}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23356f494faf4703bf771f7ebc5708d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 3
-  shift: 0.5
-  Fluctuate: 0
-  fluctuationSpeed: 1
---- !u!114 &1758061541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758061534}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3742b3db229aa4af88a4485f7a021c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shift: 10
---- !u!114 &1758061542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758061534}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59700678e0092463cb106a3995cd22a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scanlineIntensity: 100
-  scanlineWidth: 1
---- !u!114 &1758061543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758061534}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241314d1fb77b45f7a50e5561c0a9e23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: 2
-  speed: 1
 --- !u!1001 &1778716164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22973,29 +22911,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1033044480330180014, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: shdr_bc
-      value: 
-      objectReference: {fileID: 1758061535}
-    - target: {fileID: 1033044480330180014, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: shdr_crt
-      value: 
-      objectReference: {fileID: 1758061542}
-    - target: {fileID: 1033044480330180014, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: shdr_vram
-      value: 
-      objectReference: {fileID: 1758061541}
-    - target: {fileID: 1033044480330180014, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: shdr_unsync
-      value: 
-      objectReference: {fileID: 1758061543}
+    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: numRectangles
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: changeRateTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2232145906874749817, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
       propertyPath: m_Name
       value: CarCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232145906874749817, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2232145906874749818, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
       propertyPath: m_RootOrder
