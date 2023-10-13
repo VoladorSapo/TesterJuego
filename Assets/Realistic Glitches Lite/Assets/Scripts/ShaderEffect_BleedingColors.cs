@@ -6,6 +6,8 @@ public class ShaderEffect_BleedingColors : MonoBehaviour {
 
 	public float intensity = 30;
 	public float shift = 0.5f;
+
+	[Header("Fluctuations")]
 	[HideInInspector] public bool Fluctuate=false;
 	[SerializeField] float fluctuationSpeed;
 	private Material material;
@@ -19,6 +21,9 @@ public class ShaderEffect_BleedingColors : MonoBehaviour {
 	// Postprocess the image
 	void OnRenderImage (RenderTexture source, RenderTexture destination)
 	{
+		if(Fluctuate)
+		FluctuateVariable();
+		
 		material.SetFloat("_Intensity", intensity);
 		material.SetFloat("_ValueX", shift);
 		Graphics.Blit (source, destination, material);
@@ -28,12 +33,6 @@ public class ShaderEffect_BleedingColors : MonoBehaviour {
 		intensity=30;
 		targetValue=Random.Range(3f,30f);
 		currentValue=18f;
-	}
-	void Update(){
-		
-		if(Fluctuate){
-			FluctuateVariable();
-		}
 	}
 
 	float currentValue;

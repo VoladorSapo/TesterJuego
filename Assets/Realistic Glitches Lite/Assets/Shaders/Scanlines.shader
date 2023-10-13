@@ -16,6 +16,7 @@ Shader "Hidden/Scanlines" {
 			#include "UnityCG.cginc"
 
 			half _ValueX; half _Intensity; half _Value;
+			uniform half _YShift;
 
 			struct v2f {
 			   float4 pos : POSITION;
@@ -35,7 +36,7 @@ Shader "Hidden/Scanlines" {
 			fixed4 frag(v2f i) : COLOR {
 				float4 c = tex2D(_MainTex, i.uv);
 				
-		        fixed p = i.uv.y;
+		        fixed p = i.uv.y+_YShift;
 		        if((int)(p*_ScreenParams.y/floor(_ValueX))%2==0) 
 		        	return c;
 		        else {

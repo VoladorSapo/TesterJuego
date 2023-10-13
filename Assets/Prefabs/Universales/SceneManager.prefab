@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   narrativePart: 0
   prevNarrativePart: 0
-  allPlatformLevels: []
+  allPlatformLevels:
+  - Plataformas
   allStages:
   - Stage1Car
   - Stage2Car
