@@ -22911,18 +22911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: numRectangles
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1758061552, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
-      propertyPath: changeRateTime
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2232145906874749817, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
       propertyPath: m_Name
       value: CarCamera
