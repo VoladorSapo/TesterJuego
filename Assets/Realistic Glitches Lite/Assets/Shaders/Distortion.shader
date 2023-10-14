@@ -22,10 +22,6 @@
 			   float4 pos : POSITION;
 			   half2 uv : TEXCOORD0;
 			};
-
-			float rand(float co){
-   		 		return (sin(dot(co ,float2(12.9898,78.233))) * 43758.5453);
-			}
 			   
 			//Our Vertex Shader 
 			v2f vert (appdata_img v){
@@ -44,7 +40,10 @@
 				half2 rnd = _ValueX + i.uv.x;
 				half2 n = tex2D(_Texture, i.uv);
 				
+				if(fmod(i.uv.y,0.1f)>=0.05f)
 				i.uv.x += n * 0.01f * rnd;
+				else
+				i.uv.x -= n * 0.01f * rnd;
 				//i.uv.y += n * 0.01f;
 
 				float4 c = tex2D(_MainTex, i.uv);
