@@ -173,11 +173,9 @@ public class MessageAdder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Montate en mi motora", false,0,0), new MessageClass(1, 0, "Desayuna con huevo", false,1,0), new MessageClass(0, 0, "Toma Mango", false,0,0) }, 0);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Hola bb", false,0,0), new MessageClass(0, 0, "MiVida", false, 0, 1), new MessageClass(0, 0, "*Le nalgea*", false,0,0), new MessageClass(1, 0, "MR Beaaaaaaaaaaast", false, 0, 0), new MessageClass(1, 0, "MrBeast", false, 0, 1) }, 1);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {

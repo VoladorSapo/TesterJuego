@@ -10,7 +10,7 @@ public class MessageClass
    public int time;
     public bool waitTimeFixed; //Si es false se espera dependiendo del numero de letras + time, si no el numero q se diga
     public int isButton;
-    public MessageClass(int _side,int _time, string _text,bool _timefixed,int _isbutton,int _type)
+    public MessageClass(string _text, int _type, int _side,int _time, bool _timefixed,int _isbutton)
     {
         side = _side;
         text = _text;
