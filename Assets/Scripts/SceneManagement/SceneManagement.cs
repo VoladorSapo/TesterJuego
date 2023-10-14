@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 
 public class SceneManagement : MonoBehaviour
 {
     public static SceneManagement Instance;
-    public int narrativePart;
-    [SerializeField] private int prevNarrativePart;
+    public int globalNarrativePart;
+    [SerializeField] private int globalPrevNarrativePart=0;
+
+    public int localNarrativePart;
+    [SerializeField] private int localPrevNarrativePart=0;
 
     [Header("Escenas del Juego de Plataformas")]
     public List<string> allPlatformLevels;
@@ -33,36 +38,35 @@ public class SceneManagement : MonoBehaviour
 
 
     void Awake(){
-        if(Instance==null){
+        if(SceneManagement.Instance==null){
             Instance=this;
             DontDestroyOnLoad(this.gameObject);
-        } //Desde la primera escena habra un SceneManager
+        }else{
+            Destroy(this.gameObject);
+        }
     }
     void Start(){
         currentScene=SceneManager.GetActiveScene();
         camaraGlobal=CamaraGlobal.Instance;
-        CamaraGlobal.Instance.SetPlayer(GameObject.Find("PlayerCar").transform); //Temporal
+        StartSettings();
     }
     void Update()
     {   
         currentScene=SceneManager.GetActiveScene();
 
+        if(Input.GetKeyDown(KeyCode.L)){
+            GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
+        }
+
         if(previousScene==null || previousScene.name!=currentScene.name){
             previousScene=currentScene;
-            //SpawnPlayerAt();
-            Debug.Log("jaid");
-            if(prevNarrativePart!=narrativePart){
-                prevNarrativePart=narrativePart;
-                switch(narrativePart){
-                    case 0: break;
-                    case 1: break;
-                    case 2: CarSettings(); break;
-                    case 3: ChangePlayerToCar(); break;
-                    case 4: SpawnZeldaPlayer(); break;
-                    default: CarSettings(); break; //Temporalmente está así
-                }
-            }
+            SceneChanges();
+        }
 
+        //Cambios Narrativos que no dependen del cambio de escenas
+        if(localPrevNarrativePart!=localNarrativePart){
+                localPrevNarrativePart=localNarrativePart;
+                NarrativeChanges();
         }
 
         ConstantChanges();
@@ -75,13 +79,53 @@ public class SceneManagement : MonoBehaviour
             Instantiate(zeldaPrefab,posZeldaInicio,Quaternion.identity);
         }
     }
+
+    void SceneChanges(){
+
+        CarSettings();
+        //Cambios Narrativos que dependen del cambio de escenas
+        if(globalPrevNarrativePart!=globalNarrativePart){
+                globalPrevNarrativePart=globalNarrativePart;
+                switch(globalNarrativePart){
+                    case 0: break;
+                    case 1: break;
+                    case 2: CarSettings(); CameraSettings(2,"PlayerCar"); break;
+                    case 3:  break;
+                    case 4: SpawnZeldaPlayer(); break;
+                    default: CarSettings(); break; //Temporalmente está así
+                }
+        }
+        
+    }
+
+    void NarrativeChanges(){
+                switch(localNarrativePart){
+                    case 0: break;
+                    case 1: break;
+                    case 2: break;
+                    case 3: break;
+                    case 4: SpawnZeldaPlayer(); break;
+                    default: break; //Temporalmente está así
+                }
+    }
     void ConstantChanges(){
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
             ChangePlayerToCar();
         }
     }
     
+    void StartSettings(){
+        CameraSettings(1,"Capsule");
+    }
+    void CameraSettings(int cameraMode, string followPlayer){
+        switch(cameraMode){
+            case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
+            case 2: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=true; camaraGlobal.GetComponent<CinemachineBrain>().enabled=false; break;
+        }
 
+        if(followPlayer!="")
+        camaraGlobal._player=followPlayer;
+    }
     void CarSettings(){
 
         if(menuScenes.Contains(currentScene.name))
