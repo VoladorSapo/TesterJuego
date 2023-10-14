@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
-public class CarController : MonoBehaviour, IPauseSystem 
+public class CarController : BasicCar, IPauseSystem 
 {
 
     [Header("Settings")]
@@ -54,7 +54,7 @@ public class CarController : MonoBehaviour, IPauseSystem
     Vector2 _forwardVelocity;
     Vector2 _rightVelocity;
 
-    private void Awake()
+    protected override void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
 
@@ -62,7 +62,7 @@ public class CarController : MonoBehaviour, IPauseSystem
             CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
         }
     }
-    private void Start()
+    protected override void Start()
     {
         _rb.drag = _defaultDrag;
 
@@ -70,8 +70,10 @@ public class CarController : MonoBehaviour, IPauseSystem
         SetEvents();
     }
 
-    private void FixedUpdate()
-    {       
+    protected override void FixedUpdate()
+    {      
+        if(!canMove) return;
+        
         ApplyForce();
         KillSideVelocity();
         ApplyTurn();

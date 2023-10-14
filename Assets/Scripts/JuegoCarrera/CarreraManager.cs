@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using TMPro;
 
 public class CarreraManager : MonoBehaviour
 {
@@ -58,7 +60,7 @@ public class CarreraManager : MonoBehaviour
     }
 
     public void GoToRace(){
-        Canvas canvas=FindObjectOfType<Canvas>();
+        Canvas canvas=GameObject.Find("MainCanvas").GetComponent<Canvas>();
         canvas.enabled=false;
         
         SceneManager.LoadScene(SelectedStage);
@@ -69,6 +71,7 @@ public class CarreraManager : MonoBehaviour
         setVariables();
         setNumberOfWaypoints();
         setSprites();
+        StartCoroutine(Countdown());
     }
 
     void setVariables(){
@@ -116,6 +119,24 @@ public class CarreraManager : MonoBehaviour
         totalWaypointsInTrack=numberOfLaps*WaypointRoot.childCount;
     }
 
+    IEnumerator Countdown(){
+        CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
+        int i=3;
+        TextMeshProUGUI countText=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        while(i>0){
+        countText.text=i.ToString();
+        yield return new WaitForSeconds(1);
+        i--;
+        }
+        countText.text="GO";
+        yield return new WaitForSeconds(1);
+        CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(false);
+
+        BasicCar[] allCars = GameObject.FindObjectsOfType<BasicCar>();
+        foreach(BasicCar car in allCars){
+            car.canMove=true;
+        }
+    }
 
     //Otros
     public void OrderPositionsList(){

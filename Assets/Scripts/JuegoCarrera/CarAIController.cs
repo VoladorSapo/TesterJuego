@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CarAIController : MonoBehaviour, IPauseSystem
+public class CarAIController : BasicCar, IPauseSystem
 {
 
     [Header("Settings")]
@@ -33,17 +33,19 @@ public class CarAIController : MonoBehaviour, IPauseSystem
     Vector2 _forwardVelocity;
     Vector2 _rightVelocity;
 
-    private void Awake()
+    protected override void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         
     }
 
-    void Start(){
+    protected override void Start(){
         SetEvents();
     }
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        if(!canMove) return;
+        
         if(_maintainTurnTimer>0){_maintainTurnTimer-=Time.deltaTime;}
         ApplyForce();
         KillSideVelocity();
