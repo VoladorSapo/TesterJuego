@@ -44,9 +44,9 @@ public class PlatormerPlayerController : MonoBehaviour
         {
             Die();
         }
-        if (collision.gameObject.layer == win)
+        if ((win.value & 1 << collision.gameObject.layer) > 0)
         {
-            Die();
+            Win();
         }
     }
     public void Die()
@@ -58,7 +58,7 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     public void Win()
     {
-
+        print("ganasteLight");
     }
     void Start()
     {
