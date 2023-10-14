@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sawController : MonoBehaviour
+public class MovingObjectController : MonoBehaviour
 {
     [SerializeField] Vector3[] points;
     [SerializeField] int objective;
-    GameObject saw;
+    GameObject movingObject;
     [SerializeField] float speed;
     [SerializeField] float spinspeed;
     private void OnDrawGizmos()
@@ -21,7 +21,7 @@ public class sawController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saw = transform.GetChild(0).gameObject;
+        movingObject = transform.GetChild(0).gameObject;
         points = new Vector3[transform.childCount - 1];
         for (int i = 1; i <= points.Length; i++)
         {
@@ -35,13 +35,13 @@ public class sawController : MonoBehaviour
     {
         if (points.Length > 0)
         {
-            saw.transform.position = Vector3.MoveTowards(saw.transform.position, points[objective], speed * Time.deltaTime);
-            if (Vector2.Distance(saw.transform.position, points[objective]) < 0.01f)
+            movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.deltaTime);
+            if (Vector2.Distance(movingObject.transform.position, points[objective]) < 0.01f)
             {
                 objective = (objective + 1) % points.Length;
             }
         }
-        float angle = (saw.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
-        saw.transform.eulerAngles = new Vector3(saw.transform.eulerAngles.x, saw.transform.eulerAngles.y, angle);
+        float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
+        movingObject.transform.eulerAngles = new Vector3(movingObject.transform.eulerAngles.x, movingObject.transform.eulerAngles.y, angle);
     }
 }

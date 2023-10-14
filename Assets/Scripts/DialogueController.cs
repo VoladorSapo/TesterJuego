@@ -10,11 +10,11 @@ public class DialogueController : MonoBehaviour
     [SerializeField] bool escribiendo;
     [SerializeField] bool terminado;
     [SerializeField] string currenttext;
-    [SerializeField] List<string> CurrentConversation;
+    [SerializeField] List<DialogueClass> CurrentConversation;
     [SerializeField] int currentChar;
     [SerializeField] int charpersec;
     CanvasGroup canvasgroup;
-    [SerializeField] string[] loadlist;
+    [SerializeField] DialogueClass[] loadlist;
     List<TMP_LinkInfo> links;
     [SerializeField] TMP_SpriteAsset asset;
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class DialogueController : MonoBehaviour
 
         text = GetComponentInChildren<TMP_Text>();
         info = text.textInfo;
-        CurrentConversation = new List<string>();
+        CurrentConversation = new List<DialogueClass>();
     }
     public void LoadConversation()
     {
@@ -39,7 +39,7 @@ public class DialogueController : MonoBehaviour
         if (CurrentConversation.Count > 0)
         {
             terminado = false;
-            text.text = CurrentConversation[0];
+            text.text = CurrentConversation[0].text;
             CurrentConversation.RemoveAt(0);
             info = text.textInfo;
             GetLinks();

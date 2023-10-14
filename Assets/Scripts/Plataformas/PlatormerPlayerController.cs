@@ -27,6 +27,8 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float gravityforce;
     [SerializeField] bool jumping;
     [SerializeField] bool canDoubleJump;
+    [SerializeField] bool fallingfrombox;
+    [SerializeField] bool insideFloor;
     [SerializeField] int extraJumps;
     [SerializeField] int currentextraJumps;
     [SerializeField] Vector3 spawnPoint;
@@ -60,6 +62,8 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     void Start()
     {
+        insideFloor = false;
+        fallingfrombox = false;
         currentextraJumps = 0;
         _sprite = GetComponentInChildren<SpriteRenderer>();
         raycasts = GetComponent<PlatformerRaycast>();
@@ -86,134 +90,151 @@ public class PlatormerPlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        moveAxisX = Input.GetAxisRaw("Horizontal");
-        if (moveAxisX > 0)
+        if (!fallingfrombox)
         {
-            _sprite.flipX = true;
-        }
-        else if (moveAxisX < 0)
-        {
-            _sprite.flipX = false;
-        }
-        if (pressjump > 0 && (touchground > 0 || (canDoubleJump && currentextraJumps < extraJumps)))
-        {
-            print("heheheheh");
-            float force = jumpForce;
-            if (jumping)
+            moveAxisX = Input.GetAxisRaw("Horizontal");
+            if (moveAxisX > 0)
             {
-                force = doublejumpForce;
-                currentextraJumps++;
+                _sprite.flipX = true;
             }
-            jumping = true;
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-
-            rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
-            touchground = 0;
-            pressjump = 0;
-
-        }
-        if (raycasts.onSlope)
-        {
-            rb2d.gravityScale = 0;
-            if (moveAxisX != 0)
+            else if (moveAxisX < 0)
             {
-                rb2d.AddForce(gravityforce * -raycasts.slopeperpendicular * 0);
+                _sprite.flipX = false;
             }
-            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), gravityforce * -raycasts.slopeperpendicular, Color.cyan);
-        }
-        else if (rb2d.velocity.y < 0)
-        {
-            rb2d.gravityScale = gravityforce * fallforce;
-            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale * fallforce, Color.cyan);
-        }
-        else
-        {
-            Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale, Color.cyan);
+            if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0 && pressjump > 0))
+            {
+                print("tocando suelo");
+                touchground = touchgroundmax;
+                currentextraJumps = 0;
+                jumping = false;
+                //rb2d.AddForce(new Vector2(Mathf.Sin( raycasts.groundangle * Mathf.Deg2Rad), Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad))*2f, ForceMode2D.Impulse);
 
-            rb2d.gravityScale = gravityforce;
-        }
-        if (moveAxisX > 0 && raycasts.rightwall || moveAxisX < 0 && raycasts.leftwall)
-        {
-        }
-        else
-        {
-            Vector2 Velocity = rb2d.velocity;
-            //if (!raycasts.onSlope)
-            //{
-            //    Velocity = rb2d.velocity.x;
-            //}
-            //else
-            //{
-            //    Velocity = rb2d
-            //}
+            }
+            if ( pressjump > 0 && (touchground > 0 || (canDoubleJump && currentextraJumps < extraJumps)))
+            {
+                print("heheheheh");
+                float force = jumpForce;
+                if (jumping)
+                {
+                    force = doublejumpForce;
+                    currentextraJumps++;
+                }
+                jumping = true;
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+
+                rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
+                touchground = 0;
+                pressjump = 0;
+
+            }
+            if (raycasts.upbox && !insideFloor)
+            {
+                transform.position = raycasts._boxSpawn.fallPos.transform.position;
+                rb2d.velocity = Vector2.zero;
+                insideFloor = true;
+            }
             if (raycasts.onSlope)
             {
-                // print("cha");
-
-                Velocity += raycasts.slopeperpendicular * -moveAxisX * -Mathf.Sign(raycasts.slopeperpendicular.x);//* Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad);
-                                                                                                                  // print(Velocity);
+                rb2d.gravityScale = 0;
+                if (moveAxisX != 0)
+                {
+                    rb2d.AddForce(gravityforce * -raycasts.slopeperpendicular * 0);
+                }
+                Debug.DrawRay(transform.position - new Vector3(0, 0.5f), gravityforce * -raycasts.slopeperpendicular, Color.cyan);
+            }
+            else if (rb2d.velocity.y < 0)
+            {
+                rb2d.gravityScale = gravityforce * fallforce;
+                Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale * fallforce, Color.cyan);
             }
             else
             {
-                Velocity += new Vector2(moveAxisX, 0);
-                // print(Velocity);
+                Debug.DrawRay(transform.position - new Vector3(0, 0.5f), Vector3.down * rb2d.gravityScale, Color.cyan);
 
+                rb2d.gravityScale = gravityforce;
             }
-            if (Mathf.Abs(moveAxisX) < 0.01)
+            if (raycasts.movingplatform)
             {
-                //print("decceleration");
-                Velocity *= Mathf.Pow(1 - deceleration, speedpower) * slowing;
-            }
-            else if (Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
-            {
-                //print("turn");
-                Velocity *= Mathf.Pow(1 - turn, speedpower) * slowing;
-
+                transform.parent = raycasts.movingplatform.transform;
             }
             else
             {
-                // print("acceleration");
-                Velocity *= Mathf.Pow(1 - acceleration, speedpower) * slowing;
-
+                transform.parent = null;
             }
-            //  print(Velocity);
-
-            //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
-            //float rate =Mathf.Abs(moveAxisX) > 0 ? acceleration : deceleration;
-            //print(rate);
-            //float move = Mathf.Pow(Mathf.Abs(difftomax) * rate, speedpower) * Mathf.Sign(difftomax);
-            //rb2d.AddForce(new Vector2(move * slowing, 0));
-            if (raycasts.onSlope && moveAxisX == 0 && !jumping)
-
+            if (moveAxisX > 0 && raycasts.rightwall || moveAxisX < 0 && raycasts.leftwall)
             {
-                rb2d.velocity = Vector2.zero;
-
-            }
-            else if (!raycasts.ground || jumping)
-            {
-
-                rb2d.velocity = new Vector2(Velocity.x, rb2d.velocity.y);
             }
             else
             {
-                print("helo");
-                rb2d.velocity = Velocity;
-                //rb2d.velocity = new Vector2(0.9f * moveAxisX, rb2d.velocity.y);
+                Vector2 Velocity = rb2d.velocity;
+                //if (!raycasts.onSlope)
+                //{
+                //    Velocity = rb2d.velocity.x;
+                //}
+                //else
+                //{
+                //    Velocity = rb2d
+                //}
+                if (raycasts.onSlope)
+                {
+                    // print("cha");
 
+                    Velocity += raycasts.slopeperpendicular * -moveAxisX * -Mathf.Sign(raycasts.slopeperpendicular.x);//* Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad);
+                                                                                                                      // print(Velocity);
+                }
+                else
+                {
+                    Velocity += new Vector2(moveAxisX, 0);
+                    // print(Velocity);
+
+                }
+                if (Mathf.Abs(moveAxisX) < 0.01)
+                {
+                    //print("decceleration");
+                    Velocity *= Mathf.Pow(1 - deceleration, speedpower) * slowing;
+                }
+                else if (Mathf.Sign(moveAxisX) != Mathf.Sign(Velocity.x))
+                {
+                    //print("turn");
+                    Velocity *= Mathf.Pow(1 - turn, speedpower) * slowing;
+
+                }
+                else
+                {
+                    // print("acceleration");
+                    Velocity *= Mathf.Pow(1 - acceleration, speedpower) * slowing;
+
+                }
+                //  print(Velocity);
+
+                //// float rate = (Mathf.Abs(difftomax) <= Mathf.Abs(speed * moveAxisX)) ? acceleration : deceleration;
+                //float rate =Mathf.Abs(moveAxisX) > 0 ? acceleration : deceleration;
+                //print(rate);
+                //float move = Mathf.Pow(Mathf.Abs(difftomax) * rate, speedpower) * Mathf.Sign(difftomax);
+                //rb2d.AddForce(new Vector2(move * slowing, 0));
+                if (raycasts.onSlope && moveAxisX == 0 && !jumping)
+
+                {
+                    rb2d.velocity = Vector2.zero;
+
+                }
+                else if (!raycasts.ground || jumping)
+                {
+
+                    rb2d.velocity = new Vector2(Velocity.x, rb2d.velocity.y);
+                }
+                else
+                {
+                    print("helo");
+                    rb2d.velocity = Velocity;
+                    //rb2d.velocity = new Vector2(0.9f * moveAxisX, rb2d.velocity.y);
+
+                }
+                Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
             }
-            Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
+            
+
         }
-        if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0))
-        {
-            print("tocando suelo");
-            touchground = touchgroundmax;
-            currentextraJumps = 0;
-            jumping = false;
-            //rb2d.AddForce(new Vector2(Mathf.Sin( raycasts.groundangle * Mathf.Deg2Rad), Mathf.Cos(raycasts.groundangle * Mathf.Deg2Rad))*2f, ForceMode2D.Impulse);
-
-        }
-
-
 
     }
 }
