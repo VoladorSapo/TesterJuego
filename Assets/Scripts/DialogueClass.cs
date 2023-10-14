@@ -5,13 +5,14 @@ using UnityEngine;
 public class DialogueClass : MonoBehaviour
 {
     public int Character, anim;
-    public string text;
+    public string text,nombre;
 
-    public DialogueClass (int _character,int _anim,string _text)
+    public DialogueClass (string _text,string _name,int _character,int _anim)
     {
         Character = _character;
         anim = _anim;
         text = _text;
+        nombre = _name;
     }
     // Start is called before the first frame update
 }

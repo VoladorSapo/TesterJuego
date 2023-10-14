@@ -411,8 +411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.164673, y: -51.809326}
-  m_SizeDelta: {x: 1888.6196, y: 1073.418}
+  m_AnchoredPosition: {x: 0, y: -314}
+  m_SizeDelta: {x: 1888.6196, y: 478.5101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477397553
 MonoBehaviour:
@@ -569,15 +569,10 @@ MonoBehaviour:
   currentChar: 0
   charpersec: 10
   loadlist:
-  - <link="SetFondo-1"></link></link><link="SetAnim-7-0">No me vengas con pamplinas
-    que nos conocemos Ignacio.</link>
-  - "<link=\"SetFondo-1\"></link><link=\"SetAnim-4-0\">Ms.Yellow, \xBFno deber\xEDamos
-    usar nuestros nombres en clave?</link>"
-  - "<link=\"SetFondo-1\"></link><link=\"SetAnim-1-0\">\xBFQu\xE9 nombre en clave
-    Pol?, d\xE9jate de tonter\xEDas.</link>"
-  - "<link=\"SetFondo-1\"></link><link=\"SetAnim-4-0\">Pe\u2026pero si el primero
-    que est\xE1 diciendo sandeces eres t\xFA, fueron los superiores los que dijeron
-    que\u2026</link>"
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   asset: {fileID: 0}
 --- !u!225 &2032107217
 CanvasGroup:
