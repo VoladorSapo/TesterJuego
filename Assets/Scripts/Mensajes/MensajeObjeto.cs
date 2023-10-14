@@ -5,14 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MensajeObjeto : MonoBehaviour
 {
-    public IEnumerator setMessage(string _text,int _type)
+    public IEnumerator setMessage(string _text,int _side,int _button,int type)
     {
-
-        GetComponentInChildren<TMP_Text>().text = _text;
-
+            GetComponentInChildren<TMP_Text>().text = _text;
         //  type = _type;
 
-        switch (_type)
+        switch (_side)
         {
             case 0:
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-60, 0);
@@ -21,9 +19,13 @@ public class MensajeObjeto : MonoBehaviour
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(20, 0);
                 break;
         }
-        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().pivot = new Vector2(_type, 1);
-        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMin = new Vector2(_type, 1);
-        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMax = new Vector2(_type, 1);
+        if (_button != 0)
+        {
+            GetComponentInChildren<Image>().gameObject.AddComponent(typeof(Button));
+        }
+        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().pivot = new Vector2(_side, 1);
+        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMin = new Vector2(_side, 1);
+        GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMax = new Vector2(_side, 1);
 
         yield return new WaitForEndOfFrame();
         GetComponent<RectTransform>().sizeDelta = new Vector2(100, GetComponentsInChildren<RectTransform>()[1].sizeDelta.y);

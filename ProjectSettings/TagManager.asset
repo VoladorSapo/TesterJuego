@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AICar
   - ZeldaPlayer
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

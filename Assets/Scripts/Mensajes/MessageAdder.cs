@@ -12,8 +12,9 @@ public class MessageAdder : MonoBehaviour
     int rundown;
     public List<string> texts;
     List<List<MessageClass>> currentMessages; //Los mensajes que se van a añadir
-   static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversación
+    static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversación
     [SerializeField] private GameObject MessagePrefab;
+    [SerializeField] private GameObject ImagePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,24 +45,39 @@ public class MessageAdder : MonoBehaviour
 
                 foreach (MessageClass message in wholeMessages[i])
                 {
-                    AddMessage(message.text, message.type, i);
+                    AddMessage(message.text, message.side, i, message.isButton, 0);
                 }
                 TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
                 TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
 
             }
         }
-        
+
     }
 
-    void AddMessage(string text, int type, int list)
+    void AddMessage(string text, int side, int list, int isButton, int type)
     {
-        GameObject mensajeobject = Instantiate(MessagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
-        MensajeObjeto _mensaje = mensajeobject.GetComponent<MensajeObjeto>();
-        IEnumerator courutine = _mensaje.setMessage(text, type);
-        _mensaje.StartCoroutine(courutine);
+        print(type + " " + text);
+        IEnumerator courutine;
+        switch (type)
+        {
+            case 0:
+                GameObject mensajeobject = Instantiate(MessagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
+                MensajeObjeto _mensaje = mensajeobject.GetComponent<MensajeObjeto>();
+                 courutine = _mensaje.setMessage(text, side, isButton, 0);
+                _mensaje.StartCoroutine(courutine);
+                break;
+            case 1:
+                GameObject imagenobject = Instantiate(ImagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
+                ImagenObjeto _imagen = imagenobject.GetComponent<ImagenObjeto>();
+                 courutine = _imagen.SetImage(text, side, isButton, 0);
+                _imagen.StartCoroutine(courutine);
+                break;
+        }
 
     }
+
+    
     void AddMessageList(MessageClass[] messages, int conversation)
     {
         if (currentMessages[conversation].Count == 0)
@@ -69,7 +85,7 @@ public class MessageAdder : MonoBehaviour
             currentMessages[conversation].AddRange(messages);
             wholeMessages[conversation].AddRange(messages);
             currentConversation = conversation;
-            AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].type, conversation);
+            AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation,currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
             currentMessages[conversation].RemoveAt(0);
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
             {
@@ -101,7 +117,7 @@ public class MessageAdder : MonoBehaviour
 
         foreach (MessageClass message in currentMessages[currentConversation].ToArray())
         {
-            AddMessage(message.text, message.type, currentConversation);
+            AddMessage(message.text, message.side, currentConversation,message.isButton,message.type);
             // yield return new WaitForSeconds(WaitTime(message.text,message.time,message.waitTimeFixed));
             yield return new WaitForSeconds(2);
         }
@@ -146,24 +162,22 @@ public class MessageAdder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            AddMessage(texts[rundown], rundown % 2 == 0 ? 0 : 1, 0);
-            rundown++;
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
             for (int i = 0; i < texts.Count; i++)
             {
-                AddMessage(texts[i], i % 2 == 0 ? 0 : 1, 0);
+                AddMessage(texts[i], i % 2 == 0 ? 0 : 1, 0,0,0);
 
             }
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Montate en mi motora", false), new MessageClass(1, 0, "Desayuna con huevo", false), new MessageClass(0, 0, "Toma Mango", false) }, 0);
+            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Montate en mi motora", false,0,0), new MessageClass(1, 0, "Desayuna con huevo", false,1,0), new MessageClass(0, 0, "Toma Mango", false,0,0) }, 0);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "*Se quita la ropa*", false), new MessageClass(1, 0, "*Le nalgea*", false) }, 1);
+            AddMessageList(new MessageClass[] { new MessageClass(0, 0, "Hola bb", false,0,0), new MessageClass(0, 0, "MiVida", false, 0, 1), new MessageClass(0, 0, "*Le nalgea*", false,0,0), new MessageClass(1, 0, "MR Beaaaaaaaaaaast", false, 0, 0), new MessageClass(1, 0, "MrBeast", false, 0, 1) }, 1);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
