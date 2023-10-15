@@ -8,6 +8,7 @@ public class MessageAdder : MonoBehaviour
 
     public List<GameObject> TextConversations;
     [SerializeField] private GameObject MessageBoard;
+    [SerializeField] private GameObject Options;
     int currentConversation;
     int rundown;
     public List<string> texts;
@@ -15,6 +16,7 @@ public class MessageAdder : MonoBehaviour
     static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversación
     [SerializeField] private GameObject MessagePrefab;
     [SerializeField] private GameObject ImagePrefab;
+    [SerializeField] private GameObject OptionButtonPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +75,18 @@ public class MessageAdder : MonoBehaviour
                  courutine = _imagen.SetImage(text, side, isButton, 0);
                 _imagen.StartCoroutine(courutine);
                 break;
+            case 2:
+                Options.GetComponent<CanvasGroup>().alpha = 1;
+              string[]  strings = text.Split('-');
+                foreach (string item in strings)
+                {
+
+                }
+                break;
+            case 2:
+                Options.GetComponent<CanvasGroup>().alpha = 1;
+                text.Split('-');
+                break;
         }
 
     }
@@ -117,10 +131,16 @@ public class MessageAdder : MonoBehaviour
 
         foreach (MessageClass message in currentMessages[currentConversation].ToArray())
         {
-            AddMessage(message.text, message.side, currentConversation,message.isButton,message.type);
+            AddMessage(message.text, message.side, currentConversation, message.isButton, message.type);
+            currentMessages[currentConversation].Remove(message);
+            if(message.type == 2 || message.type == 3)
+            {
+                yield break;
+            }
             // yield return new WaitForSeconds(WaitTime(message.text,message.time,message.waitTimeFixed));
             yield return new WaitForSeconds(2);
         }
+        print("Bosa bosa");
         currentMessages[currentConversation].Clear();
     }
     public void OpenBoard()
@@ -162,6 +182,7 @@ public class MessageAdder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
+            AddMessageList(new MessageClass[]{new MessageClass("Hola",0,0,0,false,0), new MessageClass("Caracola", 0, 0, 1, false, 0) , new MessageClass("Me duele el ano", 0, 0, 1, false, 0) }, 0);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
