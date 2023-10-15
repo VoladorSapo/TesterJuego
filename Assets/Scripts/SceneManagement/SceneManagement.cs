@@ -10,10 +10,10 @@ public class SceneManagement : MonoBehaviour
 {
     public static SceneManagement Instance;
     public int globalNarrativePart;
-    [SerializeField] private int globalPrevNarrativePart=0;
+    private int globalPrevNarrativePart=0;
 
     public int localNarrativePart;
-    [SerializeField] private int localPrevNarrativePart=0;
+    private int localPrevNarrativePart=0;
 
     [Header("Escenas del Juego de Plataformas")]
     public List<string> allPlatformLevels;

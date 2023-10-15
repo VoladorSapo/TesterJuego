@@ -53,6 +53,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
     public void DoTransitionWithPlayer(Collider2D other){
         if(other.tag=="Player" && !used){
+            Debug.Log(other.gameObject.name);
             if(oneUse){used=true;}
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
 
@@ -64,10 +65,13 @@ public class GlobalWarpPoint : MonoBehaviour
             }
 
             if(nextScene!=""){
+                
+                DontDestroyOnLoad(other.gameObject);
+
                 if(transitionList.Count>0)
                 IterateTransitions();
 
-                DontDestroyOnLoad(other.gameObject);
+                
 
                 if(WaitToChange<=0){
                 other.gameObject.transform.position=nextPosition;

@@ -72,9 +72,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f3451f4ac01ed45afaefcf17ee8f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Plataformas
-  nextPosition: {x: -22, y: 3, z: 0}
-  nextNarrativePart: -1
+  transitionWithPlayer: 0
+  oneUse: 1
+  nextScene: MenuCar
+  transitionList: []
+  WaitToChange: 0
+  nextPosition: {x: 0, y: 0, z: 0}
+  nextGlobalNarrativePart: 2
+  nextLocalNarrativePart: 2
   currentMusic: 
   followingMusic: 
   fadeOutTime: 0
