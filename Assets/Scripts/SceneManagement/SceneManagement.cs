@@ -89,10 +89,10 @@ public class SceneManagement : MonoBehaviour
                 switch(globalNarrativePart){
                     case 0: break;
                     case 1: break;
-                    case 2: CarSettings(); CameraSettings(2,"PlayerCar"); break;
-                    case 3:  break;
+                    case 2: CarSettings(); CameraSettings(2,"PlayerCar",-1); break;
+                    case 3: break;
                     case 4: SpawnZeldaPlayer(); break;
-                    default: CarSettings(); break; //Temporalmente está así
+                    default: break; //Temporalmente está así
                 }
         }
         
@@ -103,7 +103,7 @@ public class SceneManagement : MonoBehaviour
                     case 0: break;
                     case 1: break;
                     case 2: break;
-                    case 3: break;
+                    case 3: CarreraManager.Instance.EndRace(); break;
                     case 4: SpawnZeldaPlayer(); break;
                     default: break; //Temporalmente está así
                 }
@@ -115,9 +115,9 @@ public class SceneManagement : MonoBehaviour
     }
     
     void StartSettings(){
-        CameraSettings(1,"Capsule");
+        CameraSettings(1,"Capsule",1);
     }
-    void CameraSettings(int cameraMode, string followPlayer){
+    void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
             case 2: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=true; camaraGlobal.GetComponent<CinemachineBrain>().enabled=false; break;
@@ -125,6 +125,16 @@ public class SceneManagement : MonoBehaviour
 
         if(followPlayer!="")
         camaraGlobal._player=followPlayer;
+
+        switch(enablePanelUI){
+            case 1: camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
+            break;
+            case 2: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
+            break;
+            case 3: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true);
+            break;
+            default: break;
+        }
     }
     void CarSettings(){
 

@@ -52,12 +52,20 @@ public class Waypoint : MonoBehaviour
         CarController carPlayer=col.gameObject.GetComponent<CarController>();
         if((carMask.value & (1 << col.gameObject.layer)) != 0){
 
-            if(carPlayer!=null && carPlayer.CurrentWaypoint.name==this.gameObject.name){
+            if(carPlayer!=null && carPlayer.CurrentWaypoint!=null && carPlayer.CurrentWaypoint.name==this.gameObject.name){
+                carPlayer.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=
+                Vector3.Distance(new Vector3(carPlayer.transform.position.x,carPlayer.transform.position.y,0),
+                new Vector3(FollowingWaypoints[0].transform.position.x,FollowingWaypoints[0].transform.position.y,0));
+
                 carPlayer.gameObject.GetComponent<PositionRace>().PassedWaypoint();
                 carPlayer.CurrentWaypoint=FollowingWaypoints[0];
             }
 
-            if(carAI!=null && carAI.CurrentWaypoint.name==this.gameObject.name){
+            if(carAI!=null && carAI.CurrentWaypoint!=null && carAI.CurrentWaypoint.name==this.gameObject.name){
+                carAI.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=
+                Vector3.Distance(new Vector3(carAI.transform.position.x,carAI.transform.position.y,0),
+                new Vector3(FollowingWaypoints[0].transform.position.x,FollowingWaypoints[0].transform.position.y,0));
+
                 carAI.gameObject.GetComponent<PositionRace>().PassedWaypoint();
                 carAI.CurrentWaypoint=FollowingWaypoints[0];
                 carAI.PreviousWaypoint=this;

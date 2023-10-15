@@ -37,6 +37,7 @@ public class CarController : BasicCar, IPauseSystem
 
     [Header("Waypoint")]
     [HideInInspector] public Waypoint CurrentWaypoint;
+    [HideInInspector] public float DistanceToReachWaypoint;
 
 
     [Header("\nPlayerInput")]
@@ -57,9 +58,10 @@ public class CarController : BasicCar, IPauseSystem
     protected override void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-
+        
         if(GameObject.Find("Waypoint0")!=null){
             CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
+            CalculateDistanceToNextWaypoint();
         }
     }
     protected override void Start()
@@ -70,9 +72,13 @@ public class CarController : BasicCar, IPauseSystem
         SetEvents();
     }
 
+    protected override void Update(){
+        CalculateDistanceToNextWaypoint();
+    }
     protected override void FixedUpdate()
-    {      
+    {     
         if(!canMove) return;
+        
         
         ApplyForce();
         KillSideVelocity();
@@ -89,6 +95,11 @@ public class CarController : BasicCar, IPauseSystem
         //if(Input.GetKeyDown(KeyCode.E)){AudioManager.Instance.PlaySound("Horn",false,transform.position,true);}
     }
 
+    void CalculateDistanceToNextWaypoint(){
+        if(CurrentWaypoint==null){return;}
+        float dist=Vector3.Distance(new Vector3(transform.position.x,transform.position.y,0),new Vector3(CurrentWaypoint.transform.position.x,CurrentWaypoint.transform.position.y,0));
+        this.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=dist;
+    }
     void ApplyForce()
     {
         //if(derrailing){return;}

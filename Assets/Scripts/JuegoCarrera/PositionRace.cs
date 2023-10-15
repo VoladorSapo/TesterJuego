@@ -8,6 +8,7 @@ public class PositionRace : MonoBehaviour
     //0: Laps, 1: WaypointsPassedInLap; Laps*WaypointsPassedInLap=WaypoointsPassed
     public string playerName;
     public int WaypointsPassed;
+    public float DistanceToReachWaypoint;
 
     public void PassedWaypoint(){
         
@@ -20,5 +21,6 @@ public class PositionRace : MonoBehaviour
             Debug.Log(playerName+" is the winner");
         }
     }
+
     
 }

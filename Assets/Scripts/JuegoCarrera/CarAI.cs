@@ -33,6 +33,7 @@ public class CarAI : MonoBehaviour
     private void Awake()
     {
         _carController = GetComponent<CarAIController>();
+        
         if(GameObject.Find("Waypoint0")!=null){
             CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
             PreviousWaypoint=CurrentWaypoint.PreviousWaypoints[0];
@@ -43,10 +44,16 @@ public class CarAI : MonoBehaviour
     {
         PreviousWaypoint=CurrentWaypoint;
         _targetToGo = CurrentWaypoint.transform;
+        CalculateDistanceToNextWaypoint();
+    }
+
+    void Update(){
+        CalculateDistanceToNextWaypoint();
     }
 
     private void FixedUpdate()
     {
+        
         FollowWaypoint();
 
         Vector2 inputVector = Vector2.zero;
@@ -57,6 +64,10 @@ public class CarAI : MonoBehaviour
 
     }
 
+    void CalculateDistanceToNextWaypoint(){
+        float dist=Vector3.Distance(new Vector3(transform.position.x,transform.position.y,0),new Vector3(CurrentWaypoint.transform.position.x,CurrentWaypoint.transform.position.y,0));
+        this.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=dist;
+    }
     private void OnWaypointAproached()
     {
        
