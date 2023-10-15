@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueClass : MonoBehaviour
+public class DialogueClass
 {
     public int Character, anim;
     public string text,nombre;

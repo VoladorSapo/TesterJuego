@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class DialogueController : MonoBehaviour
     [SerializeField] List<DialogueClass> CurrentConversation;
     [SerializeField] int currentChar;
     [SerializeField] int charpersec;
+    [SerializeField] Animator character;
+    [SerializeField] TMP_Text nombre;
     CanvasGroup canvasgroup;
     [SerializeField] DialogueClass[] loadlist;
     List<TMP_LinkInfo> links;
-    [SerializeField] TMP_SpriteAsset asset;
+    [SerializeField] TMP_SpriteAsset[] assets;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +28,29 @@ public class DialogueController : MonoBehaviour
         canvasgroup.alpha = 0;
 
         text = GetComponentInChildren<TMP_Text>();
+        nombre = GetComponentsInChildren<TMP_Text>()[1];
+        character = GetComponentsInChildren<Animator>()[0];
+
         info = text.textInfo;
         CurrentConversation = new List<DialogueClass>();
     }
-    public void LoadConversation()
+    public void getConversation(string basekey)
     {
-        CurrentConversation.AddRange(loadlist);
+        List<DialogueClass> dialogs = new List<DialogueClass>();
+        int i = 0;
+        DialogueClass dialog = DialogueList.Instance.getDialogue(basekey + "_" + i);
+        while(dialog != null)
+        {
+            i++;
+            dialogs.Add(dialog);
+            dialog = DialogueList.Instance.getDialogue(basekey + "_" + i);
+        }
+        print(dialogs.Count);
+        StartConversation(dialogs.ToArray());
+    }
+    public void StartConversation(DialogueClass[] dialogs)
+    {
+        CurrentConversation.AddRange(dialogs);
         canvasgroup.alpha = 1;
         StartText();
     }
@@ -40,6 +60,9 @@ public class DialogueController : MonoBehaviour
         {
             terminado = false;
             text.text = CurrentConversation[0].text;
+            character.SetInteger("Character", CurrentConversation[0].Character);
+            character.SetInteger("Anim", CurrentConversation[0].anim);
+            nombre.text = CurrentConversation[0].nombre;
             CurrentConversation.RemoveAt(0);
             info = text.textInfo;
             GetLinks();
@@ -50,19 +73,22 @@ public class DialogueController : MonoBehaviour
             EndDialogue();
         }
     }
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            LoadConversation();
-        }
+            //StartConversation();
+            getConversation("dialog");
+                }
         if (Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine("WriteText");
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            text.spriteAsset = asset;
+            text.spriteAsset = assets[0];
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -138,7 +164,9 @@ public class DialogueController : MonoBehaviour
         string[] linkarray = linktext.Split('-');
         switch (linkarray[0])
         {
-
+            case "TextAsset":
+                text.spriteAsset = assets[int.Parse(linkarray[1])];
+                break;
         }
     }
 }
