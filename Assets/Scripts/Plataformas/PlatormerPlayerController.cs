@@ -34,9 +34,14 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] Vector3 spawnPoint;
     [SerializeField] LayerMask damage;
     [SerializeField] LayerMask win;
-
+    [SerializeField] Animator anim;
     // Start is called before the first frame update
 
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(collision.gameObject.layer);
@@ -95,15 +100,22 @@ public class PlatormerPlayerController : MonoBehaviour
             moveAxisX = Input.GetAxisRaw("Horizontal");
             if (moveAxisX > 0)
             {
-                _sprite.flipX = true;
+                _sprite.flipX = false;
+                anim.SetBool("walking", true);
+
             }
             else if (moveAxisX < 0)
             {
-                _sprite.flipX = false;
+                _sprite.flipX = true;
+                anim.SetBool("walking", true);
+
             }
             if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0 && pressjump > 0))
             {
                 print("tocando suelo");
+                anim.SetBool("onGround",true);
+                anim.SetBool("doubleJump", false);
+                anim.SetBool("jump", false);
                 touchground = touchgroundmax;
                 currentextraJumps = 0;
                 jumping = false;
@@ -117,13 +129,21 @@ public class PlatormerPlayerController : MonoBehaviour
                 if (jumping)
                 {
                     force = doublejumpForce;
+                    anim.SetBool("doubleJump", true);
                     currentextraJumps++;
+                }
+                else
+                {
+                    anim.SetBool("doubleJump", false);
+
                 }
                 jumping = true;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
 
                 rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
                 touchground = 0;
+                anim.SetBool("onGround", false);
+                anim.SetBool("jump", true);
                 pressjump = 0;
 
             }
@@ -232,7 +252,12 @@ public class PlatormerPlayerController : MonoBehaviour
                 }
                 Debug.DrawRay(transform.position, rb2d.velocity, Color.green);
             }
-            
+            anim.SetFloat("yVelocity", rb2d.velocity.y);
+            if(rb2d.velocity.y < 0)
+            {
+                anim.SetBool("doubleJump", false);
+                anim.SetBool("jump", false);
+            }
 
         }
 

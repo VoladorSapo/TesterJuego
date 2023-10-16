@@ -20,6 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
+<<<<<<< Updated upstream:Assets/Sprites/Plataformas/funnyman/FallLoop.anim
       value: {fileID: -556089167, guid: e28e0ef74618f5e4bbd8a579c4346ec2, type: 3}
     - time: 0.083333336
       value: {fileID: 849254293, guid: e28e0ef74618f5e4bbd8a579c4346ec2, type: 3}
@@ -27,11 +28,20 @@ AnimationClip:
       value: {fileID: 1470048204, guid: e28e0ef74618f5e4bbd8a579c4346ec2, type: 3}
     - time: 0.25
       value: {fileID: 349938667, guid: e28e0ef74618f5e4bbd8a579c4346ec2, type: 3}
+=======
+      value: {fileID: 960700236, guid: 72a75ecd93290b04cb6c5fd8ba3b8662, type: 3}
+    - time: 0.125
+      value: {fileID: -1616951344, guid: 72a75ecd93290b04cb6c5fd8ba3b8662, type: 3}
+    - time: 0.25
+      value: {fileID: 960700236, guid: 72a75ecd93290b04cb6c5fd8ba3b8662, type: 3}
+    - time: 0.375
+      value: {fileID: -1486769003, guid: 72a75ecd93290b04cb6c5fd8ba3b8662, type: 3}
+>>>>>>> Stashed changes:Assets/Animation/Animation/PJumpLoop.anim
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -55,7 +65,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
