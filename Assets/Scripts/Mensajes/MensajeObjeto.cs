@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MensajeObjeto : MonoBehaviour
 {
-    public IEnumerator setMessage(string _text,int _side,int _button,int type)
+    public IEnumerator setMessage(string _text,int _side,string _button,int type)
     {
             GetComponentInChildren<TMP_Text>().text = _text;
         //  type = _type;
@@ -19,7 +19,7 @@ public class MensajeObjeto : MonoBehaviour
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(20, 0);
                 break;
         }
-        if (_button != 0)
+        if (!string.IsNullOrWhiteSpace(_button) && _button != "None")
         {
             GetComponentInChildren<Image>().gameObject.AddComponent(typeof(Button));
         }

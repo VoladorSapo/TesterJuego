@@ -26,13 +26,13 @@ public class DialogueList : MonoBehaviour
             if (textMessages != null)
             {
                  strings = textMessages.text.Split('\r');
-                for (int i = 0; i < strings.Length; i++)
+                for (int i = 1; i < strings.Length; i++)
                 {
                     if (!string.IsNullOrWhiteSpace(strings[i]))
                     {
                         string[] messagestring = strings[i].Split(';');
-
-                        MessageClass message = new MessageClass(messagestring[1], int.Parse(messagestring[2]), int.Parse(messagestring[3]), int.Parse(messagestring[4]), Convert.ToBoolean(messagestring[5]), int.Parse(messagestring[6]));
+                        print(strings[i]);
+                        MessageClass message = new MessageClass(messagestring[1], int.Parse(messagestring[2]), int.Parse(messagestring[3]), int.Parse(messagestring[4]), Convert.ToBoolean(messagestring[5]), messagestring[6]);
                         MessageHash.Add(messagestring[0], message);
                     }
                 }
@@ -84,7 +84,7 @@ public class DialogueList : MonoBehaviour
         }
         else
         {
-            print("Dialogue not found");
+            print("Dialogue not found: " + key);
             return null;
         }
     }
