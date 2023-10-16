@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ImagenObjeto : MonoBehaviour
 {
-    public IEnumerator SetImage(string _text, int _side, int _button, int type)
+    public IEnumerator SetImage(string _text, int _side, string _button, int type)
     {
         print("jooo");
         switch (_side)
@@ -17,7 +17,6 @@ public class ImagenObjeto : MonoBehaviour
                 break;
         }
         GetComponentInChildren<Image>().sprite = ImageDictionary.Instance.getImage(_text);
-
         yield return new WaitForEndOfFrame();
         GetComponent<RectTransform>().sizeDelta = new Vector2(100, GetComponentsInChildren<RectTransform>()[1].sizeDelta.y);
         GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
