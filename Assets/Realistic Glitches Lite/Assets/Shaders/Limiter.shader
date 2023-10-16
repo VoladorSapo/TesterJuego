@@ -25,6 +25,7 @@ Shader "Custom/Limiter"
             uniform int _ColorCount;
             uniform fixed4 _Colors[256];
             uniform sampler2D _MainTex;
+            uniform half _MaxDist;
 
             struct Input
             {
@@ -52,18 +53,33 @@ Shader "Custom/Limiter"
 
             fixed4 frag (v2f_img i) : COLOR
             {
-                    fixed3 original = tex2D (_MainTex, i.uv).rgb;
+                    fixed4 original = tex2D (_MainTex, i.uv);
 
-                    fixed4 col = fixed4 (0,0,0,0);
-                    fixed dist = 10000000.0;
+                    fixed4 col = original.rgba;
+                    float maxV=max(max(col.r,col.g),col.b);
+                    fixed dist = _MaxDist;
 
                     for (int i = 0; i < _ColorCount; i++) {
+
+                        
+
                         fixed4 c = _Colors[i];
+
+                        if(distance(maxV,c.r)>=0.05){
+                            c.r*=1.05;
+                        }
+                        if(distance(maxV,c.g)>=0.05){
+                            c.g*=1.05;
+                        }
+                        if(distance(maxV,c.b)>=0.05){
+                            c.b*=1.05;
+                        }
+
                         fixed d = distance(original, c);
 
-                        if (d < dist) {
+                        if (d < dist && d <= _MaxDist) {
                             dist = d;
-                            col = c;
+                            col = _Colors[i];
                         }
                     }
 

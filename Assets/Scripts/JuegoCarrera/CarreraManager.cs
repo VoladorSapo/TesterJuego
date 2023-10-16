@@ -31,12 +31,14 @@ public class CarreraManager : MonoBehaviour
 
     //Los coches activos
     public List<PositionRace> allPositions;
+    UnityEngine.UI.Image[] allPositionsImages;
 
 
     [Header("Propiedades de las carreras")]
     public List<Tile> NoDragTiles;
     [HideInInspector] public Tilemap NormalTilemap;
     [HideInInspector] public Tilemap GlitchedTilemap;
+    bool raceStarted=false;
 
     //Inicio
     void Awake()
@@ -45,7 +47,7 @@ public class CarreraManager : MonoBehaviour
             Instance=this;
             DontDestroyOnLoad(this.gameObject);
         }else{
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         
@@ -57,6 +59,10 @@ public class CarreraManager : MonoBehaviour
     public void Update(){
         if(killMouse)
         KillMouseInputs();
+
+        if(raceStarted){
+        UpdatePositionUI();
+        }
     }
 
     public void GoToRace(){
@@ -71,7 +77,12 @@ public class CarreraManager : MonoBehaviour
         setVariables();
         setNumberOfWaypoints();
         setSprites();
+        UpdatePositionUI();
         StartCoroutine(Countdown());
+    }
+
+    public void EndRace(){
+        Destroy(this.gameObject);
     }
 
     void setVariables(){
@@ -97,6 +108,12 @@ public class CarreraManager : MonoBehaviour
             GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=false;
         }
 
+        Transform parentTransform=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(1).transform;
+        allPositionsImages = new UnityEngine.UI.Image[parentTransform.childCount];
+
+        for(int i=0; i<parentTransform.childCount; i++){
+            allPositionsImages[i]=parentTransform.GetChild(i).GetChild(0).GetComponent<UnityEngine.UI.Image>();
+        }
         
     }
     void setSprites(){
@@ -130,17 +147,32 @@ public class CarreraManager : MonoBehaviour
         }
         countText.text="GO";
         yield return new WaitForSeconds(1);
-        CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(false);
+        countText.gameObject.SetActive(false);
 
         BasicCar[] allCars = GameObject.FindObjectsOfType<BasicCar>();
         foreach(BasicCar car in allCars){
             car.canMove=true;
         }
+        raceStarted=true;
     }
 
     //Otros
+
+    void UpdatePositionUI(){
+        OrderPositionsList();
+        for(int i=0; i<allPositions.Count; i++){
+            allPositionsImages[i].sprite=allPositions[i].gameObject.GetComponent<SpriteRenderer>().sprite;
+        }
+        
+    }
     public void OrderPositionsList(){
-        allPositions=allPositions.OrderByDescending(wp=>wp.WaypointsPassed).ToList();
+        allPositions.Sort((x,y)=>{
+            int ret = y.WaypointsPassed.CompareTo(x.WaypointsPassed);
+            if(ret==0){
+                ret=x.DistanceToReachWaypoint.CompareTo(y.DistanceToReachWaypoint);
+            }
+            return ret;
+        });
     }
 
     public void SetPlayerSprite(int index){

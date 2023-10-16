@@ -14,8 +14,8 @@ public class MessageAdder : MonoBehaviour
     int currentConversation;
     int rundown;
     public List<string> texts;
-    List<List<MessageClass>> currentMessages; //Los mensajes que se van a añadir
-    static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversación
+    List<List<MessageClass>> currentMessages; //Los mensajes que se van a aï¿½adir
+    static List<List<MessageClass>> wholeMessages; //Todos los mensajes de la conversaciï¿½n
     [SerializeField] private GameObject MessagePrefab;
     [SerializeField] private GameObject ImagePrefab;
     [SerializeField] private GameObject OptionButtonPrefab;

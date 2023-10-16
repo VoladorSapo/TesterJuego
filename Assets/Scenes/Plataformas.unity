@@ -1401,28 +1401,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
-      propertyPath: oneUse
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
-      propertyPath: nextScene
-      value: MenuCar
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
-      propertyPath: nextNarrativePart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: transitionWithPlayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
-      propertyPath: nextLocalNarrativePart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
-      propertyPath: nextGlobalNarrativePart
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415652, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_Name
@@ -1438,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415653, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.08
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415653, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4865,6 +4845,7 @@ GameObject:
   - component: {fileID: 1427025344}
   - component: {fileID: 1427025347}
   - component: {fileID: 1427025346}
+  - component: {fileID: 1427025348}
   m_Layer: 8
   m_Name: WinFlag
   m_TagString: Untagged
@@ -4915,7 +4896,7 @@ BoxCollider2D:
   m_Offset: {x: 0.32579905, y: -0.4072485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.112071835, y: 0.91371274}
+    pivot: {x: 0.044005565, y: 0.8548545}
     oldSize: {x: 0.83984375, y: 0.984375}
     newSize: {x: 2.15, y: 2.52}
     adaptiveTilingThreshold: 0.5
@@ -4977,6 +4958,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1427025348
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427025343}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e85850fa9973a6c49bd3051bbb1124f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1623598622
 GameObject:
   m_ObjectHideFlags: 0

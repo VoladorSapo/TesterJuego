@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShaderEffect_Limiter : MonoBehaviour
 {
     [Header("Colors")]
+		public float MaxDistance;
 		public Color[] colors;
 
 		private Material m_material;
@@ -24,6 +25,7 @@ public class ShaderEffect_Limiter : MonoBehaviour
 
 		public void OnRenderImage(RenderTexture src, RenderTexture dest) {
 			if (material && colors.Length > 0) {
+				material.SetFloat("_MaxDist",MaxDistance);
 				material.SetInt("_ColorCount", colors.Length);
 				material.SetColorArray("_Colors", colors);
 

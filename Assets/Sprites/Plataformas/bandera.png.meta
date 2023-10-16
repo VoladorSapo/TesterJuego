@@ -125,7 +125,7 @@ TextureImporter:
         width: 215
         height: 252
       alignment: 9
-      pivot: {x: 0.11648017, y: 0.9099518}
+      pivot: {x: 0.044101555, y: 0.85501003}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: bandera_1
       rect:
         serializedVersion: 2
-        x: 227
-        y: 1795
+        x: 225
+        y: 1796
         width: 215
         height: 252
       alignment: 9
-      pivot: {x: 0.112071835, y: 0.91371274}
+      pivot: {x: 0.044005565, y: 0.8548545}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,9 +165,9 @@ TextureImporter:
         x: 0
         y: 1534
         width: 215
-        height: 252
+        height: 253
       alignment: 9
-      pivot: {x: 0.111299016, y: 0.91302973}
+      pivot: {x: 0.04399491, y: 0.8518081}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,13 +183,13 @@ TextureImporter:
       name: bandera_3
       rect:
         serializedVersion: 2
-        x: 215
+        x: 223
         y: 1534
-        width: 215
-        height: 252
+        width: 217
+        height: 253
       alignment: 9
-      pivot: {x: 0.15268767, y: 0.91016495}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.043702155, y: 0.8515432}
+      border: {x: 0, y: 0, z: 7, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -205,11 +205,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1274
-        width: 215
-        height: 252
+        y: 1272
+        width: 209
+        height: 253
       alignment: 9
-      pivot: {x: 0.11648017, y: 0.90243}
+      pivot: {x: 0.045348104, y: 0.85167783}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: bandera_5
       rect:
         serializedVersion: 2
-        x: 215
-        y: 1273
-        width: 215
-        height: 252
+        x: 217
+        y: 1270
+        width: 210
+        height: 255
       alignment: 9
-      pivot: {x: 0.13852142, y: 0.89866906}
+      pivot: {x: 0.050011627, y: 0.85284734}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,11 +247,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1011
-        width: 215
-        height: 252
+        y: 1010
+        width: 208
+        height: 253
       alignment: 9
-      pivot: {x: 0.11606908, y: 0.912617}
+      pivot: {x: 0.045594256, y: 0.8516334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: bandera_7
       rect:
         serializedVersion: 2
-        x: 215
+        x: 216
         y: 1011
-        width: 215
+        width: 210
         height: 252
       alignment: 9
-      pivot: {x: 0.12667485, y: 0.9071878}
+      pivot: {x: 0.054619707, y: 0.8511294}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,11 +289,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 749
-        width: 215
-        height: 252
+        y: 748
+        width: 207
+        height: 253
       alignment: 9
-      pivot: {x: 0.11301433, y: 0.90571254}
+      pivot: {x: 0.045749832, y: 0.851632}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: bandera_9
       rect:
         serializedVersion: 2
-        x: 215
+        x: 216
         y: 749
-        width: 215
+        width: 208
         height: 252
       alignment: 9
-      pivot: {x: 0.12941206, y: 0.91690475}
+      pivot: {x: 0.050345566, y: 0.85090905}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,11 +331,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 487
-        width: 209
-        height: 252
+        y: 486
+        width: 171
+        height: 254
       alignment: 9
-      pivot: {x: 0.122146875, y: 0.9057128}
+      pivot: {x: 0.05531924, y: 0.84838}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: bandera_11
       rect:
         serializedVersion: 2
-        x: 209
-        y: 486
-        width: 215
+        x: 214
+        y: 487
+        width: 176
         height: 252
       alignment: 9
-      pivot: {x: 0.1458098, y: 0.91410685}
+      pivot: {x: 0.05951916, y: 0.85122484}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,11 +373,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 226
-        width: 189
-        height: 252
+        y: 224
+        width: 182
+        height: 253
       alignment: 9
-      pivot: {x: 0.1261497, y: 0.90475285}
+      pivot: {x: 0.052034546, y: 0.8516661}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,11 +394,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 193
-        y: 225
-        width: 182
-        height: 252
+        y: 224
+        width: 183
+        height: 253
       alignment: 9
-      pivot: {x: 0.14307965, y: 0.90927535}
+      pivot: {x: 0.05171929, y: 0.8517376}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
