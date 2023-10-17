@@ -84,15 +84,16 @@ public class SceneManagement : MonoBehaviour
     void SceneChanges(){
 
         CarSettings();
+        SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
         if(globalPrevNarrativePart!=globalNarrativePart){
                 globalPrevNarrativePart=globalNarrativePart;
                 switch(globalNarrativePart){
                     case 0: break;
                     case 1: break;
-                    case 2: CarSettings(); CameraSettings(2,"PlayerCar",-1); break;
+                    case 2: CarSettings(); CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
                     case 3: break;
-                    case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); break;
+                    case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
                     default: break; //Temporalmente está así
                 }
         }
@@ -136,6 +137,25 @@ public class SceneManagement : MonoBehaviour
             break;
             default: break;
         }
+    }
+
+    void AudioSettings(string player){
+        AudioManager.Instance.SetPlayer(player);
+    }
+
+    void SceneMusic(){
+        Scene _scene=SceneManager.GetActiveScene();
+        
+        switch(_scene.name){
+            case "MenuCar": MusicSettings("Plataformas Music",0,"Select Car Music",1f);  break;
+            case "2": break;
+            default: break;
+            //case: "Otras que ya veremos"
+        }
+    }
+
+    void MusicSettings(string prevMusic, float fadeOutTime, string newMusic, float fadeInTime){
+        AudioManager.Instance.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
     void CarSettings(){
 

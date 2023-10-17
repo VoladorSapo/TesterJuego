@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4825155873828614826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4825155873828614820}
+  - component: {fileID: 4825155873828614827}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4825155873828614820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825155873828614826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3734999, y: -2.4063206, z: -0.20887792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4825155873828614827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825155873828614826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f498fc0107a0c146a403abff6abe169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _sounds:
+  - name: Back UI
+    audioClip: {fileID: 8300000, guid: d789bae9075a41242a5c5c17ae6468b1, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Car Hit
+    audioClip: {fileID: 8300000, guid: 4ea50e49564a4bd4fb8992da7450e2c2, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Moving Car
+    audioClip: {fileID: 8300000, guid: 96954345a2a2047458bfb6b5704f74f4, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Death
+    audioClip: {fileID: 8300000, guid: 59e83fa82da40f444b6babbf20dd1c9b, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Glitch_sound_1
+    audioClip: {fileID: 8300000, guid: c17c9e09fe3583b4ba8779009fe5ba9a, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Glitch_sound_2
+    audioClip: {fileID: 8300000, guid: f6624b16000efcc4a80dbda73b09b1be, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Glitch_sound_3
+    audioClip: {fileID: 8300000, guid: f070e537cad3c294eb692eadba577363, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Jump
+    audioClip: {fileID: 8300000, guid: 52d4f8a8e2728b642a8e821b4ab0ace7, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Lose race
+    audioClip: {fileID: 8300000, guid: b32ea38583232ba4699b87e663867f95, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu select
+    audioClip: {fileID: 8300000, guid: cdcbe5650fbc5f14497a59a4e02414e6, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu confirm message
+    audioClip: {fileID: 8300000, guid: cd1c587d212a9d94e808dd51b3287ba9, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu confirm pixel
+    audioClip: {fileID: 8300000, guid: c482be6a1f4c68f4c93c56e3b1eb818b, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu confirm platform
+    audioClip: {fileID: 8300000, guid: 1f4a33c7a135f4449adc068e4a343c9f, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu select pixel
+    audioClip: {fileID: 8300000, guid: 72350c12e1187464d9f68d56194a95ef, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Menu select platform
+    audioClip: {fileID: 8300000, guid: b72e23ed7afae114bae2b7a7935aac3d, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Message
+    audioClip: {fileID: 8300000, guid: d01469e3d3e071e44b594f94c9993956, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Mouse Click
+    audioClip: {fileID: 8300000, guid: b2803da6e7cd5cf4ea4fe998cf2b224c, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Notif 1
+    audioClip: {fileID: 8300000, guid: 6a01553bce8235f40b821354f5e11fe9, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Notif 2
+    audioClip: {fileID: 8300000, guid: c506a0019e3378e4d89b9b7ca29e002d, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Race Clear
+    audioClip: {fileID: 8300000, guid: 55bbf958cae20924a9c4560f0dc4a9ff, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Race Countdown
+    audioClip: {fileID: 8300000, guid: 786bdebea8fa75e45b3a286bd454edb0, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Saw
+    audioClip: {fileID: 8300000, guid: ff1ed512754c76c4da0fe9e4e9b106bb, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Send Message
+    audioClip: {fileID: 8300000, guid: 711da10c65887f04cbcc9f6951cd1e5d, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Select Car Music
+    audioClip: {fileID: 8300000, guid: c7f3ce09fa0fa9b40961e870415d477f, type: 3}
+    volume: 0.25
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Race Music
+    audioClip: {fileID: 8300000, guid: 66f32d2a713c5a44196e30231911b915, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100

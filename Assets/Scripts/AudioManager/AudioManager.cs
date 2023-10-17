@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    public Transform player;
+    [SerializeField] private Transform _player;
     [SerializeField]
     private Sound[] _sounds;
     List<AudioSource> pausedSounds= new List<AudioSource>();
@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
         if(onlyOne && SearchSource(name)){return;}
 
         Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
-        if(Vector2.Distance(pos,player.position)>Sound.maxSoundDistance || Sound==null){return;}
+        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
 
         if (Sound != null)
         {
@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
         if(onlyOne && SearchSource(name)){return;}
 
         Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
-        if(Vector2.Distance(pos,player.position)>Sound.maxSoundDistance || Sound==null){return;}
+        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
         if (Sound != null)
         {
             
@@ -91,7 +91,7 @@ public class AudioManager : MonoBehaviour
         if(onlyOne && SearchSource(name)){return;}
         
         Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
-        if(Vector2.Distance(pos,player.position)>Sound.maxSoundDistance || Sound==null){return;}
+        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
         if (Sound != null)
         {
             
@@ -114,7 +114,7 @@ public class AudioManager : MonoBehaviour
         if(onlyOne && SearchSource(name)){return;}
         
         Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
-        if(Vector2.Distance(pos,player.position)>Sound.maxSoundDistance || Sound==null){return;}
+        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
         if (Sound != null)
         {
             
@@ -135,7 +135,7 @@ public class AudioManager : MonoBehaviour
         if(SearchSource(name)){return;}
 
         Sound Sound=System.Array.Find(_sounds, sound=> sound.name==name);
-        if(Vector2.Distance(pos,player.position)>Sound.maxSoundDistance || Sound==null){return;}
+        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
         if(Sound!=null){
             AudioSource a= gameObject.AddComponent<AudioSource>();
             a.maxDistance=Sound.maxSoundDistance;
@@ -163,40 +163,67 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeOutThenFadeIn(currMusicName,fadeOutTime,newMusicName,fadeInTime));
     }
     IEnumerator FadeOutThenFadeIn(string currMusicName, float fadeOutTime, string newMusicName, float fadeInTime){
-        string realName= System.Array.Find(_sounds, sound => sound.name == currMusicName).audioClip.name;
-        AudioSource audioSource=GetComponents<AudioSource>().Where(a => a.clip.name==realName).ToArray()[0];
 
-        float startVolume = audioSource.volume;
-        float startTime = Time.time;
+        Sound prevSound=System.Array.Find(_sounds, sound => sound.name == currMusicName);
+        Sound newSound=System.Array.Find(_sounds, sound => sound.name == newMusicName);
+        Debug.Log(newSound.volume);
 
-        while (Time.time < startTime + fadeOutTime)
-        {
-            if(audioSource==null){yield break;}
-            float elapsedTime = Time.time - startTime;
-            float normalizedTime = elapsedTime / fadeOutTime;
-            float newVolume = Mathf.Lerp(startVolume, 0f, normalizedTime);
-
-            audioSource.volume = newVolume;
-            yield return null;
+        string realName="";
+        if(prevSound!=null){
+        realName= prevSound.audioClip.name;
         }
-        
-        audioSource.Stop();
-        Destroy(audioSource);
 
-        AudioSource audioSourceNew=gameObject.AddComponent<AudioSource>();
-        startVolume = 0f;
-        startTime = Time.time;
-        float desiredVolume=System.Array.Find(_sounds, sound=> sound.name==name).volume;
+        AudioSource audioSource=null;
+        if(GetComponents<AudioSource>().Where(a => a.clip.name==realName).ToArray().Length>0){
+            audioSource=GetComponents<AudioSource>().Where(a => a.clip.name==realName).ToArray()[0];
+        }
 
-        while (Time.time < startTime + fadeInTime)
-        {
-            if(audioSource==null){yield break;}
-            float elapsedTime = Time.time - startTime;
-            float normalizedTime = elapsedTime / fadeInTime;
-            float newVolume = Mathf.Lerp(startVolume, desiredVolume, normalizedTime);
+        float startVolume;
+        float startTime;
+        if(prevSound!=null && audioSource!=null){
+            startVolume = audioSource.volume;
+            startTime = Time.time;
 
-            audioSourceNew.volume = newVolume;
-            yield return null;
+            while (Time.time < startTime + fadeOutTime)
+            {
+                if(audioSource==null){yield break;}
+                float elapsedTime = Time.time - startTime;
+                float normalizedTime = elapsedTime / fadeOutTime;
+                float newVolume = Mathf.Lerp(startVolume, 0f, normalizedTime);
+
+                audioSource.volume = newVolume;
+                yield return null;
+            }
+            
+            audioSource.Stop();
+            Destroy(audioSource);
+        }
+
+        if(newSound!=null){
+            AudioSource audioSourceNew=gameObject.AddComponent<AudioSource>();
+            startVolume = 0f;
+            startTime = Time.time;
+
+            audioSourceNew.clip=newSound.audioClip;
+            audioSourceNew.transform.position=Vector2.zero;
+            audioSourceNew.maxDistance=newSound.maxSoundDistance;
+            audioSourceNew.pitch=newSound.pitch;
+            audioSourceNew.loop=true;
+            audioSourceNew.volume=0;
+            audioSourceNew.Play();
+
+            float desiredVolume=newSound.volume;
+
+            while (Time.time < startTime + fadeInTime)
+            {
+                if(audioSourceNew==null){yield break;}
+                float elapsedTime = Time.time - startTime;
+                float normalizedTime = elapsedTime / fadeInTime;
+                float newVolume = Mathf.Lerp(startVolume, desiredVolume, normalizedTime);
+
+                audioSourceNew.volume = newVolume;
+                yield return null;
+            }
         }
     }
 
@@ -328,6 +355,22 @@ public class AudioManager : MonoBehaviour
                 a.Stop();
                 Destroy(a);
             }
+        }
+
+        if(_player==null){
+            _player=this.gameObject.transform;
+        }
+    }
+
+
+    //Otros
+
+    public void SetPlayer(string name){
+
+        if(GameObject.Find(name)!=null){
+            _player=GameObject.Find(name).transform;
+        }else{
+            _player=this.gameObject.transform;
         }
     }
 }
