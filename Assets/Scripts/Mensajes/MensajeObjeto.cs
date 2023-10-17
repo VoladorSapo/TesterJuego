@@ -5,9 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MensajeObjeto : MonoBehaviour
 {
+    [SerializeField] int margin;
+    [SerializeField] int limit;
+    [SerializeField] int divide;
     public IEnumerator setMessage(string _text,int _side,string _button,int type)
     {
             GetComponentInChildren<TMP_Text>().text = _text;
+       //print( GetComponentInChildren<TMP_Text>().preferredWidth + margin);
         //  type = _type;
 
         switch (_side)
@@ -19,6 +23,15 @@ public class MensajeObjeto : MonoBehaviour
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(20, 0);
                 break;
         }
+        int x =1;
+        while (GetComponentInChildren<TMP_Text>().preferredWidth + margin > GetComponentInParent<ScrollRect>().gameObject.GetComponent<RectTransform>().sizeDelta.x && x<=limit)
+        {
+            string a = GetComponentInChildren<TMP_Text>().text;
+            print("jajajajajaja" + _text);
+            GetComponentInChildren<TMP_Text>().text = ReturnDividedString(_text,x);
+            x++;
+        }
+
         if (!string.IsNullOrWhiteSpace(_button) && _button != "None")
         {
             GetComponentInChildren<Image>().gameObject.AddComponent(typeof(Button));
@@ -37,12 +50,58 @@ public class MensajeObjeto : MonoBehaviour
        GetComponentInParent<ScrollRect>().verticalNormalizedPosition = 0;
 
     }
+ string ReturnDividedString(string baseString,int divided)
+    {
+        if (GetComponentInParent<ScrollRect>().gameObject.GetComponent<RectTransform>().sizeDelta.x < GetComponentInChildren<TMP_Text>().preferredWidth + margin)
+        {
+            //print(GetComponentInParent<ScrollRect>().gameObject.GetComponent<RectTransform>().sizeDelta.x + "heeelp" + baseString);
+            //print(GetComponentInChildren<TMP_Text>().preferredWidth + margin + "heeelp");
+            string[] strings = baseString.Split("<br>");
+            string newString = "";
+            foreach (string item in strings)
+            {
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    GetComponentInChildren<TMP_Text>().text = item;
 
+                    if (GetComponentInParent<ScrollRect>().gameObject.GetComponent<RectTransform>().sizeDelta.x < GetComponentInChildren<TMP_Text>().preferredWidth + margin)
+                    {
+                        print("jdrr" +" "+item+ "/////" + baseString);
+                        print(item.Length);
+                        print(item);
+                        string newItem = item;
+                        for (int i = divided; i > 1; i--)
+                        {                            
+                            int a = newItem.IndexOf(' ', newItem.Length / i);
+                            print(a + " " +newItem);
+                            if (a > 0)
+                            {
+                                newString += newItem.Substring(0, a) + "<br>";
+                                newItem = newItem.Substring(a+1);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        newString += newItem;
+
+                    }
+                    else
+                    {
+                        newString += item + "<br>";
+                    }
+                }
+            }
+            return (newString);
+        }
+        return (baseString);
+        
+    }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        print(GetComponentsInChildren<RectTransform>()[1].sizeDelta.y);
-
+        if (Input.GetKeyDown(KeyCode.P))
+            print(GetComponentInChildren<TMP_Text>().preferredWidth + margin);
         if (Input.GetKeyDown(KeyCode.O))
         {
         }
