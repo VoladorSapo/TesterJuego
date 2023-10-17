@@ -106,15 +106,16 @@ public class MessageAdder : MonoBehaviour
     }
     void ReturntoMessages()
     {
-        IEnumerator couritine = AddAllMessages();
+        print("return");
+        IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
     }
     void ReturnWithExtraMessages(string action)//Porque no puedes darle a un boton un ienumerator
     {
-        print(action);
+        print("Socorro");
         MessageClass[] messages = GetMessageList(action);
         currentMessages[currentConversation].InsertRange(0,messages);
-        IEnumerator couritine = AddAllMessages();
+        IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
     }
 
@@ -143,7 +144,8 @@ public class MessageAdder : MonoBehaviour
             currentMessages[conversation].RemoveAt(0);
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
             {
-                IEnumerator courutine = AddAllMessages();
+                print("hory shit");
+                IEnumerator courutine = AddAllMessages(2);
                 StartCoroutine(courutine);
             }
         }
@@ -154,44 +156,57 @@ public class MessageAdder : MonoBehaviour
             currentConversation = conversation;
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
             {
-                IEnumerator courutine = AddAllMessages();
+                print("omagat");
+
+                IEnumerator courutine = AddAllMessages(2);
                 StartCoroutine(courutine);
             }
         }
     }
     int WaitTime(string text, int time, bool waitfixed)
     {
+        return 2;
         if (waitfixed)
             return time;
-        int wait = text.ToCharArray().Length /20;
+        int wait = text.ToCharArray().Length /15;
         return wait;
     }
-    IEnumerator AddAllMessages()
+    IEnumerator AddAllMessages(int firstWait)
     {
-        yield return new WaitForSeconds(2);
-
-        foreach (MessageClass message in currentMessages[currentConversation].ToArray())
+        if (currentMessages[currentConversation].Count > 0)
         {
-            AddMessage(message.text, message.side, currentConversation, message.isButton, message.type);
-            currentMessages[currentConversation].Remove(message);
-            if(message.type == 2 || message.type == 3)
+            bool noStop = true;
+            print(currentMessages[currentConversation].Count);
+            yield return new WaitForSeconds(firstWait);
+            foreach (MessageClass message in currentMessages[currentConversation].ToArray())
             {
-                print("jejejej");
-                yield break;
+                print("socrro");
+                AddMessage(message.text, message.side, currentConversation, message.isButton, message.type);
+                currentMessages[currentConversation].Remove(message);
+                if (message.type == 2 || message.type == 3)
+                {
+                    noStop = false;
+                    print("jejejej");
+                    break;
+                }
+                print("crazy");
+                yield return new WaitForSeconds(WaitTime(message.text, message.time, message.waitTimeFixed));
             }
-            // yield return new WaitForSeconds(WaitTime(message.text,message.time,message.waitTimeFixed));
-            yield return new WaitForSeconds(WaitTime(message.text,message.time,message.waitTimeFixed));
+            if (noStop)
+            {
+                print("Bosa bosa");
+                currentMessages[currentConversation].Clear();
+            }
         }
-        print("Bosa bosa");
-        currentMessages[currentConversation].Clear();
     }
     public void OpenBoard()
     {
+        print("ooooooo");
         MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-        IEnumerator courutine = AddAllMessages();
+        print("rjnfjsnf");
+        IEnumerator courutine = AddAllMessages(2);
         StartCoroutine(courutine);
 
     }
@@ -207,7 +222,8 @@ public class MessageAdder : MonoBehaviour
 
         if (currentMessages[currentConversation].Count > 0)
         {
-            IEnumerator courutine = AddAllMessages();
+            print("oooo noooo");
+            IEnumerator courutine = AddAllMessages(2);
             StartCoroutine(courutine);
         }
     }
