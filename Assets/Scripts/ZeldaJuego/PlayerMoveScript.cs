@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
@@ -6,11 +7,19 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMoveScript : MonoBehaviour, IPauseSystem
 {
+    
     //Tilemap
     private Tilemap groundTileMap;
-    //Movimiento base
+    
+    [Header("Movimiento")]
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float moveSpeed;
+    public bool Interacting=false;
+
+    [Header("Interacciones")]
+    [SerializeField] Transform _interactionPos;
+    [SerializeField] LayerMask _interactableMask;
+    [SerializeField] SpriteRenderer _actionSprite;
 
     //Extras de movimiento
     [HideInInspector] public Vector2 forceToApply=Vector2.zero;
@@ -27,6 +36,40 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         SetEvents();
     }
     void Update(){
+        HandleMovement();
+
+        zeldaNPC npc;
+        if(IsNPCNear(out npc) && !Interacting){
+            
+            _actionSprite.enabled=true;
+            //En verdad tendría que haber un out int que sirva para elegir el sprite pero de momento se queda asi
+            if(Input.GetKeyDown(KeyCode.E)){
+                Debug.Log("Ey buenas a todos, guapisimos, aqui vegetta777");
+                npc.Say();
+            }
+        }else{
+            _actionSprite.enabled=false;
+        }
+    }
+
+    private bool IsNPCNear(out zeldaNPC npc)
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_interactionPos.position, 0.8f, _interactableMask);
+
+            foreach (Collider2D collider in hitColliders)
+            {
+                if (collider.GetComponent<zeldaNPC>()!=null)
+                {
+                    npc=collider.GetComponent<zeldaNPC>();
+                    return true;
+                }
+            }
+            npc=null;
+            return false;
+    }
+
+    void HandleMovement(){
+        if(Interacting){return;}
         float H=Input.GetAxisRaw("Horizontal");
         float V=Input.GetAxisRaw("Vertical");
         

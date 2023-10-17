@@ -162,7 +162,7 @@ public class CarAI : MonoBehaviour
     public void NextWaypoint()
     {
         PreviousWaypoint=CurrentWaypoint;
-        CurrentWaypoint=CurrentWaypoint.FollowingWaypoints[0];
+        CurrentWaypoint=PickRandom(CurrentWaypoint.FollowingWaypoints);
         _targetToGo=CurrentWaypoint.transform;
     }
 
@@ -178,7 +178,7 @@ public class CarAI : MonoBehaviour
         return lineStartPos + lineToEnd*dotProduct;
     }
 
-    private Waypoint PickRandom(List<Waypoint> followingWaypoints)
+    private Waypoint PickRandomWeighted(List<Waypoint> followingWaypoints)
     {
         float rValue=UnityEngine.Random.Range(0f,1f);
         int index=-1;
@@ -190,6 +190,11 @@ public class CarAI : MonoBehaviour
         }while(rValue>0);
 
         return followingWaypoints[index];
+    }
+
+    private Waypoint PickRandom(List<Waypoint> followingWaypoints){
+        int rIndex=UnityEngine.Random.Range(0,followingWaypoints.Count);
+        return followingWaypoints[1];
     }
 
     bool IsCarInFrontOfAICar(out Vector3 position, out Vector3 otherCarRightVector){

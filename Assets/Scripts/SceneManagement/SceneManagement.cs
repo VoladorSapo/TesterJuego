@@ -76,7 +76,8 @@ public class SceneManagement : MonoBehaviour
         
         int numberOfPlayers=GameObject.FindGameObjectsWithTag("Player").Where(obj=>obj.GetComponent<PlayerMoveScript>()!=null).Count();
         if(numberOfPlayers==0){
-            Instantiate(zeldaPrefab,posZeldaInicio,Quaternion.identity);
+            GameObject go=Instantiate(zeldaPrefab,posZeldaInicio,Quaternion.identity);
+            go.name=zeldaPrefab.name;
         }
     }
 
@@ -91,7 +92,7 @@ public class SceneManagement : MonoBehaviour
                     case 1: break;
                     case 2: CarSettings(); CameraSettings(2,"PlayerCar",-1); break;
                     case 3: break;
-                    case 4: SpawnZeldaPlayer(); break;
+                    case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); break;
                     default: break; //Temporalmente está así
                 }
         }

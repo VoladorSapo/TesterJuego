@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
+    public static DialogueController Instance;
     TMP_Text text;
     TMP_TextInfo info;
     [SerializeField] bool escribiendo;
@@ -21,6 +22,15 @@ public class DialogueController : MonoBehaviour
     List<TMP_LinkInfo> links;
     [SerializeField] TMP_SpriteAsset[] assets;
     // Start is called before the first frame update
+
+    void Awake(){
+        if(Instance==null){
+            Instance=this;
+            DontDestroyOnLoad(this.gameObject);
+        }else{
+            Destroy(this.gameObject);
+        }
+    }
     void Start()
     {
         print(Application.persistentDataPath);
@@ -77,7 +87,7 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             //StartConversation();
             getConversation("dialog");
@@ -101,7 +111,7 @@ public class DialogueController : MonoBehaviour
                 currentChar = text.maxVisibleCharacters = info.characterCount;
                 terminado = true;
             }
-        }
+        }*/
     }
     IEnumerator WriteText()
     {

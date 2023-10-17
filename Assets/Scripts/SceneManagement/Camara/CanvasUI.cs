@@ -10,8 +10,8 @@ public class CanvasUI : MonoBehaviour
     public GameObject zeldaUI;
     
     void Update(){
-        if(Input.GetKeyDown(KeyCode.I)){
+        /*if(Input.GetKeyDown(KeyCode.I)){
             Debug.Log(CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(1).transform.childCount);
-        }
+        }*/
     }
 }

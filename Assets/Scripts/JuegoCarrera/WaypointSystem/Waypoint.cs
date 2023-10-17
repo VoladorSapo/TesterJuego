@@ -62,14 +62,39 @@ public class Waypoint : MonoBehaviour
             }
 
             if(carAI!=null && carAI.CurrentWaypoint!=null && carAI.CurrentWaypoint.name==this.gameObject.name){
-                carAI.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=
-                Vector3.Distance(new Vector3(carAI.transform.position.x,carAI.transform.position.y,0),
-                new Vector3(FollowingWaypoints[0].transform.position.x,FollowingWaypoints[0].transform.position.y,0));
+                
 
                 carAI.gameObject.GetComponent<PositionRace>().PassedWaypoint();
-                carAI.CurrentWaypoint=FollowingWaypoints[0];
+                carAI.CurrentWaypoint=PickRandom(FollowingWaypoints);
+
+                carAI.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=
+                Vector3.Distance(new Vector3(carAI.transform.position.x,carAI.transform.position.y,0),
+                new Vector3(carAI.CurrentWaypoint.transform.position.x,carAI.CurrentWaypoint.transform.position.y,0));
+
                 carAI.PreviousWaypoint=this;
             }
         }
+
+        
+    }
+
+
+    private Waypoint PickRandomWeighted(List<Waypoint> followingWaypoints)
+    {
+        float rValue=UnityEngine.Random.Range(0f,1f);
+        int index=-1;
+        int i=0;
+        do{
+            rValue-=followingWaypoints[i].WPweight;
+            index++;
+            i++;
+        }while(rValue>0);
+
+        return followingWaypoints[index];
+    }
+
+    private Waypoint PickRandom(List<Waypoint> followingWaypoints){
+        int rIndex=UnityEngine.Random.Range(0,followingWaypoints.Count);
+        return followingWaypoints[rIndex];
     }
 }
