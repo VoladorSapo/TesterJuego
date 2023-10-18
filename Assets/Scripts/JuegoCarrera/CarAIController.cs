@@ -40,7 +40,7 @@ public class CarAIController : BasicCar, IPauseSystem
     }
 
     protected override void Start(){
-        SetEvents();
+        SetPauseEvents();
     }
     protected override void FixedUpdate()
     {
@@ -162,7 +162,7 @@ public class CarAIController : BasicCar, IPauseSystem
 
     }
 
-    public void SetEvents()
+    public void SetPauseEvents()
     {
         PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }

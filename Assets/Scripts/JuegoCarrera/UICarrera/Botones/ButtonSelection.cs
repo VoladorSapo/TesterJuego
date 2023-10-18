@@ -22,6 +22,7 @@ public class ButtonSelection : MonoBehaviour, ISelectHandler
     {
         imageDisplay.sprite=thisButtonImage;
         textDisplay.text=thisDescription;
+        AudioManager.Instance.PlaySound("Menu confirm pixel",false,transform.position,false);
     }
 
 

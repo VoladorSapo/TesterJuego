@@ -140,6 +140,8 @@ public class CarreraManager : MonoBehaviour
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
         int i=3;
         TextMeshProUGUI countText=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+
+        AudioManager.Instance.PlaySound("Race Countdown",false,Vector2.zero,true);
         while(i>0){
         countText.text=i.ToString();
         yield return new WaitForSeconds(1);
@@ -154,6 +156,7 @@ public class CarreraManager : MonoBehaviour
             car.canMove=true;
         }
         raceStarted=true;
+        AudioManager.Instance.ChangeMusicTo("",0,"Race Music",0.25f);
     }
 
     //Otros

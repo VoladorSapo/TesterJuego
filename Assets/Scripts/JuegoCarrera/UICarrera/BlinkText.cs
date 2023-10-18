@@ -18,7 +18,7 @@ public class BlinkText : MonoBehaviour
         text=GetComponent<TextMeshProUGUI>();
     }
     void Update(){
-        if(Input.GetKeyDown(KeyCode.Return)){
+        if(Input.GetKeyDown(KeyCode.Return) && !pressedEnter){
             EnterPressed();
         }
 
@@ -51,6 +51,8 @@ public class BlinkText : MonoBehaviour
             visibility=blinkCurve.Evaluate(curveTime);
             if(Mathf.RoundToInt(visibility)>=1){
                 transform.parent.GetComponent<CanvasGroup>().alpha=1;
+                if(visibility>=0.99f)
+                AudioManager.Instance.PlaySound("Menu confirm pixel",false,transform.position,false);
             }else{
                 transform.parent.GetComponent<CanvasGroup>().alpha=0;
             }

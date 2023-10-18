@@ -15,7 +15,7 @@ public class IntroController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         DialogueController.Instance.getConversation("dialog");
-        DialogueController.Instance.setEvent(endScene);
+        DialogueController.Instance.setEndConversation(endScene);
     }
     // Update is called once per frame
     void Update()
@@ -24,7 +24,7 @@ public class IntroController : MonoBehaviour
     }
     public void endScene()
     {
-        DialogueController.Instance.unSetEvent(endScene);
+        DialogueController.Instance.unsetEndConversation(endScene);
         SceneManager.LoadScene(1);
     }
 }

@@ -28,22 +28,25 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     void Awake(){
         _rb=GetComponent<Rigidbody2D>();
         DontDestroyOnLoad(this);
+
     }
     void Start(){
         if(GameObject.Find("GroundTilemap")!=null)
         groundTileMap=GameObject.Find("GroundTilemap").GetComponent<Tilemap>();
         
-        SetEvents();
+        SetPauseEvents();
+        SetConversationEvents();
     }
     void Update(){
         HandleMovement();
 
-        zeldaNPC npc;
+        zeldaNPCBase npc;
         if(IsNPCNear(out npc) && !Interacting){
             
             _actionSprite.enabled=true;
             //En verdad tendría que haber un out int que sirva para elegir el sprite pero de momento se queda asi
             if(Input.GetKeyDown(KeyCode.E)){
+                Interacting=true;
                 Debug.Log("Ey buenas a todos, guapisimos, aqui vegetta777");
                 npc.Say();
             }
@@ -52,15 +55,15 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         }
     }
 
-    private bool IsNPCNear(out zeldaNPC npc)
+    private bool IsNPCNear(out zeldaNPCBase npc)
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_interactionPos.position, 0.8f, _interactableMask);
 
             foreach (Collider2D collider in hitColliders)
             {
-                if (collider.GetComponent<zeldaNPC>()!=null)
+                if (collider.GetComponent<zeldaNPCBase>()!=null)
                 {
-                    npc=collider.GetComponent<zeldaNPC>();
+                    npc=collider.GetComponent<zeldaNPCBase>();
                     return true;
                 }
             }
@@ -113,8 +116,22 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         this.enabled=true;
     }
 
-    public void SetEvents()
+    public void SetPauseEvents()
     {
         PauseController.Instance?.SetPausedEvents(Pause,Unpause);
+    }
+
+    public void StartConversation(){
+        Debug.LogWarning("INICIO");
+        Interacting=true;
+    }
+
+    public void EndConversation(){
+        Debug.LogWarning("FIN");
+        Interacting=false;
+    }
+    
+    public void SetConversationEvents(){
+        DialogueController.Instance?.setEventConversations(StartConversation,EndConversation);
     }
 }

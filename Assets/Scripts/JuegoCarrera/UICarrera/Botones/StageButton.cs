@@ -15,6 +15,7 @@ public class StageButton : ButtonSelection
     }
 
     public void SetLaps(){
+        AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
         CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.numberOfLaps=lapsOfStage;
     }
