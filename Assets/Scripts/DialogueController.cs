@@ -9,7 +9,8 @@ using UnityEngine.Events;
 
 public class DialogueController : MonoBehaviour
 {
-    public Action endConversation;
+    public event Action endConversation;
+    public event Action startConversation;
     public static DialogueController Instance;
     TMP_Text text;
     TMP_TextInfo info;
@@ -30,7 +31,7 @@ public class DialogueController : MonoBehaviour
     void Awake(){
         if(Instance==null){
             Instance=this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }else{
             Destroy(this.gameObject);
         }
@@ -48,8 +49,18 @@ public class DialogueController : MonoBehaviour
         info = text.textInfo;
         CurrentConversation = new List<DialogueClass>();
     }
+
+    public void setEventConversations(Action start, Action end){
+        startConversation+=start;
+        endConversation+=end;
+    }
+    public void unsetEventConverstaions(Action start, Action end){
+        startConversation-=start;
+        endConversation-=end;
+    }
     public void getConversation(string basekey)
     {
+        
         List<DialogueClass> dialogs = new List<DialogueClass>();
         int i = 0;
         DialogueClass dialog = DialogueList.Instance.getDialogue(basekey + "_" + i);
@@ -64,6 +75,7 @@ public class DialogueController : MonoBehaviour
     }
     public void StartConversation(DialogueClass[] dialogs)
     {
+        startConversation?.Invoke();
         CurrentConversation.AddRange(dialogs);
         canvasgroup.alpha = 1;
         StartText();
@@ -186,11 +198,11 @@ public class DialogueController : MonoBehaviour
                 break;
         }
     }
-   public void setEvent(Action end)
+   public void setEndConversation(Action end)
     {
         endConversation += end;
     }
-   public void unSetEvent(Action end)
+   public void unsetEndConversation(Action end)
     {
         endConversation -= end;
     }

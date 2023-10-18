@@ -140,7 +140,7 @@ public class SceneManagement : MonoBehaviour
     }
 
     void AudioSettings(string player){
-        AudioManager.Instance.SetPlayer(player);
+        AudioManager.Instance?.SetPlayer(player);
     }
 
     void SceneMusic(){

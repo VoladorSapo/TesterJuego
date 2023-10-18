@@ -69,7 +69,7 @@ public class CarController : BasicCar, IPauseSystem
         _rb.drag = _defaultDrag;
 
         if(PauseController.Instance!=null)
-        SetEvents();
+        SetPauseEvents();
     }
 
     protected override void Update(){
@@ -246,7 +246,7 @@ public class CarController : BasicCar, IPauseSystem
 
     }
 
-    public void SetEvents()
+    public void SetPauseEvents()
     {
         PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }

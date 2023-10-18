@@ -285,9 +285,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585915843}
+  - component: {fileID: 585915845}
   - component: {fileID: 585915842}
   - component: {fileID: 585915844}
-  - component: {fileID: 585915845}
   m_Layer: 12
   m_Name: NPC
   m_TagString: Untagged
@@ -355,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585915841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.37, y: -2.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24819998, y: 0.2482, z: 0.2482}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -400,7 +400,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bef3efc36993a45957c10e973cccff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationKey: dialog_1
+  conversationKey: 
+  allWaypoints:
+  - NextWaypointsInList: 01000000
+    pos: {x: 0, y: 0}
+  - NextWaypointsInList: 00000000
+    pos: {x: 5, y: 0}
+  walkingSpeed: 2
+  currentWP: 0
+  startingState: Moving
 --- !u!1001 &904962030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,11 +640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7116350652226476660, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7707405
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7116350652226476660, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4109435
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 7116350652226476660, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
       propertyPath: m_LocalPosition.z

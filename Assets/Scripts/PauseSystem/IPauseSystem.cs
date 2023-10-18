@@ -8,6 +8,6 @@ interface IPauseSystem
     public abstract void Pause();
     public abstract void Unpause();
 
-    public abstract void SetEvents();
+    public abstract void SetPauseEvents();
 
 }
