@@ -69,13 +69,13 @@ public class MessageAdder : MonoBehaviour
             case 0:
                 GameObject mensajeobject = Instantiate(MessagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
                 MensajeObjeto _mensaje = mensajeobject.GetComponent<MensajeObjeto>();
-                 courutine = _mensaje.setMessage(text, side, isButton, 0);
+                courutine = _mensaje.setMessage(text, side, isButton, 0);
                 _mensaje.StartCoroutine(courutine);
                 break;
             case 1:
                 GameObject imagenobject = Instantiate(ImagePrefab, TextConversations[list].transform.GetChild(0).transform.GetChild(0).transform);
                 ImagenObjeto _imagen = imagenobject.GetComponent<ImagenObjeto>();
-                 courutine = _imagen.SetImage(text, side, "", 0);
+                courutine = _imagen.SetImage(text, side, isButton, 0);
                 _imagen.StartCoroutine(courutine);
                 break;
             case 2:
@@ -110,11 +110,12 @@ public class MessageAdder : MonoBehaviour
         IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
     }
+
     void ReturnWithExtraMessages(string action)//Porque no puedes darle a un boton un ienumerator
     {
         print("Socorro");
         MessageClass[] messages = GetMessageList(action);
-        currentMessages[currentConversation].InsertRange(0,messages);
+        currentMessages[currentConversation].InsertRange(0, messages);
         IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
     }
@@ -140,7 +141,7 @@ public class MessageAdder : MonoBehaviour
             currentMessages[conversation].AddRange(messages);
             wholeMessages[conversation].AddRange(messages);
             currentConversation = conversation;
-            AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation,currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
+            AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation, currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
             currentMessages[conversation].RemoveAt(0);
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
             {
@@ -168,7 +169,7 @@ public class MessageAdder : MonoBehaviour
         return 2;
         if (waitfixed)
             return time;
-        int wait = text.ToCharArray().Length /15;
+        int wait = text.ToCharArray().Length / 15;
         return wait;
     }
     IEnumerator AddAllMessages(int firstWait)
@@ -240,7 +241,7 @@ public class MessageAdder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            AddMessageList(new MessageClass[]{new MessageClass("Hola",0,0,0,false,""), new MessageClass("Caracola", 0, 0, 1, false, "") , new MessageClass("Me duele el ano", 0, 0, 1, false, "") }, 0);
+            AddMessageList(new MessageClass[] { new MessageClass("Hola", 0, 0, 0, false, ""), new MessageClass("Caracola", 0, 0, 1, false, ""), new MessageClass("Me duele el ano", 0, 0, 1, false, "") }, 0);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -265,4 +266,11 @@ public class MessageAdder : MonoBehaviour
             }
         }
     }
+   public void XD()
+    {
+        print("Diablo papuuu");
+    }
+    public void AddButtonClick(Button _button, string code){
+        _button.onClick.AddListener(delegate { XD(); });
+        }
 }

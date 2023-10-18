@@ -35,19 +35,26 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] LayerMask damage;
     [SerializeField] LayerMask win;
     [SerializeField] Animator anim;
+    [SerializeField] bool paused;
+    Vector2 saveVelocity;
     // Start is called before the first frame update
 
 
     private void Awake()
     {
+        paused = false;
         anim = GetComponentInChildren<Animator>();
+        SetEvents();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(collision.gameObject.layer);
-        if ((damage.value & 1 << collision.gameObject.layer) > 0)
+        if (!paused)
         {
-            Die();
+            if ((damage.value & 1 << collision.gameObject.layer) > 0)
+            {
+                Die();
+            }
         }
         if ((win.value & 1 << collision.gameObject.layer) > 0)
         {
@@ -78,11 +85,11 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !paused)
         {
             pressjump = pressjumpmax;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && !paused)
         {
             if (rb2d.velocity.y > 0)
             {
@@ -95,7 +102,7 @@ public class PlatormerPlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!fallingfrombox)
+        if (!fallingfrombox && !paused)
         {
             moveAxisX = Input.GetAxisRaw("Horizontal");
             if (moveAxisX > 0)
@@ -108,6 +115,11 @@ public class PlatormerPlayerController : MonoBehaviour
             {
                 _sprite.flipX = true;
                 anim.SetBool("walking", true);
+
+            }
+            else
+            {
+                anim.SetBool("walking", false);
 
             }
             if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0 && pressjump > 0))
@@ -261,5 +273,24 @@ public class PlatormerPlayerController : MonoBehaviour
 
         }
 
+    }
+    public void Pause()
+    {
+        paused = true;
+        anim.speed = 0;
+        saveVelocity = rb2d.velocity;
+        rb2d.velocity = Vector2.zero;
+    }
+
+    public void Unpause()
+    {
+        paused = false;
+        anim.speed = 1;
+        rb2d.velocity = saveVelocity;
+    }
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause, Unpause);
     }
 }

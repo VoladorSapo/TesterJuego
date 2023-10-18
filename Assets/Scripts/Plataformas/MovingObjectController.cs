@@ -9,6 +9,8 @@ public class MovingObjectController : MonoBehaviour
     GameObject movingObject;
     [SerializeField] float speed;
     [SerializeField] float spinspeed;
+    [SerializeField] bool canPause;
+     bool paused;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -21,6 +23,8 @@ public class MovingObjectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetEvents();
+        paused = false;
         movingObject = transform.GetChild(0).gameObject;
         points = new Vector3[transform.childCount - 1];
         for (int i = 1; i <= points.Length; i++)
@@ -33,15 +37,34 @@ public class MovingObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (points.Length > 0)
+        if (!paused)
         {
-            movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.deltaTime);
-            if (Vector2.Distance(movingObject.transform.position, points[objective]) < 0.01f)
+            if (points.Length > 0)
             {
-                objective = (objective + 1) % points.Length;
+                movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.deltaTime);
+                if (Vector2.Distance(movingObject.transform.position, points[objective]) < 0.01f)
+                {
+                    objective = (objective + 1) % points.Length;
+                }
             }
+            float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
+            movingObject.transform.eulerAngles = new Vector3(movingObject.transform.eulerAngles.x, movingObject.transform.eulerAngles.y, angle);
         }
-        float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
-        movingObject.transform.eulerAngles = new Vector3(movingObject.transform.eulerAngles.x, movingObject.transform.eulerAngles.y, angle);
+    }
+    public void Pause()
+    {
+        if(canPause)
+        paused = true;
+    }
+
+    public void Unpause()
+    {
+        if(canPause)
+        paused = false;
+    }
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause, Unpause);
     }
 }
