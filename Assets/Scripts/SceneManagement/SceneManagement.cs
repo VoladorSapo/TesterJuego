@@ -162,7 +162,7 @@ public class SceneManagement : MonoBehaviour
         if(menuScenes.Contains(currentScene.name))
             CarreraManager.Instance.killMouse=true;
         else if(allStages.Contains(currentScene.name)){
-            Debug.Log("carrera");
+            MusicSettings("Select Car Music",0.25f,"",0);
             CarreraManager.Instance.killMouse=false; 
             CarreraManager.Instance?.SetRace();  
         }

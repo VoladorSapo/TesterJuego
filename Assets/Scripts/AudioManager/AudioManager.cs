@@ -166,7 +166,6 @@ public class AudioManager : MonoBehaviour
 
         Sound prevSound=System.Array.Find(_sounds, sound => sound.name == currMusicName);
         Sound newSound=System.Array.Find(_sounds, sound => sound.name == newMusicName);
-        Debug.Log(newSound.volume);
 
         string realName="";
         if(prevSound!=null){
