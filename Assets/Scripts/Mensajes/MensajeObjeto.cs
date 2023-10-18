@@ -35,6 +35,7 @@ public class MensajeObjeto : MonoBehaviour
         if (!string.IsNullOrWhiteSpace(_button) && _button != "None")
         {
             GetComponentInChildren<Image>().gameObject.AddComponent(typeof(Button));
+            GetComponentInParent<MessageAdder>().AddButtonClick(GetComponentInChildren<Button>(), _button);
         }
         GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().pivot = new Vector2(_side, 1);
         GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMin = new Vector2(_side, 1);
