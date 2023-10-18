@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class DialogueController : MonoBehaviour
 {
+    public Action endConversation;
     public static DialogueController Instance;
     TMP_Text text;
     TMP_TextInfo info;
@@ -87,11 +91,10 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //StartConversation();
             getConversation("dialog");
-                }
+                }/*
         if (Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine("WriteText");
@@ -99,7 +102,7 @@ public class DialogueController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             text.spriteAsset = assets[0];
-        }
+        }*/
         if (Input.GetMouseButtonDown(0))
         {
             if (terminado)
@@ -111,15 +114,18 @@ public class DialogueController : MonoBehaviour
                 currentChar = text.maxVisibleCharacters = info.characterCount;
                 terminado = true;
             }
-        }*/
+        }
     }
     IEnumerator WriteText()
     {
+        print("cuidap");
         escribiendo = true;
         text.maxVisibleCharacters = 0;
         currentChar = 0;
         while (currentChar < info.characterCount)
         {
+            print("cuip");
+
             text.maxVisibleCharacters++;
             currentChar++;
             checkLink();
@@ -131,6 +137,7 @@ public class DialogueController : MonoBehaviour
     void EndDialogue()
     {
         canvasgroup.alpha = 0;
+        endConversation?.Invoke();
     }
     WaitForSeconds delay()
     {
@@ -178,5 +185,13 @@ public class DialogueController : MonoBehaviour
                 text.spriteAsset = assets[int.Parse(linkarray[1])];
                 break;
         }
+    }
+   public void setEvent(Action end)
+    {
+        endConversation += end;
+    }
+   public void unSetEvent(Action end)
+    {
+        endConversation -= end;
     }
 }
