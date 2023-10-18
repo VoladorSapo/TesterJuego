@@ -200,6 +200,17 @@ public class MessageAdder : MonoBehaviour
             }
         }
     }
+    public void SwitchBoard()
+    {
+        if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1)
+        {
+            CloseBoard();
+        }
+        else
+        {
+            OpenBoard();
+        }
+    }
     public void OpenBoard()
     {
         print("ooooooo");
@@ -255,13 +266,13 @@ public class MessageAdder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+            if (SceneManager.GetActiveScene().buildIndex == 9)
             {
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(10);
             }
             else
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(9);
 
             }
         }
