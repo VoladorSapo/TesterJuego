@@ -155,7 +155,7 @@ public class SceneManagement : MonoBehaviour
     }
 
     void MusicSettings(string prevMusic, float fadeOutTime, string newMusic, float fadeInTime){
-        AudioManager.Instance.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
+        AudioManager.Instance?.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
     void CarSettings(){
 

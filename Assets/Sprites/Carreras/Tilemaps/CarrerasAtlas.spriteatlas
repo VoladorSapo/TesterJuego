@@ -45,11 +45,34 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+    - {fileID: 2800000, guid: 687357ad0df73ab48bea01cabe0a247a, type: 3}
+    - {fileID: 2800000, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 595149326, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -1926732596, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 1623651911, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -1189598470, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 268149875, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -1842978922, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 918698953, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -2023687254, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 855789577, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 635850497, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -787729471, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 1748012786, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 2036698187, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 1762535213, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -646220184, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 160372320, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -1221846249, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 48679359, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: -1234999550, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 821931269, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
+  - {fileID: 1015865448, guid: 7d539d580f0699146a70ef9704fdef1d, type: 3}
   - {fileID: 1629551156, guid: 400df68bd8d36f549ac711f488975679, type: 3}
   - {fileID: 1604025027, guid: 400df68bd8d36f549ac711f488975679, type: 3}
   - {fileID: 471384718, guid: 400df68bd8d36f549ac711f488975679, type: 3}
@@ -104,7 +127,29 @@ SpriteAtlas:
   - {fileID: -1197748644, guid: 400df68bd8d36f549ac711f488975679, type: 3}
   - {fileID: -638308038, guid: 400df68bd8d36f549ac711f488975679, type: 3}
   - {fileID: -156987430, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 21300000, guid: 687357ad0df73ab48bea01cabe0a247a, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Arid_Sands2_17
+  - Arid_Sands2_16
+  - Arid_Sands2_15
+  - Arid_Sands2_14
+  - Arid_Sands2_13
+  - Arid_Sands2_12
+  - Arid_Sands2_11
+  - Arid_Sands2_10
+  - Arid_Sands2_20
+  - Arid_Sands2_19
+  - Arid_Sands2_18
+  - Arid_Sands2_8
+  - Arid_Sands2_9
+  - Arid_Sands2_4
+  - Arid_Sands2_5
+  - Arid_Sands2_6
+  - Arid_Sands2_7
+  - Arid_Sands2_0
+  - Arid_Sands2_1
+  - Arid_Sands2_2
+  - Arid_Sands2_3
   - Paper_Tileset_30
   - Paper_Tileset_31
   - Paper_Tileset_32
@@ -159,6 +204,7 @@ SpriteAtlas:
   - Paper_Tileset_28
   - Paper_Tileset_18
   - Paper_Tileset_19
+  - LavaPuddle
   m_RenderDataMap: {}
   m_Tag: CarrerasAtlas
   m_IsVariant: 0
