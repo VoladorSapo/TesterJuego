@@ -25,8 +25,12 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     [HideInInspector] public Vector2 forceToApply=Vector2.zero;
     private float forceDamping=1.2f;
 
+    //Animator
+    private Animator animator;
+
     void Awake(){
         _rb=GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         DontDestroyOnLoad(this);
 
     }
@@ -76,6 +80,8 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         float H=Input.GetAxisRaw("Horizontal");
         float V=Input.GetAxisRaw("Vertical");
         
+        animator.SetFloat("Horizontal", H);
+        animator.SetFloat("Vertical", V);
         CheckTileProperty(H,V,out H, out V);
 
         Vector2 PlayerInput= new Vector2(H,V).normalized;
