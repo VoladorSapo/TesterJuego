@@ -103,10 +103,11 @@ public class DialogueController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            getConversation("dialog");
-                }/*
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    getConversation("dialog");
+        //        }
+        /*
         if (Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine("WriteText");
@@ -196,9 +197,10 @@ public class DialogueController : MonoBehaviour
             case "TextAsset":
                 text.spriteAsset = assets[int.Parse(linkarray[1])];
                 break;
+
         }
     }
-   public void setEndConversation(Action end)
+    public void setEndConversation(Action end)
     {
         endConversation += end;
     }

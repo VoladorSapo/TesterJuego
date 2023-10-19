@@ -19,9 +19,12 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] private GameObject MessagePrefab;
     [SerializeField] private GameObject ImagePrefab;
     [SerializeField] private GameObject OptionButtonPrefab;
+    [SerializeField] private Button OpenButton;
     // Start is called before the first frame update
     void Start()
     {
+        SetEvents();
+        OpenButton.gameObject.SetActive(false);
         rundown = 0;
         CloseBoard();
         print(currentMessages == null);
@@ -252,7 +255,7 @@ public class MessageAdder : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            AddMessageList(new MessageClass[] { new MessageClass("Hola", 0, 0, 0, false, ""), new MessageClass("Caracola", 0, 0, 1, false, ""), new MessageClass("Me duele el ano", 0, 0, 1, false, "") }, 0);
+            AddMessageList(new MessageClass[] { new MessageClass("Hola", 0, 0, 0, false, ""), new MessageClass("", 0, 0, 1, false, ""), new MessageClass("Me duele el ano", 0, 0, 1, false, "") }, 0);
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -277,11 +280,55 @@ public class MessageAdder : MonoBehaviour
             }
         }
     }
-   public void XD()
+    public void XD()
     {
         print("Diablo papuuu");
     }
-    public void AddButtonClick(Button _button, string code){
+    public void AddButtonClick(Button _button, string code)
+    {
         _button.onClick.AddListener(delegate { XD(); });
+    }
+
+    public void LinkCount(TMP_Text text)
+    {
+        var Linkcount = text.textInfo.linkCount;
+        print(Linkcount);
+        foreach (TMP_LinkInfo item in text.textInfo.linkInfo)
+        {
+            LinkFunction(item.GetLinkID());
         }
+    }
+    void LinkFunction(string linktext)
+    {
+        string[] linkarray = linktext.Split('-');
+        switch (linkarray[0])
+        {
+            case "LoadScene":
+                SceneManager.LoadScene(int.Parse(linkarray[1]));
+                break;
+            case "Pause":
+                PauseController.Instance.InvokePause();
+                break;
+
+        }
+    }
+
+
+    public void SetEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause, Unpause);
+    }
+    public void Unpause()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        OpenButton.gameObject.SetActive(false);
+    }
+    public void Pause()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        OpenButton.gameObject.SetActive(true);
+
+    }
 }

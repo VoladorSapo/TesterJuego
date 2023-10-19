@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214, y: -298}
+  m_AnchoredPosition: {x: -558, y: -390}
   m_SizeDelta: {x: 409.6615, y: 135.26001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2278183218429238507
@@ -1032,7 +1032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 313, y: 180}
+  m_AnchoredPosition: {x: 490, y: 269}
   m_SizeDelta: {x: -1844.4897, y: -1244.4044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2278183218924985678
@@ -1061,6 +1061,7 @@ MonoBehaviour:
   MessagePrefab: {fileID: 9184019206137825125, guid: 3edb7463f1a6ca7459789cd28842a202, type: 3}
   ImagePrefab: {fileID: 4603031133191501381, guid: 1263a79f874d90e47a2f9a92bd9893a7, type: 3}
   OptionButtonPrefab: {fileID: 4274064696043432201, guid: 492bf0452c691f44dbc426f84d7dccd1, type: 3}
+  OpenButton: {fileID: 2278183218595409205}
 --- !u!1 &2278183218980367594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,8 +2048,8 @@ RectTransform:
   m_GameObject: {fileID: 8789168715412965362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.96000004, y: 0.96000004, z: 0.96000004}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2278183218924985673}
   - {fileID: 2278183218429238506}

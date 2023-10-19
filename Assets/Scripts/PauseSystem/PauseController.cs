@@ -37,4 +37,9 @@ public class PauseController : MonoBehaviour
             unpauseEvent?.Invoke();
         }
     }
+    public void InvokePause() //Lo he tenido que añadir para las pausas forzosas
+    {
+        pauseEvent?.Invoke();
+        isPaused = true;
+    }
 }

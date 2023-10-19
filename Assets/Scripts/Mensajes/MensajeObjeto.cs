@@ -42,6 +42,7 @@ public class MensajeObjeto : MonoBehaviour
         GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchorMax = new Vector2(_side, 1);
 
         yield return new WaitForEndOfFrame();
+        GetComponentInParent<MessageAdder>().LinkCount(GetComponentInChildren<TMP_Text>());
         GetComponent<RectTransform>().sizeDelta = new Vector2(100, GetComponentsInChildren<RectTransform>()[1].sizeDelta.y);
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponentInParent<RectTransform>());
         VerticalLayoutGroup layout = GetComponentInParent<VerticalLayoutGroup>();
