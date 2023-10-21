@@ -9,9 +9,11 @@ public class CarController : BasicCar, IPauseSystem
 {
 
     [Header("Settings")]
+    public bool isGlitchedCar=false;
 
     [Header("Factors")]
-    [SerializeField] private float _maxSpeed;
+    [SerializeField] private float _defaultMaxSpeed;
+    private float _maxSpeed;
     [SerializeField] private float _accelerationFactor;
     [SerializeField] private float _driftFactor;
     [SerializeField] private float _turnFactor;
@@ -27,6 +29,7 @@ public class CarController : BasicCar, IPauseSystem
 
     
     [Header("Obstacles")]
+    [SerializeField] private LayerMask _carLayer;
     [SerializeField] private LayerMask _obstacleLayer;
 
 
@@ -36,7 +39,7 @@ public class CarController : BasicCar, IPauseSystem
     public float _turnInput;
 
     [Header("Waypoint")]
-    [HideInInspector] public Waypoint CurrentWaypoint;
+    [HideInInspector] public List<Waypoint> CurrentWaypoint;
     [HideInInspector] public float DistanceToReachWaypoint;
 
 
@@ -60,7 +63,10 @@ public class CarController : BasicCar, IPauseSystem
         _rb = GetComponent<Rigidbody2D>();
         
         if(GameObject.Find("Waypoint0")!=null){
-            CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
+            CurrentWaypoint= new List<Waypoint>
+            {
+                GameObject.Find("Waypoint0").GetComponent<Waypoint>()
+            };
             CalculateDistanceToNextWaypoint();
         }
     }
@@ -74,6 +80,12 @@ public class CarController : BasicCar, IPauseSystem
 
     protected override void Update(){
         CalculateDistanceToNextWaypoint();
+        
+        if(_rb.velocity.magnitude>=7f){
+            Physics2D.IgnoreLayerCollision(3,13);
+        }else{
+            Physics2D.IgnoreLayerCollision(3,13,false);
+        }
     }
     protected override void FixedUpdate()
     {     
@@ -97,8 +109,15 @@ public class CarController : BasicCar, IPauseSystem
 
     void CalculateDistanceToNextWaypoint(){
         if(CurrentWaypoint==null){return;}
-        float dist=Vector3.Distance(new Vector3(transform.position.x,transform.position.y,0),new Vector3(CurrentWaypoint.transform.position.x,CurrentWaypoint.transform.position.y,0));
-        this.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=dist;
+        
+        float minDist=9999f;
+        foreach(Waypoint wp in CurrentWaypoint){
+            float wpDist=Vector3.Distance(new Vector3(transform.position.x,transform.position.y,0),new Vector3(wp.transform.position.x,wp.transform.position.y,0));
+            if(wpDist<minDist){
+                minDist=wpDist;
+            }
+        }
+        this.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=minDist;
     }
     void ApplyForce()
     {
@@ -107,6 +126,7 @@ public class CarController : BasicCar, IPauseSystem
 
         DragControl();
 
+        
         _forceVector = transform.up * _accelerationInput * _accelerationFactor;
 
         _rb.AddForce(_forceVector, ForceMode2D.Force);
@@ -123,7 +143,7 @@ public class CarController : BasicCar, IPauseSystem
         else _rb.drag = _defaultDrag;
 
         if (_velocityVsUp > _maxSpeed && _accelerationInput > 0) return;
-        if (_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) return;
+        if ((_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) && !isGlitchedCar)return;
         if (_rb.velocity.sqrMagnitude > _maxSpeed * _maxSpeed && _accelerationInput > 0) return;
 
         if (_accelerationInput == 0)
@@ -208,6 +228,11 @@ public class CarController : BasicCar, IPauseSystem
     {
         _turnInput = inputVector.x;
         _accelerationInput = inputVector.y;
+        if(_accelerationInput<0 && isGlitchedCar){
+            _maxSpeed=10f;
+        }else{
+            _maxSpeed=_defaultMaxSpeed;
+        }
     }
 
 
@@ -227,7 +252,7 @@ public class CarController : BasicCar, IPauseSystem
 
     //Otros
     bool HasTileDrag(Vector3 CarPos){
-        if(CarreraManager.Instance.NormalTilemap==null || CarreraManager.Instance.GlitchedTilemap==null){return false;}
+        if(CarreraManager.Instance.NormalTilemap==null || CarreraManager.Instance.GlitchedTilemap==null || (_accelerationInput<0 && isGlitchedCar)){return false;}
 
         Vector3Int mapPos=new Vector3Int(Mathf.FloorToInt(CarPos.x),Mathf.FloorToInt(CarPos.y),0);
         Tile NormalTile=(Tile) CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));

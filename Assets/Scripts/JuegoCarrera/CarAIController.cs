@@ -60,20 +60,29 @@ public class CarAIController : BasicCar, IPauseSystem
 
         _forceVector = transform.up * _accelerationInput * _accelerationFactor;
 
+        if(HasTileDrag(transform.position)){
+            _rb.drag = _dragFactor;
+        }else{
+            _rb.drag=0.2f;
+        }
+        
         _rb.AddForce(_forceVector, ForceMode2D.Force);
+        Vector3 v=_rb.velocity;
+        Vector3 normV=v.normalized;
+        float clampedM=Mathf.Clamp(v.magnitude,0f,MaxSpeed);
+        Vector3 clampedV=normV*clampedM;
+        _rb.velocity=clampedV;
         
     }
 
     void DragControl(){
+        
+
         _velocityVsUp = Vector2.Dot(transform.up, _rb.velocity);
 
-        if (_velocityVsUp > MaxSpeed)
-        {         
-            _rb.drag = Mathf.Lerp(_rb.drag, _dragFactor, Time.fixedDeltaTime * _dragSpeed);
-        }
-        else _rb.drag = 0;
-
         if (_velocityVsUp > MaxSpeed && _accelerationInput > 0) return;
+
+        
         if (_velocityVsUp < -MaxSpeed * 0.5 && _accelerationInput < 0) return;
         if (_rb.velocity.sqrMagnitude > MaxSpeed * MaxSpeed && _accelerationInput > 0) return;
 
@@ -83,11 +92,7 @@ public class CarAIController : BasicCar, IPauseSystem
         }
         else _rb.drag = 0;
 
-        if(HasTileDrag(transform.position)){
-            _rb.drag = _dragFactor;
-        }else{
-            _rb.drag=0.2f;
-        }
+        
     }
     void ApplyTurn()
     {

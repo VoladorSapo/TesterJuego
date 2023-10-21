@@ -12,7 +12,7 @@ public class ChangeTilemap : MonoBehaviour
         CarreraManager.Instance.GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=false;
     }
     void Update(){
-        if(playerPositionInRace!=null && playerPositionInRace.WaypointsPassed>=17 && !enabledGlitchedMap){
+        /*if(playerPositionInRace!=null && playerPositionInRace.WaypointsPassed>=17 && !enabledGlitchedMap){
             Debug.Log("cambio!!");
             enabledGlitchedMap=true;
             GlitchTiles();
@@ -21,7 +21,7 @@ public class ChangeTilemap : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K)){
             enabledGlitchedMap=true;
             GlitchTiles();
-        }
+        }*/
     }
 
     void GlitchTiles(){

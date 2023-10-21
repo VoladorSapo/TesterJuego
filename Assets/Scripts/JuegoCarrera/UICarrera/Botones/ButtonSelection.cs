@@ -17,7 +17,13 @@ public class ButtonSelection : MonoBehaviour, ISelectHandler
     [SerializeField] public Sprite thisButtonImage;
     [SerializeField] public string thisDescription;
 
+    protected virtual void Start(){
 
+    }
+
+    protected virtual void Update(){
+        
+    }
     public virtual void OnSelect(BaseEventData eventData)
     {
         imageDisplay.sprite=thisButtonImage;

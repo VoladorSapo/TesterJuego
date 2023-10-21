@@ -111,7 +111,7 @@ public class CarAI : MonoBehaviour
 
         if(isAvoidingCars){
             AvoidCars(vectorToTarget, out vectorAvoidance);
-            if(vectorAvoidance.magnitude>(_targetPos - transform.position).magnitude){vectorToTarget=vectorAvoidance;}
+            if(vectorAvoidance.magnitude>(_targetPos - transform.position).magnitude*1.5f){vectorToTarget=vectorAvoidance;}
         }
         
         
@@ -201,7 +201,7 @@ public class CarAI : MonoBehaviour
        
         RaycastHit2D raycastHit2D = Physics2D.CircleCast(HeadTransform.position+transform.up*0.5f,_detectRadius, transform.up, _detectDistance, carMask);
         if(raycastHit2D.collider!=null){
-            Debug.DrawRay(transform.position, transform.up*_detectDistance, Color.red);
+            Debug.DrawRay(transform.position, transform.up*(_detectDistance+_detectRadius), Color.red);
 
             position=raycastHit2D.collider.transform.position;
 
@@ -209,7 +209,7 @@ public class CarAI : MonoBehaviour
             return true;
         }
         else{
-            Debug.DrawRay(transform.position, transform.up*_detectDistance, Color.black);
+            Debug.DrawRay(transform.position, transform.up*(_detectDistance+_detectRadius), Color.black);
         }
         position=Vector3.zero;
         otherCarRightVector=Vector3.zero;

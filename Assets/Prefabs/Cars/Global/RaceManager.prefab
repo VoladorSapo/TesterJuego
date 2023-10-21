@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7677317203328774758}
   - component: {fileID: 7677317203328774759}
+  - component: {fileID: 1010978805}
   m_Layer: 0
   m_Name: RaceManager
   m_TagString: Untagged
@@ -44,15 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c3d4857bc02554eae2dbfe375b2575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalWaypointsInTrack: 0
+  killMouse: 0
+  totalWaypointsInTrack: 20
   numberOfLaps: 0
-  indexSelectedStage: 0
+  SelectedStage: Stage1Car
   allSprites:
   - {fileID: 21300000, guid: 26f49cec7247f8348a23b189a45b3f33, type: 3}
   - {fileID: 21300000, guid: 8113cf5732cb1ed4597b7a52e095efb2, type: 3}
-  - {fileID: 21300000, guid: 9096fc9e23e4cd24eb3b78c5b410c7d1, type: 3}
-  - {fileID: 21300000, guid: 2d8dc756de6cf584988ba05ad0cfe412, type: 3}
-  indexPlayerSprite: 0
+  - {fileID: 21300000, guid: 585582db4065ab44eb943160585c203d, type: 3}
+  - {fileID: 21300000, guid: cb3c67c836e45c345ba58665256241df, type: 3}
+  indexPlayerSprite: 2
   allPositions: []
   NoDragTiles:
   - {fileID: 11400000, guid: 2c81156c2281e3a4c9c94d7d58ef2a5a, type: 2}
@@ -82,5 +84,65 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 464d68b26abb7f943bb1e1a7c3de2291, type: 2}
   - {fileID: 11400000, guid: 02c072831f0ee59498bc2b708354f8a8, type: 2}
   - {fileID: 11400000, guid: 5c7bc947c3a3d8541b31cd0bc0cfad57, type: 2}
+  - {fileID: 11400000, guid: e62aa72f1eb0a104b84bf6761a5b394f, type: 2}
+  - {fileID: 11400000, guid: f53825803ec93524fbca564da438b9ee, type: 2}
+  - {fileID: 11400000, guid: ff647fc9cccc60c4aa8aeedfbc5ec0d8, type: 2}
+  - {fileID: 11400000, guid: 1847ea3cc2738a8449deda7ca78ef60d, type: 2}
+  - {fileID: 11400000, guid: 7a06c15d5a4ee9646a50ec073f708a61, type: 2}
+  - {fileID: 11400000, guid: b854b38db55d36c4484134536eefe331, type: 2}
+  - {fileID: 11400000, guid: 0ee9747d595bb7c4f916c677f468fd5f, type: 2}
+  - {fileID: 11400000, guid: d2dcba5e564f7184da066e3a3a47289f, type: 2}
+  - {fileID: 11400000, guid: 397f6e6b178515d429a3503a9e70c2ee, type: 2}
+  - {fileID: 11400000, guid: 447eef6cc1723c44baec10c9aeaa7750, type: 2}
+  - {fileID: 11400000, guid: f29ace950d763364eb0e681aa25c001d, type: 2}
+  - {fileID: 11400000, guid: ebe0dd5e91ceea341a80f40ea80d4339, type: 2}
+  - {fileID: 11400000, guid: 5cc9083e35a9ff24292d74b8ac109c73, type: 2}
+  - {fileID: 11400000, guid: ed3e9a7708683c545a88964bf20c6a9f, type: 2}
+  - {fileID: 11400000, guid: 649db162bc948a64fac47c4eceb6db70, type: 2}
+  - {fileID: 11400000, guid: 2cf66bc6c74c2994087a29817d821eac, type: 2}
+  - {fileID: 11400000, guid: 61d14f4d7ff9dd642a54e975ce672837, type: 2}
+  - {fileID: 11400000, guid: e7fd13154fc57ce4791ab834cc75eee5, type: 2}
+  - {fileID: 11400000, guid: 9295c4ec02e1876419889263d3ab5602, type: 2}
+  - {fileID: 11400000, guid: 78bf1c2a29c521544bee343c83e5378a, type: 2}
+  - {fileID: 11400000, guid: 16cb5ad9f9ef3594697746857adfcafd, type: 2}
+  - {fileID: 11400000, guid: 9034e1b8d0f87a54d8035825513f74b3, type: 2}
+  - {fileID: 11400000, guid: e937f8d1313681840819e19d4a990cae, type: 2}
+  - {fileID: 11400000, guid: 0a39083af4bd03143ae23989ec51e1d4, type: 2}
+  - {fileID: 11400000, guid: 620c39b96acee4d438dd5a6392639568, type: 2}
+  - {fileID: 11400000, guid: c9595661a320751418b657485131f6c2, type: 2}
+  - {fileID: 11400000, guid: 96747fd2b3ec491449572c9a515c709e, type: 2}
+  - {fileID: 11400000, guid: 3e0a229a3e3a56c4c8555e236756ef96, type: 2}
+  - {fileID: 11400000, guid: 4038a05ee2cc46545985902d0266814b, type: 2}
+  - {fileID: 11400000, guid: c9a62a6af1b6f3841983064e803374a6, type: 2}
+  - {fileID: 11400000, guid: 9109aae284055744085c23aee418cec5, type: 2}
+  - {fileID: 11400000, guid: 77c885d86d0158a458d4dafbfa090aa5, type: 2}
+  - {fileID: 11400000, guid: 59c0fe963a0986d45b9ef6b477d00711, type: 2}
+  - {fileID: 11400000, guid: be65e5fd48135b64babed2926e7c96e8, type: 2}
+  - {fileID: 11400000, guid: 9537433af166e444eb5e24c0833cb71d, type: 2}
+  - {fileID: 11400000, guid: a4f7b38bf9d064949acba819173e7fe2, type: 2}
+  - {fileID: 11400000, guid: 85611a1535c802649b845eb2a15562e7, type: 2}
+  - {fileID: 11400000, guid: 4c95a831bea58344482a8048166f8ac7, type: 2}
+  - {fileID: 11400000, guid: 43815f615fb5be643b17dac863d6d9b0, type: 2}
+  - {fileID: 11400000, guid: ab24c656e8ccb36439c081afb30cf2ec, type: 2}
+  - {fileID: 11400000, guid: bf1675d58c8f9d243b3343b56eaebc79, type: 2}
+  - {fileID: 11400000, guid: 798c7bfbda608cb42b8c37e4063366e2, type: 2}
+  - {fileID: 11400000, guid: 42d289d420d4f314cb67529b80db77e8, type: 2}
+  - {fileID: 11400000, guid: 974614b70285443459565d2531b00c49, type: 2}
+  - {fileID: 11400000, guid: eaf1e05633f678346b74cb339d658783, type: 2}
+  - {fileID: 11400000, guid: 5e432d9febf7e324d8254deb57ffb3e5, type: 2}
+  - {fileID: 11400000, guid: c7c8470580728d14c94bf765b519a8f8, type: 2}
   NormalTilemap: {fileID: 0}
   GlitchedTilemap: {fileID: 0}
+--- !u!114 &1010978805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677317203328774776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b0a9d20dd560444ade2c2aeda9b141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPositionInRace: {fileID: 0}

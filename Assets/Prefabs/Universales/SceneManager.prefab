@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7249336582868183863}
   - component: {fileID: 7249336582868183860}
+  - component: {fileID: 712464765327753239}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -44,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d6f986a9d08384abe1761b2a3c77ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  narrativePart: 0
-  prevNarrativePart: 0
+  globalNarrativePart: 2
+  localNarrativePart: 2
   allPlatformLevels:
   - Plataformas
   allStages:
@@ -57,3 +58,16 @@ MonoBehaviour:
   - MenuCar
   zeldaPrefab: {fileID: 7116350652226476657, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
   posZeldaInicio: {x: 0, y: 0, z: 0}
+--- !u!114 &712464765327753239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249336582868183861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938affca28596a64da36766f9e305f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedCarStages: 0

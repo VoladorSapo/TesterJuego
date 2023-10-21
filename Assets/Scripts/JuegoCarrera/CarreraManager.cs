@@ -18,7 +18,7 @@ public class CarreraManager : MonoBehaviour
     //Calculo de Distancia
     Transform WaypointRoot;
     public int totalWaypointsInTrack=10;
-    [HideInInspector] public int numberOfLaps;
+    public int numberOfLaps;
 
 
     [Header("Stages")]
@@ -66,7 +66,7 @@ public class CarreraManager : MonoBehaviour
     }
 
     public void GoToRace(){
-        Canvas canvas=GameObject.Find("MainCanvas").GetComponent<Canvas>();
+        Canvas canvas=GameObject.Find("MenuCanvas").GetComponent<Canvas>();
         canvas.enabled=false;
         
         SceneManager.LoadScene(SelectedStage);

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -2143378071
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26f49cec7247f8348a23b189a45b3f33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,10 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f710acf7d79782449815fa346ee4232f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 10
+  canMove: 0
+  isGlitchedCar: 0
+  _defaultMaxSpeed: 6
   _accelerationFactor: 3.5
   _driftFactor: 0.2
-  _turnFactor: 3.75
+  _turnFactor: 4
   _turnAngles: 22.5
   _turnLimitFactor: 4.5
   _stopVelocityTreshhold: 0.125
@@ -112,12 +114,17 @@ MonoBehaviour:
   _dragFactor: 2.5
   _dragSpeed: 2.5
   _minSpeedToSkid: 1.5
+  _carLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
   _accelerationInput: 0
   _turnInput: 0
-  CurrentWaypoint: {fileID: 0}
+  CurrentWaypoint:
+  - {fileID: 0}
+  DistanceToReachWaypoint: 0
   _plyInput: {fileID: 0}
 --- !u!114 &8904381574548517837
 MonoBehaviour:
@@ -172,7 +179,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,3 +202,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: 
   WaypointsPassed: 0
+  DistanceToReachWaypoint: 0

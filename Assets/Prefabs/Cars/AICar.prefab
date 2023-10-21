@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -2143378071
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af4d103d5faf39c46ba63663c108fb52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -149,12 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6522080e9fa2a494aa2087d601cad83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
   MaxSpeed: 5
-  _accelerationFactor: 2.5
+  _accelerationFactor: 3
   _driftFactor: 0.1
-  _turnFactor: 4
-  _turnLimitFactor: 4.5
-  _turnReactionTime: 12.5
+  _turnFactor: 6
+  _turnLimitFactor: 6
+  _turnReactionTime: 15
   _maintainTurnTime: 0.045
   _turnAngles: 22.5
   _dragFactor: 2.5
@@ -176,13 +177,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentWaypoint: {fileID: 0}
   PreviousWaypoint: {fileID: 0}
-  _divideSegments: 3.5
+  _divideSegments: 2.5
   carMask:
     serializedVersion: 2
     m_Bits: 8
   HeadTransform: {fileID: 5443383887790424187}
   _detectRadius: 1.1
-  _detectDistance: 3
+  _detectDistance: 1
   _maxAvoidInfluence: 10
   isAvoidingCars: 1
   updateAvoidAngleTime: 8
@@ -201,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: 
   WaypointsPassed: 0
+  DistanceToReachWaypoint: 0
 --- !u!1 &5443383887790424186
 GameObject:
   m_ObjectHideFlags: 0

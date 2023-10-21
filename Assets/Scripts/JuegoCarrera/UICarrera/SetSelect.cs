@@ -11,6 +11,7 @@ public class SetSelect : MonoBehaviour
     [Header("Display Frames")]
     [SerializeField] protected UnityEngine.UI.Image imageDisplay;
     [SerializeField] protected TextMeshProUGUI textDisplay;
+    
     void OnEnable(){
         EventSystem.current.SetSelectedGameObject(button.gameObject, new BaseEventData(EventSystem.current));
         imageDisplay.sprite=button.GetComponent<StageButton>().thisButtonImage;

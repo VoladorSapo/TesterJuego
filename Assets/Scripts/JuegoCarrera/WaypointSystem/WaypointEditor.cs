@@ -13,9 +13,16 @@ public class WaypointEditor
         GameObject selectecWP=Selection.activeGameObject;
         if(selectecWP!=null && waypoint.gameObject.name==selectecWP.name){
             Gizmos.color=Color.yellow;
+            if(waypoint.isCheckpoint){
+                Gizmos.color=Color.green*1.5f;
+            }
         }else{
             Gizmos.color=Color.yellow*0.5f;
+            if(waypoint.isCheckpoint){
+                Gizmos.color=Color.green*0.5f;
+            }
         }
+        
         Gizmos.DrawSphere(waypoint.transform.position, 0.5f);
 
         Vector2 up=waypoint.transform.up*5f;
@@ -24,6 +31,14 @@ public class WaypointEditor
 
         if(waypoint.FollowingWaypoints!=null){
             foreach(Waypoint wp in waypoint.FollowingWaypoints){
+                Gizmos.color=Color.red;
+                if(wp!=null)
+                DrawArrow(waypoint.transform.position, wp.transform.position,1f,0.5f);
+            }
+        }
+
+        if(waypoint.FollowingCheckpoints!=null){
+            foreach(Waypoint wp in waypoint.FollowingCheckpoints){
                 Gizmos.color=Color.red;
                 if(wp!=null)
                 DrawArrow(waypoint.transform.position, wp.transform.position,1f,0.5f);

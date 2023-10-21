@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class Waypoint : MonoBehaviour
 {
-    public bool _carSlowsDown;
+    public bool isCheckpoint;
     public float _distanceToReachWaypoint=5;
     public LayerMask carMask;
 
@@ -16,6 +16,8 @@ public class Waypoint : MonoBehaviour
     //private List<Waypoint> followWP=new List<Waypoint>();
     public List<Waypoint> PreviousWaypoints=new List<Waypoint>();
     //private List<Waypoint> prevWP=new List<Waypoint>();
+
+    public List<Waypoint> FollowingCheckpoints=new List<Waypoint>();
 
     /*private void OnValidate(){
         if(!FollowingWaypoints.SequenceEqual(followWP)){
@@ -52,13 +54,15 @@ public class Waypoint : MonoBehaviour
         CarController carPlayer=col.gameObject.GetComponent<CarController>();
         if((carMask.value & (1 << col.gameObject.layer)) != 0){
 
-            if(carPlayer!=null && carPlayer.CurrentWaypoint!=null && carPlayer.CurrentWaypoint.name==this.gameObject.name){
+            if(carPlayer!=null && carPlayer.CurrentWaypoint!=null && carPlayer.CurrentWaypoint.Contains(this)){
                 carPlayer.gameObject.GetComponent<PositionRace>().DistanceToReachWaypoint=
                 Vector3.Distance(new Vector3(carPlayer.transform.position.x,carPlayer.transform.position.y,0),
                 new Vector3(FollowingWaypoints[0].transform.position.x,FollowingWaypoints[0].transform.position.y,0));
 
                 carPlayer.gameObject.GetComponent<PositionRace>().PassedWaypoint();
-                carPlayer.CurrentWaypoint=FollowingWaypoints[0];
+
+                carPlayer.CurrentWaypoint=FollowingWaypoints;
+
             }
 
             if(carAI!=null && carAI.CurrentWaypoint!=null && carAI.CurrentWaypoint.name==this.gameObject.name){
@@ -78,6 +82,17 @@ public class Waypoint : MonoBehaviour
         
     }
 
+    private bool PossibleWaypoint(Waypoint currPlyWaypoint){
+
+        foreach(Waypoint prevwp in currPlyWaypoint.PreviousWaypoints){
+            foreach(Waypoint wp in prevwp.FollowingWaypoints){
+                if(wp.name==this.gameObject.name){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     private Waypoint PickRandomWeighted(List<Waypoint> followingWaypoints)
     {

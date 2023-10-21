@@ -426,6 +426,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814858823395, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814858823395, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8829256021943023306, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1039,7 +1055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage Select
+  m_text: Select Track
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1129,7 +1145,7 @@ GameObject:
   - component: {fileID: 502988900}
   - component: {fileID: 502988899}
   m_Layer: 5
-  m_Name: MainCanvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,8 +1272,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 927373470}
-    m_SelectOnRight: {fileID: 2075004238}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1384,6 +1400,7 @@ MonoBehaviour:
   thisDescription: a
   stageName: Stage1Car
   lapsOfStage: 3
+  buttonID: 0
 --- !u!1 &825970634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1573,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 2075004238}
-    m_SelectOnRight: {fileID: 927373470}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1684,6 +1701,7 @@ MonoBehaviour:
   thisDescription: c
   stageName: Stage3Car
   lapsOfStage: 3
+  buttonID: 2
 --- !u!1001 &882818637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1691,29 +1709,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
-      propertyPath: localNarrativePart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
-      propertyPath: globalNarrativePart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
-      propertyPath: localPrevNarrativePart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
-      propertyPath: globalPrevNarrativePart
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183861, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: m_Name
       value: SceneManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249336582868183861, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183863, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: m_RootOrder
@@ -1926,6 +1924,7 @@ MonoBehaviour:
   thisDescription: d
   stageName: Stage4Car
   lapsOfStage: 5
+  buttonID: 3
 --- !u!1 &989128901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
-  thisButtonImage: {fileID: 21300000, guid: 9096fc9e23e4cd24eb3b78c5b410c7d1, type: 3}
+  thisButtonImage: {fileID: 21300000, guid: 585582db4065ab44eb943160585c203d, type: 3}
   thisDescription: c
   SpriteIndex: 2
 --- !u!1 &1425084953
@@ -4021,7 +4020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
-  thisButtonImage: {fileID: 21300000, guid: 2d8dc756de6cf584988ba05ad0cfe412, type: 3}
+  thisButtonImage: {fileID: 21300000, guid: cb3c67c836e45c345ba58665256241df, type: 3}
   thisDescription: d
   SpriteIndex: 3
 --- !u!1 &1979875753
@@ -4101,8 +4100,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 542218242}
-    m_SelectOnRight: {fileID: 851096442}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4229,6 +4228,7 @@ MonoBehaviour:
   thisDescription: b
   stageName: Stage2Car
   lapsOfStage: 3
+  buttonID: 1
 --- !u!1 &2078620744
 GameObject:
   m_ObjectHideFlags: 0
