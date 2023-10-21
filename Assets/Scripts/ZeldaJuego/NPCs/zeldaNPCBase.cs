@@ -8,10 +8,14 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
 {
     [SerializeField] private string conversationKey;
 
+    [Header("Posicion Pies")]
+    public Transform feetT;
+
     [Header("Estados NPC")]
     [SerializeField] public NPCWaypoint[] allWaypoints;
     [SerializeField] public float walkingSpeed;
     [HideInInspector] public int currentWP;
+    public LayerMask playerLayer;
 
     [SerializeField] string startingState;
     private IStateClass currentState;

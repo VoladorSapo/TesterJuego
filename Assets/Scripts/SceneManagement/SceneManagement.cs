@@ -10,10 +10,10 @@ public class SceneManagement : MonoBehaviour
 {
     public static SceneManagement Instance;
     public int globalNarrativePart;
-    private int globalPrevNarrativePart=0;
+    private int globalPrevNarrativePart=-1;
 
     public int localNarrativePart;
-    private int localPrevNarrativePart=0;
+    private int localPrevNarrativePart=-1;
 
     [Header("Escenas del Juego de Plataformas")]
     public List<string> allPlatformLevels;
@@ -50,6 +50,11 @@ public class SceneManagement : MonoBehaviour
         camaraGlobal=CamaraGlobal.Instance;
         StartSettings();
     }
+
+    void StartSettings(){
+         CameraSettings(1,"Capsule",1);
+    }
+
     void Update()
     {   
         currentScene=SceneManager.GetActiveScene();
@@ -116,9 +121,7 @@ public class SceneManagement : MonoBehaviour
         }
     }
     
-    void StartSettings(){
-        CameraSettings(1,"Capsule",1);
-    }
+
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
@@ -128,12 +131,14 @@ public class SceneManagement : MonoBehaviour
         if(followPlayer!="")
         camaraGlobal._player=followPlayer;
 
+
+       Debug.Log(enablePanelUI);
         switch(enablePanelUI){
-            case 1: camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
+            case 1: camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.carUI.SetActive(false); camaraGlobal.attachedCanvas.zeldaUI.SetActive(false);
             break;
-            case 2: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
+            case 2: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.carUI.SetActive(true); camaraGlobal.attachedCanvas.zeldaUI.SetActive(false);
             break;
-            case 3: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true);
+            case 3: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.carUI.SetActive(false); camaraGlobal.attachedCanvas.zeldaUI.SetActive(true);
             break;
             default: break;
         }

@@ -19,7 +19,13 @@ public class MovingState : IStateClass
     public override void StateEffect(zeldaNPCBase npc)
     {
         if(npc.allWaypoints.Length>1){
+
+                Vector2 dir=npc.allWaypoints[npc.currentWP].pos-new Vector2(npc.transform.position.x,npc.transform.position.y);
+                dir.Normalize();
+                RaycastHit2D hit=Physics2D.CircleCast(npc.feetT.position,0.3f,dir,1.45f,npc.playerLayer);
+                if(!hit){
                 npc.transform.position=Vector2.MoveTowards(npc.transform.position,npc.allWaypoints[npc.currentWP].pos,npc.walkingSpeed*Time.deltaTime);
+                }
                 //Cuando este el animator
                 npc.SetDirection(npc.allWaypoints[npc.currentWP].pos);
 

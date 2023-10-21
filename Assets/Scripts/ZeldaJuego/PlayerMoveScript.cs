@@ -9,6 +9,7 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
 {
     
     //Tilemap
+    public static PlayerMoveScript Instance;
     private Tilemap groundTileMap;
     
     [Header("Movimiento")]
@@ -29,6 +30,11 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     private Animator animator;
 
     void Awake(){
+        if(Instance==null){
+            Instance=this;
+        }else{
+            Destroy(this.gameObject);
+        }
         _rb=GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         DontDestroyOnLoad(this);
@@ -63,11 +69,23 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_interactionPos.position, 0.8f, _interactableMask);
 
-            foreach (Collider2D collider in hitColliders)
+        Vector3 dir1=new Vector3(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0); dir1.Normalize();
+        Debug.DrawRay(_interactionPos.position,dir1,Color.black);
+
+        Vector2 dir=new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")); dir.Normalize();
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_interactionPos.position,dir,1f,_interactableMask);
+
+            /*foreach (Collider2D collider in hitColliders)
             {
                 if (collider.GetComponent<zeldaNPCBase>()!=null)
                 {
                     npc=collider.GetComponent<zeldaNPCBase>();
+                    return true;
+                }
+            }*/
+            foreach(RaycastHit2D hit in hits){
+                if(hit.transform.GetComponent<zeldaNPCBase>()!=null){
+                    npc=hit.transform.GetComponent<zeldaNPCBase>();
                     return true;
                 }
             }
