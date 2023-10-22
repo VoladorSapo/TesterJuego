@@ -82,6 +82,8 @@ public class PlatormerPlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spawnPoint = GameObject.Find("SpawnPoint").transform.position;
         transform.position = spawnPoint;
+        CamaraGlobal.Instance.attachedCanvas.platformUI.SetActive(true);
+
     }
     private void Update()
     {

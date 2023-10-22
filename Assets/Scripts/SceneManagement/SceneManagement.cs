@@ -70,6 +70,12 @@ public class SceneManagement : MonoBehaviour
         }
 
         ConstantChanges();
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartSettings();
+            //CameraSettings(1, "Capsule", 1);
+
+        }
     }
 
     void SpawnZeldaPlayer(){
@@ -117,6 +123,7 @@ public class SceneManagement : MonoBehaviour
     }
     
     void StartSettings(){
+        print("j");
         CameraSettings(1,"Capsule",1);
     }
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
@@ -127,10 +134,11 @@ public class SceneManagement : MonoBehaviour
 
         if(followPlayer!="")
         camaraGlobal._player=followPlayer;
-
+        print("SetActive");
         switch(enablePanelUI){
             case 1: camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
-            break;
+                print("SetAcAAc");
+                break;
             case 2: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.platformUI.SetActive(false);
             break;
             case 3: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.platformUI.SetActive(true);
