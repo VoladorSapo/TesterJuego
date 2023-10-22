@@ -9,6 +9,7 @@ public class PositionRace : MonoBehaviour
     public string playerName;
     public int WaypointsPassed;
     public float DistanceToReachWaypoint;
+    [HideInInspector] public Sprite spriteUI;
 
     public void PassedWaypoint(){
         
@@ -18,7 +19,7 @@ public class PositionRace : MonoBehaviour
         CarreraManager.Instance.OrderPositionsList();
 
         if(WaypointsPassed>=CarreraManager.Instance.totalWaypointsInTrack){
-            Debug.Log(playerName+" is the winner");
+            CarreraManager.Instance.RaceFinished(this.gameObject.name);
         }
     }
 
