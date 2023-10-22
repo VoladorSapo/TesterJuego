@@ -75,6 +75,12 @@ public class SceneManagement : MonoBehaviour
         }
 
         ConstantChanges();
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartSettings();
+            //CameraSettings(1, "Capsule", 1);
+
+        }
     }
 
     void SpawnZeldaPlayer(){
@@ -121,7 +127,6 @@ public class SceneManagement : MonoBehaviour
         }
     }
     
-
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;

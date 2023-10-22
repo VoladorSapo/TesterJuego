@@ -9,6 +9,7 @@ public class MessageAdder : MonoBehaviour
 {
 
     public List<GameObject> TextConversations;
+   public static MessageAdder Instance;
     [SerializeField] private GameObject MessageBoard;
     [SerializeField] private GameObject Options;
     int currentConversation;
@@ -20,6 +21,7 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] private GameObject ImagePrefab;
     [SerializeField] private GameObject OptionButtonPrefab;
     [SerializeField] private Button OpenButton;
+    [SerializeField]bool HardPaused;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +61,7 @@ public class MessageAdder : MonoBehaviour
 
             }
         }
-
+        Instance = this;
     }
 
     void AddMessage(string text, int side, int list, string isButton, int type)
@@ -123,7 +125,7 @@ public class MessageAdder : MonoBehaviour
         StartCoroutine(couritine);
     }
 
-    MessageClass[] GetMessageList(string key)
+  public MessageClass[] GetMessageList(string key)
     {
 
         List<MessageClass> messages = new List<MessageClass>();
@@ -137,13 +139,15 @@ public class MessageAdder : MonoBehaviour
         }
         return messages.ToArray();
     }
-    void AddMessageList(MessageClass[] messages, int conversation)
+    public void AddMessageList(MessageClass[] messages, int conversation)
     {
         if (currentMessages[conversation].Count == 0)
         {
             currentMessages[conversation].AddRange(messages);
             wholeMessages[conversation].AddRange(messages);
             currentConversation = conversation;
+            print(messages.Length);
+            print(currentMessages.Count);
             AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation, currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
             currentMessages[conversation].RemoveAt(0);
             if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
@@ -263,6 +267,7 @@ public class MessageAdder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
+            HardPause();
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -308,6 +313,11 @@ public class MessageAdder : MonoBehaviour
                 break;
             case "Pause":
                 PauseController.Instance.InvokePause();
+                OpenButton.gameObject.SetActive(false);
+                break;
+            case "UnHardPause":
+                HardPaused = false;
+                OpenButton.gameObject.SetActive(false);
                 break;
 
         }
@@ -323,6 +333,15 @@ public class MessageAdder : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         OpenButton.gameObject.SetActive(false);
+    }
+    public void HardPause()
+    {
+        print("diablo");
+        //OpenBoard();
+        OpenButton.gameObject.SetActive(false);
+        PauseController.Instance.InvokePause();
+
+
     }
     public void Pause()
     {
