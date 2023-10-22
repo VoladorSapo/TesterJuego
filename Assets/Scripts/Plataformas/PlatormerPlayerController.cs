@@ -63,6 +63,7 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     public void Die()
     {
+        print("die");
         currentextraJumps = 0;
 
         transform.position = spawnPoint;
@@ -74,14 +75,16 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     void Start()
     {
+        spawnPoint = GameObject.Find("SpawnPoint").transform.position;
+
         insideFloor = false;
         fallingfrombox = false;
         currentextraJumps = 0;
         _sprite = GetComponentInChildren<SpriteRenderer>();
         raycasts = GetComponent<PlatformerRaycast>();
         rb2d = GetComponent<Rigidbody2D>();
-        spawnPoint = GameObject.Find("SpawnPoint").transform.position;
         transform.position = spawnPoint;
+        print(spawnPoint);
         CamaraGlobal.Instance.attachedCanvas.platformUI.SetActive(true);
 
     }
