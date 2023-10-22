@@ -25,8 +25,8 @@ public class CarreraManager : MonoBehaviour
     public string SelectedStage;
 
     [Header("Sprites de los Coches")]
-    public List<Sprite> allSprites;
-    private List<Sprite> availableSprites;
+    public List<SpritesCars> allSprites;
+    private List<SpritesCars> availableSprites;
     [SerializeField] private int indexPlayerSprite;
 
     //Los coches activos
@@ -39,6 +39,7 @@ public class CarreraManager : MonoBehaviour
     [HideInInspector] public Tilemap NormalTilemap;
     [HideInInspector] public Tilemap GlitchedTilemap;
     bool raceStarted=false;
+    bool raceFinished=false;
 
     //Inicio
     void Awake()
@@ -63,6 +64,10 @@ public class CarreraManager : MonoBehaviour
         if(raceStarted){
         UpdatePositionUI();
         }
+
+        if(Input.GetKeyDown(KeyCode.U)){
+            RaceFinished("PlayerCar");
+        }
     }
 
     public void GoToRace(){
@@ -74,6 +79,7 @@ public class CarreraManager : MonoBehaviour
 
     //SetRace
     public void SetRace(){
+        raceFinished=false;
         setVariables();
         setNumberOfWaypoints();
         setSprites();
@@ -83,6 +89,17 @@ public class CarreraManager : MonoBehaviour
 
     public void EndRace(){
         Destroy(this.gameObject);
+    }
+
+    public void RaceFinished(string winner){
+
+        raceStarted=false;
+        raceFinished=true;
+
+        if(winner=="PlayerCar")
+        StartCoroutine(DebugWinner(winner));
+
+        minStart++;
     }
 
     void setVariables(){
@@ -117,17 +134,19 @@ public class CarreraManager : MonoBehaviour
         
     }
     void setSprites(){
-        availableSprites=new List<Sprite>(allSprites);
+        availableSprites=new List<SpritesCars>(allSprites);
 
         //Set Player sprite
-        GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite=availableSprites[indexPlayerSprite];
+        GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite=availableSprites[indexPlayerSprite].spriteCar;
+        GameObject.FindObjectOfType<CarController>().GetComponent<PositionRace>().spriteUI=availableSprites[indexPlayerSprite].spriteUI;
         availableSprites.RemoveAt(indexPlayerSprite);
 
         availableSprites=ShuffleList(availableSprites);
         SpriteRenderer[] allAICarsInScene=GameObject.FindGameObjectsWithTag("AICar").Select(car=>car.GetComponent<SpriteRenderer>()).Where(_spr=>_spr!=null).ToArray();
         int i=0;
         foreach(SpriteRenderer ai in allAICarsInScene){
-            ai.sprite=availableSprites[i];
+            ai.sprite=availableSprites[i].spriteCar;
+            ai.gameObject.GetComponent<PositionRace>().spriteUI=availableSprites[i].spriteUI;
             i++;
         }
     }
@@ -159,12 +178,27 @@ public class CarreraManager : MonoBehaviour
         AudioManager.Instance?.ChangeMusicTo("",0,"Race Music",0.25f);
     }
 
-    //Otros
+    IEnumerator DebugWinner(string winner){
+        CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
+        TextMeshProUGUI text=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        text.gameObject.SetActive(true);
+        
+        if(minStart==0){
+        text.text=winner+" is the Winner!!";
+        }else{
+        text.text=winner+" Lost!!";
+        }
+        yield return new WaitForSeconds(1.5f);
+        text.gameObject.SetActive(false);
 
+    }
+
+    //Otros
+    [HideInInspector] public int minStart=0;
     void UpdatePositionUI(){
         OrderPositionsList();
-        for(int i=0; i<allPositions.Count; i++){
-            allPositionsImages[i].sprite=allPositions[i].gameObject.GetComponent<SpriteRenderer>().sprite;
+        for(int i=minStart; i<allPositions.Count; i++){
+            allPositionsImages[i].sprite=allPositions[i].gameObject.GetComponent<PositionRace>().spriteUI;
         }
         
     }

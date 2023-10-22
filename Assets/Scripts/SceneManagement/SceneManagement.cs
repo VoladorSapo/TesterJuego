@@ -77,7 +77,7 @@ public class SceneManagement : MonoBehaviour
         ConstantChanges();
         if (Input.GetKeyDown(KeyCode.W))
         {
-            StartSettings();
+            //StartSettings();
             //CameraSettings(1, "Capsule", 1);
 
         }
