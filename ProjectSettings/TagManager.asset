@@ -7,7 +7,8 @@ TagManager:
   - AICar
   - ZeldaPlayer
   - MovingPlatform
-  - Bala
+  - "Ca\xF1on"
+  - Moneda
   layers:
   - Default
   - TransparentFX

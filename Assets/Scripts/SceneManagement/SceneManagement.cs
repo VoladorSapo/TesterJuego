@@ -101,7 +101,7 @@ public class SceneManagement : MonoBehaviour
                 globalPrevNarrativePart=globalNarrativePart;
                 switch(globalNarrativePart){
                     case 0: break;
-                    case 1: break;
+                    case 1: CameraSettings(1, "Capsule", 1); AudioSettings("Capsule"); break;
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
                     case 3: break;
                     case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
