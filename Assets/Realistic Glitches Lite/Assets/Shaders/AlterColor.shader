@@ -4,7 +4,8 @@ Shader "Custom/AlterColor"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _ColorCount("Number of Colors", Int)= 8
-
+        _moveX("Offset X", Float)=0
+        _moveY("Offset Y", Float)=0
     }
 
     
@@ -13,7 +14,7 @@ Shader "Custom/AlterColor"
         Tags {"RenderType"="Transparent" }
         LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
-        
+
         Pass
         {
             
@@ -26,7 +27,7 @@ Shader "Custom/AlterColor"
             struct appdata_t
             {
                 float4 vertex : POSITION;
-                float2 texcoord : TEXCOORD0;
+                float2 uv : TEXCOORD0;
             };
 
             struct v2f
@@ -39,12 +40,23 @@ Shader "Custom/AlterColor"
             uniform fixed4 _Colors[256];
             uniform fixed4 _NewColors[256];
             uniform int _ColorCount;
+            uniform float _moveX;
+            uniform float _moveY;
+            uniform float _TilingX;
+            uniform float _TilingY;
 
             v2f vert (appdata_t v)
             {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = v.texcoord;
+
+                //v.texcoord* float2(_TilingX, _TilingY) + float2(_moveX,_moveY);
+                //v.uv.x=fmod(v.uv.x + _moveX, 1);
+                //v.uv.y=fmod(v.uv.y + _moveY, 1);
+
+                
+                o.uv = v.uv+float2(_moveX,_moveY);
+                
                 return o;
             }
 

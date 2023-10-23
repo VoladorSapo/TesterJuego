@@ -255,8 +255,9 @@ public class CarController : BasicCar, IPauseSystem
         if(CarreraManager.Instance.NormalTilemap==null || CarreraManager.Instance.GlitchedTilemap==null || (_accelerationInput<0 && isGlitchedCar)){return false;}
 
         Vector3Int mapPos=new Vector3Int(Mathf.FloorToInt(CarPos.x),Mathf.FloorToInt(CarPos.y),0);
-        Tile NormalTile=(Tile) CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
-        Tile GlicthedTile=(Tile) CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
+        TileBase NormalTile=CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
+        TileBase GlicthedTile=CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
+
         
         
         if(((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile)))

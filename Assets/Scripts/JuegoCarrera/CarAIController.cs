@@ -38,7 +38,9 @@ public class CarAIController : BasicCar, IPauseSystem
         _rb = GetComponent<Rigidbody2D>();
         
     }
-
+    protected override void Update(){
+        
+    }
     protected override void Start(){
         SetPauseEvents();
     }
@@ -90,7 +92,6 @@ public class CarAIController : BasicCar, IPauseSystem
         {
             _rb.drag = Mathf.Lerp(_rb.drag, _dragFactor, Time.fixedDeltaTime * _dragSpeed);
         }
-        else _rb.drag = 0;
 
         
     }
@@ -151,8 +152,8 @@ public class CarAIController : BasicCar, IPauseSystem
     bool HasTileDrag(Vector3 CarPos){
         if(CarreraManager.Instance.NormalTilemap==null){return false;}
         Vector3Int mapPos=new Vector3Int(Mathf.FloorToInt(CarPos.x),Mathf.FloorToInt(CarPos.y),0);
-        Tile NormalTile=(Tile) CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
-        Tile GlicthedTile=(Tile) CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
+        TileBase NormalTile=CarreraManager.Instance.NormalTilemap.GetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(mapPos));
+        TileBase GlicthedTile=CarreraManager.Instance.GlitchedTilemap.GetTile(CarreraManager.Instance.GlitchedTilemap.WorldToCell(mapPos));
 
         
         if((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile))

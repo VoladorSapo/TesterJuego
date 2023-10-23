@@ -12,8 +12,7 @@ public class SceneManagement : MonoBehaviour
     public int globalNarrativePart;
     private int globalPrevNarrativePart=-1;
 
-    public int localNarrativePart;
-    private int localPrevNarrativePart=-1;
+    public int localNarrativePart=-1;
 
     [Header("Escenas del Juego de Plataformas")]
     public List<string> allPlatformLevels;
@@ -24,6 +23,8 @@ public class SceneManagement : MonoBehaviour
     public List<string> menuScenes;
 
     [Header("Escenas del Juego Zelda")]
+
+    public List<string> allZeldaScenes;
     public GameObject zeldaPrefab;
     [SerializeField] Vector3 posZeldaInicio;
     //...
@@ -52,7 +53,8 @@ public class SceneManagement : MonoBehaviour
     }
 
     void StartSettings(){
-         CameraSettings(1,"Capsule",1);
+         //CameraSettings(1,"Capsule",1);
+         CameraSettings(2,"PlayerCar",2);
     }
 
     void Update()
@@ -69,8 +71,7 @@ public class SceneManagement : MonoBehaviour
         }
 
         //Cambios Narrativos que no dependen del cambio de escenas
-        if(localPrevNarrativePart!=localNarrativePart){
-                localPrevNarrativePart=localNarrativePart;
+        if(localNarrativePart>0){
                 NarrativeChanges();
         }
 
@@ -94,7 +95,6 @@ public class SceneManagement : MonoBehaviour
 
     void SceneChanges(){
 
-        CarSettings();
         SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
         if(globalPrevNarrativePart!=globalNarrativePart){
@@ -102,7 +102,7 @@ public class SceneManagement : MonoBehaviour
                 switch(globalNarrativePart){
                     case 0: break;
                     case 1: break;
-                    case 2: CarSettings(); CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
+                    case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
                     case 3: break;
                     case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
                     default: break; //Temporalmente está así
@@ -112,14 +112,37 @@ public class SceneManagement : MonoBehaviour
     }
 
     void NarrativeChanges(){
-                switch(localNarrativePart){
+
+        if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name)){
+            switch(localNarrativePart){
                     case 0: break;
                     case 1: break;
                     case 2: break;
-                    case 3: CarreraManager.Instance.EndRace(); break;
-                    case 4: SpawnZeldaPlayer(); break;
-                    default: break; //Temporalmente está así
+                    case 3: break;
+                    case 4: break;
+                    default: break;
                 }
+        }else if(allStages.Contains(SceneManager.GetActiveScene().name)){
+            Debug.LogWarning("wod");
+            switch(localNarrativePart){
+                    case 0: CarSettings(false); break;
+                    case 1: break;
+                    case 2: CarSettings(true); EventManager.Instance.GlitchPencilStage2(); break;
+                    case 3: break;
+                    case 4: break;
+                    default: break;
+                }
+        }else if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name)){
+            switch(localNarrativePart){
+                    case 0: break;
+                    case 1: break;
+                    case 2: break;
+                    case 3: break;
+                    case 4: break;
+                    default: break;
+                }
+        }
+        localNarrativePart=-1;
     }
     void ConstantChanges(){
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
@@ -167,14 +190,14 @@ public class SceneManagement : MonoBehaviour
     void MusicSettings(string prevMusic, float fadeOutTime, string newMusic, float fadeInTime){
         AudioManager.Instance?.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
-    void CarSettings(){
+    void CarSettings(bool glitchedMapActive){
 
         if(menuScenes.Contains(currentScene.name))
             CarreraManager.Instance.killMouse=true;
         else if(allStages.Contains(currentScene.name)){
             MusicSettings("Select Car Music",0.25f,"",0);
             CarreraManager.Instance.killMouse=false; 
-            CarreraManager.Instance?.SetRace();  
+            CarreraManager.Instance?.SetRace(glitchedMapActive);  
         }
         
     }

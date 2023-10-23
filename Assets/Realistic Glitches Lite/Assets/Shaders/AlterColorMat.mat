@@ -27,5 +27,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorCount: 8
+    - _TilingX: 1
+    - _TilingY: 1
+    - _moveX: 0
+    - _moveY: 0
+    - moveX: 0
+    - moveY: 0
     m_Colors: []
   m_BuildTextureStacks: []

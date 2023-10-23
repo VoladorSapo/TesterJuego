@@ -35,10 +35,10 @@ public class CarreraManager : MonoBehaviour
 
 
     [Header("Propiedades de las carreras")]
-    public List<Tile> NoDragTiles;
+    public List<TileBase> NoDragTiles;
     [HideInInspector] public Tilemap NormalTilemap;
     [HideInInspector] public Tilemap GlitchedTilemap;
-    bool raceStarted=false;
+    public bool raceStarted=false;
     bool raceFinished=false;
 
     //Inicio
@@ -66,7 +66,7 @@ public class CarreraManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.U)){
-            RaceFinished("PlayerCar");
+            RaceFinished("PlayerCar",GameObject.Find("PlayerCar").GetComponent<PositionRace>());
         }
     }
 
@@ -78,9 +78,9 @@ public class CarreraManager : MonoBehaviour
     }
 
     //SetRace
-    public void SetRace(){
+    public void SetRace(bool activateGlitchedMap){
         raceFinished=false;
-        setVariables();
+        setVariables(activateGlitchedMap);
         setNumberOfWaypoints();
         setSprites();
         UpdatePositionUI();
@@ -91,18 +91,23 @@ public class CarreraManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void RaceFinished(string winner){
+    public void RaceFinished(string winner, PositionRace posRace){
 
+        
+        
+
+        if(winner=="PlayerCar"){
         raceStarted=false;
         raceFinished=true;
-
-        if(winner=="PlayerCar")
         StartCoroutine(DebugWinner(winner));
+        }
 
+        allPositions.Remove(posRace);
+        Debug.LogWarning(winner);
         minStart++;
     }
 
-    void setVariables(){
+    void setVariables(bool activateGlitchedMap){
         CarAI[] allAICarsInScene=GameObject.FindGameObjectsWithTag("AICar").Select(car=>car.GetComponent<CarAI>()).Where(ms=>ms!=null).ToArray();
         foreach(CarAI ai in allAICarsInScene){
             ai.CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
@@ -122,7 +127,7 @@ public class CarreraManager : MonoBehaviour
         
         if(GameObject.Find("GlitchedTilemap")!=null){
             GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
-            GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=false;
+            GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=activateGlitchedMap;
         }
 
         Transform parentTransform=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(1).transform;
@@ -194,11 +199,13 @@ public class CarreraManager : MonoBehaviour
     }
 
     //Otros
-    [HideInInspector] public int minStart=0;
+    public int minStart=0;
     void UpdatePositionUI(){
         OrderPositionsList();
-        for(int i=minStart; i<allPositions.Count; i++){
-            allPositionsImages[i].sprite=allPositions[i].gameObject.GetComponent<PositionRace>().spriteUI;
+        //Debug.Log(allPositions[0]);
+        for(int i=0; i<allPositions.Count; i++){
+            if(i+minStart<allPositionsImages.Length)
+            allPositionsImages[i+minStart].sprite=allPositions[i].gameObject.GetComponent<PositionRace>().spriteUI;
         }
         
     }
