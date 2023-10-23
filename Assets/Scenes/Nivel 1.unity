@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReplayLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 6548448288796132761, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6548448288799753881, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -772,6 +776,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6548448290346945317, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548448290469845032, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -786,6 +798,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880423814858823395, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501501250486817729, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7515324430176513674, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
@@ -959,7 +975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896812020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.9, y: -10.7, z: 0.030819409}
+  m_LocalPosition: {x: 125.5, y: 9.5, z: 0.030819409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23787,6 +23803,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+      propertyPath: HardPause
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+      propertyPath: MessageKey
+      value: mensaje
+      objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844414, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -23830,6 +23854,14 @@ PrefabInstance:
     - target: {fileID: 8880984188247844414, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+      propertyPath: canNext
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+      propertyPath: nextScene
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844416, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: m_Name

@@ -97,6 +97,8 @@ public class PlatormerPlayerController : MonoBehaviour
         CamaraGlobal.Instance.attachedCanvas.platformUI.SetActive(true);
         Contador = GameObject.Find("ContadorMonedas").GetComponent<TMP_Text>();
         Monedas = 0;
+        Contador.text = Monedas.ToString();
+
 
     }
     private void Update()
