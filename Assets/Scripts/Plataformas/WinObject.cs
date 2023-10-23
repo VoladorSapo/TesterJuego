@@ -31,6 +31,8 @@ public class WinObject : MonoBehaviour
     }
     public void LoadScene()
     {
+        WinScreen.GetComponent<CanvasGroup>().alpha = 0;
+        WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
         SceneManager.LoadScene(nextScene);
     }
     // Start is called before the first frame update
