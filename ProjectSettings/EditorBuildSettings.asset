@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CarGame/Stage4Car.unity
     guid: 0e36fe63f1ae9a448921062fa70b2860
   - enabled: 1
-    path: Assets/Scenes/Plataformas.unity
+    path: Assets/Scenes/Plataformas/Plataformas.unity
     guid: 5b1326edb56997f46948d209635dd466
   - enabled: 1
     path: Assets/Scenes/Mensajes.unity
@@ -39,9 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Mensajes2.unity
     guid: 46c294bd53cfa544589f37dd877af630
   - enabled: 1
-    path: Assets/Scenes/Nivel 1.unity
+    path: Assets/Scenes/Plataformas/Nivel 1.unity
     guid: 13260c71f984b3640b5df9f467e497fe
   - enabled: 1
-    path: Assets/Scenes/Nivel 2.unity
+    path: Assets/Scenes/Plataformas/Nivel 2.unity
     guid: e965d1e04f31ffd46a01238a51531b48
   m_configObjects: {}

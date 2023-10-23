@@ -285,13 +285,22 @@ public class MessageAdder : MonoBehaviour
             }
         }
     }
-    public void XD()
+    public void LoadScene(int Scene)
     {
-        print("Diablo papuuu");
+        SceneManager.LoadScene(Scene);
     }
     public void AddButtonClick(Button _button, string code)
     {
-        _button.onClick.AddListener(delegate { XD(); });
+        string[] codes = code.Split('-');
+        switch (codes[0])
+        {
+            case "Scene":
+                print(codes[1]);
+                _button.onClick.AddListener(delegate { LoadScene(int.Parse(codes[1])); });
+                break;
+            default:
+                break;
+        }
     }
 
     public void LinkCount(TMP_Text text)
