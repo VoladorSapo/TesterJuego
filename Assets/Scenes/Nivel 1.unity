@@ -651,6 +651,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351838032224350005, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4907498516012043416, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_Name
       value: UniversalCamera Variant
@@ -742,6 +746,10 @@ PrefabInstance:
     - target: {fileID: 6880423814858823395, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515324430176513674, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8829256021943023306, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y

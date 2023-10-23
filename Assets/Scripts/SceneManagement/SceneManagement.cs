@@ -75,12 +75,12 @@ public class SceneManagement : MonoBehaviour
         }
 
         ConstantChanges();
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartSettings();
-            //CameraSettings(1, "Capsule", 1);
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    StartSettings();
+        //    //CameraSettings(1, "Capsule", 1);
 
-        }
+        //}
     }
 
     void SpawnZeldaPlayer(){
