@@ -10,6 +10,7 @@ public class MessageAdder : MonoBehaviour
 
     public List<GameObject> TextConversations;
     [SerializeField] GameObject ButtonList;
+    [SerializeField] GameObject conversationAdder;
    public static MessageAdder Instance;
     [SerializeField] private GameObject MessageBoard;
     [SerializeField] GameObject conversationPrefab;
@@ -35,6 +36,7 @@ public class MessageAdder : MonoBehaviour
         rundown = 0;
         CloseBoard();
         print(currentMessages == null);
+        conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
         if (wholeMessages == null || wholeMessages.Count == 0)
         {
             currentMessages = new List<List<MessageClass>>();
@@ -336,7 +338,10 @@ public class MessageAdder : MonoBehaviour
 
         }
     }
-
+    public void OpenAdder()
+    {
+        conversationAdder.GetComponent<CanvasGroup>().alpha = conversationAdder.GetComponent<CanvasGroup>().alpha == 0 ? 1 : 0;
+    }
     public void AddConversation()
     {
         print(inputField.text);
