@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PlatormerPlayerController : MonoBehaviour
 {
 
@@ -36,6 +36,8 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] LayerMask win;
     [SerializeField] Animator anim;
     [SerializeField] bool paused;
+    [SerializeField] int Monedas;
+  [SerializeField]  TMP_Text Contador;
     Vector2 saveVelocity;
     // Start is called before the first frame update
 
@@ -59,6 +61,13 @@ public class PlatormerPlayerController : MonoBehaviour
         if ((win.value & 1 << collision.gameObject.layer) > 0)
         {
             Win();
+        }
+        if(collision.gameObject.tag == "Moneda")
+        {
+            Destroy(collision.gameObject);
+            Monedas++;
+            Contador.text = Monedas.ToString();
+
         }
     }
     public void Die()
@@ -86,6 +95,10 @@ public class PlatormerPlayerController : MonoBehaviour
         transform.position = spawnPoint;
         print(spawnPoint);
         CamaraGlobal.Instance.attachedCanvas.platformUI.SetActive(true);
+        Contador = GameObject.Find("ContadorMonedas").GetComponent<TMP_Text>();
+        Monedas = 0;
+        Contador.text = Monedas.ToString();
+
 
     }
     private void Update()

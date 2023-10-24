@@ -15,35 +15,41 @@ public class WinObject : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            WinScreen = GameObject.Find("NextLevelScreen");
             WinScreen.SetActive(true);
             if (canNext)
             {
-                WinScreen.GetComponentsInChildren<Button>()[0].interactable = true;
+                WinScreen.GetComponent<CanvasGroup>().alpha = 1;
                 WinScreen.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate { LoadScene(); });
             }
             else
             {
+                WinScreen.GetComponent<CanvasGroup>().alpha = 0;
                 WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
             }
         }
     }
     public void LoadScene()
     {
+        WinScreen.GetComponent<CanvasGroup>().alpha = 0;
+        WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
         SceneManager.LoadScene(nextScene);
     }
     // Start is called before the first frame update
     void Start()
     {
-        WinScreen = GameObject.Find("NextLevelScreen");
-        WinScreen.SetActive(false);
         anim = GetComponent<Animator>();
         SetEvents();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            
+        }
     }
     public void Pause()
     {
