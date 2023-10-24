@@ -14,6 +14,8 @@ public class CharButton : ButtonSelection
     public void SetPlayer(){
         AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
         CarreraManager.Instance.SetPlayerSprite(SpriteIndex);
+        
+        SceneManagement.Instance.actionName="SetRaceNormal";
         CarreraManager.Instance.GoToRace();
     }
 }

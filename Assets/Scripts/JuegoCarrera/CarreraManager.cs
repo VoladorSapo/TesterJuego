@@ -58,8 +58,6 @@ public class CarreraManager : MonoBehaviour
         
     }
     public void Update(){
-        if(killMouse)
-        KillMouseInputs();
 
         if(raceStarted){
         UpdatePositionUI();
@@ -75,6 +73,8 @@ public class CarreraManager : MonoBehaviour
         canvas.enabled=false;
         
         SceneManager.LoadScene(SelectedStage);
+        SceneManagement.Instance.localNarrativePart=0;
+        
     }
 
     //SetRace
@@ -116,6 +116,8 @@ public class CarreraManager : MonoBehaviour
 
         WaypointRoot=GameObject.Find("WaypointRoot")?.transform;
 
+        allPositions.Clear();
+        minStart=0;
         allPositions=GameObject.FindObjectsOfType<PositionRace>().ToList();
         foreach(PositionRace player in allPositions){
             player.WaypointsPassed=0;
@@ -156,7 +158,6 @@ public class CarreraManager : MonoBehaviour
         }
     }
     public void setNumberOfWaypoints(){
-        
         totalWaypointsInTrack=numberOfLaps*WaypointRoot.childCount;
     }
 
@@ -164,6 +165,7 @@ public class CarreraManager : MonoBehaviour
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
         int i=3;
         TextMeshProUGUI countText=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        countText.gameObject.SetActive(true);
 
         AudioManager.Instance?.PlaySound("Race Countdown",false,Vector2.zero,true);
         while(i>0){
@@ -193,9 +195,19 @@ public class CarreraManager : MonoBehaviour
         }else{
         text.text=winner+" Lost!!";
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         text.gameObject.SetActive(false);
 
+        SceneManagement.Instance.ApplyTransitionEffect("vram",false,true,true,0.5f);
+        SceneManagement.Instance.ApplyTransitionEffect("bc",false,true,true,0.5f);
+        
+        yield return new WaitForSeconds(0.5f);
+
+        if(GamesManager.Instance.unlockedCarStages+1<3)
+        GamesManager.Instance.unlockedCarStages++;
+        
+        CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(false);
+        SceneManager.LoadSceneAsync("MenuCar");
     }
 
     //Otros
@@ -236,17 +248,7 @@ public class CarreraManager : MonoBehaviour
         return myList;
     }
     
-    GameObject lastSelected;
-    public void KillMouseInputs(){
-        Cursor.visible=false;
-        Cursor.lockState=CursorLockMode.Locked;
-        if(EventSystem.current?.currentSelectedGameObject==null){
-            if(lastSelected!=null)
-            EventSystem.current.SetSelectedGameObject(lastSelected);
-        }else if(EventSystem.current.currentSelectedGameObject!=null){
-            lastSelected=EventSystem.current.currentSelectedGameObject;
-        }
-    }
+    
 
     
 }

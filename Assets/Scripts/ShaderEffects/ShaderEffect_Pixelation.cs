@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShaderEffect_Pixelation : MonoBehaviour
 {
+	[Min(0.1f)]
     [SerializeField] private Vector2 pixelationFactor;
     private Material material;
 

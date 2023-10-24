@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 0
-  MaxSpeed: 5
+  MaxSpeed: 5.6
   _accelerationFactor: 3
   _driftFactor: 0.1
   _turnFactor: 6
@@ -203,6 +203,7 @@ MonoBehaviour:
   playerName: 
   WaypointsPassed: 0
   DistanceToReachWaypoint: 0
+  spriteUI: {fileID: 0}
 --- !u!1 &5443383887790424186
 GameObject:
   m_ObjectHideFlags: 0

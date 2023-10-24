@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 
@@ -11,6 +13,7 @@ public class SceneManagement : MonoBehaviour
     public static SceneManagement Instance;
     public int globalNarrativePart;
     private int globalPrevNarrativePart=-1;
+    public string actionName;
 
     public int localNarrativePart=-1;
 
@@ -67,11 +70,12 @@ public class SceneManagement : MonoBehaviour
 
         if(previousScene==null || previousScene.name!=currentScene.name){
             previousScene=currentScene;
-            SceneChanges();
+            GameChanges();
+            BeginSceneWith(ref actionName);
         }
 
         //Cambios Narrativos que no dependen del cambio de escenas
-        if(localNarrativePart>0){
+        if(localNarrativePart>=0){
                 NarrativeChanges();
         }
 
@@ -93,7 +97,7 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    void SceneChanges(){
+    void GameChanges(){
 
         SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
@@ -111,8 +115,21 @@ public class SceneManagement : MonoBehaviour
         
     }
 
-    void NarrativeChanges(){
+    void BeginSceneWith(ref string act){
+        switch(act){
+            case "killMouse": killMouse=true; break;
+            case "reviveMouse": killMouse=false; break;
+            case "SetRaceNormal": CarSettings(false); break;
+            case "SetRaceGlitch": CarSettings(true); break;
+        }
+        act="";
+    }
 
+
+
+    void NarrativeChanges(){
+       
+       Debug.LogWarning(localNarrativePart);
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name)){
             switch(localNarrativePart){
                     case 0: break;
@@ -123,11 +140,11 @@ public class SceneManagement : MonoBehaviour
                     default: break;
                 }
         }else if(allStages.Contains(SceneManager.GetActiveScene().name)){
-            Debug.LogWarning("wod");
+            
             switch(localNarrativePart){
                     case 0: CarSettings(false); break;
                     case 1: break;
-                    case 2: CarSettings(true); EventManager.Instance.GlitchPencilStage2(); break;
+                    case 2: CarSettings(true); EventManager.Instance?.GlitchPencilStage2(); break;
                     case 3: break;
                     case 4: break;
                     default: break;
@@ -144,9 +161,15 @@ public class SceneManagement : MonoBehaviour
         }
         localNarrativePart=-1;
     }
+
+    bool killMouse=false;
     void ConstantChanges(){
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
             ChangePlayerToCar();
+        }
+
+        if(killMouse){
+            KillMouseInputs();
         }
     }
     
@@ -191,7 +214,7 @@ public class SceneManagement : MonoBehaviour
         AudioManager.Instance?.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
     void CarSettings(bool glitchedMapActive){
-
+        
         if(menuScenes.Contains(currentScene.name))
             CarreraManager.Instance.killMouse=true;
         else if(allStages.Contains(currentScene.name)){
@@ -217,5 +240,18 @@ public class SceneManagement : MonoBehaviour
 
     public void ApplyTransitionEffect(TransitionData data){
         ApplyTransitionEffect(data.nameFX,data.fluctuate,data.isTemporary,data.activate,data.time);
+    }
+
+
+    GameObject lastSelected;
+    public void KillMouseInputs(){
+        Cursor.visible=false;
+        Cursor.lockState=CursorLockMode.Locked;
+        if(EventSystem.current?.currentSelectedGameObject==null){
+            if(lastSelected!=null)
+            EventSystem.current.SetSelectedGameObject(lastSelected);
+        }else if(EventSystem.current.currentSelectedGameObject!=null){
+            lastSelected=EventSystem.current.currentSelectedGameObject;
+        }
     }
 }
