@@ -81,7 +81,6 @@ public class CarreraManager : MonoBehaviour
     public void SetRace(bool activateGlitchedMap){
         raceFinished=false;
         setVariables(activateGlitchedMap);
-        setNumberOfWaypoints();
         setSprites();
         UpdatePositionUI();
         StartCoroutine(Countdown());
@@ -108,6 +107,10 @@ public class CarreraManager : MonoBehaviour
     }
 
     void setVariables(bool activateGlitchedMap){
+
+        if(totalWaypointsInTrack<35){totalWaypointsInTrack*=numberOfLaps;} //De testeo, no sera nada al final
+
+
         CarAI[] allAICarsInScene=GameObject.FindGameObjectsWithTag("AICar").Select(car=>car.GetComponent<CarAI>()).Where(ms=>ms!=null).ToArray();
         foreach(CarAI ai in allAICarsInScene){
             ai.CurrentWaypoint=GameObject.Find("Waypoint0").GetComponent<Waypoint>();
@@ -157,10 +160,6 @@ public class CarreraManager : MonoBehaviour
             i++;
         }
     }
-    public void setNumberOfWaypoints(){
-        totalWaypointsInTrack=numberOfLaps*WaypointRoot.childCount;
-    }
-
     IEnumerator Countdown(){
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
         int i=3;

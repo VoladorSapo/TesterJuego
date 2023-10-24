@@ -20,13 +20,15 @@ public class SlideUI : MonoBehaviour
     [SerializeField] private Button button;
     public void SlideLeft(){
         textDisplay.text="";
-        imageDisplay.sprite=null;
+        imageDisplay.color=new Color(1,1,1,0);
         EventSystem.current.SetSelectedGameObject(imageDisplay.gameObject);
         transform.LeanMoveLocal(new Vector3(transform.localPosition.x-distanceLeft,transform.localPosition.y,0),time).setEaseOutQuad();
         otherPanel.transform.LeanMoveLocal(new Vector3(otherPanel.transform.localPosition.x-distanceLeft,otherPanel.transform.localPosition.y,0),time).setEaseOutQuad().setOnComplete(SetButton);
     }
 
     void SetButton(){
+        
         EventSystem.current.SetSelectedGameObject(button.gameObject, new BaseEventData(EventSystem.current));
+        imageDisplay.color=new Color(1,1,1,1);
     }
 }
