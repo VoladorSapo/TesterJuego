@@ -32,7 +32,8 @@ public class MessageAdder : MonoBehaviour
     void Start()
     {
         SetEvents();
-        OpenButton.gameObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "Nivel1")
+            OpenButton.gameObject.SetActive(false);
         rundown = 0;
         CloseBoard();
         print(currentMessages == null);
