@@ -25,6 +25,6 @@ public class IntroController : MonoBehaviour
     public void endScene()
     {
         DialogueController.Instance.unsetEndConversation(endScene);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("protoZelda");
     }
 }

@@ -32,7 +32,7 @@ public class MessageAdder : MonoBehaviour
     void Start()
     {
         SetEvents();
-        if (SceneManager.GetActiveScene().name == "Nivel1")
+        if (SceneManager.GetActiveScene().name == "Nivel 1")
             OpenButton.gameObject.SetActive(false);
         rundown = 0;
         CloseBoard();
@@ -237,6 +237,14 @@ public class MessageAdder : MonoBehaviour
         StartCoroutine(courutine);
 
     }
+    public void showOpenButton(bool a)
+    {
+        OpenButton.gameObject.SetActive(a);
+    }
+    public void OpenButtonSetInteract(bool a)
+    {
+        OpenButton.interactable = a;
+    }
     public void ChangeConversation(int conver)
     {
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
@@ -284,19 +292,19 @@ public class MessageAdder : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
-                SceneManager.LoadScene(10);
+               // SceneManager.LoadScene(10);
             }
             else
             {
-                SceneManager.LoadScene(9);
+                //SceneManager.LoadScene(9);
 
             }
         }
     }
-    public void LoadScene(int Scene)
-    {
-        SceneManager.LoadScene(Scene);
-    }
+    //public void LoadScene(int Scene)
+    //{
+    //    SceneManager.LoadScene(Scene);
+    //}
     public void AddButtonClick(Button _button, string code)
     {
         string[] codes = code.Split('-');
@@ -326,7 +334,7 @@ public class MessageAdder : MonoBehaviour
         switch (linkarray[0])
         {
             case "LoadScene":
-                SceneManager.LoadScene(int.Parse(linkarray[1]));
+                SceneManager.LoadScene(linkarray[1]);
                 break;
             case "Pause":
                 PauseController.Instance.InvokePause();
@@ -367,13 +375,14 @@ public class MessageAdder : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        OpenButton.gameObject.SetActive(false);
+        CloseBoard();
+       // OpenButton.gameObject.SetActive(false);
     }
     public void HardPause()
     {
         print("diablo");
         //OpenBoard();
-        OpenButton.gameObject.SetActive(false);
+        //OpenButton.gameObject.SetActive(false);
         PauseController.Instance.InvokePause();
 
 
@@ -382,7 +391,7 @@ public class MessageAdder : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        OpenButton.gameObject.SetActive(true);
+        //OpenButton.gameObject.SetActive(true);
 
     }
 }

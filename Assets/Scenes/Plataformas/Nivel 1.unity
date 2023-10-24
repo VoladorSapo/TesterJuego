@@ -659,6 +659,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9135272140866620771, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: textMessages
+      value: 
+      objectReference: {fileID: 4900000, guid: 984f53517004bd04281b4f343c7fbf57, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
 --- !u!1001 &701580849
@@ -23686,7 +23690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: MessageKey
-      value: mensaje
+      value: wagner1
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844414, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: m_RootOrder

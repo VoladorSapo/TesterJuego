@@ -464,6 +464,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 124.39987
       objectReference: {fileID: 0}
+    - target: {fileID: 2953016880008706201, guid: cb4306149e22c02459744b61c15cf783, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115639909876858581, guid: cb4306149e22c02459744b61c15cf783, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115639909876858581, guid: cb4306149e22c02459744b61c15cf783, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8789168715412965362, guid: cb4306149e22c02459744b61c15cf783, type: 3}
       propertyPath: m_Name
       value: MessagePanel
@@ -499,6 +511,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 148621332, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 252598904, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 257399160, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
@@ -603,6 +619,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875316041, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807943625, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822414020, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2141975913, guid: 8ab4f5342f4679a44810868e8d0f2346, type: 3}

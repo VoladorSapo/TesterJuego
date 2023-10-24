@@ -1,0 +1,122 @@
+Tag;Texto;Tipo;Side;Time;CheckTime;IsButton
+wagner1_0;Muy bien.;0;0;0;false;None
+wagner1_1;Pero no estás aquí para jugar. Se supone que estamos trabajando.;0;0;0;false;None
+wagner1_2;respuesta1-Confiado-Servicial;2;1;0;false;None
+respuesta1_1_0;Quería ver qué tal se me daba.;0;1;0;false;None
+respuesta1_1_1;En tu contrato pone “Betatester”, no jugador profesional.;0;0;0;false;None
+respuesta1_2_0;Lo siento señor Wagner.;0;1;0;false;None
+respuesta1_2_1;Te pagamos para hacer de Betatester, asi que ponte las pilas.;0;0;0;false;None
+wagner1_3;Ya le daremos una vuelta al nivel uno más adelante. El equipo de desarrollo necesita que los betatesters reviséis el nivel dos.;0;0;0;false;None
+wagner1_4;Ahora a buscar bugs.;0;0;0;false;None
+wagner2_0;Qué curioso…;0;0;0;false;None
+wagner2_1;Voy a avisar al equipo.;0;0;0;false;None
+wagner2_2;Ah, y estoy viendo tu pantalla en todo momento. A partir de ahora comunicaré los fallos que encuentres de forma automática. Tu concentrate en buscar bien a fondo.;0;0;0;false;None
+cole1_0;¿te echas una partida?;0;0;0;false;None
+cole1_1;No puedo.;0;1;0;false;None
+cole1_2;Estoy trabajando.;0;1;0;false;None
+cole1_3;Siempre igual. ¿En qué andas?;0;0;0;false;None
+cole1_4;De betatester. En Pandemonium.;0;1;0;false;None
+cole1_5;¿Esa no es la empresa aquella de los 90? ¿No había quebrado? Hacía mucho que no oía hablar de ella lol.;0;0;0;false;None
+cole1_6;Pues están de vuelta parece ser. Aunque imagino que no será la misma gente.;0;1;0;false;None
+cole1_7;Ni idea;0;0;0;false;None
+cole1_8;Pero en estos casos los peces gordos suelen seguir en el ajo.;0;0;0;false;None
+cole1_9;En fin, te dejo currar. ;0;0;0;false;None
+cole1_10;*aquí un momaso*;0;0;0;false;None
+cole1_11;A ver si se te pega algo.;0;1;0;false;None
+cole1_12;Estoy esperando a mi oportunidad, tio, me lo tomo con calma, ¿vale?;0;0;0;false;None
+cole1_13;Claro…;0;1;0;false;None
+wagner3_0;Ignora eso. ;0;0;0;false;None
+wagner3_1;A veces los desarrolladores dejan notitas en el código o hablan entre ellos.;0;0;0;false;None
+wagner3_2;No me entra en la cabeza…;0;0;0;false;None
+wagner3_3;Verás como se entere Truman.;0;0;0;false;None
+wagner4_0;Vale, buen trabajo.;0;0;0;false;None
+wagner4_1;A los del desarrollo no les va a hacer mucha gracia ese bug.;0;0;0;false;None
+wagner4_2;¿Sigo jugando?;0;1;0;false;None
+wagner4_3;No, de hecho el equipo me ha pedido que pruebes algo diferente.;0;0;0;false;None
+wagner4_4;Un juego antiguo, de los 90, que nunca llegamos a sacar. Se llama “life is a highway im gonna ride it all night long (all night long)”.;0;0;0;false;None
+wagner4_5;¿Para qué? No creo que haya envejecido muy bien;0;1;0;false;None
+wagner4_6;Chaval, deberías estar agradecido por poder probar una joya así. Los coleccionistas se matarían por esto.;0;0;0;false;None
+wagner4_7;El equipo quiere sacar información de la versión original de nuestro motor.;0;0;0;false;None
+wagner4_8;¿Y no puedo probar un juego terminado?;0;1;0;false;None
+wagner4_9;Así te acostumbras a los bugs.;0;0;0;false;None
+wagner4_10;life is a highway im gonna ride it all night long (all night long).exe;0;0;0;false;None
+wagner5_0;Vale, siguiente.;0;0;0;false;None
+wagner5_1;¿No necesitas que busque bugs más a fondo?;0;1;0;false;None
+wagner5_2;No, sigue por ahora. Los niveles importantes no son estos.;0;0;0;false;None
+wagner5_3;En el menú solo aparecen tres niveles, pero realmente hay más.;0;0;0;false;None
+wagner5_4;Se puede acceder a ellos desde el nivel dos, el que vas a jugar ahora. Pero para eso vas a tener que encontrar algún bug.;0;0;0;false;None
+wagner5_5;Y, te aviso de antemano.;0;0;0;false;None
+wagner5_6;Este juego se canceló por hacer cosas muy raras con la memoria. No me responsabilizo de las cosas extrañas que veas a partir de ahora.;0;0;0;false;None
+wagner5_7; Menos mal que es un portátil de empresa.;0;1;0;false;None
+cole2_0;Tío;0;0;0;false;None
+cole2_1;He estado investigando sobre esa empresa en la que curras.;0;0;0;false;None
+cole2_2;respuesta2-Irónico-Interesado;0;1;0;false;None
+respuesta2_1_0;¿No tienes nada mejor que hacer, en serio?;0;1;0;false;None
+respuesta2_1_1;Dejate de gilipolleces, esto es serio;0;0;0;false;None
+respuesta2_2_0;¿Has encontrado algo?;0;1;0;false;None
+respuesta2_2_1;Más bien lo he recordado;0;0;0;false;None
+cole2_3;Escucha;0;0;0;false;None
+cole2_4;Se lió una tremenda, tío, no sé cómo puede ser que hayas tardado tanto en enterarte.;0;0;0;false;None
+cole2_5;En esa empresa desapareció uno de los creativos. En circunstancias misteriosas. Leo Toshida.;0;0;0;false;None
+cole2_6;¡Y nunca se supo que había pasado!;0;0;0;false;None
+cole2_7;La empresa casi se va a la mierda. Abandonaron todos los proyectos. ;0;0;0;false;None
+cole2_8;Pero dos de los antiguos miembros la sacaron adelante. John Wagner y su jefe, Harley Truman.;0;0;0;false;None
+cole2_9;Una historia preciosa, no cabe duda.;0;1;0;false;None
+cole2_10; Ahora, si no te importa, tengo trabajo.;0;1;0;false;None
+cole2_11;¿TÚ ME ESTÁS ESCUCHANDO? En esa oficina hubo un asesinato tio, es evidente… ;0;0;0;false;None
+cole2_12;Anda ya;0;1;0;false;None
+cole2_13;¿Tú no sabes nada sobre qué pudo pasar? ¿No hay rumores en la oficina?;0;0;0;false;None
+cole2_14;Trabajo desde casa.;0;1;0;false;None
+cole2_15;Ah.;0;0;0;false;None
+cole2_16;Pues de algún modo tienes que enterarte.;0;0;0;false;None
+cole2_17;respuesta3-Pasota-Curioso;0;1;0;false;None
+respuesta3_1_0;No sé tío, a mí mientras me paguen…;0;0;0;false;None
+respuesta3_1_1;Podría estar pagándote un asesino;0;0;0;false;None
+respuesta3_2_0;Vale. Veré cómo lo hago.;0;1;0;false;None
+respuesta3_2_1;Sabía que te comía la curiosidad.;0;0;0;false;None
+cole2_18;Han vuelto a abrir el caso ahora que la empresa ha vuelto a la vida. La policía lleva un par de meses rebuscando. Sé que me vas a decir que no es de tu incumbencia…;0;0;0;false;None
+cole2_19;Pero tío, es como la trama de una peli.;0;0;0;false;None
+cole2_20;Seguro que puedes obtener información clave de alguna manera.;0;0;0;false;None
+cole2_21;Así que mucha suerte. Yo me voy a echar una partida;0;0;0;false;None
+cole2_22;Dí que sí.;0;1;0;false;None
+wagner6_0;La verdad es que a mi me da curiosidad también, jefe;0;1;0;false;None
+wagner6_1;No me escribas si no es para algo relacionado con el trabajo.;0;0;0;false;None
+wagner6_2;Estoy ocupado tomando nota de todo lo que estás viendo… que no es poco.;0;0;0;false;None
+wagner6_3;Y no quiero ni oir hablar de Avila simulator.;0;0;0;false;None
+wagner6_4;respuesta4-Sumiso-Desafiante;0;1;0;false;None
+respuesta4_1_0;Ah, claro, perdone…;0;1;0;false;None
+respuesta4_2_0;Bueno. Disculpe por querer interesarme por la historia de la compañía.;0;1;0;false;None
+wagner6_5;No pasa nada.;0;0;0;false;None
+wagner6_6;Avila simulator fue un proyecto cancelado, igual que este.;0;0;0;false;None
+wagner6_7;Pero no tiene nada demasiado interesante. Después de la desaparición de Toshida no nos apeteció mucho tocarlo más.;0;0;0;false;None
+wagner6_8;Y, como no era rentable, Truman dio la orden de destruir todas las copias que nos quedaban.;0;0;0;false;None
+wagner6_9;No podría dejártelo ver ni aunque quisiera.;0;0;0;false;None
+wagner6_10;Y no quiero.;0;0;0;false;None
+wagner6_11;Así que mejor vuelve al trabajo y no vuelvas a mencionarme el tema.;0;0;0;false;None
+wagner6_12;Enseguida.;0;1;0;false;None
+julia_0;Hola, ¿Eres Julia Brian, de Pandemonium?;0;1;0;false;None
+julia_1;Ya no trabajo ahí.;0;0;0;false;None
+julia_2;Si eres periodista, no me interesa. Preguntadle a Truman.;0;0;0;false;None
+julia_3;Te doy su número si quieres, pero me dejáis en paz.;0;0;0;false;None
+julia_4;No, no…;0;1;0;false;None
+julia_5;Trabajo en Pandemonium ahora. Supongo que sabes que han vuelto a la vida.;0;1;0;false;None
+julia_6;He encontrado tu número en el código de un juego.;0;1;0;false;None
+julia_7;¿Y no tenías nada mejor que hacer que escribirle a una extraña?;0;0;0;false;None
+julia_8;respuesta5-Sincero-Avergonzado;0;1;0;false;None
+respuesta5_1_0;Realmente esperaba que me pudieras ayudar;0;1;0;false;None
+respuesta5_1_1;Pues no tengo tiempo;0;0;0;false;None
+respuesta5_2_0;Eh, yo…;0;1;0;false;None
+respuesta5_2_1;Me estás haciendo perder el tiempo, chaval.;0;0;0;false;None
+julia_9;Mira.;0;1;0;false;None
+julia_10;Creo que Wagner me está ocultando algo.;0;1;0;false;None
+julia_11;Sí, suele hacer eso.;0;0;0;false;None
+julia_12;Ese algo está en Avila Simulator, o eso creo. Dice que todas las copias fueron destruidas.;0;1;0;false;None
+julia_13;Todas no.;0;0;0;false;None
+julia_14;Me llevé una cuando me echaron. Pensé que podríamos echarnos unas risas viendo las ideas disparatadas de Leo, o por si valía dinero 30 años después.;0;0;0;false;None
+julia_15;Pero después de lo que le pasó, no nos atrevimos a tocarlo. Por si estaba maldito o algo.;0;0;0;false;None
+julia_16;¿Qué le pasó?;0;1;0;false;None
+julia_17;Sé lo mismo que tú. Desapareció de la noche a la mañana. Ni su familia parece saber donde está.;0;0;0;false;None
+julia_18;Creo que podría averiguarlo.;0;1;0;false;None
+julia_19;Te mando una copia.;0;0;0;false;None
+julia_20;Haz lo que te dé la gana con ella, pero a mí no me metas en líos.;0;0;0;false;None
+julia_21;avila simulator.exe;0;0;0;false;None

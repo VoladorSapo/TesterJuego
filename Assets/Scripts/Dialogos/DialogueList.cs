@@ -7,7 +7,7 @@ public class DialogueList : MonoBehaviour
    [SerializeField] TextAsset textDialogue;
    [SerializeField] TextAsset textMessages; 
     Dictionary<string,DialogueClass> DialogueHash;
-    Dictionary<string, MessageClass> MessageHash;
+   [SerializeField] Dictionary<string, MessageClass> MessageHash;
     public static DialogueList Instance;
     // Start is called before the first frame update
     void Start()
@@ -28,14 +28,19 @@ public class DialogueList : MonoBehaviour
                  strings = textMessages.text.Split('\r');
                 for (int i = 1; i < strings.Length; i++)
                 {
-                    if (!string.IsNullOrWhiteSpace(strings[i]))
+                    string trimString = strings[i].Trim();
+                    if (!string.IsNullOrWhiteSpace(trimString))
                     {
-                        string[] messagestring = strings[i].Split(';');
-                        print(strings[i]);
+                        string[] messagestring = trimString.Split(';');
+                        print(trimString);
                         MessageClass message = new MessageClass(messagestring[1], int.Parse(messagestring[2]), int.Parse(messagestring[3]), int.Parse(messagestring[4]), Convert.ToBoolean(messagestring[5]), messagestring[6]);
                         MessageHash.Add(messagestring[0], message);
                     }
                 }
+            }
+            foreach (string item in MessageHash.Keys)
+            {
+                print(item);
             }
             if (textDialogue != null)
             {
@@ -78,6 +83,11 @@ public class DialogueList : MonoBehaviour
     }
     public MessageClass getMessage(string key)
     {
+        print(MessageHash.Count);
+        foreach (string item in MessageHash.Keys)
+        {
+            print(item);
+        }
         if (MessageHash.ContainsKey(key))
         {
             return MessageHash[key];

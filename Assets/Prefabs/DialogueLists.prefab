@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDialogue: {fileID: 4900000, guid: 657c24bc3c1fdb844bbce33817c2e615, type: 3}
-  textMessages: {fileID: 4900000, guid: 4a1ab469bcf16c54bad34c4246e651a4, type: 3}
+  textMessages: {fileID: 4900000, guid: 984f53517004bd04281b4f343c7fbf57, type: 3}

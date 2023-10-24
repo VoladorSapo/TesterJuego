@@ -9,7 +9,7 @@ public class WinObject : MonoBehaviour
     Animator anim;
  [SerializeField]   GameObject WinScreen;
    [SerializeField] bool canNext;
-    [SerializeField] int nextScene;
+    [SerializeField] string nextScene;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

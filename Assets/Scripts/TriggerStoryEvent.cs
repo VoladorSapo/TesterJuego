@@ -7,7 +7,7 @@ public class TriggerStoryEvent : MonoBehaviour
     [SerializeField] string MessageKey;
     [SerializeField] int conversation;
     [SerializeField]   KeyCode key = KeyCode.None;
-
+    [SerializeField] bool onLoad;
     [SerializeField] bool HardPause;
     [Header("0 Mensaje,1 DebugLog, 2 Conversacion")]
     [SerializeField] int SpawnPlace;//0 Mensaje,1 DebugLog, 2 Conversacion
@@ -18,12 +18,16 @@ public class TriggerStoryEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (onLoad)
+        {
+            TriggerEvent();
+        }
     }
     public void TriggerEvent()
     {
         MessageClass[] messages = MessageAdder.Instance.GetMessageList(MessageKey);
         MessageAdder.Instance.AddMessageList(MessageAdder.Instance.GetMessageList(MessageKey), conversation);
+        MessageAdder.Instance.showOpenButton(true);
         if (HardPause)
             MessageAdder.Instance.HardPause();
     }
