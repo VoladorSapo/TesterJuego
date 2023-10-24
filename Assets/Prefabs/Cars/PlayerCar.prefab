@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5622861898671162408}
   m_Layer: 3
   m_Name: PlayerCar
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,4 +203,3 @@ MonoBehaviour:
   playerName: 
   WaypointsPassed: 0
   DistanceToReachWaypoint: 0
-  spriteUI: {fileID: 0}

@@ -11,9 +11,6 @@ public class StageButton : ButtonSelection
     [SerializeField] private string stageName;
     [SerializeField] private int lapsOfStage;
     [SerializeField] private int oneLapWP;
-    [SerializeField] private int narrativeLocalChange;
-
-    [SerializeField] private string actionName;
     [SerializeField] private int buttonID;
 
     protected override void Update(){
@@ -34,8 +31,6 @@ public class StageButton : ButtonSelection
     }
     public void SetLaps(){
         AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
-        CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.totalWaypointsInTrack=lapsOfStage*oneLapWP;
-        SceneManagement.Instance.SetNextScene(actionName);
     }
 }
