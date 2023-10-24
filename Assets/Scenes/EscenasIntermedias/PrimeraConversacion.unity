@@ -1267,8 +1267,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &713959412
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,7 +8811,6 @@ RectTransform:
   m_AnchoredPosition: {x: 13.614485, y: -7.5354223}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> Stashed changes
 --- !u!1 &881071764
 GameObject:
   m_ObjectHideFlags: 0
