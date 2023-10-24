@@ -112,6 +112,7 @@ public class CarController : BasicCar, IPauseSystem
         
         float minDist=9999f;
         foreach(Waypoint wp in CurrentWaypoint){
+            if(wp==null){continue;}
             float wpDist=Vector3.Distance(new Vector3(transform.position.x,transform.position.y,0),new Vector3(wp.transform.position.x,wp.transform.position.y,0));
             if(wpDist<minDist){
                 minDist=wpDist;

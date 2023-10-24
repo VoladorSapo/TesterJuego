@@ -209,13 +209,19 @@ public class CarreraManager : MonoBehaviour
         SceneManager.LoadSceneAsync("MenuCar");
     }
 
+    public void StopRace(){
+        CarController car=GameObject.FindObjectOfType<CarController>();
+        allPositions.Clear();
+    }
+
     //Otros
     public int minStart=0;
     void UpdatePositionUI(){
         OrderPositionsList();
         //Debug.Log(allPositions[0]);
+        if(allPositions.Count>0)
         for(int i=0; i<allPositions.Count; i++){
-            if(i+minStart<allPositionsImages.Length)
+            if(i+minStart<allPositionsImages.Length && allPositions[i]!=null)
             allPositionsImages[i+minStart].sprite=allPositions[i].gameObject.GetComponent<PositionRace>().spriteUI;
         }
         
