@@ -44,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plataformas/Nivel 2.unity
     guid: e965d1e04f31ffd46a01238a51531b48
+  - enabled: 1
+    path: Assets/Scenes/Zelda/MenuZelda.unity
+    guid: 6392a71cad67aa342ba9060f3d5a1061
+  - enabled: 1
+    path: Assets/Scenes/Zelda/Intro.unity
+    guid: 42f7066919aaf3343bd3fa86b8c0223b
   m_configObjects: {}

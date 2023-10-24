@@ -296,7 +296,7 @@ public class MessageAdder : MonoBehaviour
         {
             case "Scene":
                 print(codes[1]);
-                _button.onClick.AddListener(delegate { LoadScene(int.Parse(codes[1])); });
+                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); });
                 break;
             default:
                 break;

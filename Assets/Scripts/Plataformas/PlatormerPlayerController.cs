@@ -205,6 +205,9 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             if (raycasts.movingplatform)
             {
+                if(!transform.parent != raycasts.movingplatform.transform){
+                    raycasts.movingplatform.GetComponentInParent<MovingObjectController>().StartMoving();
+                }
                 transform.parent = raycasts.movingplatform.transform;
             }
             else

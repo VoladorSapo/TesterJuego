@@ -98,7 +98,7 @@ public class SceneManagement : MonoBehaviour
     }
 
     void GameChanges(){
-
+        print("holyshit");
         SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
         if(globalPrevNarrativePart!=globalNarrativePart){

@@ -9,6 +9,8 @@ public class MovingObjectController : MonoBehaviour
     GameObject movingObject;
     [SerializeField] float speed;
     [SerializeField] float spinspeed;
+    [SerializeField] bool waitPlayer;
+    bool startMoving;
     [SerializeField] bool canPause;
      bool paused;
     private void OnDrawGizmos()
@@ -23,6 +25,7 @@ public class MovingObjectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startMoving = waitPlayer ? false : true;    
         SetEvents();
         paused = false;
         movingObject = transform.GetChild(0).gameObject;
@@ -37,7 +40,7 @@ public class MovingObjectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!paused)
+        if (!paused && (!waitPlayer||startMoving))
         {
             if (points.Length > 0)
             {
@@ -50,6 +53,11 @@ public class MovingObjectController : MonoBehaviour
             float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
             movingObject.transform.eulerAngles = new Vector3(movingObject.transform.eulerAngles.x, movingObject.transform.eulerAngles.y, angle);
         }
+    }
+
+    public void StartMoving()
+    {
+        startMoving = true;
     }
     public void Pause()
     {
