@@ -9,8 +9,11 @@ public class MessageAdder : MonoBehaviour
 {
 
     public List<GameObject> TextConversations;
+    [SerializeField] GameObject ButtonList;
    public static MessageAdder Instance;
     [SerializeField] private GameObject MessageBoard;
+    [SerializeField] GameObject conversationPrefab;
+    [SerializeField] GameObject buttonPrefab;
     [SerializeField] private GameObject Options;
     int currentConversation;
     int rundown;
@@ -21,7 +24,9 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] private GameObject ImagePrefab;
     [SerializeField] private GameObject OptionButtonPrefab;
     [SerializeField] private Button OpenButton;
-    [SerializeField]bool HardPaused;
+    [SerializeField] string[] Telefonos;
+    [SerializeField] TMP_InputField inputField;
+    [SerializeField] bool HardPaused;
     // Start is called before the first frame update
     void Start()
     {
@@ -332,7 +337,22 @@ public class MessageAdder : MonoBehaviour
         }
     }
 
-
+    public void AddConversation()
+    {
+        print(inputField.text);
+        switch (inputField.text)
+        {
+            case "999":
+                GameObject scrollView =  Instantiate(conversationPrefab, MessageBoard.transform);
+                GameObject button = Instantiate(buttonPrefab, ButtonList.transform);
+                button.GetComponent<Button>().onClick.AddListener(delegate { ChangeConversation(TextConversations.Count - 1); });
+                button.transform.SetSiblingIndex(TextConversations.Count - 1);
+                currentMessages.Add(new List<MessageClass>());
+                TextConversations.Add(scrollView);
+                ChangeConversation(TextConversations.Count - 1);
+                break;
+        }
+    }
     public void SetEvents()
     {
         PauseController.Instance?.SetPausedEvents(Pause, Unpause);
