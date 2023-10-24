@@ -298,6 +298,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2476489809481274765, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476489809481274765, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4078193407407005418, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -448,6 +456,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814430138175, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814430138175, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814430138175, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814430138175, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814621624788, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814621624788, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814621624788, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814621624788, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6880423814858823395, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
@@ -1418,6 +1458,8 @@ MonoBehaviour:
   stageName: Stage1Car
   lapsOfStage: 3
   oneLapWP: 27
+  narrativeLocalChange: 0
+  actionName: 
   buttonID: 0
 --- !u!1 &708394571
 GameObject:
@@ -1796,6 +1838,8 @@ MonoBehaviour:
   stageName: Stage3Car
   lapsOfStage: 3
   oneLapWP: 31
+  narrativeLocalChange: 0
+  actionName: 
   buttonID: 2
 --- !u!1001 &882818637
 PrefabInstance:
@@ -2028,6 +2072,8 @@ MonoBehaviour:
   stageName: Stage4Car
   lapsOfStage: 5
   oneLapWP: 0
+  narrativeLocalChange: 0
+  actionName: 
   buttonID: 3
 --- !u!1 &989128901
 GameObject:
@@ -2196,7 +2242,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807644769}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3559,11 +3605,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807644769}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -368, y: -22.97}
+  m_AnchoredPosition: {x: -77.620125, y: 17.419052}
   m_SizeDelta: {x: 431.95, y: 431.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587778260
@@ -3742,8 +3788,8 @@ Transform:
   m_LocalScale: {x: 1.7422867, y: 1.7422867, z: 1.7422867}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1003472197}
   - {fileID: 1587778259}
+  - {fileID: 1003472197}
   m_Father: {fileID: 502988902}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4581,6 +4627,8 @@ MonoBehaviour:
   stageName: Stage2Car
   lapsOfStage: 3
   oneLapWP: 32
+  narrativeLocalChange: 0
+  actionName: SetRaceStage2
   buttonID: 1
 --- !u!1 &2078620744
 GameObject:
