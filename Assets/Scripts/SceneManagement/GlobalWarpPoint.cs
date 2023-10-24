@@ -12,6 +12,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
     [Header("Scene Change (Vacio == No Cambia Escena)")]
     public string nextScene;
+    public string nextAcctionName;
 
     [Header("Lista de Efectos de Transición")]
     public List<TransitionData> transitionList=new List<TransitionData>();
@@ -65,7 +66,7 @@ public class GlobalWarpPoint : MonoBehaviour
             }
 
             if(nextScene!=""){
-                
+                SceneManagement.Instance.actionName=nextAcctionName;
                 DontDestroyOnLoad(other.gameObject);
 
                 if(transitionList.Count>0)
@@ -97,6 +98,7 @@ public class GlobalWarpPoint : MonoBehaviour
             }
 
             if(nextScene!=""){
+                SceneManagement.Instance.actionName=nextAcctionName;
                 if(transitionList.Count>0)
                 IterateTransitions();
 
@@ -122,6 +124,7 @@ public class GlobalWarpPoint : MonoBehaviour
             
 
             if(nextScene!=""){
+                SceneManagement.Instance.actionName=nextAcctionName;
                 if(transitionList.Count>0)
                 IterateTransitions();
 

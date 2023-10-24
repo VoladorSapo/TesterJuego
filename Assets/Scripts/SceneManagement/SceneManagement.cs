@@ -60,6 +60,9 @@ public class SceneManagement : MonoBehaviour
          CameraSettings(2,"PlayerCar",2);
     }
 
+    public void SetNextScene(string action){
+        actionName=action;
+    }
     void Update()
     {   
         currentScene=SceneManager.GetActiveScene();
@@ -116,11 +119,14 @@ public class SceneManagement : MonoBehaviour
     }
 
     void BeginSceneWith(ref string act){
+        Debug.LogWarning(act);
         switch(act){
             case "killMouse": killMouse=true; break;
             case "reviveMouse": killMouse=false; break;
-            case "SetRaceNormal": CarSettings(false); break;
-            case "SetRaceGlitch": CarSettings(true); break;
+            case "SetRaceNormal": CarSettings(false,false); break;
+            case "SetRaceGlitch": CarSettings(false,true); break;
+            case "SetRaceStage2": CarSettings(false,true); EventManager.Instance?.GlitchPencilStage2(); break;
+            case "StopRace": CarSettings(true,true); break;
         }
         act="";
     }
@@ -142,9 +148,9 @@ public class SceneManagement : MonoBehaviour
         }else if(allStages.Contains(SceneManager.GetActiveScene().name)){
             
             switch(localNarrativePart){
-                    case 0: CarSettings(false); break;
+                    case 0: CarSettings(false, false); break;
                     case 1: break;
-                    case 2: CarSettings(true); EventManager.Instance?.GlitchPencilStage2(); break;
+                    case 2: break;
                     case 3: break;
                     case 4: break;
                     default: break;
@@ -213,14 +219,19 @@ public class SceneManagement : MonoBehaviour
     void MusicSettings(string prevMusic, float fadeOutTime, string newMusic, float fadeInTime){
         AudioManager.Instance?.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
-    void CarSettings(bool glitchedMapActive){
+    void CarSettings(bool stopRace,bool glitchedMapActive){
         
-        if(menuScenes.Contains(currentScene.name))
-            CarreraManager.Instance.killMouse=true;
-        else if(allStages.Contains(currentScene.name)){
-            MusicSettings("Select Car Music",0.25f,"",0);
-            CarreraManager.Instance.killMouse=false; 
-            CarreraManager.Instance?.SetRace(glitchedMapActive);  
+        if(stopRace){
+            CarreraManager.Instance.StopRace();
+        }
+        else{
+            if(menuScenes.Contains(currentScene.name))
+                CarreraManager.Instance.killMouse=true;
+            else if(allStages.Contains(currentScene.name)){
+                MusicSettings("Select Car Music",0.25f,"",0);
+                CarreraManager.Instance.killMouse=false; 
+                CarreraManager.Instance?.SetRace(glitchedMapActive);  
+            }
         }
         
     }
