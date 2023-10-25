@@ -11,6 +11,7 @@ public class MovingObjectController : MonoBehaviour
     [SerializeField] float spinspeed;
     [SerializeField] bool waitPlayer;
     bool startMoving;
+    [SerializeField] string sound;
     [SerializeField] bool canPause;
      bool paused;
     private void OnDrawGizmos()
@@ -34,14 +35,23 @@ public class MovingObjectController : MonoBehaviour
         {
             points[i - 1] = transform.GetChild(i).transform.position;
         }
+       
         objective = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            if (!string.IsNullOrWhiteSpace(sound))
+            {
+                AudioManager.Instance.PlaySound(sound, true, transform.position, false);
+            }
+        }
         if (!paused && (!waitPlayer||startMoving))
         {
+            
             if (points.Length > 0)
             {
                 movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.deltaTime);
