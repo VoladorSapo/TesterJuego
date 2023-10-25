@@ -11,11 +11,12 @@ using UnityEngine.U2D;
 public class SceneManagement : MonoBehaviour
 {
     public static SceneManagement Instance;
-    public int globalNarrativePart;
-    private int globalPrevNarrativePart=-1;
+    public int globalChange;
+    private int globalPrevChange=-1;
     public string actionName;
 
-    public int localNarrativePart=-1;
+    public NarrativeParts narrativeParts=new NarrativeParts();
+    NarrativeParts prevNarrativeParts=new NarrativeParts(-1,-1,-1);
 
     [Header("Escenas del Juego de Plataformas")]
     public List<string> allPlatformLevels;
@@ -48,8 +49,10 @@ public class SceneManagement : MonoBehaviour
         }else{
             Destroy(this.gameObject);
         }
+
     }
     void Start(){
+        Debug.LogWarning(prevNarrativeParts.CarNarrative==narrativeParts.CarNarrative);
         currentScene=SceneManager.GetActiveScene();
         camaraGlobal=CamaraGlobal.Instance;
         StartSettings();
@@ -78,9 +81,7 @@ public class SceneManagement : MonoBehaviour
         }
 
         //Cambios Narrativos que no dependen del cambio de escenas
-        if(localNarrativePart>=0){
-                NarrativeChanges();
-        }
+        NarrativeChanges();
 
         ConstantChanges();
         //if (Input.GetKeyDown(KeyCode.W))
@@ -104,9 +105,9 @@ public class SceneManagement : MonoBehaviour
         print("holyshit");
         SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
-        if(globalPrevNarrativePart!=globalNarrativePart){
-                globalPrevNarrativePart=globalNarrativePart;
-                switch(globalNarrativePart){
+        if(globalPrevChange!=globalChange){
+                globalPrevChange=globalChange;
+                switch(globalChange){
                     case 0: break;
                     case 1: CameraSettings(1, "Capsule", 1); AudioSettings("Capsule"); break;
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
@@ -125,7 +126,7 @@ public class SceneManagement : MonoBehaviour
             case "reviveMouse": killMouse=false; break;
             case "SetRaceNormal": CarSettings(false,false); break;
             case "SetRaceGlitch": CarSettings(false,true); break;
-            case "SetRaceStage2": CarSettings(false,true); EventManager.Instance?.GlitchPencilStage2(); break;
+            case "SetRaceStage2": CarSettings(false,true); narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break;
             case "StopRace": CarSettings(true,true); break;
         }
         act="";
@@ -135,28 +136,33 @@ public class SceneManagement : MonoBehaviour
 
     void NarrativeChanges(){
        
-       Debug.LogWarning(localNarrativePart);
-        if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name)){
-            switch(localNarrativePart){
+       
+        if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && prevNarrativeParts.PlatformNarrative!=narrativeParts.PlatformNarrative){
+            prevNarrativeParts.PlatformNarrative=narrativeParts.PlatformNarrative;
+            switch(narrativeParts.PlatformNarrative){
                     case 0: break;
                     case 1: break;
                     case 2: break;
                     case 3: break;
                     case 4: break;
                     default: break;
-                }
-        }else if(allStages.Contains(SceneManager.GetActiveScene().name)){
-            
-            switch(localNarrativePart){
-                    case 0: CarSettings(false, false); break;
-                    case 1: break;
+            }
+        }
+        if((allStages.Contains(SceneManager.GetActiveScene().name) || menuScenes.Contains(SceneManager.GetActiveScene().name)) && prevNarrativeParts.CarNarrative!=narrativeParts.CarNarrative){
+            prevNarrativeParts.CarNarrative=narrativeParts.CarNarrative;  
+            switch(narrativeParts.CarNarrative){
+                    case 0: killMouse=true; CarSettings(false, false); break;
+                    case 1: killMouse=false; CarSettings(false, false); break;
                     case 2: break;
                     case 3: break;
                     case 4: break;
                     default: break;
                 }
-        }else if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name)){
-            switch(localNarrativePart){
+            Debug.LogWarning("jhia");
+        }
+        if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name) && prevNarrativeParts.ZeldaNarrative!=narrativeParts.ZeldaNarrative){
+            prevNarrativeParts.ZeldaNarrative=narrativeParts.ZeldaNarrative;
+            switch(narrativeParts.ZeldaNarrative){
                     case 0: break;
                     case 1: break;
                     case 2: break;
@@ -165,7 +171,7 @@ public class SceneManagement : MonoBehaviour
                     default: break;
                 }
         }
-        localNarrativePart=-1;
+
     }
 
     bool killMouse=false;
@@ -174,9 +180,7 @@ public class SceneManagement : MonoBehaviour
             ChangePlayerToCar();
         }
 
-        if(killMouse){
-            KillMouseInputs();
-        }
+        KillMouseInputs(killMouse);
     }
     
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
@@ -225,15 +229,12 @@ public class SceneManagement : MonoBehaviour
             CarreraManager.Instance.StopRace();
         }
         else{
-            if(menuScenes.Contains(currentScene.name))
-                CarreraManager.Instance.killMouse=true;
-            else if(allStages.Contains(currentScene.name)){
+            if(allStages.Contains(currentScene.name)){
                 MusicSettings("Select Car Music",0.25f,"",0);
                 CarreraManager.Instance.killMouse=false; 
                 CarreraManager.Instance?.SetRace(glitchedMapActive);  
             }
         }
-        
     }
 
     void ChangePlayerToCar(){
@@ -255,14 +256,20 @@ public class SceneManagement : MonoBehaviour
 
 
     GameObject lastSelected;
-    public void KillMouseInputs(){
-        Cursor.visible=false;
-        Cursor.lockState=CursorLockMode.Locked;
-        if(EventSystem.current?.currentSelectedGameObject==null){
-            if(lastSelected!=null)
-            EventSystem.current.SetSelectedGameObject(lastSelected);
-        }else if(EventSystem.current.currentSelectedGameObject!=null){
-            lastSelected=EventSystem.current.currentSelectedGameObject;
+    public void KillMouseInputs(bool killMouse){
+
+        if(killMouse){
+            Cursor.visible=false;
+            Cursor.lockState=CursorLockMode.Locked;
+            if(EventSystem.current?.currentSelectedGameObject==null){
+                if(lastSelected!=null)
+                EventSystem.current.SetSelectedGameObject(lastSelected);
+            }else if(EventSystem.current.currentSelectedGameObject!=null){
+                lastSelected=EventSystem.current.currentSelectedGameObject;
+            }
+        }else{
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }

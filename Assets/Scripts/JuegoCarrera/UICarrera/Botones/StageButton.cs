@@ -31,11 +31,28 @@ public class StageButton : ButtonSelection
         Button button = GetComponent<Button>();
         if(GamesManager.Instance.unlockedCarStages<buttonID){GetComponent<Image>().color = Color.gray;}
         GamesManager.Instance.CarButtonStage(buttonID,this.GetComponent<Button>());
+
+        SetPauseEvents();
     }
     public void SetLaps(){
         AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
         CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.totalWaypointsInTrack=lapsOfStage*oneLapWP;
         SceneManagement.Instance.SetNextScene(actionName);
+    }
+
+    public override void Pause(){
+        Button button=GetComponent<Button>();
+        button.enabled=false;
+    }
+
+    public override void Unpause(){
+        Button button=GetComponent<Button>();
+        button.enabled=true;
+    }
+
+    public override void SetPauseEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }
 }

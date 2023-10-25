@@ -73,7 +73,7 @@ public class CarreraManager : MonoBehaviour
         canvas.enabled=false;
         
         SceneManager.LoadScene(SelectedStage);
-        SceneManagement.Instance.localNarrativePart=0;
+        SceneManagement.Instance.narrativeParts.CarNarrative=1;
         
     }
 

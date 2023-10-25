@@ -75,11 +75,15 @@ MonoBehaviour:
   transitionWithPlayer: 0
   oneUse: 1
   nextScene: MenuCar
+  nextAcctionName: 
   transitionList: []
   WaitToChange: 0
   nextPosition: {x: 0, y: 0, z: 0}
   nextGlobalNarrativePart: 2
-  nextLocalNarrativePart: 2
+  nextLocalNarrativeParts:
+    PlatformNarrative: -1
+    CarNarrative: -1
+    ZeldaNarrative: -1
   currentMusic: 
   followingMusic: 
   fadeOutTime: 0

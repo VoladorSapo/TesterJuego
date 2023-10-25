@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class ButtonSelection : MonoBehaviour, ISelectHandler
+public class ButtonSelection : MonoBehaviour, ISelectHandler, IPauseSystem
 {   
     [Header("Display Frames")]
     [SerializeField] protected UnityEngine.UI.Image imageDisplay;
@@ -31,5 +31,18 @@ public class ButtonSelection : MonoBehaviour, ISelectHandler
         AudioManager.Instance.PlaySound("Menu confirm pixel",false,transform.position,false);
     }
 
+    public virtual void Pause()
+    {
+        
+    }
 
+    public virtual void Unpause()
+    {
+        
+    }
+
+    public virtual void SetPauseEvents()
+    {
+        
+    }
 }

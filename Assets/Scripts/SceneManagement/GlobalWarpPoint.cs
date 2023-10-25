@@ -25,8 +25,9 @@ public class GlobalWarpPoint : MonoBehaviour
     [Header("Narrative Change (-1 == No Cambia)")]
     [Header("Depende del cambio de Escena")]
     public int nextGlobalNarrativePart;
+
     [Header("No Depende del cambio de Escena")]
-    public int nextLocalNarrativePart;
+    public NarrativeParts nextLocalNarrativeParts;
 
     [Header("Music Change")]
     public string currentMusic;
@@ -58,8 +59,9 @@ public class GlobalWarpPoint : MonoBehaviour
             if(oneUse){used=true;}
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
 
-            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalNarrativePart=nextGlobalNarrativePart;}
-            if(nextLocalNarrativePart>=0){SceneManagement.Instance.localNarrativePart=nextLocalNarrativePart;}
+            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalChange=nextGlobalNarrativePart;}
+            ApplyNarrativeChanges();
+            
             //SceneManagement.Instance.instantiatePos=nextPosition;
             if(other.GetComponent<Rigidbody2D>()!=null){
                 //other.GetComponent<Rigidbody2D>().velocity=Vector2.zero;
@@ -89,8 +91,8 @@ public class GlobalWarpPoint : MonoBehaviour
             if(oneUse){used=true;}
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
 
-            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalNarrativePart=nextGlobalNarrativePart;}
-            if(nextLocalNarrativePart>=0){SceneManagement.Instance.localNarrativePart=nextLocalNarrativePart;}
+            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalChange=nextGlobalNarrativePart;}
+            ApplyNarrativeChanges();
             
             //SceneManagement.Instance.instantiatePos=nextPosition;
             if(other.GetComponent<Rigidbody2D>()!=null){
@@ -119,8 +121,8 @@ public class GlobalWarpPoint : MonoBehaviour
             if(oneUse){used=true;}
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
 
-            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalNarrativePart=nextGlobalNarrativePart;}
-            if(nextLocalNarrativePart>=0){SceneManagement.Instance.localNarrativePart=nextLocalNarrativePart;}
+            if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalChange=nextGlobalNarrativePart;}
+            ApplyNarrativeChanges();
             
 
             if(nextScene!=""){
@@ -136,6 +138,12 @@ public class GlobalWarpPoint : MonoBehaviour
             }
             //other.gameObject.transform.position=nextPosition;
         }
+    }
+
+    void ApplyNarrativeChanges(){
+        if(nextLocalNarrativeParts.PlatformNarrative>=0){SceneManagement.Instance.narrativeParts.PlatformNarrative=nextLocalNarrativeParts.PlatformNarrative;}
+        if(nextLocalNarrativeParts.CarNarrative>=0){SceneManagement.Instance.narrativeParts.CarNarrative=nextLocalNarrativeParts.CarNarrative;}
+        if(nextLocalNarrativeParts.ZeldaNarrative>=0){SceneManagement.Instance.narrativeParts.ZeldaNarrative=nextLocalNarrativeParts.ZeldaNarrative;}
     }
 
 }

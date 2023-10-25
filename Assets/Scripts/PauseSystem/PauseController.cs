@@ -36,16 +36,16 @@ public class PauseController : MonoBehaviour
             else
             unpauseEvent?.Invoke();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        /*if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
             {
                 isPaused = true;
                 pauseEvent?.Invoke();
             }
-        }
+        }*/
     }
-    public void InvokePause() //Lo he tenido que añadir para las pausas forzosas
+    public void InvokePause() //Lo he tenido que aï¿½adir para las pausas forzosas
     {
         pauseEvent?.Invoke();
         isPaused = true;

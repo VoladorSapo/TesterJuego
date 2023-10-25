@@ -264,7 +264,9 @@ public class MessageAdder : MonoBehaviour
     }
     public void CloseBoard()
     {
+        
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
+
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
 
