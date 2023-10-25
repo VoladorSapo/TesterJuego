@@ -9,6 +9,7 @@ TagManager:
   - MovingPlatform
   - "Ca\xF1on"
   - Moneda
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

@@ -28,48 +28,56 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] string[] Telefonos;
     [SerializeField] TMP_InputField inputField;
     [SerializeField] bool HardPaused;
+    [SerializeField] bool Writting;
     // Start is called before the first frame update
     void Start()
     {
-        SetEvents();
-        if (SceneManager.GetActiveScene().name == "Nivel 1")
-            OpenButton.gameObject.SetActive(false);
-        rundown = 0;
-        CloseBoard();
-        print(currentMessages == null);
-        conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
-        if (wholeMessages == null || wholeMessages.Count == 0)
+        if (Instance == null)
         {
-            currentMessages = new List<List<MessageClass>>();
-
-            wholeMessages = new List<List<MessageClass>>();
-            for (int i = 0; i < TextConversations.Count; i++)
+            SetEvents();
+            if (SceneManager.GetActiveScene().name == "Nivel 1")
+                OpenButton.gameObject.SetActive(false);
+            rundown = 0;
+            CloseBoard();
+            print(currentMessages == null);
+            conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
+            if (wholeMessages == null || wholeMessages.Count == 0)
             {
-                currentMessages.Add(new List<MessageClass>());
+                currentMessages = new List<List<MessageClass>>();
 
-                wholeMessages.Add(new List<MessageClass>());
-                TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
-                TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+                wholeMessages = new List<List<MessageClass>>();
+                for (int i = 0; i < TextConversations.Count; i++)
+                {
+                    currentMessages.Add(new List<MessageClass>());
+
+                    wholeMessages.Add(new List<MessageClass>());
+                    TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
+                    TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+                }
             }
+            else
+            {
+                currentMessages = new List<List<MessageClass>>();
+
+                for (int i = 0; i < TextConversations.Count; i++)
+                {
+                    currentMessages.Add(new List<MessageClass>());
+
+                    foreach (MessageClass message in wholeMessages[i])
+                    {
+                        AddMessage(message.text, message.side, i, message.isButton, message.type);
+                    }
+                    TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
+                    TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+                }
+            }
+            Instance = this;
         }
         else
         {
-            currentMessages = new List<List<MessageClass>>();
-
-            for (int i = 0; i < TextConversations.Count; i++)
-            {
-                currentMessages.Add(new List<MessageClass>());
-
-                foreach (MessageClass message in wholeMessages[i])
-                {
-                    AddMessage(message.text, message.side, i, message.isButton, message.type);
-                }
-                TextConversations[i].GetComponent<CanvasGroup>().alpha = 0;
-                TextConversations[i].GetComponent<CanvasGroup>().blocksRaycasts = false;
-
-            }
+            Destroy(this);
         }
-        Instance = this;
     }
 
     void AddMessage(string text, int side, int list, string isButton, int type)
@@ -141,6 +149,7 @@ public class MessageAdder : MonoBehaviour
         MessageClass dialog = DialogueList.Instance.getMessage(key + "_" + i);
         while (dialog != null)
         {
+            print("waka");
             i++;
             messages.Add(dialog);
             dialog = DialogueList.Instance.getMessage(key + "_" + i);
@@ -191,6 +200,7 @@ public class MessageAdder : MonoBehaviour
     {
         if (currentMessages[currentConversation].Count > 0)
         {
+            StartWrittin();
             bool noStop = true;
             print(currentMessages[currentConversation].Count);
             yield return new WaitForSeconds(firstWait);
@@ -202,16 +212,14 @@ public class MessageAdder : MonoBehaviour
                 if (message.type == 2 || message.type == 3)
                 {
                     noStop = false;
-                    print("jejejej");
                     break;
                 }
-                print("crazy");
                 yield return new WaitForSeconds(WaitTime(message.text, message.time, message.waitTimeFixed));
             }
             if (noStop)
             {
-                print("Bosa bosa");
                 currentMessages[currentConversation].Clear();
+                EndWrittin();
             }
         }
     }
@@ -264,7 +272,7 @@ public class MessageAdder : MonoBehaviour
     }
     public void CloseBoard()
     {
-        
+        print(name);
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
 
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
@@ -313,14 +321,28 @@ public class MessageAdder : MonoBehaviour
         switch (codes[0])
         {
             case "Scene":
-                print(codes[1]);
-                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); });
+                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard(); });
                 break;
             default:
                 break;
         }
     }
-
+    void StartWrittin()
+    {
+        OpenButton.interactable = false;
+        foreach (Button button in ButtonList.GetComponentsInChildren<Button>())
+        {
+            button.interactable = false;
+        }
+    }
+    void EndWrittin()
+    {
+        OpenButton.interactable = true;
+        foreach (Button button in ButtonList.GetComponentsInChildren<Button>())
+        {
+            button.interactable = true;
+        }
+    }
     public void LinkCount(TMP_Text text)
     {
         var Linkcount = text.textInfo.linkCount;
@@ -364,7 +386,12 @@ public class MessageAdder : MonoBehaviour
                 button.GetComponent<Button>().onClick.AddListener(delegate { ChangeConversation(TextConversations.Count - 1); });
                 button.transform.SetSiblingIndex(TextConversations.Count - 1);
                 currentMessages.Add(new List<MessageClass>());
+                wholeMessages.Add(new List<MessageClass>());
+                conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
                 TextConversations.Add(scrollView);
+                MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");
+                
+                MessageAdder.Instance.AddMessageList(messages, TextConversations.Count - 1);
                 ChangeConversation(TextConversations.Count - 1);
                 break;
         }

@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: globalChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: localNarrativePart
       value: 0
       objectReference: {fileID: 0}
@@ -23742,7 +23746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: nextScene
-      value: 12
+      value: Nivel 2
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844416, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: m_Name

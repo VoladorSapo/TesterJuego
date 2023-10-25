@@ -5,9 +5,11 @@ using System;
 public class DialogueList : MonoBehaviour
 {
    [SerializeField] TextAsset textDialogue;
-   [SerializeField] TextAsset textMessages; 
+   [SerializeField] TextAsset textMessages;
+    [SerializeField] TextAsset textLog;
     Dictionary<string,DialogueClass> DialogueHash;
    [SerializeField] Dictionary<string, MessageClass> MessageHash;
+    Dictionary<string, string> LogHash;
     public static DialogueList Instance;
     // Start is called before the first frame update
     void Start()
@@ -38,10 +40,6 @@ public class DialogueList : MonoBehaviour
                     }
                 }
             }
-            foreach (string item in MessageHash.Keys)
-            {
-                print(item);
-            }
             if (textDialogue != null)
             {
                 strings = textDialogue.text.Split('\r');
@@ -49,11 +47,28 @@ public class DialogueList : MonoBehaviour
 
                 for (int i = 0; i < strings.Length; i++)
                 {
-                    if (!string.IsNullOrWhiteSpace(strings[i]))
+                    string trimString = strings[i].Trim();
+
+                    if (!string.IsNullOrWhiteSpace(trimString))
                     {
-                        string[] dialoguestring = strings[i].Split(';');
+                        string[] dialoguestring = trimString.Split(';');
                         DialogueClass dialogue = new DialogueClass(dialoguestring[1], dialoguestring[2], int.Parse(dialoguestring[3]), int.Parse(dialoguestring[4]));
                         DialogueHash.Add(dialoguestring[0], dialogue);
+                    }
+                }
+            }
+            if (textLog != null)
+            {
+                strings = textLog.text.Split('\r');
+                print(strings.Length);
+
+                for (int i = 0; i < strings.Length; i++)
+                {
+                    string trimString = strings[i].Trim();
+                    if (!string.IsNullOrWhiteSpace(trimString))
+                    {
+                        string[] dialoguestring = trimString.Split(';');
+                        LogHash.Add(dialoguestring[0], dialoguestring[1]);
                     }
                 }
             }
@@ -83,11 +98,6 @@ public class DialogueList : MonoBehaviour
     }
     public MessageClass getMessage(string key)
     {
-        print(MessageHash.Count);
-        foreach (string item in MessageHash.Keys)
-        {
-            print(item);
-        }
         if (MessageHash.ContainsKey(key))
         {
             return MessageHash[key];
@@ -95,6 +105,18 @@ public class DialogueList : MonoBehaviour
         else
         {
             print("Dialogue not found: " + key);
+            return null;
+        }
+    }
+    public string getLog(string key)
+    {
+        if (LogHash.ContainsKey(key))
+        {
+            return LogHash[key];
+        }
+        else
+        {
+            print("Log not found: " + key);
             return null;
         }
     }

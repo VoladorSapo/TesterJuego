@@ -69,6 +69,10 @@ public class PlatormerPlayerController : MonoBehaviour
             Contador.text = Monedas.ToString();
 
         }
+        if(collision.gameObject.tag == "CheckPoint")
+        {
+            spawnPoint = collision.gameObject.transform.position;
+        }
     }
     public void Die()
     {
@@ -142,7 +146,6 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             if (raycasts.ground && rb2d.velocity.y <= 0.05f || (raycasts.onSlope && moveAxisX != 0 && pressjump > 0))
             {
-                print("tocando suelo");
                 anim.SetBool("onGround",true);
                 anim.SetBool("doubleJump", false);
                 anim.SetBool("jump", false);
@@ -278,7 +281,6 @@ public class PlatormerPlayerController : MonoBehaviour
                 }
                 else
                 {
-                    print("helo");
                     rb2d.velocity = Velocity;
                     //rb2d.velocity = new Vector2(0.9f * moveAxisX, rb2d.velocity.y);
 
