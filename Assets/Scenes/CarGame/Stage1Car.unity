@@ -214,7 +214,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 103938853}
@@ -415,7 +415,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 372925929}
@@ -646,7 +646,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 2094398317}
@@ -728,7 +728,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 267644192}
@@ -810,7 +810,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 2094059616}
@@ -965,7 +965,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1519060866}
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1821515097}
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 914161574}
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 266504313}
@@ -2437,7 +2437,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 341142362}
@@ -2643,7 +2643,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1702020831}
@@ -2786,7 +2786,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1210989285}
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 476048222}
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1167857219}
@@ -3352,7 +3352,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 961860660}
@@ -3434,7 +3434,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 2101012094}
@@ -3521,7 +3521,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1472502431}
@@ -4004,7 +4004,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 883066425}
@@ -4241,7 +4241,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 267358436}
@@ -4282,7 +4282,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 802244861}
@@ -4659,7 +4659,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1546795407}
@@ -4983,7 +4983,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1974052603}
@@ -5192,7 +5192,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 2085133233}
@@ -5801,7 +5801,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 966305013}
@@ -5883,7 +5883,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 75736117}
@@ -5965,7 +5965,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 837174066}
@@ -6052,7 +6052,7 @@ MonoBehaviour:
   _distanceToReachWaypoint: 5
   carMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 2056
   WPweight: 1
   FollowingWaypoints:
   - {fileID: 1167554418}

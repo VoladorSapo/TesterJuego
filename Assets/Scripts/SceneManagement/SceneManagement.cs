@@ -71,8 +71,10 @@ public class SceneManagement : MonoBehaviour
         currentScene=SceneManager.GetActiveScene();
 
         if(Input.GetKeyDown(KeyCode.L)){
-            GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
+            //GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
+            EndGame();
         }
+        
 
         if(previousScene==null || previousScene.name!=currentScene.name){
             previousScene=currentScene;
@@ -113,6 +115,7 @@ public class SceneManagement : MonoBehaviour
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
                     case 3: break;
                     case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
+                    case 9: EndGame(); break;
                     default: break; //Temporalmente está así
                 }
         }
@@ -255,6 +258,8 @@ public class SceneManagement : MonoBehaviour
     }
 
 
+    //Kill Mouse
+
     GameObject lastSelected;
     public void KillMouseInputs(bool killMouse){
 
@@ -271,5 +276,10 @@ public class SceneManagement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    //Final
+    void EndGame(){
+        camaraGlobal.attachedCanvas.StartCredits();
     }
 }
