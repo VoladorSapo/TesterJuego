@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: GlitchTiles
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 1756207677, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: -1932778945, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: -217038392, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: -1194254626, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: -1388514679, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: 270698253, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: 1026376311, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: 259062822, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  - {fileID: -957556490, guid: 4551a2df25dbf31419319d6b63303af2, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 30
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

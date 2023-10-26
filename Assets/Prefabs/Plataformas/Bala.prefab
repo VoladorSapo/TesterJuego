@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layersHit:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 3648
 --- !u!50 &215248352847119103
 Rigidbody2D:
   serializedVersion: 4

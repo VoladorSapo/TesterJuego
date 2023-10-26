@@ -80,9 +80,14 @@ public class PlatormerPlayerController : MonoBehaviour
         print("die");
         currentextraJumps = 0;
         AudioManager.Instance.PlaySound("Death", false, transform.position, false);
-
         transform.position = spawnPoint;
+
         rb2d.velocity = Vector2.zero;
+    }
+    public void Respawn()
+    {
+        transform.position = spawnPoint;
+
     }
     public void Win()
     {
@@ -127,6 +132,11 @@ public class PlatormerPlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!raycasts.ground)
+        {
+            anim.SetBool("onGround", false);
+
+        }
         if (!fallingfrombox && !paused)
         {
             moveAxisX = Input.GetAxisRaw("Horizontal");

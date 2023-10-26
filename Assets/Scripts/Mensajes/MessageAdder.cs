@@ -241,6 +241,10 @@ public class MessageAdder : MonoBehaviour
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
         print("rjnfjsnf");
+        if (currentConversation == 0 && currentMessages[currentConversation].Count <= 0)
+        {
+            CheckPuzzlePista();
+        }
         IEnumerator courutine = AddAllMessages(2);
         StartCoroutine(courutine);
 
@@ -263,18 +267,47 @@ public class MessageAdder : MonoBehaviour
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
 
+        if (currentConversation != 0)
+        {
+            foreach (Transform child in Options.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
         if (currentMessages[currentConversation].Count > 0)
         {
             print("oooo noooo");
             IEnumerator courutine = AddAllMessages(2);
             StartCoroutine(courutine);
         }
+        else
+        {
+            if(currentConversation == 0)
+            {
+                CheckPuzzlePista();
+            }
+        }
+    }
+    void CheckPuzzlePista()
+    {
+        if(SistemaPistas.Instance != null && SistemaPistas.Instance.startPuzzle && !SistemaPistas.Instance.ended)
+        {
+            Button newbutton = Instantiate(OptionButtonPrefab, Options.transform).GetComponent<Button>();
+            newbutton.GetComponentInChildren<TMP_Text>().text = "Pedir ayuda";
+            newbutton.onClick.AddListener(delegate { SistemaPistas.Instance.PedirPista(); });
+        }
     }
     public void CloseBoard()
     {
         print(name);
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
-
+        if (currentConversation != 0)
+        {
+            foreach (Transform child in Options.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+        }
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
 

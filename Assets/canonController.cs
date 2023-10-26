@@ -6,11 +6,11 @@ public class canonController : MonoBehaviour
 {
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] float WaitTime;
-[SerializeField]    float currentWait;
+[SerializeField]  public  float currentWait;
     [SerializeField] float speed;
     [SerializeField] float bulletAcceleration;
  [SerializeField]   int Dir;
-    Animator anim;
+     Animator anim;
     bool paused;
     // Start is called before the first frame update
     void Start()
