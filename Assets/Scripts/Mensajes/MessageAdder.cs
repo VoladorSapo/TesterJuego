@@ -374,6 +374,7 @@ public class MessageAdder : MonoBehaviour
     public void OpenAdder()
     {
         conversationAdder.GetComponent<CanvasGroup>().alpha = conversationAdder.GetComponent<CanvasGroup>().alpha == 0 ? 1 : 0;
+        conversationAdder.GetComponent<CanvasGroup>().blocksRaycasts = conversationAdder.GetComponent<CanvasGroup>().alpha == 0 ? false : true;
     }
     public void AddConversation()
     {

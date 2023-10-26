@@ -8,6 +8,7 @@ public class canonController : MonoBehaviour
     [SerializeField] float WaitTime;
 [SerializeField]    float currentWait;
     [SerializeField] float speed;
+    [SerializeField] float bulletAcceleration;
  [SerializeField]   int Dir;
     Animator anim;
     bool paused;
@@ -42,6 +43,7 @@ public class canonController : MonoBehaviour
         Vector2 Vectorspeed = (Dir % 2 == 0) ? new Vector2(1, 0) : new Vector2(0, 1);
         Vectorspeed *= speed * (Dir < 2 ? -1 : 1);
         _bala.GetComponent<Rigidbody2D>().velocity = Vectorspeed;
+        _bala.GetComponent<Rigidbody2D>().gravityScale = bulletAcceleration;
     }
   public  void ResetAnim()
     {

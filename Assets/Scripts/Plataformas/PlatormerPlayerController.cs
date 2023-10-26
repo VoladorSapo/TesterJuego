@@ -46,7 +46,6 @@ public class PlatormerPlayerController : MonoBehaviour
     {
         paused = false;
         anim = GetComponentInChildren<Animator>();
-        SetEvents();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -92,6 +91,7 @@ public class PlatormerPlayerController : MonoBehaviour
     void Start()
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform.position;
+        SetEvents();
 
         insideFloor = false;
         fallingfrombox = false;
@@ -162,7 +162,7 @@ public class PlatormerPlayerController : MonoBehaviour
             {
                 print("heheheheh");
                 float force = jumpForce;
-                if (jumping || touchground < 0)
+                if (jumping)
                 {
                     force = doublejumpForce;
                     anim.SetBool("doubleJump", true);
@@ -172,6 +172,10 @@ public class PlatormerPlayerController : MonoBehaviour
                 {
                     anim.SetBool("doubleJump", false);
 
+                }
+                if( touchground < 0)
+                {
+                    currentextraJumps++;
                 }
                 jumping = true;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
@@ -307,6 +311,7 @@ public class PlatormerPlayerController : MonoBehaviour
         anim.speed = 0;
         saveVelocity = rb2d.velocity;
         rb2d.velocity = Vector2.zero;
+        rb2d.gravityScale = 0;
     }
 
     public void Unpause()

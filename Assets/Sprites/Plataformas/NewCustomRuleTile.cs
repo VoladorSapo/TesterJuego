@@ -26,7 +26,7 @@ public class NewCustomRuleTile : RuleTile<NewCustomRuleTile.Neighbor> {
     }
     bool GetEmpty(TileBase tile)
     {
-        return tile == null;
+        return !Tiles.Contains(tile);
 
     }
 }
