@@ -16,6 +16,8 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float moveSpeed;
     public bool Interacting=false;
+    Vector2 moveDirection;
+    Vector2 lastMoveDirection;
 
     [Header("Interacciones")]
     [SerializeField] Transform _interactionPos;
@@ -97,14 +99,25 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         if(Interacting){return;}
         float H=Input.GetAxisRaw("Horizontal");
         float V=Input.GetAxisRaw("Vertical");
-        
+
+        if((H == 0 && V == 0) && moveDirection.x != 0 || moveDirection.y != 0)
+        {
+            lastMoveDirection = moveDirection;
+        }
+
+        moveDirection = new Vector2(H,V).normalized;
+
+        animator.SetFloat("LastMoveH", lastMoveDirection.x);
+        animator.SetFloat("LastMoveY", lastMoveDirection.y);
         animator.SetFloat("Horizontal", H);
         animator.SetFloat("Vertical", V);
+        
         CheckTileProperty(H,V,out H, out V);
 
         Vector2 PlayerInput= new Vector2(H,V).normalized;
         Vector2 moveForce=PlayerInput*moveSpeed;
 
+        animator.SetFloat("Movement", moveForce.magnitude);
         moveForce+=forceToApply;
         moveForce/=forceDamping;
 
