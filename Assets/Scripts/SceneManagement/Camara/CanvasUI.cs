@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CanvasUI : MonoBehaviour
@@ -31,6 +32,7 @@ public class CanvasUI : MonoBehaviour
             yield return null;
         }
 
+        SceneManager.LoadSceneAsync("EndScene");
         for (int i = 0; i < creditsUI.transform.childCount; i++)
         {
             RollingText text= creditsUI.transform.GetChild(i).GetComponent<RollingText>();

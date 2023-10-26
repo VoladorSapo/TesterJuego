@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x2
       objectReference: {fileID: 0}
+    - target: {fileID: 6083354501468741852, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
 --- !u!1 &75736116
@@ -269,9 +273,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -373,6 +389,10 @@ PrefabInstance:
     - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
       propertyPath: m_Name
       value: Lego1x1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
@@ -518,6 +538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.y
       value: 5.3
@@ -609,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
       propertyPath: m_Name
       value: Lego2x1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
@@ -1020,6 +1048,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 139647816046454035, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040551995287950833, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6643431670262780177, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -1067,6 +1103,10 @@ PrefabInstance:
     - target: {fileID: 7598323488356822696, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
       propertyPath: m_Name
       value: Lego 1x4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598323488356822696, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
@@ -1318,6 +1358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.y
       value: 3.17
@@ -1461,6 +1505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
 --- !u!1001 &390256760
@@ -1518,6 +1566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.y
       value: 7.43
@@ -1531,9 +1583,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -1733,6 +1797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!4 &500353987 stripped
@@ -1794,6 +1862,10 @@ PrefabInstance:
     - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Name
       value: PencilBarrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.x
@@ -1859,6 +1931,10 @@ PrefabInstance:
     - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Name
       value: PencilBarrier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
@@ -1927,6 +2003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
 --- !u!1001 &658315921
@@ -1936,9 +2016,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -2120,6 +2212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!1001 &740775467
@@ -2177,6 +2273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6083354501468741852, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
 --- !u!4 &770842554 stripped
@@ -2191,9 +2291,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -2554,9 +2666,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -2745,6 +2869,10 @@ PrefabInstance:
     - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Name
       value: PencilBarrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.y
@@ -3058,6 +3186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x2
       objectReference: {fileID: 0}
+    - target: {fileID: 6083354501468741852, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
 --- !u!4 &978908997 stripped
@@ -3124,6 +3256,10 @@ PrefabInstance:
     - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Name
       value: PencilBarrier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
@@ -3192,6 +3328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!4 &1122039040 stripped
@@ -3209,6 +3349,10 @@ PrefabInstance:
     - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_Name
       value: Eraser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6328417821719832958, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_RootOrder
@@ -3310,6 +3454,10 @@ PrefabInstance:
     - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
       propertyPath: m_Name
       value: Lego2x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
@@ -3640,6 +3788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!1 &1246022243
@@ -3651,7 +3803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1246022244}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3787,6 +3939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PencilBarrier (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614103, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Size.y
       value: 5.91
@@ -3808,6 +3964,10 @@ PrefabInstance:
     - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_Name
       value: Eraser (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6328417821719832958, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_RootOrder
@@ -3968,6 +4128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x2
       objectReference: {fileID: 0}
+    - target: {fileID: 6083354501468741852, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f52c38579dbd9d1438da2e2e82a1eefe, type: 3}
 --- !u!1 &1472502430
@@ -4063,6 +4227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eraser
       objectReference: {fileID: 0}
+    - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6328417821719832958, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -4116,9 +4284,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -4385,6 +4565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!1001 &1567608747
@@ -4441,6 +4625,10 @@ PrefabInstance:
     - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
       propertyPath: m_Name
       value: Lego1x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
@@ -4566,6 +4754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!1001 &1614143389
@@ -4575,9 +4767,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -4775,9 +4979,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -5086,6 +5302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego2x1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
 --- !u!4 &1913249821 stripped
@@ -5310,6 +5530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lego1x1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1004891004988858103, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027a718d8cad3d3468e5643bc734e026, type: 3}
 --- !u!1001 &2040553810
@@ -5366,6 +5590,10 @@ PrefabInstance:
     - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
       propertyPath: m_Name
       value: Lego2x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751242571389552510, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce62e742215c9d48b6970793fc44be6, type: 3}
@@ -6107,9 +6335,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -6174,9 +6414,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 1814354628030320076, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_Name
       value: Lego 4x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135392485843140616, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714985482438237566, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5535801522984105621, guid: 57c843bacbeed1c459e528494c1be617, type: 3}
       propertyPath: m_RootOrder
@@ -6231,6 +6483,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1246022244}
     m_Modifications:
+    - target: {fileID: 139647816046454035, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040551995287950833, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6643431670262780177, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -6278,6 +6538,10 @@ PrefabInstance:
     - target: {fileID: 7598323488356822696, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
       propertyPath: m_Name
       value: Lego 1x4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598323488356822696, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d60f1a6548cbfe4cbdcd6d5d2743206, type: 3}
@@ -6335,6 +6599,10 @@ PrefabInstance:
     - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: m_Name
       value: PencilBarrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614101, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
@@ -6405,6 +6673,10 @@ PrefabInstance:
     - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_Name
       value: Eraser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995885043760774151, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6328417821719832958, guid: 0e8eaca8b4efa5e43bc24ef69ce50d1e, type: 3}
       propertyPath: m_RootOrder

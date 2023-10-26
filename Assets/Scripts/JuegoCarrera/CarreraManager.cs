@@ -130,10 +130,7 @@ public class CarreraManager : MonoBehaviour
         if(GameObject.Find("NormalTilemap")!=null)
             NormalTilemap=GameObject.Find("NormalTilemap").GetComponent<Tilemap>();
         
-        if(GameObject.Find("GlitchedTilemap")!=null){
-            GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
-            GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=activateGlitchedMap;
-        }
+        EnableGlitchTilemap(activateGlitchedMap);
 
         Transform parentTransform=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(1).transform;
         allPositionsImages = new UnityEngine.UI.Image[parentTransform.childCount];
@@ -142,6 +139,13 @@ public class CarreraManager : MonoBehaviour
             allPositionsImages[i]=parentTransform.GetChild(i).GetChild(0).GetComponent<UnityEngine.UI.Image>();
         }
         
+    }
+
+    public void EnableGlitchTilemap(bool activateGlitchedMap){
+        if(GameObject.Find("GlitchedTilemap")!=null){
+            GlitchedTilemap=GameObject.Find("GlitchedTilemap").GetComponent<Tilemap>();
+            GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=activateGlitchedMap;
+        }
     }
     void setSprites(){
         availableSprites=new List<SpritesCars>(allSprites);
@@ -197,8 +201,8 @@ public class CarreraManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         text.gameObject.SetActive(false);
 
-        SceneManagement.Instance.ApplyTransitionEffect("vram",false,true,true,0.5f);
-        SceneManagement.Instance.ApplyTransitionEffect("bc",false,true,true,0.5f);
+        SceneManagement.Instance.ApplyTransitionEffect("vram",false,true,true,0.5f,0);
+        SceneManagement.Instance.ApplyTransitionEffect("bc",false,true,true,0.5f,0);
         
         yield return new WaitForSeconds(0.5f);
 
@@ -238,6 +242,22 @@ public class CarreraManager : MonoBehaviour
 
     public void SetPlayerSprite(int index){
         indexPlayerSprite=index;
+    }
+
+    public void SetGlitchPlayer(){
+        Debug.Log("ajsd");
+        Sprite currSprite= GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite;
+        foreach(SpritesCars sc in allSprites){
+            Debug.Log(sc.spriteCar==currSprite);
+            if(sc.spriteCar==currSprite){
+                GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite=sc.spriteGlitchedCar;
+                GameObject.FindObjectOfType<CarController>().GetComponent<PositionRace>().spriteUI=sc.spriteUIGlitched;
+                UpdatePositionUI();
+                GameObject.FindObjectOfType<CarController>().GlicthedCar();
+                break;
+            }
+        }
+
     }
     List<T> ShuffleList<T>(List<T> myList)
     {
