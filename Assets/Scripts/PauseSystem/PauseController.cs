@@ -50,4 +50,9 @@ public class PauseController : MonoBehaviour
         pauseEvent?.Invoke();
         isPaused = true;
     }
+    public void InvokeUnpause()
+    {
+        unpauseEvent?.Invoke();
+        isPaused = false;
+    }
 }

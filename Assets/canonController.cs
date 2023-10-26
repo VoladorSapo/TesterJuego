@@ -6,10 +6,11 @@ public class canonController : MonoBehaviour
 {
     [SerializeField] GameObject BulletPrefab;
     [SerializeField] float WaitTime;
-[SerializeField]    float currentWait;
+[SerializeField]  public  float currentWait;
     [SerializeField] float speed;
+    [SerializeField] float bulletAcceleration;
  [SerializeField]   int Dir;
-    Animator anim;
+     Animator anim;
     bool paused;
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,13 @@ public class canonController : MonoBehaviour
     }
     public void Shoot()
     {
+        AudioManager.Instance.PlaySound("Shoot", false, transform.position, false);
+
         GameObject _bala = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 90 * Dir), transform);
         Vector2 Vectorspeed = (Dir % 2 == 0) ? new Vector2(1, 0) : new Vector2(0, 1);
         Vectorspeed *= speed * (Dir < 2 ? -1 : 1);
         _bala.GetComponent<Rigidbody2D>().velocity = Vectorspeed;
+        _bala.GetComponent<Rigidbody2D>().gravityScale = bulletAcceleration;
     }
   public  void ResetAnim()
     {

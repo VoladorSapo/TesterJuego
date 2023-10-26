@@ -131,6 +131,7 @@ public class SceneManagement : MonoBehaviour
             case "SetRaceGlitch": CarSettings(false,true); break;
             case "SetRaceStage2": CarSettings(false,true); narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break;
             case "StopRace": CarSettings(true,true); break;
+            case "SalirSalaSecreta": narrativeParts.CarNarrative = 3;break;
         }
         act="";
     }

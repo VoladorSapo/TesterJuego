@@ -1,0 +1,1719 @@
+fileFormatVersion: 2
+guid: 4551a2df25dbf31419319d6b63303af2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SuperNewTiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563aa899c80815a44a30dbd7762ad384
+      internalID: -1120432530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_1
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca524d9792f54644ae57d9ee316330d
+      internalID: 478243998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_2
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ad686b95c5a404a875858ae46513d8
+      internalID: 1756207677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_3
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af8b2028bf7701419f541472f7e438d
+      internalID: 1806455327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_4
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a05a571cd5b7774da4e9ef4edd576c7
+      internalID: 1373032212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_5
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf6b147298e42243ad6d215ad3ccba4
+      internalID: -494650954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_6
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3c1bc5e8ff2b343b27094251f57d68
+      internalID: -1782283046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_7
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 7692
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd6f6a3f74fc7a478e859b16dcc0061
+      internalID: 1962196499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6444f89ea53446b4088f1b345fc5e53b
+      internalID: 1198794881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7700204590dcc9244add8d326f4f0ad4
+      internalID: -676171824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_10
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0f0bfaabd56e04094ef661d5cd3f60
+      internalID: 688894495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_11
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751a571b5bb1d5445828bc7b551687da
+      internalID: -2029181006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_12
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf67c1440b3bdd4b99528994a0d1b37
+      internalID: 1110001371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_13
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d279eb94482b840aaddecadd55eae1
+      internalID: 551246475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_14
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ec461ce70e4d944898185dbab65a64
+      internalID: -1932778945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_15
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 7182
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc1af6d453ca114582156f823d76b7d
+      internalID: 275548801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c885a9ae87e16334ca40e29d9aa8f599
+      internalID: -795548175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_17
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fd5c1a2ef93f74ab891a1423e815f1
+      internalID: 6406133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_18
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b524962d3e8f3e43aa93b0d00036b64
+      internalID: -304765758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_19
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc27eeb6500c354e8b2e17085613f2a
+      internalID: 1755874292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_20
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c2b3712cfdbc548a3c8c75de8c45ab
+      internalID: -850404594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_21
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c0bfd2e06a11434e9d47c300e6d45c4
+      internalID: 1518277857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_22
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e49140e7d19b74893197e3c293c724
+      internalID: -1532074255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_23
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 6672
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f43ff1074d3a3047b3d2064139ca004
+      internalID: 1368806973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a8791174625dd4d9178aa7af57956c
+      internalID: -1032200539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_25
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a252918f331774290196b6eec7470a
+      internalID: 1114519408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_26
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60146050a1a92e04db12cfa2de438e2f
+      internalID: -217038392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_27
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161b9eac9508b6e41bde3d839cf6111f
+      internalID: 1433316696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_28
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e809396a286954d478d910bff4bff638
+      internalID: 2085485448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_29
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7c14dcfdc8ff94ab02a1ead2a1effa
+      internalID: 601005664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_30
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459d9cacd5bd0e4429e975ca8885b1e6
+      internalID: 1520155235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_31
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 6162
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185801d8f507f354cab6d5b8297c2ad0
+      internalID: -852847268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d787b51928e8244a010d071cd79192
+      internalID: 1221270986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_33
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c7615835d69a74bab11f1dadae7bd0
+      internalID: -1052147431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_34
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd9de7d9153cd34cac8b879757d39b6
+      internalID: 1899921458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_35
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72cf6b9b361ddf43b4fe0bd5a4eb655
+      internalID: 766064378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_36
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113e6de252d8eb84fb99b678c3c0e655
+      internalID: -1933727289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_37
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41b7c8e33e5abb4d910df0c6277a45e
+      internalID: 1374751279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_38
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4732e0e23421242a05085dea5afe61
+      internalID: -1053680158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_39
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 5652
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f80ebcc5ab222541a67b4e048ffec95
+      internalID: -1911855765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dd345b1e811ac44bc576f95b779df5
+      internalID: -916543156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_41
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa5aa741d39fc2439388ef6bd032349
+      internalID: 1373340260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_42
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb1168720f8ef24d99c2ccefa075f24
+      internalID: -957556490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_43
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad1110b256b09342bd04fbbf76ec8c9
+      internalID: -1263958600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_44
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5a759d874f6cf4387099389d99dc84
+      internalID: -1356271036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_45
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5536bc585ae158c489eea2237c996aa6
+      internalID: 572611723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_46
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed403a028eb303b49bd86b4545f358c6
+      internalID: 1026376311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_47
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 5142
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1317bb24dfca8048b316f70d7219776
+      internalID: 667156611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6104e022afa915e42b175a627b00e9dc
+      internalID: -1150213543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_49
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dccf0bde20772348a9d71bd96406919
+      internalID: -2042660437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_50
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bffeb9f9bce684c8f70f209af3b907
+      internalID: -1431370730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_51
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2667953139f3548a64a7b34cddd638
+      internalID: -420625694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_52
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f36cac5f0355f4a9647272ebe9d863
+      internalID: -430488858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_53
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e708d9e4ba785140a14d742f8fa60b3
+      internalID: 761631643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_54
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655ce1529d9ed27448540e1dd0840bd8
+      internalID: -1194254626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_55
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 4632
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263414e4b5ed78943802ff9c070545a4
+      internalID: 259062822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea97a188fe2dd2468f2852d79d3a641
+      internalID: 1033686429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_57
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f240b1d6129df9f41aec5fb2b16023c1
+      internalID: -602987612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_58
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5598f010adc01b4482aa5942960b979
+      internalID: 623937584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_59
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4423c9efdd164cc4dbe90ce74a16316d
+      internalID: 153975596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_60
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8614ec2a86ed04d44a1b3b5c6c670b73
+      internalID: 150348018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_61
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf48e59aa30258468d58cc4c84e896a
+      internalID: -1388514679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_62
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c127249c1567f24896745d6a6ad821b
+      internalID: 2006943904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_63
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 4122
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e9ab9784619874691741978062d3a7
+      internalID: 888047021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1176d3ec4b178dd41ac3d542d13afcac
+      internalID: -1188289415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_65
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f9582dcbcc971439fd4ece90bddce5
+      internalID: 872137959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_66
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19048e84d75db24da62c8e0e4d48ad3
+      internalID: 1873977109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_67
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d86cc218db8ec44bac40d1ef0697db
+      internalID: 325466602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_68
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ddbc6e90dd6664babc739b9c1f0c20
+      internalID: 1647568214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_69
+      rect:
+        serializedVersion: 2
+        x: 2550
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22817ce94caed9a42a7ba85d9fa914f5
+      internalID: 270698253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_70
+      rect:
+        serializedVersion: 2
+        x: 3060
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bbd3eb70bdb047459f61764041b8e96
+      internalID: 1110707810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SuperNewTiles_71
+      rect:
+        serializedVersion: 2
+        x: 3570
+        y: 3612
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c948ba8213bd7a4c9f61c325b3d455d
+      internalID: -374668509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SuperNewTiles_0: -1120432530
+      SuperNewTiles_1: 478243998
+      SuperNewTiles_10: 688894495
+      SuperNewTiles_11: -2029181006
+      SuperNewTiles_12: 1110001371
+      SuperNewTiles_13: 551246475
+      SuperNewTiles_14: -1932778945
+      SuperNewTiles_15: 275548801
+      SuperNewTiles_16: -795548175
+      SuperNewTiles_17: 6406133
+      SuperNewTiles_18: -304765758
+      SuperNewTiles_19: 1755874292
+      SuperNewTiles_2: 1756207677
+      SuperNewTiles_20: -850404594
+      SuperNewTiles_21: 1518277857
+      SuperNewTiles_22: -1532074255
+      SuperNewTiles_23: 1368806973
+      SuperNewTiles_24: -1032200539
+      SuperNewTiles_25: 1114519408
+      SuperNewTiles_26: -217038392
+      SuperNewTiles_27: 1433316696
+      SuperNewTiles_28: 2085485448
+      SuperNewTiles_29: 601005664
+      SuperNewTiles_3: 1806455327
+      SuperNewTiles_30: 1520155235
+      SuperNewTiles_31: -852847268
+      SuperNewTiles_32: 1221270986
+      SuperNewTiles_33: -1052147431
+      SuperNewTiles_34: 1899921458
+      SuperNewTiles_35: 766064378
+      SuperNewTiles_36: -1933727289
+      SuperNewTiles_37: 1374751279
+      SuperNewTiles_38: -1053680158
+      SuperNewTiles_39: -1911855765
+      SuperNewTiles_4: 1373032212
+      SuperNewTiles_40: -916543156
+      SuperNewTiles_41: 1373340260
+      SuperNewTiles_42: -957556490
+      SuperNewTiles_43: -1263958600
+      SuperNewTiles_44: -1356271036
+      SuperNewTiles_45: 572611723
+      SuperNewTiles_46: 1026376311
+      SuperNewTiles_47: 667156611
+      SuperNewTiles_48: -1150213543
+      SuperNewTiles_49: -2042660437
+      SuperNewTiles_5: -494650954
+      SuperNewTiles_50: -1431370730
+      SuperNewTiles_51: -420625694
+      SuperNewTiles_52: -430488858
+      SuperNewTiles_53: 761631643
+      SuperNewTiles_54: -1194254626
+      SuperNewTiles_55: 259062822
+      SuperNewTiles_56: 1033686429
+      SuperNewTiles_57: -602987612
+      SuperNewTiles_58: 623937584
+      SuperNewTiles_59: 153975596
+      SuperNewTiles_6: -1782283046
+      SuperNewTiles_60: 150348018
+      SuperNewTiles_61: -1388514679
+      SuperNewTiles_62: 2006943904
+      SuperNewTiles_63: 888047021
+      SuperNewTiles_64: -1188289415
+      SuperNewTiles_65: 872137959
+      SuperNewTiles_66: 1873977109
+      SuperNewTiles_67: 325466602
+      SuperNewTiles_68: 1647568214
+      SuperNewTiles_69: 270698253
+      SuperNewTiles_7: 1962196499
+      SuperNewTiles_70: 1110707810
+      SuperNewTiles_71: -374668509
+      SuperNewTiles_8: 1198794881
+      SuperNewTiles_9: -676171824
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

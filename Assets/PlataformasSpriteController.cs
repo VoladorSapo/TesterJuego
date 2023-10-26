@@ -10,6 +10,10 @@ public class PlataformasSpriteController : MonoBehaviour
         anim.SetBool("doubleJump", false);
 
     }
+    public void EndDeath()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {

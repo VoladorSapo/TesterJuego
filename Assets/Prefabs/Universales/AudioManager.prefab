@@ -152,10 +152,10 @@ MonoBehaviour:
     pitch: 1
     maxSoundDistance: 100
   - name: Saw
-    audioClip: {fileID: 8300000, guid: ff1ed512754c76c4da0fe9e4e9b106bb, type: 3}
-    volume: 0.5
+    audioClip: {fileID: 8300000, guid: 58f5acc913e035449b27a5163d20a398, type: 3}
+    volume: 0.1
     pitch: 1
-    maxSoundDistance: 100
+    maxSoundDistance: 20
   - name: Send Message
     audioClip: {fileID: 8300000, guid: 711da10c65887f04cbcc9f6951cd1e5d, type: 3}
     volume: 0.5
@@ -168,6 +168,21 @@ MonoBehaviour:
     maxSoundDistance: 100
   - name: Race Music
     audioClip: {fileID: 8300000, guid: 66f32d2a713c5a44196e30231911b915, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Coin
+    audioClip: {fileID: 8300000, guid: 5defff16b02a0f94f9445cf82e499dce, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Shoot
+    audioClip: {fileID: 8300000, guid: b7667128fac03304e84635ef5b58c37a, type: 3}
+    volume: 0.5
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Bullet
+    audioClip: {fileID: 8300000, guid: db644bc3444ff2e40a679fc1c931cdb4, type: 3}
     volume: 0.5
     pitch: 1
     maxSoundDistance: 100

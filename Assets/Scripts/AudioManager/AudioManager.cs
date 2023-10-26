@@ -63,6 +63,30 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+    public void Play3DSound(string name, bool loop, Vector2 pos, bool onlyOne, GameObject Gobject)
+    {
+        if (onlyOne && SearchSource(name)) { return; }
+
+        Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
+        if ( Sound == null) { return; }
+
+        if (Sound != null)
+        {
+            AudioSource a = Gobject.AddComponent<AudioSource>();
+            a.maxDistance = Sound.maxSoundDistance;
+            a.transform.position = Gobject.transform.position;
+            a.clip = Sound.audioClip;
+            a.volume = Sound.volume;
+            a.pitch = Sound.pitch;
+            a.loop = loop;
+            a.spatialBlend = 1;
+            a.rolloffMode = AudioRolloffMode.Linear;
+            a.Play();
+            //_audioSources.Add(name, a);
+
+        }
+
+    }
 
     public void PlaySound(string name, bool loop, Vector2 pos, bool onlyOne, float minPitch, float maxPitch)
     {
