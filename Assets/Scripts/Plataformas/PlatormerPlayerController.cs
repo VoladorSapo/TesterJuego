@@ -64,6 +64,8 @@ public class PlatormerPlayerController : MonoBehaviour
         }
         if(collision.gameObject.tag == "Moneda")
         {
+            AudioManager.Instance.PlaySound("Coin", false, transform.position, false);
+
             Destroy(collision.gameObject);
             Monedas++;
             Contador.text = Monedas.ToString();
@@ -78,6 +80,7 @@ public class PlatormerPlayerController : MonoBehaviour
     {
         print("die");
         currentextraJumps = 0;
+        AudioManager.Instance.PlaySound("Death", false, transform.position, false);
 
         transform.position = spawnPoint;
         rb2d.velocity = Vector2.zero;
@@ -159,7 +162,7 @@ public class PlatormerPlayerController : MonoBehaviour
             {
                 print("heheheheh");
                 float force = jumpForce;
-                if (jumping)
+                if (jumping || touchground < 0)
                 {
                     force = doublejumpForce;
                     anim.SetBool("doubleJump", true);
@@ -176,6 +179,7 @@ public class PlatormerPlayerController : MonoBehaviour
                 rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
                 touchground = 0;
                 anim.SetBool("onGround", false);
+                AudioManager.Instance.PlaySound("Jump", false, transform.position, false);
                 anim.SetBool("jump", true);
                 pressjump = 0;
 

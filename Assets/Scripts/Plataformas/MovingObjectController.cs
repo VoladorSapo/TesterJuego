@@ -35,19 +35,23 @@ public class MovingObjectController : MonoBehaviour
         {
             points[i - 1] = transform.GetChild(i).transform.position;
         }
-       
+        StartCoroutine(PlaySound());
         objective = 0;
     }
-
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(1);
+        if (!string.IsNullOrWhiteSpace(sound))
+        {
+            AudioManager.Instance.Play3DSound(sound, true, transform.position, false, transform.GetChild(0).gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            if (!string.IsNullOrWhiteSpace(sound))
-            {
-                AudioManager.Instance.PlaySound(sound, true, transform.position, false);
-            }
+          
         }
         if (!paused && (!waitPlayer||startMoving))
         {

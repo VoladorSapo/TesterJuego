@@ -36,6 +36,8 @@ public class canonController : MonoBehaviour
     }
     public void Shoot()
     {
+        AudioManager.Instance.PlaySound("Shoot", false, transform.position, false);
+
         GameObject _bala = Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 90 * Dir), transform);
         Vector2 Vectorspeed = (Dir % 2 == 0) ? new Vector2(1, 0) : new Vector2(0, 1);
         Vectorspeed *= speed * (Dir < 2 ? -1 : 1);

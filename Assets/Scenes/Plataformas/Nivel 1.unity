@@ -684,6 +684,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -13
       objectReference: {fileID: 0}
+    - target: {fileID: 6249069892578758656, guid: 350223e9401ed774dace363cd8a7eb8b, type: 3}
+      propertyPath: sound
+      value: Saw
+      objectReference: {fileID: 0}
     - target: {fileID: 6249069892578758657, guid: 350223e9401ed774dace363cd8a7eb8b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22542,6 +22546,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -13
       objectReference: {fileID: 0}
+    - target: {fileID: 6249069892578758656, guid: 350223e9401ed774dace363cd8a7eb8b, type: 3}
+      propertyPath: sound
+      value: Saw
+      objectReference: {fileID: 0}
     - target: {fileID: 6249069892578758657, guid: 350223e9401ed774dace363cd8a7eb8b, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -23468,6 +23476,10 @@ PrefabInstance:
     - target: {fileID: 4747002103084600371, guid: 789d63bd603245340a65a26af269e5db, type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747002103084600374, guid: 789d63bd603245340a65a26af269e5db, type: 3}
+      propertyPath: touchgroundmax
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4747002103084600375, guid: 789d63bd603245340a65a26af269e5db, type: 3}
       propertyPath: m_RootOrder

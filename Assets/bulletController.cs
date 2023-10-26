@@ -11,6 +11,7 @@ public class bulletController : MonoBehaviour
     {
         if (((layersHit.value & 1 << collision.gameObject.layer) > 0) && collision.gameObject.transform != transform.parent && collision.gameObject.transform.parent != transform.parent)
         {
+            AudioManager.Instance.PlaySound("Bullet", false, transform.position, false);
             Destroy(this.gameObject);
         }
     }
