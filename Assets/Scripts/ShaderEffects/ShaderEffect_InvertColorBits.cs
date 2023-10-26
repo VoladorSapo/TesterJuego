@@ -14,7 +14,7 @@ public class ShaderEffect_InvertColorBits : MonoBehaviour
     [HideInInspector] public bool Fluctuate=false;
     [Header("Fluctuate")]
 	[SerializeField] int minNumRect;
-    [SerializeField] int minRateTime, maxRateTime;
+    [SerializeField] float minRateTime, maxRateTime;
 	
     
     private Vector4[] rectProp;

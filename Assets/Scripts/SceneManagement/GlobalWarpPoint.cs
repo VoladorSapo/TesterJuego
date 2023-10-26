@@ -35,6 +35,9 @@ public class GlobalWarpPoint : MonoBehaviour
     public float fadeOutTime, fadeInTime;
 
     void OnTriggerEnter2D(Collider2D other){
+
+        if(other.tag!="Player"){return;}
+
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);
         else
@@ -49,7 +52,7 @@ public class GlobalWarpPoint : MonoBehaviour
     }
     void IterateTransitions(){
         foreach(TransitionData td in transitionList){
-            SceneManagement.Instance.ApplyTransitionEffect(td.nameFX,td.fluctuate,td.isTemporary,td.activate, td.time);
+            SceneManagement.Instance.ApplyTransitionEffect(td.nameFX,td.fluctuate,td.isTemporary,td.activate, td.time, td.fluctuateValue);
         }
     }
 
@@ -67,12 +70,14 @@ public class GlobalWarpPoint : MonoBehaviour
                 //other.GetComponent<Rigidbody2D>().velocity=Vector2.zero;
             }
 
+            if(transitionList.Count>0)
+                IterateTransitions();
+                
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
                 DontDestroyOnLoad(other.gameObject);
 
-                if(transitionList.Count>0)
-                IterateTransitions();
+                
 
                 
 
@@ -99,10 +104,12 @@ public class GlobalWarpPoint : MonoBehaviour
                 //other.GetComponent<Rigidbody2D>().velocity=Vector2.zero;
             }
 
+            if(transitionList.Count>0)
+                IterateTransitions();
+            
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
-                if(transitionList.Count>0)
-                IterateTransitions();
+                
 
                 DontDestroyOnLoad(other.gameObject);
 
@@ -124,11 +131,11 @@ public class GlobalWarpPoint : MonoBehaviour
             if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalChange=nextGlobalNarrativePart;}
             ApplyNarrativeChanges();
             
-
+            if(transitionList.Count>0)
+                IterateTransitions();
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
-                if(transitionList.Count>0)
-                IterateTransitions();
+                
 
 
                 if(WaitToChange<=0){
@@ -136,6 +143,7 @@ public class GlobalWarpPoint : MonoBehaviour
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,null));
             }
+            
             //other.gameObject.transform.position=nextPosition;
         }
     }

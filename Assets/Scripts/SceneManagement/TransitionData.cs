@@ -10,13 +10,15 @@ public class TransitionData
     public bool isTemporary;
     public bool activate;
     public float time;
+    public float fluctuateValue;
 
-    public TransitionData(string name, bool fluc, bool isTemp, bool act, float time){
+    public TransitionData(string name, bool fluc, bool isTemp, bool act, float time, float value){
         nameFX=name;
         fluctuate=fluc;
         isTemporary=isTemp;
         activate=act;
         this.time=time;
+        fluctuateValue=value;
     }
 
 

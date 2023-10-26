@@ -6,5 +6,9 @@ using UnityEngine;
 public class SpritesCars
 {
     public Sprite spriteCar;
+    public Sprite spriteGlitchedCar;
     public Sprite spriteUI;
+    public Sprite spriteUIGlitched;
+
+    
 }

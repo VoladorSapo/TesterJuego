@@ -6,6 +6,7 @@
 Shader "TextMeshPro/Mobile/Distance Field" {
 
 Properties {
+
 	[HDR]_FaceColor     ("Face Color", Color) = (1,1,1,1)
 	_FaceDilate			("Face Dilate", Range(-1,1)) = 0
 
@@ -31,6 +32,7 @@ Properties {
 	_TextureWidth		("Texture Width", float) = 512
 	_TextureHeight		("Texture Height", float) = 512
 	_GradientScale		("Gradient Scale", float) = 5
+	
 	_ScaleX				("Scale X", float) = 1
 	_ScaleY				("Scale Y", float) = 1
 	_PerspectiveFilter	("Perspective Correction", Range(0, 1)) = 0.875
@@ -191,7 +193,7 @@ SubShader {
 			return output;
 		}
 
-
+		uniform float _GlitchAmount;
 		// PIXEL SHADER
 		fixed4 PixShader(pixel_t input) : SV_Target
 		{

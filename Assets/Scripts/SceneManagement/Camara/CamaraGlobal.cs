@@ -16,10 +16,11 @@ public class CamaraGlobal : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
 
             attachedCanvas=transform.GetChild(0).gameObject.GetComponent<CanvasUI>();
-            print("setactivent");
+
             attachedCanvas.platformUI.gameObject.SetActive(false);
             attachedCanvas.carUI.gameObject.SetActive(false);
             attachedCanvas.zeldaUI.gameObject.SetActive(false);
+            attachedCanvas.creditsUI.gameObject.SetActive(false);
         }else{
             Destroy(this.gameObject);
         }
