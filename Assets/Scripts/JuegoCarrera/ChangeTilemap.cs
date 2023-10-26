@@ -24,9 +24,9 @@ public class ChangeTilemap : MonoBehaviour
         }*/
     }
 
-    void GlitchTiles(){
+    /*void GlitchTiles(){
         if(CarreraManager.Instance.GlitchedTilemap!=null)
         CarreraManager.Instance.GlitchedTilemap.gameObject.GetComponent<TilemapRenderer>().enabled=true;
         SceneManagement.Instance.ApplyTransitionEffect(new TransitionData("bc",true,true,true,5f));
-    }
+    }*/
 }

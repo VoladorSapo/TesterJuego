@@ -71,8 +71,10 @@ public class SceneManagement : MonoBehaviour
         currentScene=SceneManager.GetActiveScene();
 
         if(Input.GetKeyDown(KeyCode.L)){
-            GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
+            //GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
+            EndGame();
         }
+        
 
         if(previousScene==null || previousScene.name!=currentScene.name){
             previousScene=currentScene;
@@ -113,6 +115,7 @@ public class SceneManagement : MonoBehaviour
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
                     case 3: break;
                     case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
+                    case 9: EndGame(); break;
                     default: break; //Temporalmente está así
                 }
         }
@@ -153,8 +156,8 @@ public class SceneManagement : MonoBehaviour
             switch(narrativeParts.CarNarrative){
                     case 0: killMouse=true; CarSettings(false, false); break;
                     case 1: killMouse=false; CarSettings(false, false); break;
-                    case 2: break;
-                    case 3: break;
+                    case 2: break; //Lapiz bug que ya esta arriba
+                    case 3: CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
                     case 4: break;
                     default: break;
                 }
@@ -243,17 +246,25 @@ public class SceneManagement : MonoBehaviour
 
 
     //Transiciones
-    public void ApplyTransitionEffect(string nameFX, bool fluctuate, bool isTemporary, bool activate, float time){
-        if(!isTemporary)
+    public void ApplyTransitionEffect(string nameFX, bool fluctuate, bool isTemporary, bool activate, float time, float fluctuateValue){
+        if(!isTemporary){
+        
         camaraGlobal.cameraFX.ActivateEffect(nameFX,fluctuate,activate);
-        else
-        camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time);
+        }
+        else{
+            if(fluctuateValue<=0)
+            camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time);
+            else
+            camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time,fluctuateValue);
+        }
     }
 
     public void ApplyTransitionEffect(TransitionData data){
-        ApplyTransitionEffect(data.nameFX,data.fluctuate,data.isTemporary,data.activate,data.time);
+        ApplyTransitionEffect(data.nameFX,data.fluctuate,data.isTemporary,data.activate,data.time,data.fluctuateValue);
     }
 
+
+    //Kill Mouse
 
     GameObject lastSelected;
     public void KillMouseInputs(bool killMouse){
@@ -271,5 +282,10 @@ public class SceneManagement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    //Final
+    void EndGame(){
+        camaraGlobal.attachedCanvas.StartCredits();
     }
 }

@@ -42,8 +42,6 @@ Shader "Custom/AlterColor"
             uniform int _ColorCount;
             uniform float _moveX;
             uniform float _moveY;
-            uniform float _TilingX;
-            uniform float _TilingY;
 
             v2f vert (appdata_t v)
             {

@@ -10,6 +10,7 @@ public class CarController : BasicCar, IPauseSystem
 
     [Header("Settings")]
     public bool isGlitchedCar=false;
+    [SerializeField] private Material glitchedMat;
 
     [Header("Factors")]
     [SerializeField] private float _defaultMaxSpeed;
@@ -81,10 +82,10 @@ public class CarController : BasicCar, IPauseSystem
     protected override void Update(){
         CalculateDistanceToNextWaypoint();
         
-        if(_rb.velocity.magnitude>=7f){
-            Physics2D.IgnoreLayerCollision(3,13);
+        if(_rb.velocity.magnitude>=5.5f && isGlitchedCar){
+            Physics2D.IgnoreLayerCollision(11,14);
         }else{
-            Physics2D.IgnoreLayerCollision(3,13,false);
+            Physics2D.IgnoreLayerCollision(11,14,false);
         }
     }
     protected override void FixedUpdate()
@@ -251,6 +252,11 @@ public class CarController : BasicCar, IPauseSystem
         _rb.velocity=storedSpeed;
     }
 
+    public void SetPauseEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
+    }
+
     //Otros
     bool HasTileDrag(Vector3 CarPos){
         if(CarreraManager.Instance.NormalTilemap==null || CarreraManager.Instance.GlitchedTilemap==null || (_accelerationInput<0 && isGlitchedCar)){return false;}
@@ -273,10 +279,18 @@ public class CarController : BasicCar, IPauseSystem
 
     }
 
-    public void SetPauseEvents()
-    {
-        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
+    public void GlicthedCar(){
+        Material mat=Instantiate<Material>(glitchedMat);
+        
+        mat.SetFloat("_moveX",0.35f);
+        mat.SetFloat("_moveY",1f);
+        mat.SetFloat("_ValueX",35f);
+        mat.SetFloat("_ValueY",925f);
+        GetComponent<SpriteRenderer>().material=mat;
+        isGlitchedCar=true;
     }
+
+    
 
     /*private void OnCollisionStay2D(Collision2D collision){
         if ((_obstacleLayer.value & (1 << collision.gameObject.layer)) != 0)
