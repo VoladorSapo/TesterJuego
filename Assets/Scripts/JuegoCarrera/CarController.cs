@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -89,11 +90,18 @@ public class CarController : BasicCar, IPauseSystem
     protected override void Update(){
         CalculateDistanceToNextWaypoint();
         
-        if(_rb.velocity.magnitude>=5.5f && isGlitchedCar){
-            Physics2D.IgnoreLayerCollision(11,14);
+        if(_rb.velocity.magnitude>=7.5f && isGlitchedCar && _accelerationInput<0){
+            Physics2D.IgnoreLayerCollision(11,13);
         }else{
-            Physics2D.IgnoreLayerCollision(11,14,false);
+            Physics2D.IgnoreLayerCollision(11,13,false);
         }
+        
+        CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=Mathf.RoundToInt(SpeedDirection()*_rb.velocity.magnitude)+" cm/s";
+    }
+
+    int SpeedDirection(){
+        if(_rb.velocity.normalized==new Vector2(transform.up.x,transform.up.y)){return 1;}
+        else{return -1;}
     }
     protected override void FixedUpdate()
     {     
@@ -237,8 +245,10 @@ public class CarController : BasicCar, IPauseSystem
     {
         _turnInput = inputVector.x;
         _accelerationInput = inputVector.y;
+
         if(_accelerationInput<0 && isGlitchedCar){
             _maxSpeed=10f;
+            _accelerationInput-=_rb.velocity.magnitude/(_accelerationFactor*_accelerationFactor);
         }else{
             _maxSpeed=_defaultMaxSpeed;
         }

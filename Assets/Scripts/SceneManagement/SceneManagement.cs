@@ -168,7 +168,7 @@ public class SceneManagement : MonoBehaviour
                     case 6: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchStage3; EventGallery.Instance.neededWaypoint=-1; break;
                     default: break;
                 }
-            Debug.LogWarning("jhia");
+            Debug.LogWarning(narrativeParts.CarNarrative);
         }
         if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name) && prevNarrativeParts.ZeldaNarrative!=narrativeParts.ZeldaNarrative){
             prevNarrativeParts.ZeldaNarrative=narrativeParts.ZeldaNarrative;

@@ -19,6 +19,7 @@ public class CarreraManager : MonoBehaviour
     Transform WaypointRoot;
     public int totalWaypointsInTrack=10;
     public int numberOfLaps;
+    [HideInInspector] public int currentLap=1;
 
 
     [Header("Stages")]
@@ -82,8 +83,10 @@ public class CarreraManager : MonoBehaviour
 
     //SetRace
     public void SetRace(bool activateGlitchedMap){
+        canWinRace=true;
         setVariables(activateGlitchedMap);
         setSprites();
+        SetLaps();
         UpdatePositionUI();
         StartCoroutine(Countdown());
     }
@@ -92,9 +95,11 @@ public class CarreraManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    [HideInInspector] public bool canWinRace=true;
+    public void SetCanWin(bool b){canWinRace=b;}
     public void RaceFinished(string winner, PositionRace posRace){
 
-        if(winner=="PlayerCar"){
+        if(winner=="PlayerCar" && canWinRace){
         raceStarted=false;
         StartCoroutine(DebugWinner(winner));
         }
@@ -161,6 +166,12 @@ public class CarreraManager : MonoBehaviour
             ai.gameObject.GetComponent<PositionRace>().spriteUI=availableSprites[i].spriteUI;
             i++;
         }
+    }
+
+    void SetLaps(){
+        currentLap=1;
+        TextMeshProUGUI lapText=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        lapText.text=currentLap+"/"+numberOfLaps;
     }
     IEnumerator Countdown(){
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);

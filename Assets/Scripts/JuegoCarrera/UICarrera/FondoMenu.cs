@@ -7,11 +7,14 @@ using System;
 public class FondoMenu : MonoBehaviour
 {
     [SerializeField] float moveX, moveY;
+    [SerializeField] Material matCopy;
     private float x, y;
+    
     Material mat;
     void Awake()
     {
-        mat=GetComponent<Image>().material;
+       mat =Instantiate<Material>(matCopy);
+       GetComponent<Image>().material=mat;
     }
 
     // Update is called once per frame

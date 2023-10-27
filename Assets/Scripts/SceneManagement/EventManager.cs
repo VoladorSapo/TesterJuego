@@ -43,6 +43,7 @@ public class EventManager : MonoBehaviour
         mat.SetFloat("_moveX",0.5f);
         yield return new WaitForSeconds(0.25f);
         mat.SetFloat("_moveX",0f); mat.SetFloat("_moveY",0f);
+        CarreraManager.Instance.SetCanWin(false);
         /*yield return new WaitForSeconds(0.25f);
         go.GetComponent<SpriteRenderer>().sharedMaterial=defaultMat;
         yield return new WaitForSeconds(0.05f);
