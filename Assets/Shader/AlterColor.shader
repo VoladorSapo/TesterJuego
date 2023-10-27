@@ -17,7 +17,7 @@ Shader "Custom/AlterColor"
 
         Pass
         {
-            
+            ZTest Off
             AlphaTest Less [_Cutoff]
             CGPROGRAM
             #pragma vertex vert

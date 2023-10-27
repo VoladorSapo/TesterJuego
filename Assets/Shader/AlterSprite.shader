@@ -12,8 +12,7 @@ Shader "Custom/AlterSprite"
     
     SubShader
     {
-        Tags {"Queue"="Transparent" }
-       
+        Tags {"Queue"="Transparent"}
 
         Pass
         {

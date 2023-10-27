@@ -46,18 +46,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killMouse: 0
-  totalWaypointsInTrack: 30
+  totalWaypointsInTrack: 31
   numberOfLaps: 3
   SelectedStage: Stage1Car
   allSprites:
   - spriteCar: {fileID: 21300000, guid: 26f49cec7247f8348a23b189a45b3f33, type: 3}
+    spriteGlitchedCar: {fileID: 21300000, guid: 9096fc9e23e4cd24eb3b78c5b410c7d1, type: 3}
     spriteUI: {fileID: 21300000, guid: 46c75ffa922374d4a91eedec7512f1cb, type: 3}
+    spriteUIGlitched: {fileID: 21300000, guid: 536fdf2fb03dd7e4c9f3776e17b8e013, type: 3}
   - spriteCar: {fileID: 21300000, guid: 8113cf5732cb1ed4597b7a52e095efb2, type: 3}
+    spriteGlitchedCar: {fileID: 21300000, guid: 2d8dc756de6cf584988ba05ad0cfe412, type: 3}
     spriteUI: {fileID: 21300000, guid: 1f2bb345a2ac8264385512bd876563ed, type: 3}
+    spriteUIGlitched: {fileID: 21300000, guid: 536fdf2fb03dd7e4c9f3776e17b8e013, type: 3}
   - spriteCar: {fileID: 21300000, guid: 585582db4065ab44eb943160585c203d, type: 3}
+    spriteGlitchedCar: {fileID: 21300000, guid: af4d103d5faf39c46ba63663c108fb52, type: 3}
     spriteUI: {fileID: 21300000, guid: dfcf7589e06a25a4a922eb550a20dbe2, type: 3}
+    spriteUIGlitched: {fileID: 21300000, guid: 536fdf2fb03dd7e4c9f3776e17b8e013, type: 3}
   - spriteCar: {fileID: 21300000, guid: cb3c67c836e45c345ba58665256241df, type: 3}
+    spriteGlitchedCar: {fileID: 21300000, guid: 3699d7f12c8e83a4693d3cde580b60f5, type: 3}
     spriteUI: {fileID: 21300000, guid: d2ea1ec462e854b4f85583d67996fed3, type: 3}
+    spriteUIGlitched: {fileID: 21300000, guid: 536fdf2fb03dd7e4c9f3776e17b8e013, type: 3}
   indexPlayerSprite: 2
   allPositions: []
   NoDragTiles:
@@ -137,9 +145,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7c8470580728d14c94bf765b519a8f8, type: 2}
   - {fileID: 11400000, guid: 5cc9083e35a9ff24292d74b8ac109c73, type: 2}
   - {fileID: 11400000, guid: ed3e9a7708683c545a88964bf20c6a9f, type: 2}
+  - {fileID: 11400000, guid: 6ff1567a7e0f4f042b0e838a59b351bc, type: 2}
+  - {fileID: 11400000, guid: 53506da9c59aebf4f9d09058fca0f0fe, type: 2}
+  - {fileID: 11400000, guid: 34790d131831fa7408fecdaf085e634c, type: 2}
+  - {fileID: 11400000, guid: 602e762f78c67924696afbee24eebbcf, type: 2}
   NormalTilemap: {fileID: 0}
   GlitchedTilemap: {fileID: 0}
   raceStarted: 0
+  waypointToCheck: 0
   minStart: 0
 --- !u!114 &1010978805
 MonoBehaviour:

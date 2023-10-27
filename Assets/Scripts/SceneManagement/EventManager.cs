@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
+
+    public event Action eventAction;
 
     [Header("Event Pencil Stage 2")]
     [SerializeField] GameObject pencilBug;
@@ -45,5 +49,9 @@ public class EventManager : MonoBehaviour
         go.GetComponent<SpriteRenderer>().sharedMaterial=mat;*/
 
         
+    }
+
+    public void InvokeEvent(){
+        eventAction?.Invoke();
     }
 }

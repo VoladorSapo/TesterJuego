@@ -2086,12 +2086,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: actionName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: localNarrativePart
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: globalNarrativePart
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.CarNarrative
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183861, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: m_Name
@@ -5367,6 +5375,10 @@ PrefabInstance:
     - target: {fileID: 7677317203328774758, guid: 45a67af0520f3d24086e703bb179fe7b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677317203328774759, guid: 45a67af0520f3d24086e703bb179fe7b, type: 3}
+      propertyPath: NextStage
+      value: protoZelda
       objectReference: {fileID: 0}
     - target: {fileID: 7677317203328774759, guid: 45a67af0520f3d24086e703bb179fe7b, type: 3}
       propertyPath: totalWaypointsInTrack

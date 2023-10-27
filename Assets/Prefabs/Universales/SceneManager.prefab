@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1535282178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535282180}
+  - component: {fileID: 1535282179}
+  - component: {fileID: 1535282181}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1535282180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535282178}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20.710506, y: -12.7930765, z: -0.30811226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7249336582868183863}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535282179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535282178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22db7a363d8790a4b8da4650c9587df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pencilBug: {fileID: 6797399879943533775, guid: 7e3ebf074e9c9ee4da27cbbcbba91ef1, type: 3}
+  defaultMat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &1535282181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535282178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7740dfeae3acd741a5e5ab201f406d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededWaypoint: 0
 --- !u!1 &7249336582868183861
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +89,8 @@ Transform:
   m_LocalPosition: {x: 13.7796135, y: 6.814945, z: 0.21680574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1535282180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,8 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d6f986a9d08384abe1761b2a3c77ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalNarrativePart: 2
-  localNarrativePart: 2
+  globalChange: 0
+  actionName: SetRaceStage2
+  narrativeParts:
+    PlatformNarrative: 0
+    CarNarrative: 3
+    ZeldaNarrative: 0
   allPlatformLevels:
   - Plataformas
   allStages:
@@ -56,6 +121,8 @@ MonoBehaviour:
   - Stage4Car
   menuScenes:
   - MenuCar
+  allZeldaScenes:
+  - protoZelda
   zeldaPrefab: {fileID: 7116350652226476657, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
   posZeldaInicio: {x: 0, y: 0, z: 0}
 --- !u!114 &712464765327753239

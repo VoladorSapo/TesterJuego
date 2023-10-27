@@ -55,7 +55,6 @@ public class SceneManagement : MonoBehaviour
         Debug.LogWarning(prevNarrativeParts.CarNarrative==narrativeParts.CarNarrative);
         currentScene=SceneManager.GetActiveScene();
         camaraGlobal=CamaraGlobal.Instance;
-        StartSettings();
     }
 
     void StartSettings(){
@@ -78,6 +77,7 @@ public class SceneManagement : MonoBehaviour
 
         if(previousScene==null || previousScene.name!=currentScene.name){
             previousScene=currentScene;
+            if(allStages.Contains(SceneManager.GetActiveScene().name)){CameraSettings(2,"PlayerCar",2);}
             GameChanges();
             BeginSceneWith(ref actionName);
         }
@@ -104,11 +104,15 @@ public class SceneManagement : MonoBehaviour
     }
 
     void GameChanges(){
-        print("holyshit");
+        
         SceneMusic();
         //Cambios Narrativos que dependen del cambio de escenas
         if(globalPrevChange!=globalChange){
                 globalPrevChange=globalChange;
+                GameObject[] playerGO=GameObject.FindGameObjectsWithTag("Player");
+                foreach(GameObject go in playerGO){
+                    SceneManager.MoveGameObjectToScene(go,currentScene);
+                }
                 switch(globalChange){
                     case 0: break;
                     case 1: CameraSettings(1, "Capsule", 1); AudioSettings("Capsule"); break;
@@ -123,13 +127,13 @@ public class SceneManagement : MonoBehaviour
     }
 
     void BeginSceneWith(ref string act){
-        Debug.LogWarning(act);
+        
         switch(act){
             case "killMouse": killMouse=true; break;
             case "reviveMouse": killMouse=false; break;
-            case "SetRaceNormal": CarSettings(false,false); break;
+            case "SetRaceNormal": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
             case "SetRaceGlitch": CarSettings(false,true); break;
-            case "SetRaceStage2": CarSettings(false,true); narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break;
+            case "SetRaceStage2": narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break; // 
             case "StopRace": CarSettings(true,true); break;
         }
         act="";
@@ -139,7 +143,7 @@ public class SceneManagement : MonoBehaviour
 
     void NarrativeChanges(){
        
-       
+       Debug.Log(narrativeParts.CarNarrative);
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && prevNarrativeParts.PlatformNarrative!=narrativeParts.PlatformNarrative){
             prevNarrativeParts.PlatformNarrative=narrativeParts.PlatformNarrative;
             switch(narrativeParts.PlatformNarrative){
@@ -155,10 +159,12 @@ public class SceneManagement : MonoBehaviour
             prevNarrativeParts.CarNarrative=narrativeParts.CarNarrative;  
             switch(narrativeParts.CarNarrative){
                     case 0: killMouse=true; CarSettings(false, false); break;
-                    case 1: killMouse=false; CarSettings(false, false); break;
-                    case 2: break; //Lapiz bug que ya esta arriba
-                    case 3: CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
-                    case 4: break;
+                    case 1: killMouse=false; CarSettings(false, false); CameraSettings(2,"PlayerCar",2); break;
+                    case 2: CarSettings(false,false); break; //Lapiz bug que ya esta arriba
+                    case 3: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchPlayer; EventGallery.Instance.neededWaypoint=-1; break; //CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
+                    case 4: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchStage1; EventGallery.Instance.neededWaypoint=-1; break;
+                    case 5: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchStage2; EventGallery.Instance.neededWaypoint=-1; break;
+                    case 6: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchStage3; EventGallery.Instance.neededWaypoint=-1; break;
                     default: break;
                 }
             Debug.LogWarning("jhia");
@@ -184,9 +190,17 @@ public class SceneManagement : MonoBehaviour
         }
 
         KillMouseInputs(killMouse);
+
+        if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name)){
+            //if(GameObject.Find("RaceManager")){Destroy(GameObject.Find("RaceManager"));}
+            CameraSettings(1,"ZeldaPlayer",3);
+        }
     }
     
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
+        if(menuScenes.Contains(SceneManager.GetActiveScene().name))
+        cameraMode=1;
+
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
             case 2: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=true; camaraGlobal.GetComponent<CinemachineBrain>().enabled=false; break;
@@ -244,24 +258,6 @@ public class SceneManagement : MonoBehaviour
             Destroy(GameObject.Find("Capsule"));
     }
 
-
-    //Transiciones
-    public void ApplyTransitionEffect(string nameFX, bool fluctuate, bool isTemporary, bool activate, float time, float fluctuateValue){
-        if(!isTemporary){
-        
-        camaraGlobal.cameraFX.ActivateEffect(nameFX,fluctuate,activate);
-        }
-        else{
-            if(fluctuateValue<=0)
-            camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time);
-            else
-            camaraGlobal.cameraFX.ActivateTemporaryEffect(nameFX,fluctuate,time,fluctuateValue);
-        }
-    }
-
-    public void ApplyTransitionEffect(TransitionData data){
-        ApplyTransitionEffect(data.nameFX,data.fluctuate,data.isTemporary,data.activate,data.time,data.fluctuateValue);
-    }
 
 
     //Kill Mouse

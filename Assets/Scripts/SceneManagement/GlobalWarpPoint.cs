@@ -51,9 +51,7 @@ public class GlobalWarpPoint : MonoBehaviour
         SceneManager.LoadSceneAsync(nextScene);
     }
     void IterateTransitions(){
-        foreach(TransitionData td in transitionList){
-            SceneManagement.Instance.ApplyTransitionEffect(td.nameFX,td.fluctuate,td.isTemporary,td.activate, td.time, td.fluctuateValue);
-        }
+            CamaraGlobal.Instance.cameraFX.ApplyEffects(transitionList);
     }
 
     public void DoTransitionWithPlayer(Collider2D other){
