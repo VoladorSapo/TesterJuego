@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class bulletController : MonoBehaviour
 {
-   [SerializeField] LayerMask layersHit;
-    Vector2 saveSpeed;
+    [SerializeField] LayerMask layersHit;
+    [ SerializeField ]  Vector2 saveSpeed;
     Animator anim;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (((layersHit.value & 1 << collision.gameObject.layer) > 0) && collision.gameObject.transform != transform.parent && collision.gameObject.transform.parent != transform.parent)
         {
             AudioManager.Instance.PlaySound("Bullet", false, transform.position, false);
-            Destroy(this.gameObject);
+            PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+            Destroy(gameObject);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent < Animator>();
+        anim = GetComponentInChildren < Animator>();
+        SetEvents();
+      
     }
 
     // Update is called once per frame
@@ -29,8 +32,8 @@ public class bulletController : MonoBehaviour
     }
     public void Pause()
     {
-        saveSpeed = GetComponent<Rigidbody2D>().velocity;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            saveSpeed = GetComponent<Rigidbody2D>().velocity;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         anim.speed = 0;
     }
 

@@ -46,6 +46,7 @@ public class PlatformerRaycast : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + raycastdistside * Vector3.left, Color.red);
 
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -81,6 +82,7 @@ public class PlatformerRaycast : MonoBehaviour
         rightwall = (raycast_right_mid && raycast_downright.normal != raycast_right_mid.normal || raycast_right_up && raycast_downright.normal != raycast_right_up.normal || raycast_right_down && raycast_downright.normal != raycast_right_down.normal);
 
         upbox = raycast_up_mid || raycast_up_left || raycast_up_right;
+
             if (raycast_downleft && raycast_downleft.transform.tag == "MovingPlatform")
             {
                 movingplatform = raycast_downleft.transform.gameObject;

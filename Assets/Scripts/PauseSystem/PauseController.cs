@@ -27,23 +27,30 @@ public class PauseController : MonoBehaviour
         pauseEvent+=pause;
         unpauseEvent+=unpause;
     }
+    public void UnSetPausedEvents(Action pause, Action unpause)
+    {
+        pauseEvent -= pause;
+        unpauseEvent -= unpause;
+    }
     void Update(){
-        if(Input.GetKeyDown(KeyCode.P)){
-            isPaused=!isPaused;
+        
+        //if(Input.GetKeyDown(KeyCode.P)){
+        //    isPaused=!isPaused;
 
-            if(isPaused)
-            pauseEvent?.Invoke();
-            else
-            unpauseEvent?.Invoke();
-        }
-        /*if (Input.GetKeyDown(KeyCode.Escape))
+        //    if(isPaused)
+        //    pauseEvent?.Invoke();
+        //    else
+        //    unpauseEvent?.Invoke();
+        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused)
-            {
-                isPaused = true;
+            isPaused = !isPaused;
+
+            if (isPaused)
                 pauseEvent?.Invoke();
-            }
-        }*/
+            else
+                unpauseEvent?.Invoke();
+        }
     }
     public void InvokePause() //Lo he tenido que a�adir para las pausas forzosas
     {
