@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 public class PlatormerPlayerController : MonoBehaviour
 {
 
@@ -23,12 +24,13 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] float touchground;
     [SerializeField] float pressjumpmax;
     [SerializeField] float pressjump;
-    [SerializeField] float fallforce; //Pa que baje mas rapido
-    [SerializeField] float gravityforce;
+    [SerializeField] public float fallforce; //Pa que baje mas rapido
+    [SerializeField] public float gravityforce;
     [SerializeField] bool jumping;
     [SerializeField] bool canDoubleJump;
     [SerializeField] bool fallingfrombox;
     [SerializeField] bool insideFloor;
+    [SerializeField] bool dead;
     [SerializeField] int extraJumps;
     [SerializeField] int currentextraJumps;
     [SerializeField] Vector3 spawnPoint;
@@ -49,7 +51,6 @@ public class PlatormerPlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.layer);
         if (!paused)
         {
             if ((damage.value & 1 << collision.gameObject.layer) > 0)
@@ -79,15 +80,24 @@ public class PlatormerPlayerController : MonoBehaviour
     {
         print("die");
         currentextraJumps = 0;
+        dead = true;
         AudioManager.Instance.PlaySound("Death", false, transform.position, false);
-        transform.position = spawnPoint;
-
+        anim.SetBool("Die", true);
+        if (CamaraGlobal.Instance._player == name)
+        {
+            FindObjectOfType<CinemachineBrain>().enabled = false;
+        }
+        transform.parent = null;
         rb2d.velocity = Vector2.zero;
     }
     public void Respawn()
     {
         transform.position = spawnPoint;
-
+        dead = false;
+        if (CamaraGlobal.Instance._player == name)
+        {
+            FindObjectOfType<CinemachineBrain>().enabled = true;
+        }
     }
     public void Win()
     {
@@ -137,7 +147,7 @@ public class PlatormerPlayerController : MonoBehaviour
             anim.SetBool("onGround", false);
 
         }
-        if (!fallingfrombox && !paused)
+        if (!fallingfrombox && !paused && !dead)
         {
             moveAxisX = Input.GetAxisRaw("Horizontal");
             if (moveAxisX > 0)
@@ -170,7 +180,6 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             if ( pressjump > 0 && (touchground > 0 || (canDoubleJump && currentextraJumps < extraJumps)))
             {
-                print("heheheheh");
                 float force = jumpForce;
                 if (jumping)
                 {
@@ -189,7 +198,6 @@ public class PlatormerPlayerController : MonoBehaviour
                 }
                 jumping = true;
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-
                 rb2d.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
                 touchground = 0;
                 anim.SetBool("onGround", false);
@@ -233,7 +241,7 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             else
             {
-                transform.parent = null;
+                 transform.parent = null;
             }
             if (moveAxisX > 0 && raycasts.rightwall || moveAxisX < 0 && raycasts.leftwall)
             {
@@ -321,11 +329,13 @@ public class PlatormerPlayerController : MonoBehaviour
         anim.speed = 0;
         saveVelocity = rb2d.velocity;
         rb2d.velocity = Vector2.zero;
+        GetComponent<BoxCollider2D>().enabled = false;
         rb2d.gravityScale = 0;
     }
 
     public void Unpause()
     {
+        GetComponent<BoxCollider2D>().enabled = true;
         paused = false;
         anim.speed = 1;
         rb2d.velocity = saveVelocity;

@@ -12,6 +12,8 @@ public class PlataformasSpriteController : MonoBehaviour
     }
     public void EndDeath()
     {
+        anim.SetBool("Die", false);
+        transform.parent.GetComponent<PlatormerPlayerController>().Respawn();
 
     }
     // Start is called before the first frame update

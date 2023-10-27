@@ -290,6 +290,7 @@ public class MessageAdder : MonoBehaviour
     }
     void CheckPuzzlePista()
     {
+        print("wacamalo");
         if(SistemaPistas.Instance != null && SistemaPistas.Instance.startPuzzle && !SistemaPistas.Instance.ended)
         {
             Button newbutton = Instantiate(OptionButtonPrefab, Options.transform).GetComponent<Button>();
@@ -301,13 +302,10 @@ public class MessageAdder : MonoBehaviour
     {
         print(name);
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
-        if (currentConversation != 0)
-        {
             foreach (Transform child in Options.transform)
             {
                 GameObject.Destroy(child.gameObject);
             }
-        }
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
 

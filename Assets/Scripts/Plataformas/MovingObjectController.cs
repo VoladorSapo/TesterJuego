@@ -47,28 +47,28 @@ public class MovingObjectController : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
           
         }
-        if (!paused && (!waitPlayer||startMoving))
+        if (!paused && (!waitPlayer || startMoving))
         {
-            
+
             if (points.Length > 0)
             {
-                movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.deltaTime);
+                movingObject.transform.position = Vector3.MoveTowards(movingObject.transform.position, points[objective], speed * Time.fixedDeltaTime);
                 if (Vector2.Distance(movingObject.transform.position, points[objective]) < 0.01f)
                 {
                     objective = (objective + 1) % points.Length;
                 }
             }
-            float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.deltaTime) % 360;
+            float angle = (movingObject.transform.eulerAngles.z + spinspeed * Time.fixedDeltaTime) % 360;
             movingObject.transform.eulerAngles = new Vector3(movingObject.transform.eulerAngles.x, movingObject.transform.eulerAngles.y, angle);
         }
     }
-
+ 
     public void StartMoving()
     {
         startMoving = true;

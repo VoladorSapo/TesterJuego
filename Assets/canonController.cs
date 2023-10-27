@@ -17,6 +17,7 @@ public class canonController : MonoBehaviour
     {
         currentWait = WaitTime;
         anim = GetComponent<Animator>();
+        SetEvents();
     }
 
     // Update is called once per frame
