@@ -51,15 +51,14 @@ public class GlobalWarpPoint : MonoBehaviour
         SceneManager.LoadSceneAsync(nextScene);
     }
     void IterateTransitions(){
-        foreach(TransitionData td in transitionList){
-            SceneManagement.Instance.ApplyTransitionEffect(td.nameFX,td.fluctuate,td.isTemporary,td.activate, td.time, td.fluctuateValue);
-        }
+            CamaraGlobal.Instance.cameraFX.ApplyEffects(transitionList);
     }
 
     public void DoTransitionWithPlayer(Collider2D other){
         if(other.tag=="Player" && !used){
             Debug.Log(other.gameObject.name);
             if(oneUse){used=true;}
+
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
 
             if(nextGlobalNarrativePart>=0){SceneManagement.Instance.globalChange=nextGlobalNarrativePart;}
@@ -83,7 +82,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
                 if(WaitToChange<=0){
                 other.gameObject.transform.position=nextPosition;
-                SceneManager.LoadSceneAsync(nextScene);
+                SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other));
             }
@@ -115,7 +114,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
                 if(WaitToChange<=0){
                 other.gameObject.transform.position=nextPosition;
-                SceneManager.LoadSceneAsync(nextScene);
+                SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other.GetComponent<Collider2D>()));
             }
@@ -139,7 +138,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
 
                 if(WaitToChange<=0){
-                SceneManager.LoadSceneAsync(nextScene);
+                SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,null));
             }

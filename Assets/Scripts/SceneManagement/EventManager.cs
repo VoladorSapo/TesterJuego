@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
+
+    public event Action eventAction;
 
     [Header("Event Pencil Stage 2")]
     [SerializeField] GameObject pencilBug;
@@ -39,11 +43,16 @@ public class EventManager : MonoBehaviour
         mat.SetFloat("_moveX",0.5f);
         yield return new WaitForSeconds(0.25f);
         mat.SetFloat("_moveX",0f); mat.SetFloat("_moveY",0f);
+        CarreraManager.Instance.SetCanWin(false);
         /*yield return new WaitForSeconds(0.25f);
         go.GetComponent<SpriteRenderer>().sharedMaterial=defaultMat;
         yield return new WaitForSeconds(0.05f);
         go.GetComponent<SpriteRenderer>().sharedMaterial=mat;*/
 
         
+    }
+
+    public void InvokeEvent(){
+        eventAction?.Invoke();
     }
 }

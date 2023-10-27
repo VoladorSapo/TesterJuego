@@ -27,6 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Plataformas/Nivel 2.unity
     guid: e965d1e04f31ffd46a01238a51531b48
   - enabled: 1
+    path: Assets/Scenes/Plataformas/Nivel 3.unity
+    guid: 9eba45b9e8ccbbd4292c4c2a044d6711
+  - enabled: 1
+    path: Assets/Scenes/Plataformas/Nivel 4.unity
+    guid: c2740a678e4547f48b48252316b2a6dc
+  - enabled: 1
+    path: Assets/Scenes/Plataformas/Nivel 5.unity
+    guid: 910b299434c25bd41866bf55b2ffce73
+  - enabled: 1
     path: Assets/Scenes/Zelda/Intro.unity
     guid: 42f7066919aaf3343bd3fa86b8c0223b
   - enabled: 1
@@ -47,4 +56,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 4ed80c8f540078940bba9ad7e628f568
+  - enabled: 1
+    path: Assets/Scenes/EscenasIntermedias/ConversacionCaerse.unity
+    guid: d4ae0616a4462ed489be5cf02245c00e
+  - enabled: 1
+    path: Assets/Scenes/EscenasIntermedias/ConversacionPlataformas.unity
+    guid: a569a0eb69a39454f86634d3b0b0c41a
   m_configObjects: {}

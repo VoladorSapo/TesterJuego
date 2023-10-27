@@ -19,10 +19,13 @@ public class CarreraManager : MonoBehaviour
     Transform WaypointRoot;
     public int totalWaypointsInTrack=10;
     public int numberOfLaps;
+    [HideInInspector] public int currentLap=1;
 
 
     [Header("Stages")]
     public string SelectedStage;
+    public string NextStage;
+    [HideInInspector] public Vector3 newPositionPlayer;
 
     [Header("Sprites de los Coches")]
     public List<SpritesCars> allSprites;
@@ -39,7 +42,6 @@ public class CarreraManager : MonoBehaviour
     [HideInInspector] public Tilemap NormalTilemap;
     [HideInInspector] public Tilemap GlitchedTilemap;
     public bool raceStarted=false;
-    bool raceFinished=false;
 
     //Inicio
     void Awake()
@@ -66,6 +68,8 @@ public class CarreraManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.U)){
             RaceFinished("PlayerCar",GameObject.Find("PlayerCar").GetComponent<PositionRace>());
         }
+
+        
     }
 
     public void GoToRace(){
@@ -79,9 +83,10 @@ public class CarreraManager : MonoBehaviour
 
     //SetRace
     public void SetRace(bool activateGlitchedMap){
-        raceFinished=false;
+        canWinRace=true;
         setVariables(activateGlitchedMap);
         setSprites();
+        SetLaps();
         UpdatePositionUI();
         StartCoroutine(Countdown());
     }
@@ -90,14 +95,12 @@ public class CarreraManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    [HideInInspector] public bool canWinRace=true;
+    public void SetCanWin(bool b){canWinRace=b;}
     public void RaceFinished(string winner, PositionRace posRace){
 
-        
-        
-
-        if(winner=="PlayerCar"){
+        if(winner=="PlayerCar" && canWinRace){
         raceStarted=false;
-        raceFinished=true;
         StartCoroutine(DebugWinner(winner));
         }
 
@@ -164,6 +167,12 @@ public class CarreraManager : MonoBehaviour
             i++;
         }
     }
+
+    void SetLaps(){
+        currentLap=1;
+        TextMeshProUGUI lapText=CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        lapText.text=currentLap+"/"+numberOfLaps;
+    }
     IEnumerator Countdown(){
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(true);
         int i=3;
@@ -201,8 +210,13 @@ public class CarreraManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         text.gameObject.SetActive(false);
 
-        SceneManagement.Instance.ApplyTransitionEffect("vram",false,true,true,0.5f,0);
-        SceneManagement.Instance.ApplyTransitionEffect("bc",false,true,true,0.5f,0);
+        CamaraGlobal.Instance.cameraFX.ApplyEffects(
+            new List<TransitionData>()
+            {
+                new TransitionData("vram",false,true,true,0.5f,0),
+                new TransitionData("bc",false,true,true,0.5f,0)
+            }
+        );
         
         yield return new WaitForSeconds(0.5f);
 
@@ -210,7 +224,29 @@ public class CarreraManager : MonoBehaviour
         GamesManager.Instance.unlockedCarStages++;
         
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(false);
-        SceneManager.LoadSceneAsync("MenuCar");
+
+        if(NextStage=="")
+        SceneManager.LoadScene("MenuCar");
+        else if(SceneIsInBuild(NextStage)){
+        DontDestroyOnLoad(GameObject.Find("PlayerCar").gameObject);
+        GameObject.Find("PlayerCar").transform.position=newPositionPlayer;
+        SceneManager.LoadScene(NextStage);
+        }
+
+    }
+
+    bool SceneIsInBuild(string sceneName){
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            string scene = System.IO.Path.GetFileNameWithoutExtension(path);
+
+            if (scene == sceneName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void StopRace(){
@@ -243,6 +279,7 @@ public class CarreraManager : MonoBehaviour
     public void SetPlayerSprite(int index){
         indexPlayerSprite=index;
     }
+
 
     public void SetGlitchPlayer(){
         Debug.Log("ajsd");
