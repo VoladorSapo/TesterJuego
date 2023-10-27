@@ -26,7 +26,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ValueX: 0
+    - _CellSizeX: 4
+    - _CellSizeY: 4
+    - _ColorCount: 8
+    - _NumTilesX: 10
+    - _NumTilesY: 10
+    - _ScreenHeight: 240
+    - _ScreenWidth: 320
+    - _ValueX: -2.4
+    - _ValueY: -13.16
     - _moveX: 0
     - _moveY: 0
     m_Colors: []

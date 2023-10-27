@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 
 public class CarController : BasicCar, IPauseSystem 
 {
+    static CarController Instance;
 
     [Header("Settings")]
     public bool isGlitchedCar=false;
@@ -61,6 +62,12 @@ public class CarController : BasicCar, IPauseSystem
 
     protected override void Awake()
     {
+        if(Instance==null){
+            Instance=this;
+        }else{
+            Destroy(this.gameObject);
+        }
+        
         _rb = GetComponent<Rigidbody2D>();
         
         if(GameObject.Find("Waypoint0")!=null){

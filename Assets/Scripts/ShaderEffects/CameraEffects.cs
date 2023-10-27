@@ -26,6 +26,20 @@ public class CameraEffects : MonoBehaviour
         
     }
 
+    public void ApplyEffects(List<TransitionData> data){
+        foreach(TransitionData t in data){
+            if(!t.isTemporary){
+        
+            ActivateEffect(t.nameFX,t.fluctuate,t.activate);
+            }
+            else{
+                if(t.fluctuateValue<=0)
+                ActivateTemporaryEffect(t.nameFX,t.fluctuate,t.time);
+                else
+                ActivateTemporaryEffect(t.nameFX,t.fluctuate,t.time,t.fluctuateValue);
+            }
+        }
+    }
     public void ActivateTemporaryEffect(string nameFX, bool fluctuate, float time){
         StartCoroutine(TemporaryFX(nameFX,fluctuate,time));
     }
