@@ -7,6 +7,9 @@ public class EventGallery : MonoBehaviour
 {
     public static EventGallery Instance;
     public int neededWaypoint;
+
+    [Header("Variables Necesarias")]
+    [SerializeField] Tile downArrowTile;
     void Awake(){
         if(Instance==null){
             Instance=this;
@@ -63,6 +66,12 @@ public class EventGallery : MonoBehaviour
     }
     //Stage 3
     public void GlitchPlayer(){
+        CanWinRace(false);
+
+        CarreraManager.Instance.NormalTilemap.SetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(new Vector2(-14,3)),downArrowTile);
+        CarreraManager.Instance.NormalTilemap.SetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(new Vector2(-13,1)),downArrowTile);
+        CarreraManager.Instance.NormalTilemap.SetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(new Vector2(-14,1)),downArrowTile);
+
         CarreraManager.Instance?.SetGlitchPlayer();
         
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
@@ -75,7 +84,7 @@ public class EventGallery : MonoBehaviour
     }
     public void GlitchStage3(){
         ActivateGlitchMap();
-        CarreraManager.Instance.NextStage="protoZelda";
+        CarreraManager.Instance.NextStage="Nivel3";
         if(GameObject.Find("Pencil_Barrier")){
             GameObject.Find("Pencil_Barrier").layer=LayerMask.NameToLayer("Obstacles");
         }
@@ -91,5 +100,9 @@ public class EventGallery : MonoBehaviour
         Debug.LogWarning("1dd");
         if(CarreraManager.Instance!=null)
         CarreraManager.Instance.GlitchedTilemap.GetComponent<TilemapRenderer>().enabled=true;
+    }
+
+    void CanWinRace(bool b){
+        CarreraManager.Instance?.SetCanWin(b);
     }
 }

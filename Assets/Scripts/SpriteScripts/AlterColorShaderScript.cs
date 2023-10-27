@@ -15,9 +15,9 @@ public class AlterColorShaderScript : MonoBehaviour
     }
 
     void Update(){
-        Material mat1=GetComponent<SpriteRenderer>().material;
-        mat1.SetInt("_ColorCount",ogColors.Length);
-        mat1.SetColorArray("_Colors",ogColors);
-        mat1.SetColorArray("_NewColors",newColors);
+        
+        GetComponent<SpriteRenderer>().material.SetInt("_ColorCount",ogColors.Length);
+        GetComponent<SpriteRenderer>().material.SetColorArray("_Colors",ogColors);
+        GetComponent<SpriteRenderer>().material.SetColorArray("_NewColors",newColors);
     }
 }

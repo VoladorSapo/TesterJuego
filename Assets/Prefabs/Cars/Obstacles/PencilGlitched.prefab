@@ -72,6 +72,18 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: ogColors.Array.data[0].b
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: ogColors.Array.data[0].g
+      value: 0.7254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: ogColors.Array.data[0].r
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: ogColors.Array.data[2].a
       value: 1
       objectReference: {fileID: 0}
@@ -153,15 +165,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: newColors.Array.data[0].b
-      value: 0.066037714
+      value: 0.07450981
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: newColors.Array.data[0].g
-      value: 0.06216623
+      value: 0.07450981
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: newColors.Array.data[0].r
-      value: 0.057004254
+      value: 0.07058824
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: newColors.Array.data[1].b
