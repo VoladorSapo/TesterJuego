@@ -35,14 +35,14 @@ public class DebugLogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            AddLog("Te amordido un perro");
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            AddLog("Sueor" + '\n' + "Boblon");
-        }
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    AddLog("Te amordido un perro");
+        //}
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    AddLog("Sueor" + '\n' + "Boblon");
+        //}
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
