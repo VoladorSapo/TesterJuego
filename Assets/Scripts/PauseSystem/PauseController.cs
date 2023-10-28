@@ -45,7 +45,7 @@ public class PauseController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
-
+            
             if (isPaused)
                 pauseEvent?.Invoke();
             else

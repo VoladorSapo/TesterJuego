@@ -185,7 +185,7 @@ public class SceneManagement : MonoBehaviour
 
     }
 
-    bool killMouse=false;
+    [SerializeField] bool killMouse=false;
     void ConstantChanges(){
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
             ChangePlayerToCar();
@@ -256,7 +256,6 @@ public class SceneManagement : MonoBehaviour
         else{
             if(allStages.Contains(currentScene.name)){
                 MusicSettings("Select Car Music",0.25f,"",0);
-                CarreraManager.Instance.killMouse=false; 
                 CarreraManager.Instance?.SetRace(glitchedMapActive);  
             }
         }
