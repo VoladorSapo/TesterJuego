@@ -43,7 +43,7 @@ public class SceneManagement : MonoBehaviour
 
 
     void Awake(){
-        if(SceneManagement.Instance==null){
+        if(Instance==null){
             Instance=this;
             DontDestroyOnLoad(this.gameObject);
         }else{
