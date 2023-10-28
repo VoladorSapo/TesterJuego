@@ -43,14 +43,7 @@ public class GlobalWarpPoint : MonoBehaviour
         SceneManager.MoveGameObjectToScene(other.gameObject,SceneManager.GetActiveScene());
 
         if(forceTransformChange){
-            other.gameObject.transform.position=nextPosition;
-            if(other.gameObject.GetComponent<CarController>()!=null){
-                other.gameObject.GetComponent<CarController>()._realRotationAngle=nextRotation.z;
-            }else{
-                other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
-            }
-            Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(nextRotation), Vector3.one);
-            other.gameObject.GetComponent<Rigidbody2D>().velocity=rotationMatrix*other.gameObject.GetComponent<Rigidbody2D>().velocity;
+            SetPlayerTransform(other.gameObject);
         }
 
         if(transitionWithPlayer)
@@ -61,8 +54,10 @@ public class GlobalWarpPoint : MonoBehaviour
 
     IEnumerator HoldTransition(string nextScene, float WaitToChange, Collider2D other){
         yield return new WaitForSeconds(WaitToChange);
-        if(other!=null)
+        if(other!=null){
         other.gameObject.transform.position=nextPosition;
+
+        }
         
         SceneManager.LoadScene(nextScene);
     }
@@ -72,7 +67,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
     public void DoTransitionWithPlayer(Collider2D other){
         if(other.tag=="Player" && !used){
-            Debug.Log(other.gameObject.name);
+            
             if(oneUse){used=true;}
 
             AudioManager.Instance?.ChangeMusicTo(currentMusic,fadeOutTime,followingMusic,fadeInTime);
@@ -93,15 +88,8 @@ public class GlobalWarpPoint : MonoBehaviour
                 DontDestroyOnLoad(other.gameObject);
 
                 if(WaitToChange<=0){
-                other.gameObject.transform.position=nextPosition;
-                if(other.gameObject.GetComponent<CarController>()!=null){
-                    other.gameObject.GetComponent<CarController>()._realRotationAngle=nextRotation.z;
-                }else{
-                    other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
-                }
-                  Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(nextRotation), Vector3.one);
-                  other.gameObject.GetComponent<Rigidbody2D>().velocity=rotationMatrix*other.gameObject.GetComponent<Rigidbody2D>().velocity;
-                SceneManager.LoadScene(nextScene);
+                    SetPlayerTransform(other.gameObject);
+                    SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other));
             }
@@ -132,14 +120,7 @@ public class GlobalWarpPoint : MonoBehaviour
                 DontDestroyOnLoad(other.gameObject);
 
                 if(WaitToChange<=0){
-                other.gameObject.transform.position=nextPosition;
-                if(other.gameObject.GetComponent<CarController>()!=null){
-                    other.gameObject.GetComponent<CarController>()._realRotationAngle=nextRotation.z;
-                }else{
-                    other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
-                } 
-                 Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(nextRotation), Vector3.one);
-                 other.gameObject.GetComponent<Rigidbody2D>().velocity=rotationMatrix*other.gameObject.GetComponent<Rigidbody2D>().velocity;
+                SetPlayerTransform(other);
                 SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other.GetComponent<Collider2D>()));
@@ -177,6 +158,17 @@ public class GlobalWarpPoint : MonoBehaviour
         if(nextLocalNarrativeParts.PlatformNarrative>=0){SceneManagement.Instance.narrativeParts.PlatformNarrative=nextLocalNarrativeParts.PlatformNarrative;}
         if(nextLocalNarrativeParts.CarNarrative>=0){SceneManagement.Instance.narrativeParts.CarNarrative=nextLocalNarrativeParts.CarNarrative;}
         if(nextLocalNarrativeParts.ZeldaNarrative>=0){SceneManagement.Instance.narrativeParts.ZeldaNarrative=nextLocalNarrativeParts.ZeldaNarrative;}
+    }
+
+    void SetPlayerTransform(GameObject other){
+        other.gameObject.transform.position=nextPosition;
+            if(other.gameObject.GetComponent<CarController>()!=null){
+                other.gameObject.GetComponent<CarController>()._realRotationAngle=nextRotation.z;
+            }else{
+                other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
+            }
+            Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(nextRotation), Vector3.one);
+            other.gameObject.GetComponent<Rigidbody2D>().velocity=rotationMatrix*other.gameObject.GetComponent<Rigidbody2D>().velocity;
     }
 
 }
