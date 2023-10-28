@@ -12,7 +12,7 @@ public class PauseController : MonoBehaviour
     public event Action pauseEvent;
     public event Action unpauseEvent;
     bool isPaused=false;
-
+    bool hardPaused = false;
     void Awake(){
         if (Instance == null)
         {
@@ -49,13 +49,26 @@ public class PauseController : MonoBehaviour
         //}
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-            
-            if (isPaused)
-                pauseEvent?.Invoke();
-            else
-                unpauseEvent?.Invoke();
+            if (!hardPaused)
+            {
+                isPaused = !isPaused;
+
+                if (isPaused)
+                    pauseEvent?.Invoke();
+                else
+                    unpauseEvent?.Invoke();
+            }
         }
+    }
+    public void hardPause()
+    {
+        hardPaused = true;
+        InvokePause();
+    }
+  public void  unHardPause()
+    {
+        hardPaused = false;
+
     }
     public void InvokePause() //Lo he tenido que a�adir para las pausas forzosas
     {

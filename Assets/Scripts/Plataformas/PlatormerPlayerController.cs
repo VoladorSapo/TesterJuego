@@ -90,7 +90,7 @@ public class PlatormerPlayerController : MonoBehaviour
         anim.SetBool("Die", true);
         if (CamaraGlobal.Instance._player == name && GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {   
-                FindObjectOfType<CinemachineBrain>().enabled = false;    
+                //FindObjectOfType<CinemachineBrain>().enabled = false;    
         }
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
@@ -98,16 +98,18 @@ public class PlatormerPlayerController : MonoBehaviour
     
     public void Respawn()
     {
-        Death?.Invoke();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
         {
             Destroy(gameObject);
         }
+        Death?.Invoke();
+
         insideFloor = false;
         transform.position = spawnPoint;
         dead = false;
         if (CamaraGlobal.Instance._player == name)
         {
+
             FindObjectOfType<CinemachineBrain>().enabled = true;
         }
     }
