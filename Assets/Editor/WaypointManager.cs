@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class WaypointManager : EditorWindow
 {
-    // Borja:
+    // :
 
     [MenuItem("Tools/Waypoint Editor")]
     public static void Open()

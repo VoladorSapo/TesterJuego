@@ -1872,11 +1872,7 @@ MonoBehaviour:
   nextGlobalNarrativePart: 1
   nextLocalNarrativeParts:
     PlatformNarrative: -1
-<<<<<<< Updated upstream
-    CarNarrative: 4
-=======
     CarNarrative: -1
->>>>>>> Stashed changes
     ZeldaNarrative: -1
   currentMusic: 
   followingMusic: 
