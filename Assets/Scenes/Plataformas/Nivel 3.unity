@@ -1864,11 +1864,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionWithPlayer: 0
   oneUse: 0
+  forceTransformChange: 0
   nextScene: ConversacionPlataformas
   nextAcctionName: 
   transitionList: []
   WaitToChange: 0
   nextPosition: {x: 0, y: 0, z: 0}
+  nextRotation: {x: 0, y: 0, z: 0}
   nextGlobalNarrativePart: 1
   nextLocalNarrativeParts:
     PlatformNarrative: -1
@@ -12961,11 +12963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6696535677378526405, guid: 0f5409c3126d62040985fba1cc9354ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.907364
+      value: 19.8
       objectReference: {fileID: 0}
     - target: {fileID: 6696535677378526405, guid: 0f5409c3126d62040985fba1cc9354ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 6696535677378526405, guid: 0f5409c3126d62040985fba1cc9354ac, type: 3}
       propertyPath: m_LocalPosition.z

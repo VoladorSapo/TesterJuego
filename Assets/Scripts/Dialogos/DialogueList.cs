@@ -23,6 +23,7 @@ public class DialogueList : MonoBehaviour
         {
             DialogueHash = new Dictionary<string, DialogueClass>();
             MessageHash = new Dictionary<string, MessageClass>();
+            LogHash = new Dictionary<string, string>();
             Instance = this;
             string[] strings;
             if (textMessages != null)
@@ -33,6 +34,7 @@ public class DialogueList : MonoBehaviour
                     string trimString = strings[i].Trim();
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
+                        print(trimString);
                         string[] messagestring = trimString.Split(';');
                         MessageClass message = new MessageClass(messagestring[1], int.Parse(messagestring[2]), int.Parse(messagestring[3]), int.Parse(messagestring[4]), Convert.ToBoolean(messagestring[5]), messagestring[6]);
                         MessageHash.Add(messagestring[0], message);
@@ -43,12 +45,14 @@ public class DialogueList : MonoBehaviour
             {
                 strings = textDialogue.text.Split('\r');
 
-                for (int i = 0; i < strings.Length; i++)
+                for (int i = 1; i < strings.Length; i++)
                 {
                     string trimString = strings[i].Trim();
 
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
+                        print(trimString);
+
                         string[] dialoguestring = trimString.Split(';');
                         DialogueClass dialogue = new DialogueClass(dialoguestring[1], dialoguestring[2], int.Parse(dialoguestring[3]), int.Parse(dialoguestring[4]));
                         DialogueHash.Add(dialoguestring[0], dialogue);
@@ -60,12 +64,15 @@ public class DialogueList : MonoBehaviour
                 strings = textLog.text.Split('\r');
                 print(strings.Length);
 
-                for (int i = 0; i < strings.Length; i++)
+                for (int i =1; i < strings.Length; i++)
                 {
                     string trimString = strings[i].Trim();
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
+                        print(trimString);
                         string[] dialoguestring = trimString.Split(';');
+                        print(dialoguestring[0]);
+                        print(dialoguestring[1]);
                         LogHash.Add(dialoguestring[0], dialoguestring[1]);
                     }
                 }

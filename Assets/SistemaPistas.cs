@@ -11,6 +11,7 @@ public class SistemaPistas : MonoBehaviour
     [SerializeField]public bool ended;
     [SerializeField] bool counting;
     [SerializeField] int count;
+    [SerializeField] int puzzleCount;
     [SerializeField] List<float> waitSeconds = new List<float>();
     [SerializeField] float currentWait;
     [SerializeField] string key;
@@ -20,7 +21,8 @@ public class SistemaPistas : MonoBehaviour
     void Start()
     {
         currentWait = 0;
-
+        count = 1;
+        puzzleCount = 0;
         if (Instance == null)
         {
             Instance = this;
@@ -39,6 +41,19 @@ public class SistemaPistas : MonoBehaviour
         {
             startPuzzle = true;
             counting = true;
+        }
+    }
+    public void NextPuzzle(int i,string _key,float[] newwaits)
+    {
+        if(i > puzzleCount)
+        {
+            startPuzzle = true;
+            counting = true;
+            puzzleCount = i;
+            key = _key;
+            count = 1;
+            waitSeconds.Clear();
+            waitSeconds.AddRange(newwaits);
         }
     }
   public  void PedirPista()
@@ -60,7 +75,7 @@ public class SistemaPistas : MonoBehaviour
     }
     void DarPista()
     {
-            MessageClass[] mensajes = MessageAdder.Instance.GetMessageList(key + "_" + count);
+            MessageClass[] mensajes = MessageAdder.Instance.GetMessageList(key+"_"+count);
             if (mensajes.Length > 0)
             {
                 MessageAdder.Instance.AddMessageList(mensajes, 0);

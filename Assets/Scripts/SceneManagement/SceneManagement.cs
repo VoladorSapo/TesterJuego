@@ -163,7 +163,7 @@ public class SceneManagement : MonoBehaviour
         if((allStages.Contains(SceneManager.GetActiveScene().name) || menuScenes.Contains(SceneManager.GetActiveScene().name)) && prevNarrativeParts.CarNarrative!=narrativeParts.CarNarrative){
             prevNarrativeParts.CarNarrative=narrativeParts.CarNarrative;  
             switch(narrativeParts.CarNarrative){
-                    case 0: killMouse=true; CarSettings(false, false); CameraSettings(1,"PlayerCar",0); break;
+                    case 0: killMouse=false; CarSettings(false, false); CameraSettings(1,"PlayerCar",0); break;
                     case 1: killMouse=false; CarSettings(false, false); CameraSettings(2,"PlayerCar",2); break;
                     case 2: CarSettings(false,false); break; //Lapiz bug que ya esta arriba
                     case 3: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchPlayer; EventGallery.Instance.neededWaypoint=-1; break; //CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
@@ -279,7 +279,7 @@ public class SceneManagement : MonoBehaviour
 
     GameObject lastSelected;
     public void KillMouseInputs(bool killMouse){
-
+        print("killMouse");
         if(killMouse){
             Cursor.visible=false;
             Cursor.lockState=CursorLockMode.Locked;

@@ -1,0 +1,60 @@
+Name;Text;Nombre;Personaje;Anim
+cinematic1_0;Hace mucho, un sabio mago vivía en una torre que crecía y crecía en altura.;None;0;0
+cinematic1_1;Solo él entendía los recovecos de su torre, y por tanto solo él podía adentrarse en ella y volver para contarlo.;None;0;0
+cinematic1_2;Por ello vivió tranquilo en su inmortalidad durante años.;None;0;0
+cinematic2_0;Sin embargo, un día, el sabio mago perdió su vida salvando al mundo de un gran mal ancestral.;None;0;0
+cinematic2_1;Su gesta, que se dio en los pisos más altos de la torre, pudo ser vista desde todas partes iluminando el cielo.;None;0;0
+cinematic2_2;El mal fue derrotado, al menos por un tiempo.;None;0;0
+cinematic3_0;Pero el arma definitiva, capaz de derrotar al mal fue abandonada en algún punto de la torre.;None;0;0
+cinematic3_1;Por ello, aprendiz, antes de que despierte de nuevo el mal…;None;0;0
+cinematic3_2;Encuentra el arma definitiva:;None;0;0
+cinematic3_3;“P R O X I M;None;0;0
+mensajero_0;¡Aprendiz!;Mensajero;1;0
+mensajero_1;El Padre le busca. Me ha pedido que venga a avisarle.;Mensajero;1;0
+mensajero_2;Llevo un rato aquí…;Mensajero;1;0
+mensajero_3;Esperando a que salieras de la torre.;Mensajero;1;0
+mensajero_4;Ha sido un buen rato.;Mensajero;1;0
+mensajero_5;…;Mensajero;1;0
+mensajero_6;Debes ir al pueblo. Si los laberintos de la torre te han desorientado: te recuerdo que es hacia el sur.;Mensajero;1;0
+padre_0;Has venido, aprendiz.;Padre;2;0
+padre_1;Escucha con atención.;Padre;2;0
+padre_2;Como sabrás, la antigua profecía que guarda nuestra aldea tiene los ojos puestos sobre ti.;Padre;2;0
+padre_3;Pues llegará el día en el que emprendas tu viaje en busca del arma capaz de destruir al mal;Padre;2;0
+padre_4;"Ese día, querido Aprendiz, ha <link=""Toshida""></link>";Padre;2;0
+padre_5;PASA POR LA PUERTA DE LA VIDRIERA;None;2;1
+pechurina_0;Ten cuidado, dicen que en los caminos hay una banda de tigres pandilleros muy peligrosos.;None;0;0
+pechurina_1;¿Que por qué no tengo miedo?;None;0;0
+pechurina_2;Bueno, corro realmente rápido. La última vez ni me vieron.;None;0;0
+pechurina_3;Esos tigres se creen que me van a atrapar a mí…;None;0;0
+fraile_0;El Padre nos ha pedido que despejemos el claustro esta tarde.;None;0;0
+fraile_1;Creo que es por ti.;None;0;0
+bar_0;Hoy el bar está muy tranquilo.;None;0;0
+bar_1;En general, todo el pueblo.;None;0;0
+triangulo_0;¿Myksua turna k’sate siir va?;None;0;0
+triangulo_1;Bog os parda…;None;0;0
+gatococaina_0;El otro dia el tabernero se negó a venderme una pócima.;None;0;0
+gatococaina_1;Dice que solo se la vende a caballos.;None;0;0
+ignacio_0;Yo y cinco amigos participamos en una incursión a la torre hace muchos años.;None;0;0
+ignacio_1;Era un plan a prueba de tontos, y aun así nos las apañamos para hacerlo mal.;None;0;0
+ignacio_2;Fue un desastre…;None;0;0
+cuesta_0;Soy Ricardo, Abad de este nuestro convento.;None;0;0
+cuesta_1;Hoy todo el mundo se está volviendo loco, ¡Aquí no hay quien rece!;None;0;0
+cuesta_2;Qué follón…;None;0;0
+npc1_0;De doce a dos cerramos las tiendas.;None;0;0
+npc1_1;La torre tapa el sol.;None;0;0
+npc2_0;El otro dia el recaudador de impuestos me paró y me pidió los papeles de la mercancía;None;0;0
+npc2_1;Y yo le dije;None;0;0
+npc2_2;Callate y besame.;None;0;0
+npc3_0;Soy un peregrino que ha venido de muy lejos a ver la torre.;None;0;0
+npc3_1;Es verdaderamente increíble;None;0;0
+npc4_0;Yo una vez fui mago también;None;0;0
+npc4_1;Un tipo me vino y me pidió que resucitará a su abuelo.;None;0;0
+npc4_2;Y yo sin querer abrí un portal en medio de la sala, un portal al “Mundo Sólido”;None;0;0
+npc4_3;Y claro, se acababa de morir su abuelo, pero le daba igual porque bueno;None;0;0
+npc4_4;Un portal es una cosa como de mucho más calibre.;None;0;0
+npc5_0;¿Has aprendido magia en la torre?;None;0;0
+npc5_1;Debes ser muy poderoso;None;0;0
+npc5_2;Tu haces una gira por Shør’ya y te forras.;None;0;0
+trovador_0;"""No lo quiero, no lo acepto, no lo permitiré""";Trovador Sapo;3;0
+trovador_1;"""Te quiero demasiado, es demasiado amor""";Trovador Sapo;3;0
+trovador_2;"""No importa cuánto beba Los recuerdos inalterables son como una tontería""";Trovador Sapo;3;0

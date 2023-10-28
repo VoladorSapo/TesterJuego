@@ -1566,6 +1566,14 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9135272140866620771, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: textLog
+      value: 
+      objectReference: {fileID: 4900000, guid: 37a04f96e62813c4d8e6de1cbfc27eb1, type: 3}
+    - target: {fileID: 9135272140866620771, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: textDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: fe561d3e7d974d643852bfb12d608882, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
 --- !u!1001 &722870336
@@ -1818,6 +1826,8 @@ MonoBehaviour:
   key: 0
   onLoad: 0
   LoadStringEvent: 
+  summonkeys:
+  - dondecaemos
   HardPause: 0
   SpawnPlace: 0
   HasTriggered: 0
@@ -32402,7 +32412,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956641695}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -32433,11 +32443,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b1429a21277e34a98b15d810ca7db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MessageKey: 0
+  MessageKey: dondecaemos
   conversation: 0
   key: 0
   onLoad: 0
   LoadStringEvent: 
+  summonkeys: []
   HardPause: 0
   SpawnPlace: 1
   HasTriggered: 0

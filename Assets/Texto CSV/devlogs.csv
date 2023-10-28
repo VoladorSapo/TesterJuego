@@ -1,0 +1,28 @@
+keysmash;texto
+error_0_0;NullReferenceException: object reference not set to an instance of an object
+error_1_0;Variable “gameCounter” is never declared
+error_2_0;f???a???t???a???l??? ???m???e???m???o???r???y??? ???e???r???r???o???r???
+error_3_0;m?????e???r??????e??????q?????u????????e???????t???????e???????n???????g?????u????????e??????
+error_4_0;??????????????????????
+error_5_0;Load error: ArrayIndexOutOfBoundsException: Canon[150].pounds().dev(IL_r1din) || rptmdr
+error_6_0;OutPrint: No sé qué poner en este print
+error_7_0;OutPrint: Print de prueba
+error_8_0;OutPrint: ¿Ha funcionado?
+error_9_0;OutPrint: Si estás leyendo esto, probablemente hay algo fallando
+error_10_0;OutPrint: Este mensaje aparece porque alguien no ha hecho su trabajo
+error_11_0;/-.-- --- ..- / -.- -. --- .-- / .-- .... .- - / - .... . -.-- / -.. --- / - --- / --. ..- -.-- ... / .-.. .. -.- . / ..- ... / .. -. / .--- .- .. .-
+error_12_0;GenericExceptionOrError() detected in compilation of GenericCode.genericextension
+error_13_0;AnotherGenericException() during AnotherCode.gexc run
+error_14_0;Error: Code(346681390801F) in memoryspace 0x32c33010
+error_15_0;Error: Code(29) in memoryspace 0xDDDDDDDD
+error_16_0;Me estoy quedando sin ideas
+error_17_0;A estas alturas ya no busco que el código compile, me estoy buscando a mí mismo
+error_18_0;FATAL MEMORY ERROR (439213464
+error_19_0;FATAL MEMORY ERROR (321566432)
+error_20_0;FATAL MEMORY ERROR (FFFF23124)
+error_21_0;FATAL MEMORY ERROR (95412CAA2)
+error_22_0;FATAL MEMORY ERROR (121212121)
+error_23_0;FATAL MEMORY ERROR (CCCCCCCCC)
+dondecaemos_0;¿Dónde caemos gente?
+errormemoria_0;<#d68e07>ERROR EN LA MEMORIA DETECTADO.</color>
+errormemoria_1;<#d68e07>Chicos, os recuerdo que este juego está generando problemas al cargar posiciones. Tened cuidado con los cambios de escenas y sobre todo con no sobrepasar la velocidad máxima del coche.</color>

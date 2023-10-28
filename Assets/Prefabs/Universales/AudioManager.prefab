@@ -178,11 +178,11 @@ MonoBehaviour:
     maxSoundDistance: 100
   - name: Shoot
     audioClip: {fileID: 8300000, guid: b7667128fac03304e84635ef5b58c37a, type: 3}
-    volume: 0.5
+    volume: 0.209
     pitch: 1
     maxSoundDistance: 100
   - name: Bullet
     audioClip: {fileID: 8300000, guid: db644bc3444ff2e40a679fc1c931cdb4, type: 3}
-    volume: 0.5
+    volume: 0.191
     pitch: 1
     maxSoundDistance: 100
