@@ -136,6 +136,7 @@ public class SceneManagement : MonoBehaviour
             case "SetRaceStage2": narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break; // 
             case "StopRace": CarSettings(true,true); break;
             case "SalirSalaSecreta": narrativeParts.CarNarrative = 3;break;
+            case "Clones":foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player")){ item.transform.position = new Vector3(UnityEngine.Random.Range(135,145), UnityEngine.Random.Range(-2, 0)); DontDestroyOnLoad(item);} break;
         }
         act="";
     }
