@@ -434,8 +434,7 @@ public class MessageAdder : MonoBehaviour
                 wholeMessages.Add(new List<MessageClass>());
                 conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
                 TextConversations.Add(scrollView);
-                MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");
-                
+                MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");                
                 MessageAdder.Instance.AddMessageList(messages, TextConversations.Count - 1);
                 ChangeConversation(TextConversations.Count - 1);
                 break;

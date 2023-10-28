@@ -8,7 +8,8 @@ public class TriggerStoryEvent : MonoBehaviour
     [SerializeField] int conversation;
     [SerializeField]   KeyCode key = KeyCode.None;
     [SerializeField] bool onLoad;
-    [SerializeField] string LoadStringEvent;
+    [SerializeField] public string LoadStringEvent;
+    public string[] summonkeys;
     [SerializeField] bool HardPause;
     
     [Header("0 Mensaje,1 DebugLog, 2 Conversacion")]
@@ -42,7 +43,8 @@ public class TriggerStoryEvent : MonoBehaviour
                         MessageAdder.Instance.HardPause();
                     break;
                 case 1:
-                    DebugLogController.Instance.AddLogs(DebugLogController.Instance.GetLogs(MessageKey));
+                    StartCoroutine(  DebugLogController.Instance.AddLogs(DebugLogController.Instance.GetLogs(MessageKey)));
+                    DebugLogController.Instance.checkKey(MessageKey);
                     HasTriggered = true;
                     break;
             }

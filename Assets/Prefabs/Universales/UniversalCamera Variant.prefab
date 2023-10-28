@@ -57639,6 +57639,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4907498516012043419}
     m_Modifications:
+    - target: {fileID: 7855905061267932390, guid: 09e65019ff44372468180967a2a980b0, type: 3}
+      propertyPath: textLog
+      value: 
+      objectReference: {fileID: 4900000, guid: 37a04f96e62813c4d8e6de1cbfc27eb1, type: 3}
+    - target: {fileID: 7855905061267932390, guid: 09e65019ff44372468180967a2a980b0, type: 3}
+      propertyPath: textMessages
+      value: 
+      objectReference: {fileID: 4900000, guid: 9030751c232e083428eb3f1677d60f26, type: 3}
     - target: {fileID: 7855905061267932391, guid: 09e65019ff44372468180967a2a980b0, type: 3}
       propertyPath: m_RootOrder
       value: 1

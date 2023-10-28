@@ -59,10 +59,7 @@ public class DebugLogController : MonoBehaviour
         GameObject newlog = Instantiate(LogPrefab, Content.transform.position,Quaternion.identity);
         newlog.transform.SetParent(Content.transform);
         newlog.GetComponentInChildren<TMP_Text>().text = text;
-        if( trigger != null&&!trigger.HasTriggered)
-        {
-            trigger.TriggerEvent();
-        }
+        
     }
     public string[] GetLogs(string key)
     {
@@ -76,14 +73,23 @@ public class DebugLogController : MonoBehaviour
             logs.Add(log);
             log = DialogueList.Instance.getLog(key + "_" + i);
         }
+        print(logs.Count + "log length");
         return logs.ToArray();
     }
     public IEnumerator AddLogs(string[] strings)
     {
+        print(strings.Length);
         foreach (string item in strings)
         {
             AddLog(item);
             yield return new WaitForSeconds(0.5f);
+        }
+    }
+    public void checkKey(string key)
+    {
+        if (trigger != null && !trigger.HasTriggered && System.Array.Exists(trigger.summonkeys, element => element == key))
+        {
+            trigger.TriggerEvent();
         }
     }
     public void DeleteLogs()
