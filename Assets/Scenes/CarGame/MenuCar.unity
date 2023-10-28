@@ -1924,11 +1924,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 712464765327753239, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: unlockedCarStages
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: actionName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: globalChange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: allStages.Array.size
@@ -1941,6 +1945,14 @@ PrefabInstance:
     - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: narrativeParts.CarNarrative
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.ZeldaNarrative
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.PlatformNarrative
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183861, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: m_Name
@@ -4702,6 +4714,7 @@ MonoBehaviour:
   key: 0
   onLoad: 1
   LoadStringEvent: SalirSalaSecreta
+  summonkeys: []
   HardPause: 1
   SpawnPlace: 0
   HasTriggered: 0

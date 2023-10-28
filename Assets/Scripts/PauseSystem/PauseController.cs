@@ -11,7 +11,7 @@ public class PauseController : MonoBehaviour
     public static PauseController Instance;
     public event Action pauseEvent;
     public event Action unpauseEvent;
-    bool isPaused=false;
+    [SerializeField] bool isPaused=false;
     bool hardPaused = false;
     void Awake(){
         if (Instance == null)
