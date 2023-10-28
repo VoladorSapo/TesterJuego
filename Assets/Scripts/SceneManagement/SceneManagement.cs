@@ -113,12 +113,13 @@ public class SceneManagement : MonoBehaviour
                 foreach(GameObject go in playerGO){
                     SceneManager.MoveGameObjectToScene(go,currentScene);
                 }
+
+                Debug.Log(globalChange);
                 switch(globalChange){
                     case 0: break;
                     case 1: CameraSettings(1, "Capsule", 1); AudioSettings("Capsule"); break;
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); break;
-                    case 3: break;
-                    case 4: SpawnZeldaPlayer(); CameraSettings(2,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
+                    case 3: SpawnZeldaPlayer(); CameraSettings(3,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); break;
                     case 9: EndGame(); break;
                     default: break; //Temporalmente está así
                 }
@@ -205,8 +206,10 @@ public class SceneManagement : MonoBehaviour
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
             case 2: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=true; camaraGlobal.GetComponent<CinemachineBrain>().enabled=false; break;
+            case 3: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; camaraGlobal.GetComponent<Camera>().transparencySortAxis=new Vector3(0,1,0); break;
         }
 
+        Debug.LogWarning(followPlayer);
         if(followPlayer!="")
         camaraGlobal._player=followPlayer;
 

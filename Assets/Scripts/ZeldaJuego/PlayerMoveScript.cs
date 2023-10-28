@@ -69,13 +69,9 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
 
     private bool IsNPCNear(out zeldaNPCBase npc)
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(_interactionPos.position, 0.8f, _interactableMask);
-
-        Vector3 dir1=new Vector3(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0); dir1.Normalize();
-        Debug.DrawRay(_interactionPos.position,dir1,Color.black);
 
         Vector2 dir=new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")); dir.Normalize();
-        RaycastHit2D[] hits = Physics2D.RaycastAll(_interactionPos.position,dir,1f,_interactableMask);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_interactionPos.position,lastMoveDirection,1f,_interactableMask);
 
             /*foreach (Collider2D collider in hitColliders)
             {

@@ -17937,6 +17937,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: actionName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: globalChange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.CarNarrative
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.ZeldaNarrative
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249336582868183860, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
+      propertyPath: narrativeParts.PlatformNarrative
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7249336582868183861, guid: 7e2891bd452a99b40b55de99ab385f40, type: 3}
       propertyPath: m_Name
       value: SceneManager

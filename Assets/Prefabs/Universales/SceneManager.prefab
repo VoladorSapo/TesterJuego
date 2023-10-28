@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededWaypoint: 0
+  downArrowTile: {fileID: 0}
 --- !u!1 &7249336582868183861
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +124,15 @@ MonoBehaviour:
   - MenuCar
   allZeldaScenes:
   - protoZelda
+  - Iglesia
+  - Pueblo
+  - Casa1
+  - Casa2
+  - Casa3
+  - Casa4
+  - Casa5
+  - Casa6
+  - Bosque 1
   zeldaPrefab: {fileID: 7116350652226476657, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
   posZeldaInicio: {x: 0, y: 0, z: 0}
 --- !u!114 &712464765327753239
