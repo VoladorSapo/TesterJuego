@@ -53,7 +53,7 @@ public class CarController : BasicCar, IPauseSystem
     //Sonidos
     //bool isMotorSound;
 
-    float _realRotationAngle=0;
+    [HideInInspector] public float _realRotationAngle=0;
     float _velocityVsUp;
 
     Rigidbody2D _rb;
