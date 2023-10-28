@@ -56,6 +56,15 @@ public class SistemaPistas : MonoBehaviour
             waitSeconds.AddRange(newwaits);
         }
     }
+    public void EndPuzzle(int i)
+    {
+        if (i == puzzleCount)
+        {
+            startPuzzle = false;
+            counting = false;
+            waitSeconds.Clear();
+        }
+    }
   public  void PedirPista()
     {
         List<MessageClass> allmessages = new List<MessageClass>();
