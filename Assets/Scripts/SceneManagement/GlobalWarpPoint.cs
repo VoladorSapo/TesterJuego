@@ -45,7 +45,7 @@ public class GlobalWarpPoint : MonoBehaviour
         if(forceTransformChange){
             SetPlayerTransform(other.gameObject);
         }
-
+        PauseController.Instance.InvokeUnpause();
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);
         else

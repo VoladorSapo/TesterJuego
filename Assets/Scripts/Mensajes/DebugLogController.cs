@@ -9,6 +9,10 @@ public class DebugLogController : MonoBehaviour
    public static DebugLogController Instance;
     [SerializeField] GameObject LogPrefab;
     [SerializeField] TriggerStoryEvent  trigger;
+    [SerializeField] float dissapearWait;
+    [SerializeField] float waited;
+    [SerializeField] float dissapearSpeed;
+    [SerializeField] bool dissapearing;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,6 +39,15 @@ public class DebugLogController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        waited += Time.deltaTime;
+        if(waited > dissapearWait)
+        {
+            dissapearing = true;
+        }
+        if (dissapearing)
+        {
+            GetComponent<CanvasGroup>().alpha-= dissapearSpeed;
+        }
         //if (Input.GetKeyDown(KeyCode.D))
         //{
         //    AddLog("Te amordido un perro");
@@ -43,6 +56,7 @@ public class DebugLogController : MonoBehaviour
         //{
         //    AddLog("Sueor" + '\n' + "Boblon");
         //}
+
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -59,7 +73,7 @@ public class DebugLogController : MonoBehaviour
         GameObject newlog = Instantiate(LogPrefab, Content.transform.position,Quaternion.identity);
         newlog.transform.SetParent(Content.transform);
         newlog.GetComponentInChildren<TMP_Text>().text = text;
-        
+        waited = 0;
     }
     public string[] GetLogs(string key)
     {
