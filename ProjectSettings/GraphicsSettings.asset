@@ -3,7 +3,7 @@
 --- !u!30 &1
 GraphicsSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
+  serializedVersion: 14
   m_Deferred:
     m_Mode: 1
     m_Shader: {fileID: 69, guid: 0000000000000000f000000000000000, type: 0}
@@ -36,8 +36,24 @@ GraphicsSettings:
   - {fileID: 15106, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10783, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 4800000, guid: aa2148fc4e5072043adb67ca3dd915c7, type: 3}
+  - {fileID: 4800000, guid: cd42a85c813634d4491c08ab05e55846, type: 3}
+  - {fileID: 4800000, guid: 20fb88352075f4028be8d9e9c5412abd, type: 3}
+  - {fileID: 4800000, guid: 6271ecdf05ff34965800982d4c5ed7a4, type: 3}
+  - {fileID: 4800000, guid: 899322ee3ece14867ae30422e6f5da7e, type: 3}
+  - {fileID: 4800000, guid: cd09f330e44ee48418e7a17595888123, type: 3}
+  - {fileID: 4800000, guid: b0bfcbff57a0786408b8cca58b859a23, type: 3}
+  - {fileID: 4800000, guid: 03d9cebc61d8e214aa0dce3008668f1c, type: 3}
+  - {fileID: 4800000, guid: a95b6bff749bd96458732cf94ea19add, type: 3}
+  - {fileID: 4800000, guid: 58d1d581c56e08e47a8b885b77f32d7d, type: 3}
+  - {fileID: 4800000, guid: 97e077cb49d1fc240bc5d102f1c7d89d, type: 3}
+  - {fileID: 4800000, guid: f1d5ff59fa3009647b133f10e36378d9, type: 3}
+  - {fileID: 4800000, guid: 5c1347e127f684ebca63c8209e7e4ad2, type: 3}
+  - {fileID: 4800000, guid: 5c710f5672e5a48f4ac48dbcb1029867, type: 3}
+  - {fileID: 4800000, guid: e8300a6d5fa1e40e3be436f03176915f, type: 3}
+  - {fileID: 4800000, guid: 6392e66905597465382321dbb4c1bd36, type: 3}
   m_PreloadedShaders: []
+  m_PreloadShadersBatchTimeLimit: -1
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_CustomRenderPipeline: {fileID: 0}
   m_TransparencySortMode: 0
@@ -62,3 +78,6 @@ GraphicsSettings:
   m_LightsUseColorTemperature: 0
   m_DefaultRenderingLayerMask: 1
   m_LogWhenShaderIsCompiled: 0
+  m_SRPDefaultSettings: {}
+  m_CameraRelativeLightCulling: 0
+  m_CameraRelativeShadowCulling: 0
