@@ -57,8 +57,7 @@ public class CarreraManager : MonoBehaviour
         
     }
     public void Update(){
-        if(!SceneManagement.Instance.allStages.Contains(SceneManager.GetActiveScene().name) && raceStarted){raceStarted=false;}
-        
+        if("MenuCar"==SceneManager.GetActiveScene().name && raceStarted){raceStarted=false;}
         if(raceStarted){
             UpdatePositionUI();
         }
