@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: TrackGlitch
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -1974432191, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: -162846311, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: 1451572020, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: 377534036, guid: 400df68bd8d36f549ac711f488975679, type: 3}
+  - {fileID: -945123057, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: -1284264000, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: -1905206794, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: -162846311, guid: 628212b1ce82a2e4787e88554bc43991, type: 3}
+  - {fileID: 538515943, guid: 18993393d21351944b05820f2d2729a0, type: 3}
+  m_MinSpeed: 2
+  m_MaxSpeed: 8
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
