@@ -134,9 +134,9 @@ public class SceneManagement : MonoBehaviour
             case "reviveMouse": killMouse=false; break;
             case "SetRaceNormal": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
             case "SetRaceGlitch": CarSettings(false,true); break;
-            case "SetRaceStage1": narrativeParts.CarNarrative=1; break;
+            case "SetRaceStage1": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
             case "SetRaceStage2": narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break; // 
-            case "SetRaceStage3": narrativeParts.CarNarrative=3; break;
+            case "SetRaceStage3": CarSettings(false,false); narrativeParts.CarNarrative=3; break;
             case "StopRace": if(CarreraManager.Instance!=null){CarreraManager.Instance.EndRace();} break;
             case "SalirSalaSecreta": if(GamesManager.Instance.unlockedCarStages+1<3)GamesManager.Instance.unlockedCarStages++; break;
             case "Clones":CinemachineVirtualCamera camera = FindObjectOfType<CinemachineVirtualCamera>(); if (camera) { camera.m_Lens.OrthographicSize = 11 + 0.5f * GameObject.FindGameObjectsWithTag("Player").Length; } foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player")) { item.transform.position = new Vector3(UnityEngine.Random.Range(135, 145), UnityEngine.Random.Range(-2, 0)); DontDestroyOnLoad(item); } break;

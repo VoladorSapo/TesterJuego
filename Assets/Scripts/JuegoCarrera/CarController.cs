@@ -174,7 +174,7 @@ public class CarController : BasicCar, IPauseSystem
         else _rb.drag = _defaultDrag;
 
         if (_velocityVsUp > _maxSpeed && _accelerationInput > 0) return;
-        if ((_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) && !isGlitchedCar)return;
+        if ((_velocityVsUp < -_maxSpeed * 0.5 && _accelerationInput < 0) && !isGlitchedCar) return;
         if (_rb.velocity.sqrMagnitude > _maxSpeed * _maxSpeed && _accelerationInput > 0) return;
 
         if (_accelerationInput == 0)

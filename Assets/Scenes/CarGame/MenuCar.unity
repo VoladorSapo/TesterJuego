@@ -1519,8 +1519,7 @@ MonoBehaviour:
   stageName: Stage1Car
   lapsOfStage: 3
   oneLapWP: 27
-  narrativeLocalChange: 0
-  actionName: 
+  actionName: SetRaceStage1
   buttonID: 0
 --- !u!1 &708394571
 GameObject:
@@ -1914,8 +1913,7 @@ MonoBehaviour:
   stageName: Stage3Car
   lapsOfStage: 3
   oneLapWP: 31
-  narrativeLocalChange: 3
-  actionName: 
+  actionName: SetRaceStage3
   buttonID: 2
 --- !u!1001 &882818637
 PrefabInstance:
@@ -2160,7 +2158,6 @@ MonoBehaviour:
   stageName: Stage4Car
   lapsOfStage: 5
   oneLapWP: 0
-  narrativeLocalChange: 0
   actionName: 
   buttonID: 3
 --- !u!1 &989128901
@@ -4971,7 +4968,6 @@ MonoBehaviour:
   stageName: Stage2Car
   lapsOfStage: 3
   oneLapWP: 32
-  narrativeLocalChange: 0
   actionName: SetRaceStage2
   buttonID: 1
 --- !u!1 &2078620744

@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededWaypoint: 0
-  downArrowTile: {fileID: 0}
+  downArrowTile: {fileID: 11400000, guid: 9034e1b8d0f87a54d8035825513f74b3, type: 2}
 --- !u!1 &7249336582868183861
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   - Bosque 1
   zeldaPrefab: {fileID: 7116350652226476657, guid: dfa22854620fcfb4ea9d18c7143a3b4c, type: 3}
   posZeldaInicio: {x: 0, y: 0, z: 0}
+  killMouse: 0
 --- !u!114 &712464765327753239
 MonoBehaviour:
   m_ObjectHideFlags: 0
