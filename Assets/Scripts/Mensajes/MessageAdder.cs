@@ -127,6 +127,10 @@ public class MessageAdder : MonoBehaviour
     }
     void ReturntoMessages()
     {
+        foreach (Transform child in Options.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         print("return");
         IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
@@ -138,6 +142,10 @@ public class MessageAdder : MonoBehaviour
         MessageClass[] messages = GetMessageList(action);
         currentMessages[currentConversation].InsertRange(0, messages);
         IEnumerator couritine = AddAllMessages(0);
+        foreach (Transform child in Options.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         StartCoroutine(couritine);
     }
 
@@ -295,7 +303,11 @@ public class MessageAdder : MonoBehaviour
         {
             Button newbutton = Instantiate(OptionButtonPrefab, Options.transform).GetComponent<Button>();
             newbutton.GetComponentInChildren<TMP_Text>().text = "Pedir ayuda";
-            newbutton.onClick.AddListener(delegate { SistemaPistas.Instance.PedirPista(); });
+            newbutton.onClick.AddListener(delegate { SistemaPistas.Instance.PedirPista(); foreach (Transform child in Options.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+            });
         }
     }
     public void CloseBoard()
@@ -373,6 +385,7 @@ public class MessageAdder : MonoBehaviour
         {
             button.interactable = true;
         }
+        PauseController.Instance.unHardPause();
     }
     public void LinkCount(TMP_Text text)
     {
@@ -444,9 +457,7 @@ public class MessageAdder : MonoBehaviour
         print("diablo");
         //OpenBoard();
         //OpenButton.gameObject.SetActive(false);
-        PauseController.Instance.InvokePause();
-
-
+        PauseController.Instance.hardPause();
     }
     public void Pause()
     {
