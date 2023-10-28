@@ -36,7 +36,7 @@ public class EventGallery : MonoBehaviour
     public void GlitchStage1(){
         ActivateGlitchMap();
         CarreraManager.Instance.SetReversedPlayer();
-        CarreraManager.Instance.NextStage="Nivel 4";
+        CarreraManager.Instance.NextStage="ConversacionIntermediaCoche1";
         CarreraManager.Instance.totalWaypointsInTrack=27*3;
         CarreraManager.Instance.newPositionPlayer=Vector3.zero; //Por determinar
 
@@ -63,7 +63,7 @@ public class EventGallery : MonoBehaviour
         CarreraManager.Instance.SetReversedPlayer();
         CarreraManager.Instance.totalWaypointsInTrack=32*3;
 
-        CarreraManager.Instance.NextStage="Nivel 5";
+        CarreraManager.Instance.NextStage="ConversacionIntermediaCoche2";
         if(GameObject.Find("Lego Barrier")){
             Destroy(GameObject.Find("Lego Barrier"));
         }

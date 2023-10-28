@@ -60,7 +60,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Zelda/EscenasJuego/Pueblo.unity
     guid: 3e1c5184cb6b46e4b9ef847ba05c9c8e
   - enabled: 1
-    path: Assets/Scenes/EscenasIntermedias/ConversacionTelefono.unity
+    path: Assets/Scenes/EscenasIntermedias/ConversacionIntermediaCoche2.unity
     guid: 8a2ac537f4db34b48ad3e3cc5fcdb683
   - enabled: 1
     path: "Assets/Scenes/EscenasIntermedias/Conversaci\xF3nCaerse.unity"
@@ -75,7 +75,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EscenasIntermedias/ConversacionIntermediaCoche1.unity
     guid: 3be3a0496e1e19c499558831aca6b8b4
   - enabled: 1
-    path: Assets/Scenes/EscenasIntermedias/ConversacionIntermediaCoche2.unity
+    path: Assets/Scenes/EscenasIntermedias/ConversacionIntermediaTelefono.unity
     guid: 61fc278c4dd8c594f9b930def648259f
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
