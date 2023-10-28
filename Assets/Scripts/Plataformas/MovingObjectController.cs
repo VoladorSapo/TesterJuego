@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovingObjectController : MonoBehaviour
 {
     [SerializeField] Vector3[] points;
+   [SerializeField] Vector3 initialPos;
     [SerializeField] int objective;
     GameObject movingObject;
     [SerializeField] float speed;
@@ -26,6 +27,7 @@ public class MovingObjectController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         startMoving = waitPlayer ? false : true;    
         SetEvents();
         paused = false;
@@ -35,8 +37,18 @@ public class MovingObjectController : MonoBehaviour
         {
             points[i - 1] = transform.GetChild(i).transform.position;
         }
+        if (waitPlayer)
+        {
+            FindObjectOfType<PlatormerPlayerController>().SetDeathEvent(ResetPos);
+            initialPos = movingObject.transform.position;
+        }
         StartCoroutine(PlaySound());
         objective = 0;
+    }
+    void ResetPos()
+    {
+        startMoving = false;
+        movingObject.transform.position = initialPos;
     }
     IEnumerator PlaySound()
     {

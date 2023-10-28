@@ -1,0 +1,220 @@
+Tag;Texto;Tipo;Side;Time;CheckTime;IsButton
+wagner1_0;Muy bien.;0;0;0;false;None
+wagner1_1;Pero no estás aquí para jugar. Se supone que estamos trabajando.;0;0;0;false;None
+wagner1_2;respuesta1-Confiado-Servicial;2;1;0;false;None
+respuesta1_1_0;Quería ver qué tal se me daba.;0;1;0;false;None
+respuesta1_1_1;En tu contrato pone “Betatester”, no jugador profesional.;0;0;0;false;None
+respuesta1_2_0;Lo siento señor Wagner.;0;1;0;false;None
+respuesta1_2_1;Te pagamos para hacer de Betatester, asi que ponte las pilas.;0;0;0;false;None
+wagner1_3;Ya le daremos una vuelta al nivel uno más adelante. El equipo de desarrollo necesita que los betatesters reviséis el nivel dos.;0;0;0;false;None
+wagner1_4;Ahora a buscar bugs.;0;0;0;false;None
+wagner2_0;Qué curioso…;0;0;0;false;None
+wagner2_1;Voy a avisar al equipo.;0;0;0;false;None
+wagner2_2;Ah, y estoy viendo tu pantalla en todo momento. A partir de ahora comunicaré los fallos que encuentres de forma automática. Tu concentrate en buscar bien a fondo.;0;0;0;false;None
+cole1_0;¿te echas una partida?;0;0;0;false;None
+cole1_1;No puedo.;0;1;0;false;None
+cole1_2;Estoy trabajando.;0;1;0;false;None
+cole1_3;Siempre igual. ¿En qué andas?;0;0;0;false;None
+cole1_4;De betatester. En Pandemonium.;0;1;0;false;None
+cole1_5;¿Esa no es la empresa aquella de los 90? ¿No había quebrado? Hacía mucho que no oía hablar de ella lol.;0;0;0;false;None
+cole1_6;Pues están de vuelta parece ser. Aunque imagino que no será la misma gente.;0;1;0;false;None
+cole1_7;Ni idea;0;0;0;false;None
+cole1_8;Pero en estos casos los peces gordos suelen seguir en el ajo.;0;0;0;false;None
+cole1_9;En fin, te dejo currar. ;0;0;0;false;None
+cole1_10;sticker_tabien;0;0;0;false;None
+cole1_11;A ver si se te pega algo.;0;1;0;false;None
+cole1_12;Estoy esperando a mi oportunidad, tio, me lo tomo con calma, ¿vale?;0;0;0;false;None
+cole1_13;Claro…;0;1;0;false;None
+wagner3_0;Ignora eso. ;0;0;0;false;None
+wagner3_1;A veces los desarrolladores dejan notitas en el código o hablan entre ellos.;0;0;0;false;None
+wagner3_2;No me entra en la cabeza…;0;0;0;false;None
+wagner3_3;Verás como se entere Truman.;0;0;0;false;None
+wagner4_0;Vale, buen trabajo.;0;0;0;false;None
+wagner4_1;A los del desarrollo no les va a hacer mucha gracia ese bug.;0;0;0;false;None
+wagner4_2;¿Sigo jugando?;0;1;0;false;None
+wagner4_3;No, de hecho el equipo me ha pedido que pruebes algo diferente.;0;0;0;false;None
+wagner4_4;Un juego antiguo, de los 90, que nunca llegamos a sacar. Se llama “life is a highway im gonna ride it all night long (all night long)”.;0;0;0;false;None
+wagner4_5;¿Para qué? No creo que haya envejecido muy bien;0;1;0;false;None
+wagner4_6;Chaval, deberías estar agradecido por poder probar una joya así. Los coleccionistas se matarían por esto.;0;0;0;false;None
+wagner4_7;El equipo quiere sacar información de la versión original de nuestro motor.;0;0;0;false;None
+wagner4_8;¿Y no puedo probar un juego terminado?;0;1;0;false;None
+wagner4_9;Así te acostumbras a los bugs.;0;0;0;false;None
+wagner4_10;Toy racing.exe;0;0;0;false;Scene
+wagner5_0;Vale, siguiente.;0;0;0;false;None
+wagner5_1;¿No necesitas que busque bugs más a fondo?;0;1;0;false;None
+wagner5_2;No, sigue por ahora. Los niveles importantes no son estos.;0;0;0;false;None
+wagner5_3;En el menú solo aparecen tres niveles, pero realmente hay más.;0;0;0;false;None
+wagner5_4;Se puede acceder a ellos desde el nivel dos, el que vas a jugar ahora. Pero para eso vas a tener que encontrar algún bug.;0;0;0;false;None
+wagner5_5;Y, te aviso de antemano.;0;0;0;false;None
+wagner5_6;Este juego se canceló por hacer cosas muy raras con la memoria. No me responsabilizo de las cosas extrañas que veas a partir de ahora.;0;0;0;false;None
+wagner5_7; Menos mal que es un portátil de empresa.;0;1;0;false;None
+cole1_0;Tío;0;0;0;false;None
+cole1_1;He estado investigando sobre esa empresa en la que curras.;0;0;0;false;None
+cole1_2;respuesta2-Irónico-Interesado;0;1;0;false;None
+respuesta2_1_0;¿No tienes nada mejor que hacer, en serio?;0;1;0;false;None
+respuesta2_1_1;Dejate de gilipolleces, esto es serio;0;0;0;false;None
+respuesta2_2_0;¿Has encontrado algo?;0;1;0;false;None
+respuesta2_2_1;Más bien lo he recordado;0;0;0;false;None
+cole1_3;Escucha;0;0;0;false;None
+cole1_4;Se lió una tremenda, tío, no sé cómo puede ser que hayas tardado tanto en enterarte.;0;0;0;false;None
+cole1_5;En esa empresa desapareció uno de los creativos. En circunstancias misteriosas. Leo Toshida.;0;0;0;false;None
+cole1_6;¡Y nunca se supo que había pasado!;0;0;0;false;None
+cole1_7;La empresa casi se va a la mierda. Abandonaron todos los proyectos. ;0;0;0;false;None
+cole1_8;Pero dos de los antiguos miembros la sacaron adelante. John Wagner y su jefe, Harley Truman.;0;0;0;false;None
+cole1_9;Una historia preciosa, no cabe duda.;0;1;0;false;None
+cole1_10; Ahora, si no te importa, tengo trabajo.;0;1;0;false;None
+cole1_11;¿TÚ ME ESTÁS ESCUCHANDO? En esa oficina hubo un asesinato tio, es evidente… ;0;0;0;false;None
+cole1_12;Anda ya;0;1;0;false;None
+cole1_13;¿Tú no sabes nada sobre qué pudo pasar? ¿No hay rumores en la oficina?;0;0;0;false;None
+cole1_14;Trabajo desde casa.;0;1;0;false;None
+cole1_15;Ah.;0;0;0;false;None
+cole1_16;Pues de algún modo tienes que enterarte.;0;0;0;false;None
+cole1_17;respuesta3-Pasota-Curioso;0;1;0;false;None
+respuesta3_1_0;No sé tío, a mí mientras me paguen…;0;0;0;false;None
+respuesta3_1_1;Podría estar pagándote un asesino;0;0;0;false;None
+respuesta3_2_0;Vale. Veré cómo lo hago.;0;1;0;false;None
+respuesta3_2_1;Sabía que te comía la curiosidad.;0;0;0;false;None
+cole1_18;Han vuelto a abrir el caso ahora que la empresa ha vuelto a la vida. La policía lleva un par de meses rebuscando. Sé que me vas a decir que no es de tu incumbencia…;0;0;0;false;None
+cole1_19;Pero tío, es como la trama de una peli.;0;0;0;false;None
+cole1_20;Seguro que puedes obtener información clave de alguna manera.;0;0;0;false;None
+cole1_21;Así que mucha suerte. Yo me voy a echar una partida;0;0;0;false;None
+cole1_22;Dí que sí.;0;1;0;false;None
+wagner5_0;La verdad es que a mi me da curiosidad también, jefe;0;1;0;false;None
+wagner5_1;No me escribas si no es para algo relacionado con el trabajo.;0;0;0;false;None
+wagner5_2;Estoy ocupado tomando nota de todo lo que estás viendo… que no es poco.;0;0;0;false;None
+wagner5_3;Y no quiero ni oir hablar de Proxima Centauri.;0;0;0;false;None
+wagner5_4;respuesta4-Sumiso-Desafiante;0;1;0;false;None
+respuesta4_1_0;Ah, claro, perdone…;0;1;0;false;None
+respuesta4_2_0;Bueno. Disculpe por querer interesarme por la historia de la compañía.;0;1;0;false;None
+wagner5_5;No pasa nada.;0;0;0;false;None
+wagner5_6;Proxima Centauri fue un proyecto cancelado, igual que este.;0;0;0;false;None
+wagner5_7;Pero no tiene nada demasiado interesante. Después de la desaparición de Toshida no nos apeteció mucho tocarlo más.;0;0;0;false;None
+wagner5_8;Y, como no era rentable, Truman dio la orden de destruir todas las copias que nos quedaban.;0;0;0;false;None
+wagner5_9;No podría dejártelo ver ni aunque quisiera.;0;0;0;false;None
+wagner5_10;Y no quiero.;0;0;0;false;None
+wagner5_11;Así que mejor vuelve al trabajo y no vuelvas a mencionarme el tema.;0;0;0;false;None
+wagner5_12;Enseguida.;0;1;0;false;None
+julia_0;Hola, ¿Eres Julia Brian, de Pandemonium?;0;1;0;false;None
+julia_1;Ya no trabajo ahí.;0;0;0;false;None
+julia_2;Si eres periodista, no me interesa. Preguntadle a Truman.;0;0;0;false;None
+julia_3;Te doy su número si quieres, pero me dejáis en paz.;0;0;0;false;None
+julia_4;No, no…;0;1;0;false;None
+julia_5;Trabajo en Pandemonium ahora. Supongo que sabes que han vuelto a la vida.;0;1;0;false;None
+julia_6;He encontrado tu número en el código de un juego.;0;1;0;false;None
+julia_7;¿Y no tenías nada mejor que hacer que escribirle a una extraña?;0;0;0;false;None
+julia_8;respuesta5-Sincero-Avergonzado;0;1;0;false;None
+respuesta5_1_0;Realmente esperaba que me pudieras ayudar;0;1;0;false;None
+respuesta5_1_1;Pues no tengo tiempo;0;0;0;false;None
+respuesta5_2_0;Eh, yo…;0;1;0;false;None
+respuesta5_2_1;Me estás haciendo perder el tiempo, chaval.;0;0;0;false;None
+julia_9;Mira.;0;1;0;false;None
+julia_10;Creo que Wagner me está ocultando algo.;0;1;0;false;None
+julia_11;Sí, suele hacer eso.;0;0;0;false;None
+julia_12;Ese algo está en Proxima Centauri, o eso creo. Dice que todas las copias fueron destruidas.;0;1;0;false;None
+julia_13;Todas no.;0;0;0;false;None
+julia_14;Me llevé una cuando me echaron. Pensé que podríamos echarnos unas risas viendo las ideas disparatadas de Leo, o por si valía dinero 30 años después.;0;0;0;false;None
+julia_15;Pero después de lo que le pasó, no nos atrevimos a tocarlo. Por si estaba maldito o algo.;0;0;0;false;None
+julia_16;¿Qué le pasó?;0;1;0;false;None
+julia_17;Sé lo mismo que tú. Desapareció de la noche a la mañana. Ni su familia parece saber donde está.;0;0;0;false;None
+julia_18;Creo que podría averiguarlo.;0;1;0;false;None
+julia_19;Te mando una copia.;0;0;0;false;None
+julia_20;Haz lo que te dé la gana con ella, pero a mí no me metas en líos.;0;0;0;false;None
+julia_21;Proxima_centauri.exe;0;0;0;false;Scene
+wagner6_0;¿Qué coño haces?;0;0;0;false;None
+wagnerFinal_0;He intentado detenerte, chaval. Pero ese maldito juego es tan antiguo que no tenía forma de restringirte el acceso.;0;0;0;false;None
+wagnerFinal_1;Tendrías que haber seguido mis instrucciones.;0;0;0;false;None
+wagnerFinal_2;respuesta6-Asustado-Seguro;2;0;0;false;None
+respuesta6_1_0;¿Señor Wagner, esto quiere decir que..?;0;1;0;false;None
+respuesta6_2_0;Fuiste tú.;0;1;0;false;None
+wagnerFinal_3;Así es.;0;0;0;false;None
+wagnerFinal_4;Matar a Toshida era la única manera de evitar que le dijese a Truman lo que había descubierto.;0;0;0;false;None
+wagnerFinal_5;O eso creía yo. Ja ja.;0;0;0;false;None
+wagnerFinal_6;No me puedo creer que ese mensaje haya estado ahí todo este tiempo.;0;0;0;false;None
+wagnerFinal_7;¿Cómo pude no darme cuenta?;0;0;0;false;None
+wagnerFinal_8;Armé todo este plan;0;0;0;false;None
+wagnerFinal_9;¿Te haces una idea de cuánto tiempo me llevó planear todo esto?;0;0;0;false;None
+wagnerFinal_10;Quería que encontrases pruebas que acusaran a Truman de lo que pasó. Si yo lo acusaba sospecharían de mí, pero si lo hacía un betatester sin mayor implicación…;0;0;0;false;None
+wagnerFinal_11;Además con pruebas que ha encontrado él solito.;0;0;0;false;None
+wagnerFinal_12;Eras perfecto;0;0;0;false;None
+wagnerFinal_13;Y aún así has encontrado la puta manera de estropearlo;0;0;1.5;true;None
+wagnerFinal_14;Ya no hay nada que puedas hacer;0;1;1.5;true;None
+wagnerFinal_15;Lo sé.;0;0;0;false;None
+wagnerFinal_16;Llamé a la policía hace diez minutos.;0;0;0;false;None
+wagnerFinal_17;Ya puedo oír las sirenas. Les he contado lo que hice.;0;0;0;false;None
+wagnerFinal_18;Me detendrán y dentro de poco estaré en la cárcel.;0;0;0;false;None
+wagnerFinal_19;Condenado por asesinato.;0;0;0;false;None
+wagnerFinal_20;¿Por qué te contaría nada de esto?;0;0;1.5;true;None
+wagnerFinal_21;Truman, esta empresa, toda mi vida… cimentada sobre un acto despreciable. Estaba acorralado en mis propias mentiras, descendiendo en una espiral de alcohol que sabía que duraría hasta el preciso instante en que algo minúsculo como tú amenazase con derribarlo todo, mi frágil equilibrio.;0;0;1.5;true;None
+wagnerFinal_22;Pero quería hacer las cosas de forma diferente;0;0;0;false;None
+wagnerFinal_23;De veras creí que había cambiado.;0;0;0;false;None
+wagnerFinal_24;Sin embargo, cuando la policía empezó a buscar otra vez, volví a ser el borracho que Toshida vio salir de aquel baño;0;0;0;false;None
+wagnerFinal_25;Volví a sentirme acorralado;0;0;0;false;None
+wagnerFinal_26;Volví a tomar decisiones drásticas.;0;0;0;false;None
+wagnerFinal_27;Y supongo que lo he hecho de nuevo. Aunque esta vez he llamado a la policía antes de estar acorralado del todo. Es un avance.;0;0;1.5;true;None
+wagnerFinal_28;Creo.;0;0;3;true;None
+wagnerFinal_29;Es triste que seas la única persona a la que puedo contarle esto.;0;0;1.5;true;None
+wagnerFinal_30;Pero gracias.;0;0;0;false;None
+wagnerFinal_31;Aquí vienen;0;0;0;false;None
+truman_0;Buenas.;0;0;4;true;None
+truman_1;Estás despedido.;0;0;0;false;None
+wagnerSus_0;No me lo puedo creer…;0;0;0;false;None
+wagnerSus_1;Todo lo que estamos leyendo… no recordaba nada de esto.;0;0;0;false;None
+wagnerSus_2;respuesta7-Decidido-Dubitativo;2;0;0;false;None
+respuesta7_1_0;Truman mató a Toshida;0;1;0;false;None
+respuesta7_2_0;¿Acaso crees que Truman…?;0;1;0;false;None
+wagnerSus_3;No podemos estar seguros, pero joder.;0;0;0;false;None
+wagnerSus_4;Era la única forma en la que podría librarse de él.;0;0;0;false;None
+wagnerSus_5;Aun así, Truman… no creo que fuese capaz de algo así.;0;0;0;false;None
+wagnerSus_6;Sigue trabajando. Estoy tomando nota de todo;0;0;0;false;None
+wagnerSus_7;Si pudieramos entrar a Proxima Centauri, quizás encontraríamos respuestas.;0;1;0;false;None
+wagnerSus_8;No;0;0;0;false;None
+wagnerSus_9;Quiero decir, lo dudo mucho. Ese proyecto se canceló rápidamente como te he dicho.;0;0;0;false;None
+wagnerSus_10;Vuelve al trabajo.;0;0;0;false;None
+cole0_0;Mi loco, ¿juegas una partida?;0;0;0;false;None
+cole0_1;sticker_merequetengue;1;0;0;false;None
+cole0_2;Socio, son como las dos de la mañana;0;1;0;false;None
+cole0_3;Es martes cabrón;0;1;0;false;None
+cole0_4;¿Y tu mamá no te deja estar despierto hasta tarde?;0;0;0;false;None
+cole0_5;Cómo se nota que no das un palo al agua;0;1;0;false;None
+cole0_6;No me calientes;0;0;0;false;None
+cole0_7;Que a esta hora no razono;0;0;0;false;None
+cole0_8;sticker_enfado;1;0;0;false;None
+cole0_9;Por cierto, qué tal con el chico de ayer;0;1;0;false;None
+cole0_10;ajskasjaskj;0;0;0;false;None
+cole0_11;Un desastre;0;0;0;false;None
+cole0_12;No aceptó mi profesión.;0;0;0;false;None
+cole0_13;¿Por?;0;1;0;false;None
+cole0_14;Quién rechazaría a un nohitter profesional;0;1;0;false;None
+cole0_15;Cuando me den un premio no te voy ni a nombrar por capullo;0;0;0;false;None
+cole0_16;O al menos no antes que a mi madre.;0;0;0;false;None
+cole0_17;Jajjajajaj;0;1;0;false;None
+cole0_18;En fin, que me voy a acostar;0;1;0;false;None
+cole0_19;Suerte con la partida.;0;1;0;false;None
+cole0_20;Buenas noches mi pastelito de fresa;0;0;0;false;None
+cole0_21;sticker_uwu;1;1;0;false;None
+pedirpista_0_0;Estoy perdido;0;1;0;false;None
+pedirpista_1_0;Jefe, no sé qué hacer;0;1;0;false;None
+pedirpista_2_0;¿Alguna idea de cómo seguir?;0;1;0;false;None
+pedirpista_3_0;No tengo ni idea de cómo continuar;0;1;0;false;None
+pedirpista_4_0;¿Qué hago para seguir?;0;1;0;false;None
+pedirpista_5_0;Necesito una pista;0;1;0;false;None
+pedirpista_6_0;Ayuda, señor Wagner.;0;1;0;false;None
+pistacoche_1_0;El nivel no se puede completar de forma normal. Hay que romper el juego de alguna manera.;0;0;0;false;None
+pistacoche_1_1;Y por lo que escribió el Wagner del pasado, se puede hacer consiguiendo una gran velocidad.;0;0;0;false;None
+pistacoche_1_2;Qué listo era.;0;0;0;false;None
+pistacoche_1_3;El único problema es que el coche tiene un límite de velocidad que no parece poder sobrepasarse.;0;0;0;false;None
+pistacoche_2_0;La velocidad positiva está limitada, ¿Pero y la negativa?;0;0;0;false;None
+pistacoche_2_1;Quizá no exista ese límite y puedas acumular la suficiente velocidad para romper el juego dando marcha atrás.;0;0;0;false;None
+pistacaja_1_0;Hay que encontrar una manera de romper las barreras naturales del nivel para poder encontrar la bandera.;0;0;0;false;None
+pistacaja_1_1;Si pudieras atravesar el suelo. Eso sería una manera.;0;0;0;false;None
+pistacaja_2_0;Imagino que podrías hundirte en el suelo si algo te empujara hacia abajo con la suficiente fuerza;0;0;0;false;None
+pistaplataforma_1_0;Parece que pausar el juego hace que todo se detenga salvo las plataformas.;0;0;0;false;None
+pistaplataforma_1_1;Mientras el juego está pausado tu personaje no actúa igual con el entorno, así que puedes jugar con eso;0;0;0;false;None
+pistaplataforma_2_0;El personaje pierde sus colisiones al pausar el juego;0;0;0;false;None
+pistaplataforma_2_1;Eso quiere decir que la plataforma lo puede llevar a cualquier sitio en ese estado, aunque haya una pared en medio.;0;0;0;false;None
+pistatiming_1_0;Parece que podrías llegar a esa otra plataforma con el supersalto, pero sin él… hmm…;0;0;0;false;None
+pistatiming_1_1;No podrás saltar con ese timing que tienen las plataformas.;0;0;0;false;None
+pistatiming_1_2;Vas a tener que hacer trampa ahí. Si te congelas en el aire, puedes esperar a que venga la plataforma.;0;0;0;false;None
+pistaplatacaja_1_0;Creo que podríamos repetir la jugada de antes con las cajas. Solo tienes que conseguir que te vuelva a caer en la cabeza.;0;0;0;false;None
+pistaplatacaja_1_1;Puedes moverla gracias a la plataforma, el caso es cómo hacerla caer de nuevo. ;0;0;0;false;None
+pistaplatacaja_1_2;Ya lo tengo: si pausas y esperas a que la plataforma se mueva, la caja se quedará sin soporte.;0;0;0;false;None

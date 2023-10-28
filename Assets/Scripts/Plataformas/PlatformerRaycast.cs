@@ -107,21 +107,31 @@ public class PlatformerRaycast : MonoBehaviour
             if (raycast_up_mid)
             {
                 print(raycast_up_mid.transform.gameObject.name);
-
-                _boxSpawn = raycast_up_mid.transform.GetComponent<boxController>().parent.GetComponent<boxSpawner>();
+                boxController test = raycast_up_mid.transform.GetComponent<boxController>();
+                if (test != null)
+                {
+                    _boxSpawn = test.parent.GetComponent<boxSpawner>();
+                }
             }
-            else if(raycast_up_left)
+            else if (raycast_up_left)
             {
                 print(raycast_up_left.transform.gameObject.name);
 
-                _boxSpawn = raycast_up_left.transform.GetComponent<boxController>().parent.GetComponent<boxSpawner>();
-
+                boxController test = raycast_up_left.transform.GetComponent<boxController>();
+                if (test != null)
+                {
+                    _boxSpawn = test.parent.GetComponent<boxSpawner>();
+                }
             }
             else
             {
                 print(raycast_up_right.transform.gameObject.name);
 
-                _boxSpawn = raycast_up_right.transform.GetComponent<boxController>().parent.GetComponent<boxSpawner>();
+                boxController test = raycast_up_right.transform.GetComponent<boxController>();
+                if (test != null)
+                {
+                    _boxSpawn = test.parent.GetComponent<boxSpawner>();
+                }
 
             }
             print("caja encima");
