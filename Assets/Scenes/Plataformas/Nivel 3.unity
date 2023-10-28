@@ -1872,7 +1872,7 @@ MonoBehaviour:
   nextGlobalNarrativePart: 2
   nextLocalNarrativeParts:
     PlatformNarrative: -1
-    CarNarrative: 5
+    CarNarrative: 4
     ZeldaNarrative: -1
   currentMusic: 
   followingMusic: 
