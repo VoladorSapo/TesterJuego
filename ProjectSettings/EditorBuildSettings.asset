@@ -60,16 +60,19 @@ EditorBuildSettings:
     path: Assets/Scenes/EscenasIntermedias/ConversacionTelefono.unity
     guid: 8a2ac537f4db34b48ad3e3cc5fcdb683
   - enabled: 1
-    path: Assets/Scenes/EscenasIntermedias/SegundaConversacion.unity
+    path: "Assets/Scenes/EscenasIntermedias/Conversaci\xF3nCaerse.unity"
     guid: 575e05cf23fd30e48a58da8f30ef074a
   - enabled: 1
     path: Assets/Scenes/EscenasIntermedias/PrimeraConversacion.unity
     guid: db306c121532fa144940a0d84583b185
   - enabled: 1
+    path: Assets/Scenes/EscenasIntermedias/ConversacionClones.unity
+    guid: ca5afc4f2d0687348a6bd37045429eb9
+  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 4ed80c8f540078940bba9ad7e628f568
   - enabled: 1
-    path: Assets/Scenes/EscenasIntermedias/ConversacionCaerse.unity
+    path: Assets/Scenes/EscenasIntermedias/ConversacionPlataformaSeMueve.unity
     guid: d4ae0616a4462ed489be5cf02245c00e
   - enabled: 1
     path: Assets/Scenes/EscenasIntermedias/ConversacionPlataformas.unity

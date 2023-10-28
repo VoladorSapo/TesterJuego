@@ -352,7 +352,7 @@ public class MessageAdder : MonoBehaviour
         switch (codes[0])
         {
             case "Scene":
-                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard(); });
+                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard();PauseController.Instance.InvokeUnpause(); });
                 break;
             default:
                 break;

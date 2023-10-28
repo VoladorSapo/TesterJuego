@@ -36,6 +36,10 @@ public class CamaraGlobal : MonoBehaviour
                 transform.position=new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
             }
         }
+        else
+        {
+            print("no encontrado");
+        }
         //No Rotation
         if(transform.parent!=null)
         transform.localRotation=Quaternion.identity;

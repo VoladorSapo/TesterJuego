@@ -224,6 +224,7 @@ MonoBehaviour:
   canDoubleJump: 1
   fallingfrombox: 0
   insideFloor: 0
+  dead: 0
   extraJumps: 1
   currentextraJumps: 0
   spawnPoint: {x: -37.7, y: -10.7, z: 0}
@@ -259,7 +260,7 @@ MonoBehaviour:
     m_Bits: 576
   boxlayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   ground: 0
   leftwall: 0
   rightwall: 0

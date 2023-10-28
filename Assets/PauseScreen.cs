@@ -14,6 +14,11 @@ public class PauseScreen : MonoBehaviour
         SetEvents();
         GetComponentInChildren<Button>().onClick.AddListener(delegate { PauseController.Instance.InvokeUnpause(); });
     }
+    private void OnDestroy()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+
+    }
     public void Pause()
     {
         GetComponent<CanvasGroup>().alpha = 1;

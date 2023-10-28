@@ -53,7 +53,7 @@ MonoBehaviour:
   fallspeed: 0
   layers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 2560
 --- !u!61 &4635492213479098208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,8 +141,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4635492213849138999}
+  - component: {fileID: 2836067511837281393}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: BoxSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,6 +164,18 @@ Transform:
   m_Father: {fileID: 4635492213479098210}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2836067511837281393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635492213849138998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa307d549f34234f8fee7389fc38294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4635492214021783556
 GameObject:
   m_ObjectHideFlags: 0

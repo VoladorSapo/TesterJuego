@@ -83,15 +83,20 @@ public class PlatormerPlayerController : MonoBehaviour
         dead = true;
         AudioManager.Instance.PlaySound("Death", false, transform.position, false);
         anim.SetBool("Die", true);
-        if (CamaraGlobal.Instance._player == name)
-        {
-            FindObjectOfType<CinemachineBrain>().enabled = false;
+        if (CamaraGlobal.Instance._player == name && GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        {   
+                FindObjectOfType<CinemachineBrain>().enabled = false;    
         }
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
     }
     public void Respawn()
     {
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        insideFloor = false;
         transform.position = spawnPoint;
         dead = false;
         if (CamaraGlobal.Instance._player == name)
@@ -208,7 +213,7 @@ public class PlatormerPlayerController : MonoBehaviour
             }
             if (raycasts.upbox && !insideFloor)
             {
-                transform.position = raycasts._boxSpawn.fallPos.transform.position;
+                transform.position =new Vector3(transform.position.x, raycasts._boxSpawn.fallPos.transform.position.y,-1);
                 rb2d.velocity = Vector2.zero;
                 insideFloor = true;
             }
@@ -321,6 +326,11 @@ public class PlatormerPlayerController : MonoBehaviour
             }
 
         }
+
+    }
+    private void OnDestroy()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
 
     }
     public void Pause()
