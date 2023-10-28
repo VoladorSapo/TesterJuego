@@ -72,6 +72,8 @@ public class MessageAdder : MonoBehaviour
 
                 }
             }
+            conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
+            conversationAdder.GetComponent<CanvasGroup>().blocksRaycasts = false;
             Instance = this;
         }
         else
@@ -377,6 +379,7 @@ public class MessageAdder : MonoBehaviour
         {
             button.interactable = false;
         }
+        PauseController.Instance.hardPause();
     }
     void EndWrittin()
     {
