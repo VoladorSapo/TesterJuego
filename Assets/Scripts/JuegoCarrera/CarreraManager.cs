@@ -282,7 +282,6 @@ public class CarreraManager : MonoBehaviour
 
 
     public void SetGlitchPlayer(){
-        Debug.Log("ajsd");
         Sprite currSprite= GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite;
         foreach(SpritesCars sc in allSprites){
             Debug.Log(sc.spriteCar==currSprite);
@@ -295,6 +294,17 @@ public class CarreraManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void SetReversedPlayer(){
+        Sprite currSprite= GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite;
+        foreach(SpritesCars sc in allSprites){
+            Debug.Log(sc.spriteCar==currSprite);
+            if(sc.spriteCar==currSprite){
+                GameObject.FindObjectOfType<CarController>().GetComponent<SpriteRenderer>().sprite=sc.spriteGlitchedCar;
+                break;
+            }
+        }
     }
     List<T> ShuffleList<T>(List<T> myList)
     {

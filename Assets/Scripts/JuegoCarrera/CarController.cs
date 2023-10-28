@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -89,6 +90,7 @@ public class CarController : BasicCar, IPauseSystem
 
     protected override void Update(){
         CalculateDistanceToNextWaypoint();
+         CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=(Mathf.RoundToInt(SpeedDirection()*_rb.velocity.magnitude)).ToString();
         
         if(_rb.velocity.magnitude>=7.5f && isGlitchedCar && _accelerationInput<0){
             Physics2D.IgnoreLayerCollision(11,13);
@@ -96,12 +98,14 @@ public class CarController : BasicCar, IPauseSystem
             Physics2D.IgnoreLayerCollision(11,13,false);
         }
         
-        CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=Mathf.RoundToInt(SpeedDirection()*_rb.velocity.magnitude)+" cm/s";
+        
     }
 
     int SpeedDirection(){
-        if(_rb.velocity.normalized==new Vector2(transform.up.x,transform.up.y)){return 1;}
-        else{return -1;}
+        float p=Vector2.Dot(new Vector2(transform.up.x,transform.up.y), _rb.velocity);
+        if(p>0){return 1;}
+        else if(p<0){return -1;}
+        else {return 0;}
     }
     protected override void FixedUpdate()
     {     
@@ -111,7 +115,7 @@ public class CarController : BasicCar, IPauseSystem
         ApplyForce();
         KillSideVelocity();
         ApplyTurn();
-
+       
         /*if(!isMotorSound && _accelerationInput>0 && _rb.velocity.magnitude>0.25f){
             AudioManager.Instance.PlaySound("Motor",true,transform.position,true);
             isMotorSound=true;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShaderEffect_Mosaic : MonoBehaviour
 {
-    [SerializeField] private float _numberOfTilesX;
-    [SerializeField] private float _numberOfTilesY;
+    public float _numberOfTilesX;
+    public float _numberOfTilesY;
 
 	[HideInInspector] public bool Fluctuate=false;
 	[Header("Fluctuate")]

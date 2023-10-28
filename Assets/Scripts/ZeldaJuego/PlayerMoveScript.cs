@@ -96,7 +96,7 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
     }
 
     void HandleMovement(){
-        if(Interacting){return;}
+
         float H=Input.GetAxisRaw("Horizontal");
         float V=Input.GetAxisRaw("Vertical");
 
@@ -104,7 +104,8 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         {
             lastMoveDirection = moveDirection;
         }
-
+        if(Interacting){H=lastMoveDirection.x; V=lastMoveDirection.y;}
+        
         moveDirection = new Vector2(H,V).normalized;
 
         animator.SetFloat("LastMoveH", lastMoveDirection.x);
@@ -114,9 +115,11 @@ public class PlayerMoveScript : MonoBehaviour, IPauseSystem
         
         CheckTileProperty(H,V,out H, out V);
 
+        
         Vector2 PlayerInput= new Vector2(H,V).normalized;
         Vector2 moveForce=PlayerInput*moveSpeed;
-
+        if(Interacting){moveForce=Vector2.zero;}
+        
         animator.SetFloat("Movement", moveForce.magnitude);
         moveForce+=forceToApply;
         moveForce/=forceDamping;

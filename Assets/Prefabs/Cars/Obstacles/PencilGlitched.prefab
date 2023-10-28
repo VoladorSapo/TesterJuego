@@ -64,6 +64,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
+      propertyPath: isGlitched
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930155172901614098, guid: 5937b5933428fd4479b82e85dda2b552, type: 3}
       propertyPath: ogColors.Array.size
       value: 7
       objectReference: {fileID: 0}

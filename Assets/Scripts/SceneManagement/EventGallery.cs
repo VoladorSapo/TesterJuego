@@ -35,8 +35,22 @@ public class EventGallery : MonoBehaviour
     //Stage 1
     public void GlitchStage1(){
         ActivateGlitchMap();
-        CarreraManager.Instance.NextStage="Nivel 1";
+        CarreraManager.Instance.SetReversedPlayer();
+        CarreraManager.Instance.NextStage="Nivel 4";
         CarreraManager.Instance.newPositionPlayer=Vector3.zero; //Por determinar
+
+        CamaraGlobal.Instance.cameraFX.shdr_crt.scanlineIntensity=37.5f;
+        CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.04f;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=450;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=450;
+
+        CamaraGlobal.Instance.cameraFX.ApplyEffects(
+            new List<TransitionData>()
+            {
+                new TransitionData("crt",false,false,true,0.5f,0),
+                new TransitionData("vram",false,false,true,0.5f,0)
+            }
+        );
 
         EventManager.Instance.eventAction-=GlitchStage1;
     }
@@ -44,7 +58,8 @@ public class EventGallery : MonoBehaviour
     //Stage 2
     public void GlitchStage2(){
         ActivateGlitchMap();
-        CarreraManager.Instance.NextStage="NivelPlataformas";
+        CarreraManager.Instance.SetReversedPlayer();
+        CarreraManager.Instance.NextStage="Nivel 5";
         if(GameObject.Find("Lego Barrier")){
             Destroy(GameObject.Find("Lego Barrier"));
         }
@@ -53,12 +68,16 @@ public class EventGallery : MonoBehaviour
             GameObject.Find("PencilGlitched2").GetComponent<AlterColorShaderScript>().enabled=false;
         }
 
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=350;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=350;
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.05f;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.08f;
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
             new List<TransitionData>()
             {
                 new TransitionData("bc",false,false,true,0f,0f),
-                new TransitionData("vram",false,false,true,0f,0f)
+                new TransitionData("vram",false,false,true,0f,0f),
+                new TransitionData("unsync",false,false,true,0.5f,0f)
             }
         );
         
@@ -84,7 +103,12 @@ public class EventGallery : MonoBehaviour
     }
     public void GlitchStage3(){
         ActivateGlitchMap();
-        CarreraManager.Instance.NextStage="Nivel3";
+        CarreraManager.Instance.SetReversedPlayer();
+
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.55f;
+
+        CarreraManager.Instance.NextStage="Nivel 5";
+        DontDestroyOnLoad(GameObject.Find("PlayerCar"));
         if(GameObject.Find("Pencil_Barrier")){
             GameObject.Find("Pencil_Barrier").layer=LayerMask.NameToLayer("Obstacles");
         }
