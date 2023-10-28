@@ -1,6 +1,10 @@
 using System.Collections;
+using System;
+
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 using TMPro;
 using Cinemachine;
 public class PlatormerPlayerController : MonoBehaviour
@@ -9,6 +13,7 @@ public class PlatormerPlayerController : MonoBehaviour
     [SerializeField] PlatformerRaycast raycasts;
     public float moveAxisX; //El input de izquierda y derecha
     public float moveAxisY; //El input de arriba y abajo
+    public event Action Death;
     [SerializeField] SpriteRenderer _sprite;
     [SerializeField] Rigidbody2D rb2d;
     [SerializeField] float speed;
@@ -90,8 +95,10 @@ public class PlatormerPlayerController : MonoBehaviour
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
     }
+    
     public void Respawn()
     {
+        Death?.Invoke();
         if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
         {
             Destroy(gameObject);
@@ -103,6 +110,10 @@ public class PlatormerPlayerController : MonoBehaviour
         {
             FindObjectOfType<CinemachineBrain>().enabled = true;
         }
+    }
+    public void SetDeathEvent(Action die)
+    {
+        Death += die;
     }
     public void Win()
     {

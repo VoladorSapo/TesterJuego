@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using Unity.VisualScripting.Dependencies.Sqlite;
-using UnityEditor;
 public class BlinkText : MonoBehaviour
 {
     [SerializeField] private float blinkTime;

@@ -1777,7 +1777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: HardPause
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: MessageKey
@@ -1864,15 +1864,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionWithPlayer: 0
   oneUse: 0
-  nextScene: Stage1Car
+  nextScene: ConversacionPlataformas
   nextAcctionName: 
   transitionList: []
   WaitToChange: 0
   nextPosition: {x: 0, y: 0, z: 0}
-  nextGlobalNarrativePart: 2
+  nextGlobalNarrativePart: 1
   nextLocalNarrativeParts:
     PlatformNarrative: -1
-    CarNarrative: 5
+    CarNarrative: -1
     ZeldaNarrative: -1
   currentMusic: 
   followingMusic: 

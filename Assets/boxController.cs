@@ -24,7 +24,7 @@ public class boxController : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
