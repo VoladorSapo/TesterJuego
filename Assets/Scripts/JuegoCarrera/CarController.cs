@@ -90,7 +90,17 @@ public class CarController : BasicCar, IPauseSystem
 
     protected override void Update(){
         CalculateDistanceToNextWaypoint();
-         CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=(Mathf.RoundToInt(SpeedDirection()*_rb.velocity.magnitude)).ToString();
+
+         CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=
+         (Mathf.RoundToInt(SpeedDirection()*_rb.velocity.magnitude)).ToString()+" CM/S";
+
+         Vector3 rot=new Vector3(0,0,-(SpeedDirection()*_rb.velocity.magnitude)*10);
+         if(isGlitchedCar)
+         rot.z=Mathf.Clamp(rot.z,-90,36000000);
+         else
+         rot.z=Mathf.Clamp(rot.z,-90,0);
+
+         CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(3).transform.GetChild(1).GetComponent<RectTransform>().rotation=Quaternion.Euler(rot);
         
         if(_rb.velocity.magnitude>=7.5f && isGlitchedCar && _accelerationInput<0){
             Physics2D.IgnoreLayerCollision(11,13);

@@ -12,9 +12,6 @@ public class CarreraManager : MonoBehaviour
 {
     public static CarreraManager Instance;
 
-    //Menu Carreras
-    public bool killMouse;
-
     //Calculo de Distancia
     Transform WaypointRoot;
     public int totalWaypointsInTrack=10;

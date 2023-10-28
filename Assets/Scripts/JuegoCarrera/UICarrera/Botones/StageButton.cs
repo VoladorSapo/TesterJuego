@@ -41,12 +41,23 @@ public class StageButton : ButtonSelection
         SceneManagement.Instance.SetNextScene(actionName);
     }
 
+    Color newCol;
     public override void Pause(){
+         Debug.LogWarning(EventSystem.current?.currentSelectedGameObject.name);
+        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+           
+            ColorUtility.TryParseHtmlString("#FF0000", out newCol);
+            GetComponent<Image>().color=newCol;
+        }
         Button button=GetComponent<Button>();
         button.enabled=false;
     }
 
     public override void Unpause(){
+        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+            ColorUtility.TryParseHtmlString("#FFFFFF", out newCol);
+            GetComponent<Image>().color=newCol;
+        }
         Button button=GetComponent<Button>();
         button.enabled=true;
     }
