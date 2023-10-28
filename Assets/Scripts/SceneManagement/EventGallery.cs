@@ -52,6 +52,7 @@ public class EventGallery : MonoBehaviour
             }
         );
 
+        SceneManagement.Instance.globalChange=1;
         EventManager.Instance.eventAction-=GlitchStage1;
     }
 
@@ -81,6 +82,7 @@ public class EventGallery : MonoBehaviour
             }
         );
         
+        SceneManagement.Instance.globalChange=1;
         EventManager.Instance.eventAction-=GlitchStage2;
     }
     //Stage 3
@@ -115,6 +117,8 @@ public class EventGallery : MonoBehaviour
 
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=0.55f;
 
+        SceneManagement.Instance.globalChange=1;
+        SceneManagement.Instance.narrativeParts.PlatformNarrative=2;
         EventManager.Instance.eventAction-=GlitchStage3;
     }
     

@@ -225,7 +225,7 @@ public class CarreraManager : MonoBehaviour
         if(NextStage=="")
         SceneManager.LoadScene("MenuCar");
         else if(SceneIsInBuild(NextStage)){
-        DontDestroyOnLoad(GameObject.Find("PlayerCar").gameObject);
+        //DontDestroyOnLoad(GameObject.Find("PlayerCar").gameObject);
         GameObject.Find("PlayerCar").transform.position=newPositionPlayer;
         SceneManager.LoadScene(NextStage);
         }

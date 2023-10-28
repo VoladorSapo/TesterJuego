@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
@@ -22,7 +23,11 @@ public class PauseController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
+
+
+    
     public void SetPausedEvents(Action pause, Action unpause){
         pauseEvent+=pause;
         unpauseEvent+=unpause;

@@ -38,7 +38,7 @@ public class CamaraGlobal : MonoBehaviour
         }
         else
         {
-            print("no encontrado");
+            //print("no encontrado");
         }
         //No Rotation
         if(transform.parent!=null)
