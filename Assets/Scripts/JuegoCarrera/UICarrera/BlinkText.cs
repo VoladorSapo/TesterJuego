@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class BlinkText : MonoBehaviour
+public class BlinkText : MonoBehaviour, IPauseSystem
 {
     [SerializeField] private float blinkTime;
     [SerializeField] private GameObject nextMenu;
@@ -13,6 +13,7 @@ public class BlinkText : MonoBehaviour
     void Start(){
         blinkTimer=blinkTime;
         text=GetComponent<TextMeshProUGUI>();
+        SetPauseEvents();
     }
     void Update(){
         if(Input.GetKeyDown(KeyCode.Return) && !pressedEnter){
@@ -58,5 +59,21 @@ public class BlinkText : MonoBehaviour
         transform.parent.gameObject.SetActive(false);
         nextMenu.SetActive(true);
         
+    }
+
+    public void Pause()
+    {
+        text.color=new Color(text.color.r,text.color.g,text.color.b,255);
+        this.enabled=false;
+    }
+
+    public void Unpause()
+    {
+        this.enabled=true;
+    }
+
+    public void SetPauseEvents()
+    {
+        PauseController.Instance?.SetPausedEvents(Pause,Unpause);
     }
 }
