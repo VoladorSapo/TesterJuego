@@ -52,7 +52,7 @@ public class GlobalWarpPoint : MonoBehaviour
             Matrix4x4 rotationMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.Euler(nextRotation), Vector3.one);
             other.gameObject.GetComponent<Rigidbody2D>().velocity=rotationMatrix*other.gameObject.GetComponent<Rigidbody2D>().velocity;
         }
-
+        PauseController.Instance.InvokeUnpause();
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);
         else
