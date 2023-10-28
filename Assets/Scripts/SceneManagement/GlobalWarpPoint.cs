@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +9,6 @@ public class GlobalWarpPoint : MonoBehaviour
     [Header("Warpoint Settings")]
     public bool transitionWithPlayer=true;
     public bool oneUse; private bool used=false;
-    public bool forceTransformChange;
 
     [Header("Scene Change (Vacio == No Cambia Escena)")]
     public string nextScene;
@@ -22,7 +21,6 @@ public class GlobalWarpPoint : MonoBehaviour
 
     [Header("\nPosition Change")]
     public Vector3 nextPosition;
-    public Vector3 nextRotation;
 
     [Header("Narrative Change (-1 == No Cambia)")]
     [Header("Depende del cambio de Escena")]
@@ -41,12 +39,6 @@ public class GlobalWarpPoint : MonoBehaviour
         if(other.tag!="Player"){return;}
 
         SceneManager.MoveGameObjectToScene(other.gameObject,SceneManager.GetActiveScene());
-
-        if(forceTransformChange){
-            other.gameObject.transform.position=nextPosition;
-            other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
-        }
-
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);
         else
@@ -57,7 +49,6 @@ public class GlobalWarpPoint : MonoBehaviour
         yield return new WaitForSeconds(WaitToChange);
         if(other!=null)
         other.gameObject.transform.position=nextPosition;
-        other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
         SceneManager.LoadScene(nextScene);
     }
     void IterateTransitions(){
@@ -86,9 +77,12 @@ public class GlobalWarpPoint : MonoBehaviour
                 SceneManagement.Instance.actionName=nextAcctionName;
                 DontDestroyOnLoad(other.gameObject);
 
+                
+
+                
+
                 if(WaitToChange<=0){
                 other.gameObject.transform.position=nextPosition;
-                other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
                 SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other));
@@ -121,7 +115,6 @@ public class GlobalWarpPoint : MonoBehaviour
 
                 if(WaitToChange<=0){
                 other.gameObject.transform.position=nextPosition;
-                other.gameObject.GetComponent<Rigidbody2D>().SetRotation(Quaternion.Euler(nextRotation));
                 SceneManager.LoadScene(nextScene);
                 }else
                 StartCoroutine(HoldTransition(nextScene,WaitToChange,other.GetComponent<Collider2D>()));
