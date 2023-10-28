@@ -60,9 +60,9 @@ public class CarreraManager : MonoBehaviour
         
     }
     public void Update(){
-
+        if("MenuCar"==SceneManager.GetActiveScene().name && raceStarted){raceStarted=false;}
         if(raceStarted){
-        UpdatePositionUI();
+            UpdatePositionUI();
         }
 
         if(Input.GetKeyDown(KeyCode.U)){
@@ -92,7 +92,7 @@ public class CarreraManager : MonoBehaviour
     }
 
     public void EndRace(){
-        Destroy(this.gameObject);
+        raceStarted=false;
     }
 
     [HideInInspector] public bool canWinRace=true;

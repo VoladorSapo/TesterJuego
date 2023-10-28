@@ -135,8 +135,8 @@ public class SceneManagement : MonoBehaviour
             case "SetRaceNormal": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
             case "SetRaceGlitch": CarSettings(false,true); break;
             case "SetRaceStage2": narrativeParts.CarNarrative=2; EventManager.Instance?.GlitchPencilStage2(); break; // 
-            case "StopRace": CarSettings(true,true); break;
-            case "SalirSalaSecreta": narrativeParts.CarNarrative = 3;break;
+            case "StopRace": if(CarreraManager.Instance!=null){CarreraManager.Instance.EndRace();} break;
+            case "SalirSalaSecreta": if(GamesManager.Instance.unlockedCarStages+1<3)GamesManager.Instance.unlockedCarStages++; break;
         }
         act="";
     }
@@ -160,7 +160,7 @@ public class SceneManagement : MonoBehaviour
         if((allStages.Contains(SceneManager.GetActiveScene().name) || menuScenes.Contains(SceneManager.GetActiveScene().name)) && prevNarrativeParts.CarNarrative!=narrativeParts.CarNarrative){
             prevNarrativeParts.CarNarrative=narrativeParts.CarNarrative;  
             switch(narrativeParts.CarNarrative){
-                    case 0: killMouse=true; CarSettings(false, false); break;
+                    case 0: killMouse=true; CarSettings(false, false); CameraSettings(1,"PlayerCar",0); break;
                     case 1: killMouse=false; CarSettings(false, false); CameraSettings(2,"PlayerCar",2); break;
                     case 2: CarSettings(false,false); break; //Lapiz bug que ya esta arriba
                     case 3: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchPlayer; EventGallery.Instance.neededWaypoint=-1; break; //CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
@@ -200,8 +200,10 @@ public class SceneManagement : MonoBehaviour
     }
     
     void CameraSettings(int cameraMode, string followPlayer, int enablePanelUI){
-        if(menuScenes.Contains(SceneManager.GetActiveScene().name))
+        if(menuScenes.Contains(SceneManager.GetActiveScene().name)){
         cameraMode=1;
+        
+        }
 
         switch(cameraMode){
             case 1: camaraGlobal.GetComponent<PixelPerfectCamera>().enabled=false; camaraGlobal.GetComponent<CinemachineBrain>().enabled=true; break;
@@ -216,6 +218,8 @@ public class SceneManagement : MonoBehaviour
 
        Debug.Log(enablePanelUI);
         switch(enablePanelUI){
+            case 0: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.carUI.SetActive(false); camaraGlobal.attachedCanvas.zeldaUI.SetActive(false);
+            break;
             case 1: camaraGlobal.attachedCanvas.platformUI.SetActive(true); camaraGlobal.attachedCanvas.carUI.SetActive(false); camaraGlobal.attachedCanvas.zeldaUI.SetActive(false);
             break;
             case 2: camaraGlobal.attachedCanvas.platformUI.SetActive(false); camaraGlobal.attachedCanvas.carUI.SetActive(true); camaraGlobal.attachedCanvas.zeldaUI.SetActive(false);

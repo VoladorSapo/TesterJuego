@@ -48,7 +48,7 @@ public class GlobalWarpPoint : MonoBehaviour
         yield return new WaitForSeconds(WaitToChange);
         if(other!=null)
         other.gameObject.transform.position=nextPosition;
-        SceneManager.LoadSceneAsync(nextScene);
+        SceneManager.LoadScene(nextScene);
     }
     void IterateTransitions(){
             CamaraGlobal.Instance.cameraFX.ApplyEffects(transitionList);
