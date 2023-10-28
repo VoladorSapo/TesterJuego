@@ -26,6 +26,7 @@ public class CharButton : ButtonSelection
         SceneManagement.Instance.actionName="SetRaceNormal";
         SceneManagement.Instance.globalChange=2;
         
+        
         CarreraManager.Instance.GoToRace();
     }
 
