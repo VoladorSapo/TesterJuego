@@ -19096,6 +19096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1574073940911433567, guid: edb21ac8e1754774d8651c3d6b199359, type: 3}
+      propertyPath: conversationKey
+      value: ignacio
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb21ac8e1754774d8651c3d6b199359, type: 3}
 --- !u!1 &1702317302
