@@ -38,6 +38,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
         if(other.tag!="Player"){return;}
 
+        SceneManager.MoveGameObjectToScene(other.gameObject,SceneManager.GetActiveScene());
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);
         else
