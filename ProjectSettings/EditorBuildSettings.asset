@@ -36,6 +36,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Zelda/protoZelda.unity
     guid: 4c3a7c1e8a47c61479b3fefdf6914766
   - enabled: 1
+    path: Assets/Scenes/Zelda/EscenasJuego/Bosque 1.unity
+    guid: f9ced3b40b86d934db6db81788203e8f
+  - enabled: 1
+    path: Assets/Scenes/Zelda/EscenasJuego/Casa1.unity
+    guid: 008d54e055ce1e14ba7ee4138a86ad9d
+  - enabled: 1
+    path: Assets/Scenes/Zelda/EscenasJuego/DefaultZela.unity
+    guid: 0f186aec2017c4e44a2739390496ca9a
+  - enabled: 1
+    path: Assets/Scenes/Zelda/EscenasJuego/Pueblo.unity
+    guid: 3e1c5184cb6b46e4b9ef847ba05c9c8e
+  - enabled: 1
     path: Assets/Scenes/EscenasIntermedias/ConversacionTelefono.unity
     guid: 8a2ac537f4db34b48ad3e3cc5fcdb683
   - enabled: 1
