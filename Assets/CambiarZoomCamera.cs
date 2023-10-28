@@ -26,10 +26,7 @@ public class CambiarZoomCamera : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-        {
-            start = false;
-        }
+
     }
     // Start is called before the first frame update
     void Start()
