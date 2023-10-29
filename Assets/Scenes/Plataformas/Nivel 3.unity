@@ -1118,6 +1118,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4472208788766681936, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472208788766681936, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472208788766681936, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472208788766681936, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4875972533424439885, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1254,6 +1270,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReplayLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 6484879521847161854, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484879521847161854, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484879521847161854, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484879521847161854, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6548448288796132761, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -1322,6 +1354,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 112.71675
+      objectReference: {fileID: 0}
     - target: {fileID: 6880423814430138174, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_Name
       value: ConversationButton
@@ -1377,6 +1413,22 @@ PrefabInstance:
     - target: {fileID: 7515324430176513674, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633008586631392127, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633008586631392127, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633008586631392127, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633008586631392127, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8829256021943023306, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1843,7 +1895,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinFlag
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8880984188247844410, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+    - {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
 --- !u!1 &876426636 stripped
 GameObject:
@@ -1865,6 +1919,7 @@ MonoBehaviour:
   transitionWithPlayer: 0
   oneUse: 0
   forceTransformChange: 0
+  clonePlayer: 0
   nextScene: ConversacionPlataformas
   nextAcctionName: 
   transitionList: []

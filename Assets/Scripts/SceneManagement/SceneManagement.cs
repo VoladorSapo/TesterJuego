@@ -140,6 +140,7 @@ public class SceneManagement : MonoBehaviour
             case "StopRace": if(CarreraManager.Instance!=null){CarreraManager.Instance.EndRace();} break;
             case "SalirSalaSecreta": if(GamesManager.Instance.unlockedCarStages+1<3)GamesManager.Instance.unlockedCarStages++; break;
             case "Clones":CinemachineVirtualCamera camera = FindObjectOfType<CinemachineVirtualCamera>(); if (camera) { camera.m_Lens.OrthographicSize = 11 + 0.5f * GameObject.FindGameObjectsWithTag("Player").Length; } foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player")) { item.transform.position = new Vector3(UnityEngine.Random.Range(135, 145), UnityEngine.Random.Range(-2, 0)); DontDestroyOnLoad(item); } break;
+            case "IntermediaPlataformas": CinemachineVirtualCamera cam = FindObjectOfType<CinemachineVirtualCamera>(); if (cam){ cam.m_Lens.OrthographicSize = 7.43f; }break;
         }
         act="";
     }
