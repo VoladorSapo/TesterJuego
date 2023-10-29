@@ -45,16 +45,24 @@ public class DialogueController : MonoBehaviour
     }
     void Start()
     {
-        print(Application.persistentDataPath);
-        canvasgroup = GetComponent<CanvasGroup>();
-        canvasgroup.alpha = 0;
+        if (!isIntro)
+        {
+            print(Application.persistentDataPath);
+            canvasgroup = GetComponent<CanvasGroup>();
+            canvasgroup.alpha = 0;
 
-        text = GetComponentInChildren<TMP_Text>();
-        nombre = GetComponentsInChildren<TMP_Text>()[1];
-        character = GetComponentsInChildren<Animator>()[0];
+            text = GetComponentInChildren<TMP_Text>();
+            nombre = GetComponentsInChildren<TMP_Text>()[1];
+            character = GetComponentsInChildren<Animator>()[0];
 
-        info = text.textInfo;
+            info = text.textInfo;
+        }
+        else
+        {
+            canvasgroup = character.gameObject.GetComponent<CanvasGroup>();
+        }
         CurrentConversation = new List<DialogueClass>();
+
     }
 
     public void setEventConversations(Action start, Action end){
