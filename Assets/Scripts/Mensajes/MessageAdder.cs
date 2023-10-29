@@ -391,33 +391,7 @@ public class MessageAdder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            AddMessageList(new MessageClass[] { new MessageClass("Hola", 0, 0, 0, false, ""), new MessageClass("", 0, 0, 1, false, ""), new MessageClass("Me duele el ano", 0, 0, 1, false, "") }, 0);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            AddMessageList(GetMessageList("mensaje"), 0);
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            //HardPause();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (SceneManager.GetActiveScene().buildIndex == 9)
-            {
-               // SceneManager.LoadScene(10);
-            }
-            else
-            {
-                //SceneManager.LoadScene(9);
-
-            }
-        }
+        
     }
     //public void LoadScene(int Scene)
     //{

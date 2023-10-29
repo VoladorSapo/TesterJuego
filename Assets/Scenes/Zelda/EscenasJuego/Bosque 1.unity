@@ -244,6 +244,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415649, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634504258092415649, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
@@ -50256,6 +50260,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: transitionList.Array.data[0].fluctuateValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634504258092415649, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415649, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}

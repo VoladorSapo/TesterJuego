@@ -19,6 +19,7 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
 
     [SerializeField] string startingState;
     private IStateClass currentState;
+    public Animator anim;
 
   
 
@@ -28,6 +29,7 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
             case "Staring": currentState=new StaringState(); break;
             case "Frozen": currentState=new FrozenState(); break;
         }
+        anim = GetComponent<Animator>();
 
     }
     void Update(){
@@ -40,12 +42,14 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
     public void SetDirection(Vector2 target)
     {
         Vector2 dir=target-new Vector2(transform.position.x,transform.position.y);
-        dir.Normalize();
-        if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y)){
+        //dir.Normalize();
+        anim.SetFloat("h", dir.x);
+        anim.SetFloat("v", dir.y);
+        /*if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y)){
             //Derecha o Izquierda
         }else if(Mathf.Abs(dir.y)>Mathf.Abs(dir.x)){
             //Arriba o Abajo
-        }
+        }*/
     }
 
     public void Say(){
