@@ -68,11 +68,6 @@ public class SceneManagement : MonoBehaviour
     void Update()
     {   
         currentScene=SceneManager.GetActiveScene();
-
-        if(Input.GetKeyDown(KeyCode.L)){
-            //GameObject.FindObjectOfType<GlobalWarpPoint>().DoTransition();
-            EndGame();
-        }
         
 
         if(previousScene==null || previousScene.name!=currentScene.name){
