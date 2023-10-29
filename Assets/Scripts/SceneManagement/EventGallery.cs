@@ -26,10 +26,6 @@ public class EventGallery : MonoBehaviour
             neededWaypoint=-2;
             
         }
-
-        if(Input.GetKey(KeyCode.B)){
-            GlitchWindow();
-        }
     }
 
     //Primarios

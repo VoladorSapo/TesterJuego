@@ -310,6 +310,7 @@ public class SceneManagement : MonoBehaviour
 
     //Final
     void EndGame(){
+        //CamaraGlobal.Instance.attachedCanvas.StartCredits();
         camaraGlobal.attachedCanvas.StartCredits();
     }
 }
