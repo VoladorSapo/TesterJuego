@@ -1165,17 +1165,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 116303846803383756, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.43
+      value: 49.32
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.55
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15880,17 +15884,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 116303846803383756, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.92
+      value: 32.67
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.38
+      value: -5.28
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66963,11 +66971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415653, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.41
+      value: 37.39
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415653, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.93
+      value: 19.07
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415653, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -67596,17 +67604,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 116303846803383756, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.539555
+      value: 49.6
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.37
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: 116303846803383759, guid: 571b1647d1c13de4c8eb616c427b2cc1, type: 3}
       propertyPath: m_LocalPosition.z
