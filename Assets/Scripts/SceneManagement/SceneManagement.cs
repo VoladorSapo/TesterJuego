@@ -245,8 +245,16 @@ public class SceneManagement : MonoBehaviour
         Scene _scene=SceneManager.GetActiveScene();
         
         switch(_scene.name){
-            case "MenuCar": MusicSettings("Plataformas Music",0,"Select Car Music",1f);  break;
-            case "2": break;
+            case "MenuCar": MusicSettings("Plataform Music",0,"Select Car Music",1f);  break;
+            case "PrimeraConversacion": break;
+            case "Nivel 1": MusicSettings("",0,"Platform Music",0.5f); break;
+            case "Nivel 2": MusicSettings("",0,"Platform Music",0.5f); break;
+            case "Nivel 3": MusicSettings("",0,"Platform Music",0.5f); break;
+            case "Nivel 4": MusicSettings("",0,"Platform Music",0.5f); break;
+            case "Nivel 5": MusicSettings("",0,"Platform Music",0.5f); break;
+            case "MenuZelda": StartCoroutine(MusicWithIntro("ZeldaIntroStart","ZeldaIntroLoop")); break;
+            case "Menu Plataformas": MusicSettings("",0,"Platform Menu Music",0.5f); break;
+            case "Bosque 1": MusicSettings("ZeldaIntroLoop",0.5f,"Tower Music",0.5f); break;
             default: break;
             //case: "Otras que ya veremos"
         }
@@ -255,6 +263,12 @@ public class SceneManagement : MonoBehaviour
     void MusicSettings(string prevMusic, float fadeOutTime, string newMusic, float fadeInTime){
         AudioManager.Instance?.ChangeMusicTo(prevMusic,fadeOutTime,newMusic,fadeInTime);
     }
+
+    IEnumerator MusicWithIntro(string n1, string n2){
+        AudioManager.Instance.PlayMusicFadeIn(n1,false,true,1f,1f,this.transform.position,0.25f);
+        yield return new WaitForSeconds(0.25f);
+        AudioManager.Instance.PlaySound(n2,true,this.transform.position,true);
+    }
     void CarSettings(bool stopRace,bool glitchedMapActive){
         
         if(stopRace){
@@ -262,7 +276,7 @@ public class SceneManagement : MonoBehaviour
         }
         else{
             if(allStages.Contains(currentScene.name)){
-                MusicSettings("Select Car Music",0.25f,"",0);
+                //MusicSettings("Select Car Music",0.25f,"",0);
                 CarreraManager.Instance?.SetRace(glitchedMapActive);  
             }
         }

@@ -145,7 +145,7 @@ public class EventGallery : MonoBehaviour
             solidMap.SetTile(new Vector3Int(-10,14+n,0),windowTiles[i+3]);
             n++;
         }
-        GameObject.Find("FinalWarpPoint").gameObject.SetActive(true);
+        GameObject.Find("FinalWarpPoint").GetComponent<BoxCollider2D>().enabled=true;
 
         //Sonido
         

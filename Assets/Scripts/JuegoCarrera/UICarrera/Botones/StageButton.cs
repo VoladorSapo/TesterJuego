@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class StageButton : ButtonSelection
 {
+    [SerializeField] private SlideUI slideUI;
     [SerializeField] private string stageName;
     [SerializeField] private int lapsOfStage;
     [SerializeField] private int oneLapWP;
@@ -18,6 +19,7 @@ public class StageButton : ButtonSelection
     }
     public override void OnSelect(BaseEventData eventData)
     {
+        
         base.OnSelect(eventData);
     }
 
@@ -30,11 +32,13 @@ public class StageButton : ButtonSelection
         SetPauseEvents();
     }
     public void SetLaps(){
+        if(GamesManager.Instance.unlockedCarStages<buttonID){return;}
 
         AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
         CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.totalWaypointsInTrack=lapsOfStage*oneLapWP;
         SceneManagement.Instance.SetNextScene(actionName);
+        slideUI.SlideLeft();
     }
 
     Color newCol;

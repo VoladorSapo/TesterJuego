@@ -220,6 +220,8 @@ public class AudioManager : MonoBehaviour
             
             audioSource.Stop();
             Destroy(audioSource);
+        }else{
+            StopAllSounds();
         }
 
         if(newSound!=null){
@@ -275,13 +277,12 @@ public class AudioManager : MonoBehaviour
         AudioSource[] _audioSources=GetComponents<AudioSource>();
         foreach(AudioSource a in _audioSources){
             if(a.clip.name==realName){
-                Debug.Log("Encontrado");
                 StartCoroutine(FadeOut(a,fadeOutTime));
             }
         }
     }
 
-    public void StopAllSounds(string name)
+    public void StopAllSounds()
     {
         AudioSource[] AudioSources=GetComponents<AudioSource>();
         foreach(AudioSource a in AudioSources){
