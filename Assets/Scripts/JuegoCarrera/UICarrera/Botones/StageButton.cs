@@ -13,9 +13,7 @@ public class StageButton : ButtonSelection
     [SerializeField] private int buttonID;
 
     protected override void Update(){
-        if(Input.GetKey(KeyCode.G)){
-            GamesManager.Instance.CarButtonStage(buttonID,this.GetComponent<Button>());
-        }
+
     }
     public override void OnSelect(BaseEventData eventData)
     {

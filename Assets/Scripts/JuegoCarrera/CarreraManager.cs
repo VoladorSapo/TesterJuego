@@ -63,10 +63,6 @@ public class CarreraManager : MonoBehaviour
             UpdatePositionUI();
         }
 
-        if(Input.GetKeyDown(KeyCode.U)){
-            RaceFinished("PlayerCar",GameObject.Find("PlayerCar").GetComponent<PositionRace>());
-        }
-
         
     }
 
