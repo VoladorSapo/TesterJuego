@@ -29,6 +29,7 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] TMP_InputField inputField;
     [SerializeField] bool HardPaused;
     [SerializeField] bool Writting;
+   [SerializeField] Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class MessageAdder : MonoBehaviour
             CloseBoard();
             print(currentMessages == null);
             conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
+            conversationAdder.GetComponent<CanvasGroup>().interactable = false;
             if (wholeMessages == null || wholeMessages.Count == 0)
             {
                 currentMessages = new List<List<MessageClass>>();
@@ -125,6 +127,7 @@ public class MessageAdder : MonoBehaviour
                 }
                 break;
         }
+        anim.SetBool("HasMessage", hasMessage());
 
     }
     void ReturntoMessages()
@@ -187,6 +190,7 @@ public class MessageAdder : MonoBehaviour
             IEnumerator courutine = AddAllMessages(2);
             StartCoroutine(courutine);
         }
+        anim.SetBool("HasMessage", hasMessage());
 
     }
     int WaitTime(string text, int time, bool waitfixed)
@@ -220,6 +224,7 @@ public class MessageAdder : MonoBehaviour
             if (noStop)
             {
                 currentMessages[currentConversation].Clear();
+                anim.SetBool("HasMessage", hasMessage());
                 EndWrittin();
             }
         }
@@ -243,6 +248,19 @@ public class MessageAdder : MonoBehaviour
             currentMessages[currentConversation].Remove(message);
 
         }
+        anim.SetBool("HasMessage", hasMessage());
+    }
+    public bool hasMessage()
+    {
+        for (int i = 0; i < currentMessages.Count; i++)
+        {
+            if(currentMessages[i].Count > 0)
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
     public void SwitchBoard()
     {
@@ -257,6 +275,7 @@ public class MessageAdder : MonoBehaviour
     }
     public void OpenBoard()
     {
+        anim.SetBool("Open", true);
         print("ooooooo");
         MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
@@ -339,6 +358,7 @@ public class MessageAdder : MonoBehaviour
     }
     public void CloseBoard()
     {
+        anim.SetBool("Open", false);
         print(name);
         MessageBoard.GetComponent<CanvasGroup>().alpha = 0;
             foreach (Transform child in Options.transform)
@@ -451,6 +471,7 @@ public class MessageAdder : MonoBehaviour
     {
         conversationAdder.GetComponent<CanvasGroup>().alpha = conversationAdder.GetComponent<CanvasGroup>().alpha == 0 ? 1 : 0;
         conversationAdder.GetComponent<CanvasGroup>().blocksRaycasts = conversationAdder.GetComponent<CanvasGroup>().alpha == 0 ? false : true;
+        conversationAdder.GetComponent<CanvasGroup>().interactable = conversationAdder.GetComponent<CanvasGroup>().blocksRaycasts;
     }
     public void AddConversation()
     {
@@ -464,11 +485,15 @@ public class MessageAdder : MonoBehaviour
                 button.transform.SetSiblingIndex(TextConversations.Count - 1);
                 currentMessages.Add(new List<MessageClass>());
                 wholeMessages.Add(new List<MessageClass>());
-                conversationAdder.GetComponent<CanvasGroup>().alpha = 0;
-                TextConversations.Add(scrollView);
+                OpenAdder();                TextConversations.Add(scrollView);
                 MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");                
                 MessageAdder.Instance.AddMessageList(messages, TextConversations.Count - 1);
                 ChangeConversation(TextConversations.Count - 1);
+                inputField.text = "Teléfono...";
+                break;
+            default:
+                OpenAdder();
+                inputField.text = "Teléfono...";
                 break;
         }
     }
