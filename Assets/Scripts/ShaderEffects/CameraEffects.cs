@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraEffects : MonoBehaviour
 {
-
+    public Image panelFadeOutIn;
     public ShaderEffect_BleedingColors shdr_bc;
     public ShaderEffect_CorruptedVram shdr_vram;
     public ShaderEffect_CRT shdr_crt;
@@ -23,7 +24,9 @@ public class CameraEffects : MonoBehaviour
     }
 
     void Update(){
-        
+        if(Input.GetKeyDown(KeyCode.F)){
+            ActivateTemporaryEffect("fadeOutIn",false,1f);
+        }
     }
 
     public void ApplyEffects(List<TransitionData> data){
@@ -60,6 +63,7 @@ public class CameraEffects : MonoBehaviour
             case "lim": shdr_lim.enabled=true; break;
             case "pos": shdr_pos.enabled=true; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
+            case "fadeOutIn": StartCoroutine(FadeOutIn(time)); break;
             default: break;
         }
 
@@ -100,6 +104,7 @@ public class CameraEffects : MonoBehaviour
             case "lim": shdr_lim.enabled=true; break;
             case "pos": shdr_pos.enabled=true; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
+            case "fadeOutIn": StartCoroutine(FadeOutIn(time)); break;
             default: break;
         }
 
@@ -155,6 +160,26 @@ public class CameraEffects : MonoBehaviour
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
             default: break;
         }
+    }
+
+    IEnumerator FadeOutIn(float timeFades){
+        StartCoroutine(Fade(1f,timeFades));
+        yield return new WaitForSeconds(timeFades);
+        StartCoroutine(Fade(0f,timeFades));
+    }
+    IEnumerator Fade(float alpha, float timeFades){
+
+        Color currentColor = panelFadeOutIn.color;
+        Color targetColor = new Color(currentColor.r, currentColor.g, currentColor.b, alpha);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < timeFades)
+        {
+            panelFadeOutIn.color = Color.Lerp(currentColor, targetColor, elapsedTime / timeFades);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
     }
 
 
