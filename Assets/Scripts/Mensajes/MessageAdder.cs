@@ -190,6 +190,11 @@ public class MessageAdder : MonoBehaviour
             IEnumerator courutine = AddAllMessages(2);
             StartCoroutine(courutine);
         }
+        else
+        {
+            print("heeek");
+            AudioManager.Instance.PlaySound("Notif 2", false, transform.position, false);
+        }
         anim.SetBool("HasMessage", hasMessage());
 
     }
@@ -248,18 +253,23 @@ public class MessageAdder : MonoBehaviour
             currentMessages[currentConversation].Remove(message);
 
         }
-        anim.SetBool("HasMessage", hasMessage());
+        bool b = hasMessage();
+        anim.SetBool("HasMessage", b);
     }
     public bool hasMessage()
     {
+
+        print("Has mesasg");
+        print(currentMessages[0].Count);
         for (int i = 0; i < currentMessages.Count; i++)
         {
             if(currentMessages[i].Count > 0)
             {
+                print("true");
                 return true;
             }
         }
-        
+        print("false");
         return false;
     }
     public void SwitchBoard()
@@ -384,7 +394,7 @@ public class MessageAdder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            HardPause();
+            //HardPause();
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
