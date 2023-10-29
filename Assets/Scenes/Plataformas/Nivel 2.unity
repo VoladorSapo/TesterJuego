@@ -1259,6 +1259,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 602776833243109132, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 670263200874463043, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -1627,6 +1631,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880423814181570156, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 158.5656
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814181570156, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 169.1019
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814181570162, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880423814181570162, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2057432095, guid: 087f6118cd8a35944922eb1ef5b06f00, type: 3}
     - target: {fileID: 6880423814181570162, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_PreserveAspect
       value: 1

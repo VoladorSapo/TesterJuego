@@ -116,7 +116,7 @@ public class DialogueController : MonoBehaviour
         {
             text.spriteAsset = assets[0];
         }*/
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             if (terminado)
             {

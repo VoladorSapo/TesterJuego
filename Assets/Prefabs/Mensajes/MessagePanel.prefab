@@ -1175,6 +1175,7 @@ MonoBehaviour:
   inputField: {fileID: 2393756419119840724}
   HardPaused: 0
   Writting: 0
+  anim: {fileID: 8957924272934979682}
 --- !u!1 &2278183218980367594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,10 +3197,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2278183218924985678}
-    - target: {fileID: 5715210623140554210, guid: fef1796e21183f84983d476a9fb20d73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fef1796e21183f84983d476a9fb20d73, type: 3}
 --- !u!224 &1810303020473997478 stripped
