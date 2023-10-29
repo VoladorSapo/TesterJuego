@@ -120,8 +120,10 @@ public class DialogueController : MonoBehaviour
             if (!isIntro)
             {
                 nombre.text = CurrentConversation[0].nombre;
+
             }
-            if(nombre.text == "None")
+
+            if (nombre.text == "None")
             {
                 nombre.gameObject.GetComponentInParent<CanvasGroup>().alpha = 0;
             }
@@ -173,7 +175,7 @@ public class DialogueController : MonoBehaviour
     {
         print("cuidap");
         escribiendo = true;
-        text.maxVisibleCharacters = 0;
+        text.maxVisibleCharacters = int.MaxValue;
         currentChar = 0;
         while (currentChar < info.characterCount)
         {

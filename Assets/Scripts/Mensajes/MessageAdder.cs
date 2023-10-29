@@ -354,6 +354,10 @@ public class MessageAdder : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            print("socoroo");
+        }
     }
     void CheckPuzzlePista()
     {
@@ -406,7 +410,15 @@ public class MessageAdder : MonoBehaviour
                 _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard();PauseController.Instance.InvokeUnpause(); });
                 break;
             case "SceneZelda":
-                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard(); PauseController.Instance.InvokeUnpause(); });
+                _button.onClick.AddListener(delegate {
+             GameObject wap = GameObject.Find("WarpZelda");
+                    if (wap)
+                    {
+                        wap.GetComponent<GlobalWarpPoint>().DoTransition();
+                        CloseBoard();
+                        PauseController.Instance.InvokeUnpause();
+                    } });
+
                 break;
             default:
                 break;
@@ -476,9 +488,9 @@ public class MessageAdder : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "ConversacionIntermediaTelefono")
                 {
                     OpenAdder();
+                    ChangeConversation(2);
                     MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");
                     MessageAdder.Instance.AddMessageList(messages, 2);
-                    ChangeConversation(2);
                 }
                 inputField.text = "Teléfono...";
                 break;
