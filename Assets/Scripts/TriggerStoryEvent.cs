@@ -19,7 +19,7 @@ public class TriggerStoryEvent : MonoBehaviour
     public bool HasTriggered;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((carNarrativeMoment == -1 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) && (string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
+        if ((carNarrativeMoment == -1 || carNarrativeMoment == 0 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) && (string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
         {
             TriggerEvent();
         }
