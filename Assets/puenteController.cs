@@ -23,7 +23,7 @@ public class puenteController : MonoBehaviour
     IEnumerator wait()
     {
         yield return new WaitForSeconds(2*waitseconds/3);
-        StartCoroutine(DebugLogController.Instance.AddLogs(DebugLogController.Instance.GetLogs("dondecaemos")));
+        //StartCoroutine(DebugLogController.Instance.AddLogs(DebugLogController.Instance.GetLogs("dondecaemos")));
         tiles.gameObject.GetComponent<TilemapRenderer>().enabled = false;
 
         yield return new WaitForSeconds(waitseconds / 3);
