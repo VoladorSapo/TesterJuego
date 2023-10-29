@@ -80,7 +80,7 @@ public class EventGallery : MonoBehaviour
 
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=350;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=350;
-        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=5.05f;
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.35f;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.08f;
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
             new List<TransitionData>()
@@ -130,7 +130,7 @@ public class EventGallery : MonoBehaviour
         CarreraManager.Instance.SetReversedPlayer();
         CarreraManager.Instance.totalWaypointsInTrack=31*3;
 
-        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.55f;
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.65f;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=300;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=300;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.12f;

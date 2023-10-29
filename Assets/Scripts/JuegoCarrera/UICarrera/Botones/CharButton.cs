@@ -19,7 +19,7 @@ public class CharButton : ButtonSelection
 
     public void SetPlayer(){
         if(!GetComponent<Button>().enabled){return;}
-        AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
+        AudioManager.Instance.PlaySound("Menu confirm platform",false,Vector2.zero,false);
         CarreraManager.Instance.SetPlayerSprite(SpriteIndex);
         
         if( SceneManagement.Instance.actionName=="")

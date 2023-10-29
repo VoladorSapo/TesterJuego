@@ -12,7 +12,7 @@ public class DialogueController : MonoBehaviour
     public event Action endConversation;
     public event Action startConversation;
     public static DialogueController Instance;
-    TMP_Text text;
+ [SerializeField]   TMP_Text text;
     TMP_TextInfo info;
     [SerializeField] bool escribiendo;
     [SerializeField] bool terminado;
@@ -45,16 +45,26 @@ public class DialogueController : MonoBehaviour
     }
     void Start()
     {
-        print(Application.persistentDataPath);
-        canvasgroup = GetComponent<CanvasGroup>();
-        canvasgroup.alpha = 0;
+        if (!isIntro)
+        {
+            print(Application.persistentDataPath);
+            canvasgroup = GetComponent<CanvasGroup>();
+            canvasgroup.alpha = 0;
 
-        text = GetComponentInChildren<TMP_Text>();
-        nombre = GetComponentsInChildren<TMP_Text>()[1];
-        character = GetComponentsInChildren<Animator>()[0];
+            text = GetComponentInChildren<TMP_Text>();
+            nombre = GetComponentsInChildren<TMP_Text>()[1];
+            character = GetComponentsInChildren<Animator>()[0];
 
-        info = text.textInfo;
+            info = text.textInfo;
+        }
+        else
+        {
+            info = text.textInfo;
+
+            canvasgroup = character.gameObject.GetComponent<CanvasGroup>();
+        }
         CurrentConversation = new List<DialogueClass>();
+
     }
 
     public void setEventConversations(Action start, Action end){
@@ -107,7 +117,10 @@ public class DialogueController : MonoBehaviour
                 print(CurrentConversation.Count);
                 print("elsee");
             }
-            nombre.text = CurrentConversation[0].nombre;
+            if (!isIntro)
+            {
+                nombre.text = CurrentConversation[0].nombre;
+            }
             if(nombre.text == "None")
             {
                 nombre.gameObject.GetComponentInParent<CanvasGroup>().alpha = 0;
