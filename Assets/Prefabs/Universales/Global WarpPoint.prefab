@@ -51,7 +51,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -74,11 +74,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transitionWithPlayer: 0
   oneUse: 1
+  forceTransformChange: 0
+  clonePlayer: 0
   nextScene: MenuCar
   nextAcctionName: 
   transitionList: []
+  soundList: []
   WaitToChange: 0
   nextPosition: {x: 0, y: 0, z: 0}
+  nextRotation: {x: 0, y: 0, z: 0}
   nextGlobalNarrativePart: 2
   nextLocalNarrativeParts:
     PlatformNarrative: -1
@@ -129,7 +133,7 @@ SpriteRenderer:
   m_SortingLayerID: -2143378071
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: cea2c9bf87b0c4dfdafb697a3ff00959, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7981da9da9b77d42b149525eac9d763, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
