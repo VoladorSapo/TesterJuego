@@ -24,9 +24,13 @@ public class PauseController : MonoBehaviour
             Destroy(gameObject);
         }
         
+        isPaused=false;
+        
     }
 
-
+    void Start(){
+        SceneManagement.Instance.killMouse=false;
+    }
     
     public void SetPausedEvents(Action pause, Action unpause){
         pauseEvent+=pause;
@@ -53,10 +57,14 @@ public class PauseController : MonoBehaviour
             {
                 isPaused = !isPaused;
 
-                if (isPaused)
+                if (isPaused){
+                    SceneManagement.Instance.killMouse=false;
                     pauseEvent?.Invoke();
-                else
+                }
+                else if(!isPaused){
+                    SceneManagement.Instance.killMouse=true;
                     unpauseEvent?.Invoke();
+                }
             }
         }
     }

@@ -80,7 +80,7 @@ public class GlobalWarpPoint : MonoBehaviour
     }
     void IterateSounds(){
         foreach(string s in soundList){
-         AudioManager.Instance?.PlaySound(s,false,this.transform.position,false);
+         AudioManager.Instance?.PlaySound(s,false,Vector2.zero,false);
         }
     }
 

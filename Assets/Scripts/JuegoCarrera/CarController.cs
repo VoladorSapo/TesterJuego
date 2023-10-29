@@ -302,10 +302,8 @@ public class CarController : BasicCar, IPauseSystem
 
         
         
-        if(((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile)))
-        && !((GlicthedTile!=null && CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile) && CarreraManager.Instance.GlitchedTilemap.GetComponent<TilemapRenderer>().enabled) && (NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)))
+        if(((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)))
         ){
-            
             return true;
         }else{
             
