@@ -2,13 +2,13 @@ Name;Text;Nombre;Personaje;Anim
 cinematic1_0;Hace mucho, un sabio mago vivía en una torre que crecía y crecía en altura.;None;0;0
 cinematic1_1;Solo él entendía los recovecos de su torre, y por tanto solo él podía adentrarse en ella y volver para contarlo.;None;0;0
 cinematic1_2;Por ello vivió tranquilo en su inmortalidad durante años.;None;0;0
-cinematic1_3;Sin embargo, un día, el sabio mago perdió su vida salvando al mundo de un gran mal ancestral.;None;1;0
-cinematic1_4;Su gesta, que se dio en los pisos más altos de la torre, pudo ser vista desde todas partes iluminando el cielo.;None;1;0
-cinematic1_5;El mal fue derrotado, al menos por un tiempo.;None;1;0
-cinematic1_6;Pero el arma definitiva, capaz de derrotar al mal fue abandonada en algún punto de la torre.;None;2;0
-cinematic1_7;Por ello, aprendiz, antes de que despierte de nuevo el mal…;None;2;0
-cinematic1_8;Encuentra el arma definitiva:;None;2;0
-cinematic1_9;“P R O X I M;None;2;0
+cinematic2_0;Sin embargo, un día, el sabio mago perdió su vida salvando al mundo de un gran mal ancestral.;None;0;0
+cinematic2_1;Su gesta, que se dio en los pisos más altos de la torre, pudo ser vista desde todas partes iluminando el cielo.;None;0;0
+cinematic2_2;El mal fue derrotado, al menos por un tiempo.;None;0;0
+cinematic3_0;Pero el arma definitiva, capaz de derrotar al mal fue abandonada en algún punto de la torre.;None;0;0
+cinematic3_1;Por ello, aprendiz, antes de que despierte de nuevo el mal…;None;0;0
+cinematic3_2;Encuentra el arma definitiva:;None;0;0
+cinematic3_3;“P R O X I M;None;0;0
 mensajero_0;¡Aprendiz!;Mensajero;1;0
 mensajero_1;El Padre le busca. Me ha pedido que venga a avisarle.;Mensajero;1;0
 mensajero_2;Llevo un rato aquí…;Mensajero;1;0
@@ -20,8 +20,8 @@ padre_0;Has venido, aprendiz.;Padre;2;0
 padre_1;Escucha con atención.;Padre;2;0
 padre_2;Como sabrás, la antigua profecía que guarda nuestra aldea tiene los ojos puestos sobre ti.;Padre;2;0
 padre_3;Pues llegará el día en el que emprendas tu viaje en busca del arma capaz de destruir al mal;Padre;2;0
-padre_4;"Ese día, querido Aprendiz, ha <link=""Toshida""></link>";Padre;4;0
-padre_5;PASA POR LA PUERTA DE LA VIDRIERA;None;4;1
+padre_4;"Ese día, querido Aprendiz, ha <link="Toshida"></link>";Padre;4;0
+padre_5;ACOMPAÑAME POR LA VIDRIERA;None;4;1
 pechurina_0;Ten cuidado, dicen que en los caminos hay una banda de tigres pandilleros muy peligrosos.;None;0;0
 pechurina_1;¿Que por qué no tengo miedo?;None;0;0
 pechurina_2;Bueno, corro realmente rápido. La última vez ni me vieron.;None;0;0

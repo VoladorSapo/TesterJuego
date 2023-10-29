@@ -163,6 +163,8 @@ public class DialogueController : MonoBehaviour
             if (terminado)
             {
                 StartText();
+                checkLink();
+
             }
             else
             {
@@ -235,12 +237,13 @@ public class DialogueController : MonoBehaviour
     void LinkFunction(string linktext)
     {
         string[] linkarray = linktext.Split('-');
+        print("ayuda");
         switch (linkarray[0])
         {
             case "TextAsset":
                 text.spriteAsset = assets[int.Parse(linkarray[1])];
                 break;
-            case "Toshida": break;
+            case "Toshida":FindObjectOfType<GlobalWarpPoint>().DoTransition();print("papu"); break;
         }
     }
     public void setEndConversation(Action end)

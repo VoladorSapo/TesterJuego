@@ -29,7 +29,10 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
             case "Staring": currentState=new StaringState(); break;
             case "Frozen": currentState=new FrozenState(); break;
         }
-        anim = GetComponent<Animator>();
+        if (GetComponent<Animator>() != null)
+        {
+            anim = GetComponent<Animator>();
+        }
 
     }
     void Update(){
@@ -42,9 +45,12 @@ public class zeldaNPCBase : MonoBehaviour, IPauseSystem
     public void SetDirection(Vector2 target)
     {
         Vector2 dir=target-new Vector2(transform.position.x,transform.position.y);
-        //dir.Normalize();
-        anim.SetFloat("h", dir.x);
-        anim.SetFloat("v", dir.y);
+        if (GetComponent<Animator>() != null)
+        {
+            //dir.Normalize();
+            anim.SetFloat("h", dir.x);
+            anim.SetFloat("v", dir.y);
+        }
         /*if(Mathf.Abs(dir.x)>Mathf.Abs(dir.y)){
             //Derecha o Izquierda
         }else if(Mathf.Abs(dir.y)>Mathf.Abs(dir.x)){

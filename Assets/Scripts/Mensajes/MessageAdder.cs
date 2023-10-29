@@ -406,6 +406,9 @@ public class MessageAdder : MonoBehaviour
         string[] codes = code.Split('-');
         switch (codes[0])
         {
+            case "Credit":
+                CamaraGlobal.Instance.attachedCanvas.StartCredits();
+                    break;
             case "Scene":
                 _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard();PauseController.Instance.InvokeUnpause(); });
                 break;
