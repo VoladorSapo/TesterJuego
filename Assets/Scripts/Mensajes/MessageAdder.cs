@@ -193,7 +193,7 @@ public class MessageAdder : MonoBehaviour
         else
         {
             print("heeek");
-            AudioManager.Instance.PlaySound("Notif 2", false, transform.position, false);
+            AudioManager.Instance.PlaySound("Notif 2", false, this.transform.position, false);
         }
         anim.SetBool("HasMessage", hasMessage());
 

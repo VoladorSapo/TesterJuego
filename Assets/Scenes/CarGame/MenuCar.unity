@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2100161406219007464, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2476489809481274765, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -803,7 +807,8 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 46c75ffa922374d4a91eedec7512f1cb, type: 3}
-  thisDescription: a
+  thisDescription: "Mauricio Avispero. Tras dejar atr\xE1s su vida como bartender
+    ha decidido unirse al mundillo de las carreras."
   SpriteIndex: 0
 --- !u!1 &226204320
 GameObject:
@@ -1121,7 +1126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Initital Track
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
   m_sharedMaterial: {fileID: 1509662259924555190, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
@@ -1374,6 +1379,7 @@ GameObject:
   - component: {fileID: 502988901}
   - component: {fileID: 502988900}
   - component: {fileID: 502988899}
+  - component: {fileID: 502988903}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -1430,7 +1436,7 @@ Canvas:
   m_GameObject: {fileID: 502988898}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 176986522}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
@@ -1465,6 +1471,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &502988903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502988898}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cbec0e5388212646b0fe79e309a9219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &542218241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1633,7 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 117be28df88d2bb41b54ebf56c84086e, type: 3}
-  thisDescription: a
+  thisDescription: Pista perfecta para los conductores principiantes
   slideUI: {fileID: 1866261774}
   stageName: Stage1Car
   lapsOfStage: 3
@@ -1757,7 +1775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Lava Crayon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
   m_sharedMaterial: {fileID: 1509662259924555190, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
@@ -1998,7 +2016,7 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 2711d26ed151a3c479df889cd0a220ea, type: 3}
-  thisDescription: c
+  thisDescription: Lagos y charcos de lava cubren la pista. Ten cuidado y no te quemes.
   slideUI: {fileID: 1866261774}
   stageName: Stage3Car
   lapsOfStage: 3
@@ -2244,7 +2262,7 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 2d8dc756de6cf584988ba05ad0cfe412, type: 3}
-  thisDescription: d
+  thisDescription: "[No deber\xEDas estar leyendo esto]"
   slideUI: {fileID: 1866261774}
   stageName: Stage4Car
   lapsOfStage: 5
@@ -2310,7 +2328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Desert Draw
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
   m_sharedMaterial: {fileID: 1509662259924555190, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
@@ -3253,7 +3271,8 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: dfcf7589e06a25a4a922eb550a20dbe2, type: 3}
-  thisDescription: c
+  thisDescription: John Yakuza. Procedente de unas tierras lejanas participa en este
+    torneo de carreras por un motivo misterioso.
   SpriteIndex: 2
 --- !u!1 &1425084953
 GameObject:
@@ -3464,7 +3483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Icy Ink
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
   m_sharedMaterial: {fileID: 1509662259924555190, guid: 345cc264344427949a806e1c9bf1210d, type: 2}
@@ -4742,7 +4761,8 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: d2ea1ec462e854b4f85583d67996fed3, type: 3}
-  thisDescription: "El Nano M\xE1quina"
+  thisDescription: "El Nano M\xE1quina. Campe\xF3n de la edici\xF3n 33 del mundial
+    se ha dispuesto a repetir aquella pasada gloria."
   SpriteIndex: 3
 --- !u!1 &1958604682
 GameObject:
@@ -5045,7 +5065,7 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 0cd67b90ca236844894db4952834a291, type: 3}
-  thisDescription: b
+  thisDescription: Ten cuidado con los montones de arena que pueblan la pista.
   slideUI: {fileID: 1866261774}
   stageName: Stage2Car
   lapsOfStage: 3
@@ -5203,7 +5223,8 @@ MonoBehaviour:
   imageDisplay: {fileID: 1925750925}
   textDisplay: {fileID: 1509787771}
   thisButtonImage: {fileID: 21300000, guid: 1f2bb345a2ac8264385512bd876563ed, type: 3}
-  thisDescription: b
+  thisDescription: Ofelia. Aburrida de una vida llena de lujos ha tomado su deportivo
+    para divertise a lo grande.
   SpriteIndex: 1
 --- !u!1 &2095878314
 GameObject:
