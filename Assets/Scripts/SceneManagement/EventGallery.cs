@@ -105,10 +105,34 @@ public class EventGallery : MonoBehaviour
         CarreraManager.Instance.NormalTilemap.SetTile(CarreraManager.Instance.NormalTilemap.WorldToCell(new Vector2(-14,1)),downArrowTile);
 
         CarreraManager.Instance?.SetGlitchPlayer();
+
+        CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.08f;
+        CamaraGlobal.Instance.cameraFX.ApplyEffects(
+            new List<TransitionData>()
+            {
+                new TransitionData("bc",false,true,true,0.5f,0f),
+                new TransitionData("vram",false,true,true,0.5f,0f)
+            }
+        );
         
+        StartCoroutine(SetVram());
+
+        SceneManagement.Instance.globalChange=2;
+        EventManager.Instance.eventAction-=GlitchPlayer;
+
+    }
+    IEnumerator SetVram(){
+        yield return new WaitForSeconds(1f);
+        CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-2f;
+    }
+    public void GlitchStage3(){
+        ActivateGlitchMap();
+        CarreraManager.Instance.SetReversedPlayer();
+        CarreraManager.Instance.totalWaypointsInTrack=31*3;
+
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.55f;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=300;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=300;
-        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=15.05f;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.12f;
 
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
@@ -122,16 +146,6 @@ public class EventGallery : MonoBehaviour
                 new TransitionData("invc",false,false,true,0f,0.5f)
             }
         );
-
-        SceneManagement.Instance.globalChange=2;
-        EventManager.Instance.eventAction-=GlitchPlayer;
-    }
-    public void GlitchStage3(){
-        ActivateGlitchMap();
-        CarreraManager.Instance.SetReversedPlayer();
-        CarreraManager.Instance.totalWaypointsInTrack=31*3;
-
-        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.55f;
 
         CarreraManager.Instance.NextStage="Nivel 5";
         DontDestroyOnLoad(GameObject.Find("PlayerCar"));

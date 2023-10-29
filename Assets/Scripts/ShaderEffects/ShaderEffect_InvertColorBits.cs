@@ -61,7 +61,7 @@ public class ShaderEffect_InvertColorBits : MonoBehaviour
 	
     int num;
     public void OnRenderImage(RenderTexture src, RenderTexture dest) {
-			if (material && rectProp.Length > 0) {
+			if (material!=null && material && rectProp.Length > 0) {
                 
 				material.SetVectorArray("_RectArray", rectProp);
                 material.SetInt("_NumRects",num);
