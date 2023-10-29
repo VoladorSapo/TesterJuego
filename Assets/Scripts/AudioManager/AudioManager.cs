@@ -46,8 +46,10 @@ public class AudioManager : MonoBehaviour
         if(onlyOne && SearchSource(name)){return;}
 
         Sound Sound = System.Array.Find(_sounds, sound => sound.name == name);
-        if(Vector2.Distance(pos,_player.position)>Sound.maxSoundDistance || Sound==null){return;}
-
+        if (_player != null)
+        {
+            if (Vector2.Distance(pos, _player.position) > Sound.maxSoundDistance || Sound == null) { return; }
+        }
         if (Sound != null)
         {
             AudioSource a= gameObject.AddComponent<AudioSource>();

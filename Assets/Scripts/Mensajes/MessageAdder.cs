@@ -35,6 +35,7 @@ public class MessageAdder : MonoBehaviour
     {
         if (Instance == null)
         {
+            anim.SetBool("HasMessage", false);
             SetEvents();
             if (SceneManager.GetActiveScene().name == "Nivel 1" || SceneManager.GetActiveScene().name == "Menu Plataformas")
                 OpenButton.gameObject.SetActive(false);
@@ -155,8 +156,11 @@ public class MessageAdder : MonoBehaviour
         }
         StartCoroutine(couritine);
     }
-
-  public MessageClass[] GetMessageList(string key)
+    private void OnDestroy()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+    }
+    public MessageClass[] GetMessageList(string key)
     {
 
         List<MessageClass> messages = new List<MessageClass>();
@@ -193,7 +197,10 @@ public class MessageAdder : MonoBehaviour
         else
         {
             print("heeek");
-            AudioManager.Instance.PlaySound("Notif 2", false, this.transform.position, false);
+            if (this.transform != null)
+            {
+                AudioManager.Instance.PlaySound("Notif 2", false, this.transform.position, false);
+            }
         }
         anim.SetBool("HasMessage", hasMessage());
 
@@ -488,17 +495,11 @@ public class MessageAdder : MonoBehaviour
         print(inputField.text);
         switch (inputField.text)
         {
-            case "999":
-                GameObject scrollView =  Instantiate(conversationPrefab, MessageBoard.transform);
-                GameObject button = Instantiate(buttonPrefab, ButtonList.transform);
-                button.GetComponent<Button>().onClick.AddListener(delegate { ChangeConversation(TextConversations.Count - 1); });
-                button.transform.SetSiblingIndex(TextConversations.Count - 1);
-                currentMessages.Add(new List<MessageClass>());
-                wholeMessages.Add(new List<MessageClass>());
-                OpenAdder();                TextConversations.Add(scrollView);
+            case "6223143":
+                OpenAdder();               
                 MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");                
-                MessageAdder.Instance.AddMessageList(messages, TextConversations.Count - 1);
-                ChangeConversation(TextConversations.Count - 1);
+                MessageAdder.Instance.AddMessageList(messages, 2);
+                ChangeConversation(2);
                 inputField.text = "Teléfono...";
                 break;
             default:

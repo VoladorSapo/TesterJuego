@@ -1446,7 +1446,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -19
   m_TargetDisplay: 0
 --- !u!224 &502988902
 RectTransform:
@@ -4816,6 +4816,8 @@ MonoBehaviour:
   carNarrativeMoment: -1
   summonkeys: []
   HardPause: 1
+  waitTime: 0
+  waitsec: 0
   SpawnPlace: 0
   HasTriggered: 0
 --- !u!1 &1979875753

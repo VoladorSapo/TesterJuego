@@ -12,7 +12,8 @@ public class TriggerStoryEvent : MonoBehaviour
     [SerializeField] int carNarrativeMoment = -1;
     public string[] summonkeys;
     [SerializeField] bool HardPause;
-
+    [SerializeField] float waitTime;
+    [SerializeField] bool waitsec;
     [Header("0 Mensaje,1 DebugLog, 2 Conversacion")]
     [SerializeField] int SpawnPlace;//0 Mensaje,1 DebugLog, 2 Conversacion
     [Header("Solo pa debug")]
@@ -27,10 +28,22 @@ public class TriggerStoryEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (onLoad && (carNarrativeMoment == -1 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) &&(string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
+        if (!waitsec)
         {
-            TriggerEvent();
+            if (onLoad && (carNarrativeMoment == -1 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) && (string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
+            {
+                TriggerEvent();
+            }
         }
+        else
+        {
+            StartCoroutine(waitSeconds());
+        }
+    }
+    IEnumerator waitSeconds()
+    {
+        yield return new WaitForSeconds(waitTime);
+        TriggerEvent();
     }
     public void TriggerEvent()
     {
@@ -61,5 +74,6 @@ public class TriggerStoryEvent : MonoBehaviour
         {
             print("abula");
         }
+        
     }
 }
