@@ -24,7 +24,7 @@ public class MessageAdder : MonoBehaviour
     [SerializeField] private GameObject MessagePrefab;
     [SerializeField] private GameObject ImagePrefab;
     [SerializeField] private GameObject OptionButtonPrefab;
-    [SerializeField] private Button OpenButton;
+    [SerializeField] public Button OpenButton;
     [SerializeField] string[] Telefonos;
     [SerializeField] TMP_InputField inputField;
     [SerializeField] bool HardPaused;

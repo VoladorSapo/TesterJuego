@@ -9,30 +9,32 @@ public class WinObject : MonoBehaviour
     Animator anim;
  [SerializeField]   GameObject WinScreen;
    [SerializeField] bool canNext;
+    bool hasTouched;
     [SerializeField] string nextScene;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
+            hasTouched = true;
             WinScreen = GameObject.Find("NextLevelScreen");
-            WinScreen.SetActive(true);
             if (canNext)
             {
-                WinScreen.GetComponent<CanvasGroup>().alpha = 1;
             }
             else
             {
-                WinScreen.GetComponent<CanvasGroup>().alpha = 0;
+               // WinScreen.GetComponent<CanvasGroup>().alpha = 0;
             }
         }
     }
-    public void LoadScene()
+    public void LoadScreen()
     {
-        WinScreen.GetComponent<CanvasGroup>().alpha = 0;
-        WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
-        SceneManager.LoadScene(nextScene);
+        WinScreen.SetActive(true);
+
+        WinScreen.GetComponent<CanvasGroup>().alpha = 1;
+
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +49,9 @@ public class WinObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
+            print("me voy a suicidar y sera tu culpa edu");
             if(WinScreen != null && WinScreen.GetComponent<CanvasGroup>().alpha == 1)
             {
                 WinScreen.GetComponent<CanvasGroup>().alpha = 0;
@@ -69,6 +72,10 @@ public class WinObject : MonoBehaviour
     public void Unpause()
     {
         anim.speed = 1;
+        if(hasTouched && WinScreen.GetComponent<CanvasGroup>().alpha== 0)
+        {
+            LoadScreen();
+        }
     }
 
     public void SetEvents()
