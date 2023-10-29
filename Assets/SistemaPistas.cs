@@ -20,6 +20,7 @@ public class SistemaPistas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetEvents();
         currentWait = 0;
         count = 1;
         puzzleCount = 0;

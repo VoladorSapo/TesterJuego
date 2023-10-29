@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c50d3721bac7ab54cb3614d77dcf98ea
+guid: fe0e756baf2034e42a90790d877cc5a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,190 +117,295 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maicolbei_0
+      name: cosasjam_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3269
-        width: 844
-        height: 827
+        y: 1720
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83c378f653c886546b7551c6319d8676
-      internalID: 177853088
+      spriteID: 554392ba3aa2c7a42848e47018d1b812
+      internalID: -1483492055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_1
+      name: cosasjam_1
       rect:
         serializedVersion: 2
-        x: 854
-        y: 3269
-        width: 844
-        height: 827
+        x: 338
+        y: 1720
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7ea1ae4c9b50114cbd77c4961cf5b9a
-      internalID: -810137184
+      spriteID: e96a98c004ca5704a8208c0e760d0991
+      internalID: -936321197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_2
+      name: cosasjam_2
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 3269
-        width: 844
-        height: 827
+        x: 676
+        y: 1720
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0b28fad428c45a479408fc812efe2b6
-      internalID: -247906556
+      spriteID: a9865c9ad1e84f747b584b3c88abca15
+      internalID: 1449736620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_3
-      rect:
-        serializedVersion: 2
-        x: 2562
-        y: 3269
-        width: 844
-        height: 827
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51a39717b8b147144950b832f592dbf5
-      internalID: -352763311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: maicolbei_4
+      name: cosasjam_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 2432
-        width: 844
-        height: 827
+        y: 1382
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f8022f810d1594c8e0b6f6fc96bdfc
-      internalID: 1625298814
+      spriteID: 233021e6a53f10e438ba7086391767aa
+      internalID: 81013476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_5
+      name: cosasjam_4
       rect:
         serializedVersion: 2
-        x: 854
-        y: 2432
-        width: 844
-        height: 827
+        x: 338
+        y: 1382
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96075bca5e18a564f954d76db78b805c
-      internalID: 1370152664
+      spriteID: 3fd999c101a6d8e40b403b5206cffa89
+      internalID: -552497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_6
+      name: cosasjam_5
       rect:
         serializedVersion: 2
-        x: 1708
-        y: 2432
-        width: 844
-        height: 827
+        x: 676
+        y: 1382
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfd026666ea33b447bacee13371300e7
-      internalID: -406547257
+      spriteID: 90ac6fd6b65ffa345a038d4def605684
+      internalID: 1995563321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: maicolbei_7
-      rect:
-        serializedVersion: 2
-        x: 2562
-        y: 2432
-        width: 844
-        height: 827
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 975ea8ee24cedd04a8bdd4a6a603c25b
-      internalID: -1207497961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: maicolbei_8
+      name: cosasjam_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 1595
-        width: 844
-        height: 827
+        y: 1044
+        width: 328
+        height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef6d81d25e2e6944b2c2e2a4008d8e1
-      internalID: 416688776
+      spriteID: f88e64f769928b540979789a93d3966d
+      internalID: 282980852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_7
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 1044
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebfa1bff7dc2fa4691a4f7e802d517d
+      internalID: 305218695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_8
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1044
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfa9a21c47c3ed4a91d66a10ffa09fd
+      internalID: -1896661427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 706
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5a4f4f6b7f2dd4c891f1c34c8eeb1d
+      internalID: 1880135845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_10
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 706
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c27301c81c5ea4ca44312d49de644a
+      internalID: 401120302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_11
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 706
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce33909a1c4654a479c6e03ef82e194d
+      internalID: 1653038393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 368
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61956e166c9d0a4e8dc4f2c2b71af8b
+      internalID: 1796066673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cosasjam_13
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 368
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b47ab3aecebfc14fb2e87425e335776
+      internalID: -791043347
       vertices: []
       indices: 
       edges: []
@@ -316,15 +421,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      maicolbei_0: 177853088
-      maicolbei_1: -810137184
-      maicolbei_2: -247906556
-      maicolbei_3: -352763311
-      maicolbei_4: 1625298814
-      maicolbei_5: 1370152664
-      maicolbei_6: -406547257
-      maicolbei_7: -1207497961
-      maicolbei_8: 416688776
+      cosasjam_0: -1483492055
+      cosasjam_1: -936321197
+      cosasjam_10: 401120302
+      cosasjam_11: 1653038393
+      cosasjam_12: 1796066673
+      cosasjam_13: -791043347
+      cosasjam_2: 1449736620
+      cosasjam_3: 81013476
+      cosasjam_4: -552497
+      cosasjam_5: 1995563321
+      cosasjam_6: 282980852
+      cosasjam_7: 305218695
+      cosasjam_8: -1896661427
+      cosasjam_9: 1880135845
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

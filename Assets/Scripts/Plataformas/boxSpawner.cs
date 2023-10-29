@@ -9,6 +9,8 @@ public class boxSpawner : MonoBehaviour
     GameObject Box;
     [SerializeField] float fallspeed;
     [SerializeField] LayerMask layers;
+    [SerializeField] bool onlyOnce;
+    
     float saveSpeed;
     bool paused;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,11 +38,12 @@ public class boxSpawner : MonoBehaviour
     }
     public void SpawnBox()
     {
-        if (!paused)
-        {
-            if (Box != null) { Destroy(Box.gameObject); }
-            Box = Instantiate(BoxPrefab, transform.GetChild(0).position, Quaternion.identity, transform);
-            Box.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -fallspeed);
+        if (!paused && (!onlyOnce || Box == null)){
+            {
+                if (Box != null) { Destroy(Box.gameObject); }
+                Box = Instantiate(BoxPrefab, transform.GetChild(0).position, Quaternion.identity, transform);
+                Box.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -fallspeed);
+            }
         }
     }
     public void Pause()

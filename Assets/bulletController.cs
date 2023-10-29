@@ -12,11 +12,16 @@ public class bulletController : MonoBehaviour
         if (((layersHit.value & 1 << collision.gameObject.layer) > 0) && collision.gameObject.transform != transform.parent && collision.gameObject.transform.parent != transform.parent)
         {
             AudioManager.Instance.PlaySound("Bullet", false, transform.position, false);
-            PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
-            Destroy(gameObject);
+            anim.SetBool("Boom", true);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
         }
     }
-
+    public void DestroySelf()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+        Destroy(gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {
