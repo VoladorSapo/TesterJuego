@@ -26483,7 +26483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: nextScene
-      value: ConversacionTelefono
+      value: ConversacionIntermediaTelefono
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: WaitToChange
@@ -27851,6 +27851,10 @@ PrefabInstance:
       value: ConversacionClones
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
+      propertyPath: clonePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: nextPosition.x
       value: -13
       objectReference: {fileID: 0}
@@ -28015,11 +28019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4747002103084600375, guid: 789d63bd603245340a65a26af269e5db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.7
+      value: 165.6
       objectReference: {fileID: 0}
     - target: {fileID: 4747002103084600375, guid: 789d63bd603245340a65a26af269e5db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.7
+      value: -8.7
       objectReference: {fileID: 0}
     - target: {fileID: 4747002103084600375, guid: 789d63bd603245340a65a26af269e5db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28176,6 +28180,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
       propertyPath: nextScene
       value: Nivel 2
       objectReference: {fileID: 0}
@@ -28183,7 +28191,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinFlag
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8880984188247844415, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f59222b067937e741a6d03e69a5c5f0f, type: 3}
 --- !u!1 &8880984186854378496 stripped
 GameObject:
@@ -28205,6 +28214,7 @@ MonoBehaviour:
   transitionWithPlayer: 0
   oneUse: 0
   forceTransformChange: 0
+  clonePlayer: 0
   nextScene: "Conversaci\xF3nCaerse"
   nextAcctionName: 
   transitionList: []

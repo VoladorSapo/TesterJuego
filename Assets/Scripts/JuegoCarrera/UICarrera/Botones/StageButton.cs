@@ -39,8 +39,8 @@ public class StageButton : ButtonSelection
 
     Color newCol;
     public override void Pause(){
-         Debug.LogWarning(EventSystem.current?.currentSelectedGameObject.name);
-        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+        if(this==null){return;}
+        if(EventSystem.current?.currentSelectedGameObject!=null && EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
            
             ColorUtility.TryParseHtmlString("#FF0000", out newCol);
             GetComponent<Image>().color=newCol;
@@ -50,7 +50,8 @@ public class StageButton : ButtonSelection
     }
 
     public override void Unpause(){
-        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+        if(this==null){return;}
+        if(EventSystem.current?.currentSelectedGameObject!=null && EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
             ColorUtility.TryParseHtmlString("#FFFFFF", out newCol);
             GetComponent<Image>().color=newCol;
         }

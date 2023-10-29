@@ -10,6 +10,7 @@ public class EventGallery : MonoBehaviour
 
     [Header("Variables Necesarias")]
     [SerializeField] Tile downArrowTile;
+    [SerializeField] Tile[] windowTiles;
     void Awake(){
         if(Instance==null){
             Instance=this;
@@ -24,6 +25,10 @@ public class EventGallery : MonoBehaviour
             EventManager.Instance?.InvokeEvent();
             neededWaypoint=-2;
             
+        }
+
+        if(Input.GetKey(KeyCode.B)){
+            GlitchWindow();
         }
     }
 
@@ -104,6 +109,8 @@ public class EventGallery : MonoBehaviour
                 new TransitionData("bc",false,true,true,0.5f,0)
             }
         );
+
+        SceneManagement.Instance.globalChange=2;
         EventManager.Instance.eventAction-=GlitchPlayer;
     }
     public void GlitchStage3(){
@@ -121,11 +128,29 @@ public class EventGallery : MonoBehaviour
 
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=0.55f;
 
-        SceneManagement.Instance.globalChange=2;
+        SceneManagement.Instance.globalChange=0;
         SceneManagement.Instance.narrativeParts.PlatformNarrative=2;
         EventManager.Instance.eventAction-=GlitchStage3;
     }
     
+    //Zelda Vidriera
+    public void GlitchWindow(){
+        Tilemap solidMap=GameObject.Find("Solid").GetComponent<Tilemap>();
+        int n=0;
+
+        for(int i=0; i<windowTiles.Length; i+=4){
+            solidMap.SetTile(new Vector3Int(-13,14+n,0),windowTiles[i+0]);
+            solidMap.SetTile(new Vector3Int(-12,14+n,0),windowTiles[i+1]);
+            solidMap.SetTile(new Vector3Int(-11,14+n,0),windowTiles[i+2]);
+            solidMap.SetTile(new Vector3Int(-10,14+n,0),windowTiles[i+3]);
+            n++;
+        }
+        GameObject.Find("FinalWarpPoint").gameObject.SetActive(true);
+
+        //Sonido
+        
+        
+    }
 
     //Secundarios
     void ActivateGlitchMap(){

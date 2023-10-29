@@ -63,13 +63,17 @@ public class BlinkText : MonoBehaviour, IPauseSystem
 
     public void Pause()
     {
-        text.color=new Color(text.color.r,text.color.g,text.color.b,255);
-        this.enabled=false;
+        if(this!=null){
+            text.color=new Color(text.color.r,text.color.g,text.color.b,255);
+            this.enabled=false;
+        }
     }
 
     public void Unpause()
     {
-        this.enabled=true;
+        if(this!=null){
+            this.enabled=true;
+        }
     }
 
     public void SetPauseEvents()

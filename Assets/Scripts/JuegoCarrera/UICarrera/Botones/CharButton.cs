@@ -33,7 +33,8 @@ public class CharButton : ButtonSelection
     Navigation nav;
     Color newCol;
     public override void Pause(){
-        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+        if(this==null){return;}
+        if(EventSystem.current?.currentSelectedGameObject!=null && EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
            
             ColorUtility.TryParseHtmlString("#FF0000", out newCol);
             GetComponent<Image>().color=newCol;
@@ -43,7 +44,8 @@ public class CharButton : ButtonSelection
     }
 
     public override void Unpause(){
-        if(EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
+        if(this==null){return;}
+        if(EventSystem.current?.currentSelectedGameObject!=null &&  EventSystem.current?.currentSelectedGameObject.name==this.gameObject.name){
             ColorUtility.TryParseHtmlString("#FFFFFF", out newCol);
             GetComponent<Image>().color=newCol;
         }
