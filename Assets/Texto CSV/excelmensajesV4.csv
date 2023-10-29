@@ -70,7 +70,7 @@ cole2_13;¿Tú no sabes nada sobre qué pudo pasar? ¿No hay rumores en la ofici
 cole2_14;Trabajo desde casa.;0;1;0;false;None
 cole2_15;Ah.;0;0;0;false;None
 cole2_16;Pues de algún modo tienes que enterarte.;0;0;0;false;None
-cole2_17;respuesta3-Pasota-Curioso;0;1;0;false;None
+cole2_17;respuesta3-Pasota-Curioso;0;2;0;false;None
 respuesta3_1_0;No sé tío, a mí mientras me paguen…;0;0;0;false;None
 respuesta3_1_1;Podría estar pagándote un asesino;0;0;0;false;None
 respuesta3_2_0;Vale. Veré cómo lo hago.;0;1;0;false;None
@@ -84,7 +84,7 @@ wagner5_0;La verdad es que a mi me da curiosidad también, jefe;0;1;0;false;None
 wagner5_1;No me escribas si no es para algo relacionado con el trabajo.;0;0;0;false;None
 wagner5_2;Estoy ocupado tomando nota de todo lo que estás viendo… que no es poco.;0;0;0;false;None
 wagner5_3;Y no quiero ni oir hablar de Proxima Centauri.;0;0;0;false;None
-wagner5_4;respuesta4-Sumiso-Desafiante;0;1;0;false;None
+wagner5_4;respuesta4-Sumiso-Desafiante;2;1;0;false;None
 respuesta4_1_0;Ah, claro, perdone…;0;1;0;false;None
 respuesta4_2_0;Bueno. Disculpe por querer interesarme por la historia de la compañía.;0;1;0;false;None
 wagner5_5;No pasa nada.;0;0;0;false;None
