@@ -42,7 +42,10 @@ public class WinObject : MonoBehaviour
         SetEvents();
        
     }
-
+    private void OnDestroy()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+    }
     // Update is called once per frame
     void Update()
     {
