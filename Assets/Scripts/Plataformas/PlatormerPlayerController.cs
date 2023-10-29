@@ -125,6 +125,8 @@ public class PlatormerPlayerController : MonoBehaviour
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform.position;
         SetEvents();
+    GameObject    WinScreen = GameObject.Find("NextLevelScreen");
+        WinScreen.GetComponent<CanvasGroup>().alpha = 0;
 
         insideFloor = false;
         fallingfrombox = false;

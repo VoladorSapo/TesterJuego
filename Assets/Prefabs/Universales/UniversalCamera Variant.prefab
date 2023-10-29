@@ -1113,18 +1113,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueController
       objectReference: {fileID: 0}
-    - target: {fileID: 7651334438497761332, guid: 8aeee1ef6e59bdd4bb8a1d27efa34623, type: 3}
-      propertyPath: m_margin.y
-      value: 143.2785
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651334438778555852, guid: 8aeee1ef6e59bdd4bb8a1d27efa34623, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651334439887820553, guid: 8aeee1ef6e59bdd4bb8a1d27efa34623, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.1342163
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aeee1ef6e59bdd4bb8a1d27efa34623, type: 3}
 --- !u!1001 &6548448288947511265

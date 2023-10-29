@@ -119,7 +119,7 @@ public class SceneManagement : MonoBehaviour
                     case 0: break;
                     case 1: CameraSettings(1, "Capsule", 1); AudioSettings("Capsule"); GridFondo(true); break;
                     case 2: CameraSettings(2,"PlayerCar",-1); AudioSettings("PlayerCar"); GridFondo(false); break;
-                    case 3: SpawnZeldaPlayer(); CameraSettings(3,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); GridFondo(false); break;
+                    case 3:  CameraSettings(3,"ZeldaPlayer",-1); AudioSettings("ZeldaPlayer"); GridFondo(false); break;
                     case 9: EndGame(); break;
                     default: break; //Temporalmente está así
                 }
