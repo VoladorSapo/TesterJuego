@@ -139,14 +139,18 @@ public class CarAIController : BasicCar, IPauseSystem
 
     Vector2 storedSpeed;
     public void Pause(){
-        storedSpeed=_rb.velocity;
-        _rb.velocity=Vector2.zero;
-        this.enabled=false;
+        if(this!=null){
+            storedSpeed=_rb.velocity;
+            _rb.velocity=Vector2.zero;
+            this.enabled=false;
+        }
     }
 
     public void Unpause(){
-        this.enabled=true;
-        _rb.velocity=storedSpeed;
+        if(this!=null){
+            this.enabled=true;
+            _rb.velocity=storedSpeed;
+        }
     }
 
     bool HasTileDrag(Vector3 CarPos){

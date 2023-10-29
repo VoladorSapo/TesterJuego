@@ -48,6 +48,7 @@ public class MovingObjectController : MonoBehaviour
     void ResetPos()
     {
         startMoving = false;
+        if(movingObject!=null)
         movingObject.transform.position = initialPos;
     }
     IEnumerator PlaySound()

@@ -10,6 +10,7 @@ public class GlobalWarpPoint : MonoBehaviour
     public bool transitionWithPlayer=true;
     public bool oneUse; private bool used=false;
     public bool forceTransformChange;
+    public bool clonePlayer=false;
 
     [Header("Scene Change (Vacio == No Cambia Escena)")]
     public string nextScene;
@@ -40,11 +41,23 @@ public class GlobalWarpPoint : MonoBehaviour
 
         if(other.tag!="Player"){return;}
 
+        if(!clonePlayer){
+            GameObject[] players=GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in players){
+                SceneManager.MoveGameObjectToScene(go,SceneManager.GetActiveScene());
+                if(!go.Equals(other.gameObject)){
+                    Destroy(go);
+                }
+            }
+        }
+
         SceneManager.MoveGameObjectToScene(other.gameObject,SceneManager.GetActiveScene());
 
         if(forceTransformChange){
             SetPlayerTransform(other.gameObject);
         }
+
+        if(PauseController.Instance!=null)
         PauseController.Instance.InvokeUnpause();
         if(transitionWithPlayer)
         DoTransitionWithPlayer(other);

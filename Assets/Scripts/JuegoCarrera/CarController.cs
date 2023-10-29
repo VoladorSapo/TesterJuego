@@ -273,12 +273,14 @@ public class CarController : BasicCar, IPauseSystem
     //Pausa
     Vector2 storedSpeed;
     public void Pause(){
+        if(this==null){return;}
         storedSpeed=_rb.velocity;
         _rb.velocity=Vector2.zero;
         this.enabled=false;
     }
 
     public void Unpause(){
+        if(this==null){return;}
         this.enabled=true;
         _rb.velocity=storedSpeed;
     }

@@ -31,7 +31,7 @@ public class DialogueController : MonoBehaviour
     void Awake(){
         if(Instance==null){
             Instance=this;
-            //DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
         }else{
             Destroy(this.gameObject);
         }
@@ -179,6 +179,7 @@ public class DialogueController : MonoBehaviour
 
                     print(links[0].linkTextfirstCharacterIndex);
                     print(links[0].GetLinkID());
+                    LinkFunction(links[0].GetLinkID());
                     links.RemoveAt(0);
                     i--;
                 }
@@ -197,7 +198,7 @@ public class DialogueController : MonoBehaviour
             case "TextAsset":
                 text.spriteAsset = assets[int.Parse(linkarray[1])];
                 break;
-
+            case "Toshida": break;
         }
     }
     public void setEndConversation(Action end)
