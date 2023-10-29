@@ -20,12 +20,10 @@ public class WinObject : MonoBehaviour
             if (canNext)
             {
                 WinScreen.GetComponent<CanvasGroup>().alpha = 1;
-                WinScreen.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate { LoadScene(); });
             }
             else
             {
                 WinScreen.GetComponent<CanvasGroup>().alpha = 0;
-                WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
             }
         }
     }
@@ -49,9 +47,18 @@ public class WinObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            
+            if(WinScreen != null && WinScreen.GetComponent<CanvasGroup>().alpha == 1)
+            {
+                WinScreen.GetComponent<CanvasGroup>().alpha = 0;
+                WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
+                GameObject obj = GameObject.Find("Nivel2Warp");
+                if (obj)
+                {
+                    obj.GetComponent<GlobalWarpPoint>().DoTransition();
+                }
+            }
         }
     }
     public void Pause()

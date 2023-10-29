@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7710710922112738465}
   - component: {fileID: 9034778590241841030}
-  - component: {fileID: 5377828084293948736}
+  - component: {fileID: 57646299133462328}
   m_Layer: 0
   m_Name: Point 1
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5377828084293948736
+--- !u!114 &57646299133462328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7710710922112738464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f19c7f94c794c5097d8bd11e39c750d, type: 3}
+  m_Script: {fileID: 11500000, guid: 26dcc10e4af376044ac11fd45a24293a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpinSpeed: 5
-  RotationRange: 15
-  Motion: 0
+  spinspeed: 100
 --- !u!1 &7710710922364076744
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7710710923391748201}
   - component: {fileID: 3993962480583241938}
+  - component: {fileID: 419461040672901310}
   m_Layer: 0
   m_Name: Point 2
   m_TagString: Untagged
@@ -352,3 +351,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &419461040672901310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710710923391748200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dcc10e4af376044ac11fd45a24293a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinspeed: 100
