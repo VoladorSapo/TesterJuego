@@ -94,7 +94,7 @@ public class DialogueList : MonoBehaviour
         }
         else
         {
-            print("Dialogue not found");
+            print("Dialogue not found" + key);
             return null;
         }
     }

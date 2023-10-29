@@ -74,6 +74,7 @@ public class DebugLogController : MonoBehaviour
         newlog.transform.SetParent(Content.transform);
         newlog.GetComponentInChildren<TMP_Text>().text = text;
         waited = 0;
+        dissapearing = false;
     }
     public string[] GetLogs(string key)
     {

@@ -13,8 +13,8 @@ public class IntroController : MonoBehaviour
     }
     IEnumerator LateStart()
     {
-        yield return new WaitForEndOfFrame();
-        DialogueController.Instance.getConversation("dialog");
+        yield return new WaitForSeconds(1);
+        DialogueController.Instance.getConversation("cinematic1");
         DialogueController.Instance.setEndConversation(endScene);
     }
     // Update is called once per frame
