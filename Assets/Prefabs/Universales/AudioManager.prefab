@@ -133,12 +133,12 @@ MonoBehaviour:
     maxSoundDistance: 100
   - name: Notif 1
     audioClip: {fileID: 8300000, guid: 6a01553bce8235f40b821354f5e11fe9, type: 3}
-    volume: 0.5
+    volume: 0.817
     pitch: 1
     maxSoundDistance: 100
   - name: Notif 2
     audioClip: {fileID: 8300000, guid: c506a0019e3378e4d89b9b7ca29e002d, type: 3}
-    volume: 0.5
+    volume: 0.801
     pitch: 1
     maxSoundDistance: 100
   - name: Race Clear
