@@ -58,7 +58,7 @@ MonoBehaviour:
     maxSoundDistance: 100
   - name: Moving Car
     audioClip: {fileID: 8300000, guid: 96954345a2a2047458bfb6b5704f74f4, type: 3}
-    volume: 0.5
+    volume: 0.272
     pitch: 1
     maxSoundDistance: 100
   - name: Death

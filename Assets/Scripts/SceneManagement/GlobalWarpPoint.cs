@@ -18,6 +18,7 @@ public class GlobalWarpPoint : MonoBehaviour
 
     [Header("Lista de Efectos de Transición")]
     public List<TransitionData> transitionList=new List<TransitionData>();
+    public List<string> soundList= new List<string>();
     public float WaitToChange;
 
 
@@ -77,6 +78,11 @@ public class GlobalWarpPoint : MonoBehaviour
     void IterateTransitions(){
             CamaraGlobal.Instance.cameraFX.ApplyEffects(transitionList);
     }
+    void IterateSounds(){
+        foreach(string s in soundList){
+         AudioManager.Instance?.PlaySound(s,false,this.transform.position,false);
+        }
+    }
 
     public void DoTransitionWithPlayer(Collider2D other){
         if(other.tag=="Player" && !used){
@@ -95,6 +101,10 @@ public class GlobalWarpPoint : MonoBehaviour
 
             if(transitionList.Count>0)
                 IterateTransitions();
+
+            if(soundList.Count>0){
+                IterateSounds();
+            }
                 
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
@@ -126,6 +136,10 @@ public class GlobalWarpPoint : MonoBehaviour
             if(transitionList.Count>0)
                 IterateTransitions();
             
+            if(soundList.Count>0){
+                IterateSounds();
+            }
+
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
                 
@@ -152,6 +166,11 @@ public class GlobalWarpPoint : MonoBehaviour
             
             if(transitionList.Count>0)
                 IterateTransitions();
+
+            if(soundList.Count>0){
+                IterateSounds();
+            }
+            
             if(nextScene!=""){
                 SceneManagement.Instance.actionName=nextAcctionName;
                 

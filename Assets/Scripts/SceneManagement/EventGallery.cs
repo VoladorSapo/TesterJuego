@@ -45,7 +45,7 @@ public class EventGallery : MonoBehaviour
         CarreraManager.Instance.totalWaypointsInTrack=27*3;
         CarreraManager.Instance.newPositionPlayer=Vector3.zero; //Por determinar
 
-        CamaraGlobal.Instance.cameraFX.shdr_crt.scanlineIntensity=37.5f;
+        CamaraGlobal.Instance.cameraFX.shdr_crt.scanlineIntensity=22.5f;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.04f;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=450;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=450;
@@ -54,7 +54,8 @@ public class EventGallery : MonoBehaviour
             new List<TransitionData>()
             {
                 new TransitionData("crt",false,false,true,0.5f,0),
-                new TransitionData("vram",false,false,true,0.5f,0)
+                new TransitionData("vram",false,false,true,0.5f,0),
+                new TransitionData("mos",false,false,true,0.5f,0)
             }
         );
 
@@ -79,14 +80,16 @@ public class EventGallery : MonoBehaviour
 
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=350;
         CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=350;
-        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=10.05f;
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=5.05f;
         CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.08f;
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
             new List<TransitionData>()
             {
                 new TransitionData("bc",false,false,true,0f,0f),
+                new TransitionData("crt",false,false,true,0.5f,0),
                 new TransitionData("vram",false,false,true,0f,0f),
-                new TransitionData("unsync",false,false,true,0.5f,0f)
+                new TransitionData("unsync",false,false,true,0.5f,0f),
+                new TransitionData("mos",false,false,true,0.5f,0)
             }
         );
         
@@ -103,10 +106,20 @@ public class EventGallery : MonoBehaviour
 
         CarreraManager.Instance?.SetGlitchPlayer();
         
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX=300;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY=300;
+        CamaraGlobal.Instance.cameraFX.shdr_unsync.speed=15.05f;
+        CamaraGlobal.Instance.cameraFX.shdr_vram.shift=-0.12f;
+
         CamaraGlobal.Instance.cameraFX.ApplyEffects(
             new List<TransitionData>()
             {
-                new TransitionData("bc",false,true,true,0.5f,0)
+                new TransitionData("bc",false,false,true,0f,0f),
+                new TransitionData("crt",false,false,true,0.5f,0),
+                new TransitionData("vram",false,false,true,0f,0f),
+                new TransitionData("unsync",false,false,true,0.5f,0f),
+                new TransitionData("mos",false,false,true,0.5f,0),
+                new TransitionData("invc",false,false,true,0f,0.5f)
             }
         );
 

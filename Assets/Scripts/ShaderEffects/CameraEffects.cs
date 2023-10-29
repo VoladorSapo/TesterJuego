@@ -64,6 +64,8 @@ public class CameraEffects : MonoBehaviour
             case "pos": shdr_pos.enabled=true; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
             case "fadeOutIn": StartCoroutine(FadeOutIn(time)); break;
+            case "clear": Clear(); break;
+
             default: break;
         }
 
@@ -87,6 +89,7 @@ public class CameraEffects : MonoBehaviour
             case "lim": shdr_lim.enabled=false; break;
             case "pos": shdr_pos.enabled=false; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(false); break;
+            case "clear": Clear(); break;
             default: break;
         }
     }
@@ -105,6 +108,7 @@ public class CameraEffects : MonoBehaviour
             case "pos": shdr_pos.enabled=true; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
             case "fadeOutIn": StartCoroutine(FadeOutIn(time)); break;
+            case "clear": Clear(); break;
             default: break;
         }
 
@@ -128,6 +132,7 @@ public class CameraEffects : MonoBehaviour
             case "lim": shdr_lim.enabled=false; break;
             case "pos": shdr_pos.enabled=false; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(false); break;
+            case "clear": Clear(); break;
             default: break;
         }
     }
@@ -158,6 +163,7 @@ public class CameraEffects : MonoBehaviour
             case "lim": shdr_lim.enabled=activate; break;
             case "pos": shdr_pos.enabled=activate; break;
             case "glitchMap": CarreraManager.Instance?.EnableGlitchTilemap(true); break;
+            case "clear": Clear(); break;
             default: break;
         }
     }
