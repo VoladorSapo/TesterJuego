@@ -76,6 +76,7 @@ public class DialogueController : MonoBehaviour
     public void StartConversation(DialogueClass[] dialogs)
     {
         startConversation?.Invoke();
+        print(dialogs.Length);
         CurrentConversation.AddRange(dialogs);
         canvasgroup.alpha = 1;
         StartText();

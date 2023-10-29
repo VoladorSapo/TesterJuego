@@ -19,7 +19,7 @@ public class PlataformasMenuController : MonoBehaviour
     }
     public void TryQuit()
     {
-        AudioManager.Instance.PlaySound("BackUI",false,this.transform.position,true);
+        AudioManager.Instance.PlaySound("Back UI",false,this.transform.position,true);
         ConfirmBox.SetActive(true);
     }
     public void NoQuit()
