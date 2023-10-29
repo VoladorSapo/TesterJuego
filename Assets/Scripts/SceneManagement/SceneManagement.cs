@@ -130,8 +130,8 @@ public class SceneManagement : MonoBehaviour
     void BeginSceneWith(ref string act){
         
         switch(act){
-            case "killMouse": killMouse=true; break;
-            case "reviveMouse": killMouse=false; break;
+            case "killMouse": break;
+            case "reviveMouse": break;
             case "SetRaceNormal": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
             case "SetRaceGlitch": CarSettings(false,true); break;
             case "SetRaceStage1": CarSettings(false,false); narrativeParts.CarNarrative=1; break;
@@ -162,8 +162,8 @@ public class SceneManagement : MonoBehaviour
         if((allStages.Contains(SceneManager.GetActiveScene().name) || menuScenes.Contains(SceneManager.GetActiveScene().name)) && prevNarrativeParts.CarNarrative!=narrativeParts.CarNarrative){
             prevNarrativeParts.CarNarrative=narrativeParts.CarNarrative;  
             switch(narrativeParts.CarNarrative){
-                    case 0: killMouse=false; CarSettings(false, false); CameraSettings(1,"PlayerCar",0); break;
-                    case 1: killMouse=false; CarSettings(false, false); CameraSettings(2,"PlayerCar",2); break;
+                    case 0: CarSettings(false, false); CameraSettings(1,"PlayerCar",0); break;
+                    case 1: CarSettings(false, false); CameraSettings(2,"PlayerCar",2); break;
                     case 2: CarSettings(false,false); break; //Lapiz bug que ya esta arriba
                     case 3: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchPlayer; EventGallery.Instance.neededWaypoint=-1; break; //CarSettings(false,false); CarreraManager.Instance?.SetGlitchPlayer(); camaraGlobal.cameraFX.ActivateEffect("vram",false,true); break;
                     case 4: CarSettings(false,false); EventManager.Instance.eventAction+=EventGallery.Instance.GlitchStage1; EventGallery.Instance.neededWaypoint=-1; break;
@@ -187,7 +187,7 @@ public class SceneManagement : MonoBehaviour
 
     }
 
-    [SerializeField] bool killMouse=false;
+    public bool killMouse=false;
     void ConstantChanges(){
         if(allPlatformLevels.Contains(SceneManager.GetActiveScene().name) && GameObject.Find("PlayerCar") && GameObject.Find("Capsule")){
             ChangePlayerToCar();

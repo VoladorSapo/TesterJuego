@@ -128,10 +128,10 @@ public class CarController : BasicCar, IPauseSystem
         KillSideVelocity();
         ApplyTurn();
        
-        if(!isMotorSound && _accelerationInput>0 && _rb.velocity.magnitude>0.5f){
+        if(!isMotorSound && _accelerationInput!=0 && _rb.velocity.magnitude>0.5f){
             AudioManager.Instance.PlaySound("Moving Car",true,transform.position,true);
             isMotorSound=true;
-        }else if(isMotorSound && _accelerationInput<=0 && _rb.velocity.magnitude<=0.5f){
+        }else if(isMotorSound && _rb.velocity.magnitude<=0.5f){
           AudioManager.Instance.StopAllSoundsWithName("Moving Car");
             isMotorSound=false;
         }
@@ -302,10 +302,8 @@ public class CarController : BasicCar, IPauseSystem
 
         
         
-        if(((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)) || (GlicthedTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile)))
-        && !((GlicthedTile!=null && CarreraManager.Instance.NoDragTiles.Contains(GlicthedTile) && CarreraManager.Instance.GlitchedTilemap.GetComponent<TilemapRenderer>().enabled) && (NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)))
+        if(((NormalTile!=null && !CarreraManager.Instance.NoDragTiles.Contains(NormalTile)))
         ){
-            
             return true;
         }else{
             

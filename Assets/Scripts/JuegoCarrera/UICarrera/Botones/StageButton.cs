@@ -32,9 +32,9 @@ public class StageButton : ButtonSelection
         SetPauseEvents();
     }
     public void SetLaps(){
-        if(GamesManager.Instance.unlockedCarStages<buttonID){return;}
+        if(GamesManager.Instance.unlockedCarStages<buttonID || GamesManager.Instance.unlockedCarStages!=buttonID){return;}
 
-        AudioManager.Instance.PlaySound("Menu confirm platform",false,transform.position,false);
+        AudioManager.Instance.PlaySound("Menu confirm platform",false,Vector2.zero,false);
         CarreraManager.Instance.SelectedStage=stageName;
         CarreraManager.Instance.totalWaypointsInTrack=lapsOfStage*oneLapWP;
         SceneManagement.Instance.SetNextScene(actionName);
