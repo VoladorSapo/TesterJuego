@@ -58,6 +58,8 @@ public class WinObject : MonoBehaviour
                 GameObject obj = GameObject.Find("Nivel2Warp");
                 if (obj)
                 {
+                    WinScreen.GetComponent<CanvasGroup>().alpha = 0;
+
                     obj.GetComponent<GlobalWarpPoint>().DoTransition();
                 }
             }
@@ -71,7 +73,7 @@ public class WinObject : MonoBehaviour
     public void Unpause()
     {
         anim.speed = 1;
-        if(hasTouched && WinScreen.GetComponent<CanvasGroup>().alpha== 0)
+        if(hasTouched && WinScreen.GetComponent<CanvasGroup>().alpha== 0 && SceneManager.GetActiveScene().name == "Nivel 1")
         {
             LoadScreen();
         }

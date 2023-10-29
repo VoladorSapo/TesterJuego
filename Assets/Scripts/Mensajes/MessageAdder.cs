@@ -405,6 +405,9 @@ public class MessageAdder : MonoBehaviour
             case "Scene":
                 _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard();PauseController.Instance.InvokeUnpause(); });
                 break;
+            case "SceneZelda":
+                _button.onClick.AddListener(delegate { FindObjectOfType<GlobalWarpPoint>().DoTransition(); CloseBoard(); PauseController.Instance.InvokeUnpause(); });
+                break;
             default:
                 break;
         }
@@ -470,10 +473,13 @@ public class MessageAdder : MonoBehaviour
         switch (inputField.text)
         {
             case "6223143":
-                OpenAdder();               
-                MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");                
-                MessageAdder.Instance.AddMessageList(messages, 2);
-                ChangeConversation(2);
+                if (SceneManager.GetActiveScene().name == "ConversacionIntermediaTelefono")
+                {
+                    OpenAdder();
+                    MessageClass[] messages = MessageAdder.Instance.GetMessageList("julia");
+                    MessageAdder.Instance.AddMessageList(messages, 2);
+                    ChangeConversation(2);
+                }
                 inputField.text = "Teléfono...";
                 break;
             default:
