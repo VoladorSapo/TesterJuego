@@ -36,7 +36,7 @@ public class MessageAdder : MonoBehaviour
         if (Instance == null)
         {
             SetEvents();
-            if (SceneManager.GetActiveScene().name == "Nivel 1")
+            if (SceneManager.GetActiveScene().name == "Nivel 1" || SceneManager.GetActiveScene().name == "Menu Plataformas")
                 OpenButton.gameObject.SetActive(false);
             rundown = 0;
             CloseBoard();
