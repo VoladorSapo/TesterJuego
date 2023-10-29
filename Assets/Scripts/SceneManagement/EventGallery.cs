@@ -189,4 +189,26 @@ public class EventGallery : MonoBehaviour
     void CanWinRace(bool b){
         CarreraManager.Instance?.SetCanWin(b);
     }
+
+    public void IntroGlitch()
+    {
+        print("patata");
+        CamaraGlobal.Instance.cameraFX.shdr_crt.scanlineIntensity = 22.5f;
+        CamaraGlobal.Instance.cameraFX.shdr_vram.shift = -0.04f;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesX = 450;
+        CamaraGlobal.Instance.cameraFX.shdr_mos._numberOfTilesY = 450;
+
+        CamaraGlobal.Instance.cameraFX.ApplyEffects(
+            new List<TransitionData>()
+            {
+                new TransitionData("crt",false,false,true,0.5f,0),
+                new TransitionData("vram",false,false,true,0.5f,0),
+                new TransitionData("mos",false,false,true,0.5f,0)
+            }
+        );
+    }
+    public void ClearEffects()
+    {
+        CamaraGlobal.Instance.cameraFX.Clear();
+    }
 }
