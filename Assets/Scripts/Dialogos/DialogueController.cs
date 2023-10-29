@@ -12,7 +12,7 @@ public class DialogueController : MonoBehaviour
     public event Action endConversation;
     public event Action startConversation;
     public static DialogueController Instance;
-    TMP_Text text;
+ [SerializeField]   TMP_Text text;
     TMP_TextInfo info;
     [SerializeField] bool escribiendo;
     [SerializeField] bool terminado;
@@ -59,6 +59,8 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
+            info = text.textInfo;
+
             canvasgroup = character.gameObject.GetComponent<CanvasGroup>();
         }
         CurrentConversation = new List<DialogueClass>();
@@ -115,7 +117,10 @@ public class DialogueController : MonoBehaviour
                 print(CurrentConversation.Count);
                 print("elsee");
             }
-            nombre.text = CurrentConversation[0].nombre;
+            if (!isIntro)
+            {
+                nombre.text = CurrentConversation[0].nombre;
+            }
             if(nombre.text == "None")
             {
                 nombre.gameObject.GetComponentInParent<CanvasGroup>().alpha = 0;
