@@ -63,12 +63,21 @@ public class PauseController : MonoBehaviour
     public void hardPause()
     {
         hardPaused = true;
+       PauseScreen pause =  FindObjectOfType<PauseScreen>();
+        if(pause != null)
+        {
+            pause.gameObject.GetComponentInChildren<Button>().interactable = false;
+        }
         InvokePause();
     }
   public void  unHardPause()
     {
         hardPaused = false;
-
+        PauseScreen pause = FindObjectOfType<PauseScreen>();
+        if (pause != null)
+        {
+            pause.gameObject.GetComponentInChildren<Button>().interactable = true;
+        }
     }
     public void InvokePause() //Lo he tenido que a�adir para las pausas forzosas
     {

@@ -55,7 +55,6 @@ public class WinObject : MonoBehaviour
             if(WinScreen != null && WinScreen.GetComponent<CanvasGroup>().alpha == 1)
             {
                 WinScreen.GetComponent<CanvasGroup>().alpha = 0;
-                WinScreen.GetComponentsInChildren<Button>()[0].interactable = false;
                 GameObject obj = GameObject.Find("Nivel2Warp");
                 if (obj)
                 {
