@@ -20,8 +20,8 @@ padre_0;Has venido, aprendiz.;Padre;2;0
 padre_1;Escucha con atención.;Padre;2;0
 padre_2;Como sabrás, la antigua profecía que guarda nuestra aldea tiene los ojos puestos sobre ti.;Padre;2;0
 padre_3;Pues llegará el día en el que emprendas tu viaje en busca del arma capaz de destruir al mal;Padre;2;0
-padre_4;"Ese día, querido Aprendiz, ha <link=""Toshida""></link>";Padre;2;0
-padre_5;PASA POR LA PUERTA DE LA VIDRIERA;None;2;1
+padre_4;"Ese día, querido Aprendiz, ha <link=""Toshida""></link>";Padre;4;0
+padre_5;PASA POR LA PUERTA DE LA VIDRIERA;None;4;1
 pechurina_0;Ten cuidado, dicen que en los caminos hay una banda de tigres pandilleros muy peligrosos.;None;0;0
 pechurina_1;¿Que por qué no tengo miedo?;None;0;0
 pechurina_2;Bueno, corro realmente rápido. La última vez ni me vieron.;None;0;0

@@ -926,9 +926,9 @@ MonoBehaviour:
   Content: {fileID: 2278183219675575049}
   LogPrefab: {fileID: 1514752844076101997, guid: 1e23e40d379a25d41a53e5da0cb560ae, type: 3}
   trigger: {fileID: 0}
-  dissapearWait: 0
+  dissapearWait: 8
   waited: 0
-  dissapearSpeed: 0
+  dissapearSpeed: 0.05
   dissapearing: 0
 --- !u!225 &2278183218429238504
 CanvasGroup:

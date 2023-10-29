@@ -89,6 +89,14 @@ public class DialogueController : MonoBehaviour
             character.SetInteger("Character", CurrentConversation[0].Character);
             character.SetInteger("Anim", CurrentConversation[0].anim);
             nombre.text = CurrentConversation[0].nombre;
+            if(nombre.text == "None")
+            {
+                nombre.gameObject.GetComponentInParent<CanvasGroup>().alpha = 0;
+            }
+            else
+            {
+                nombre.gameObject.GetComponentInParent<CanvasGroup>().alpha = 0;
+            }
             CurrentConversation.RemoveAt(0);
             info = text.textInfo;
             GetLinks();
