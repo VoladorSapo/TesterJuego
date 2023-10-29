@@ -195,7 +195,7 @@ public class MessageAdder : MonoBehaviour
     }
     int WaitTime(string text, int time, bool waitfixed)
     {
-        return 2;
+        return 3;
         if (waitfixed)
             return time;
         int wait = text.ToCharArray().Length / 15;
