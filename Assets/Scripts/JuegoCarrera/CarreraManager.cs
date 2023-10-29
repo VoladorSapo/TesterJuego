@@ -205,7 +205,7 @@ public class CarreraManager : MonoBehaviour
         AudioManager.Instance.PlaySound("Race Clear",false,this.transform.position,true);
         }else{
         text.text=winner+" Lost!!";
-        AudioManager.Instance.PlaySound("Lose Race",false,this.transform.position,true);
+        AudioManager.Instance.PlaySound("Lose race",false,this.transform.position,true);
         }
         yield return new WaitForSeconds(1f);
         text.gameObject.SetActive(false);
