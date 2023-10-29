@@ -193,7 +193,7 @@ public class SceneManagement : MonoBehaviour
             ChangePlayerToCar();
         }
 
-        KillMouseInputs(killMouse);
+        //KillMouseInputs(killMouse);
 
         if(allZeldaScenes.Contains(SceneManager.GetActiveScene().name)){
             //if(GameObject.Find("RaceManager")){Destroy(GameObject.Find("RaceManager"));}
@@ -291,6 +291,7 @@ public class SceneManagement : MonoBehaviour
     //Kill Mouse
 
     GameObject lastSelected;
+    /*
     public void KillMouseInputs(bool killMouse){
         if(killMouse){
             Cursor.visible=false;
@@ -305,7 +306,7 @@ public class SceneManagement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-    }
+    }*/
 
     //Final
     void EndGame(){
