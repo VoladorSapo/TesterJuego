@@ -8,6 +8,8 @@ public class MensajeObjeto : MonoBehaviour
     [SerializeField] int margin;
     [SerializeField] int limit;
     [SerializeField] int divide;
+  [SerializeField]  Sprite mensaje0;
+  [SerializeField]  Sprite mensaje1;
     public IEnumerator setMessage(string _text,int _side,string _button,int type)
     {
             GetComponentInChildren<TMP_Text>().text = _text;
@@ -18,9 +20,17 @@ public class MensajeObjeto : MonoBehaviour
         {
             case 0:
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(-60, 0);
+                GetComponentInChildren<VerticalLayoutGroup>().padding.left = 5;
+                GetComponentInChildren<VerticalLayoutGroup>().padding.right = 0;
+                GetComponentInChildren<Image>().sprite = mensaje0;
+
                 break;
             case 1:
                 GetComponentInChildren<Image>().gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(20, 0);
+                GetComponentInChildren<VerticalLayoutGroup>().padding.left = -5;
+                GetComponentInChildren<VerticalLayoutGroup>().padding.right = 10;
+                GetComponentInChildren<Image>().sprite = mensaje1;
+
                 break;
         }
         int x =1;
