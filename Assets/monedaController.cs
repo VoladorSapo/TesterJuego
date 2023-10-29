@@ -9,8 +9,12 @@ public class monedaController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        SetEvents();
     }
-
+    private void OnDestroy()
+    {
+        PauseController.Instance?.UnSetPausedEvents(Pause, Unpause);
+    }
     // Update is called once per frame
     void Update()
     {

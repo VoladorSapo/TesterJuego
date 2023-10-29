@@ -134,6 +134,7 @@ public class MessageAdder : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         print("return");
+        Options.GetComponent<CanvasGroup>().alpha = 0;
         IEnumerator couritine = AddAllMessages(0);
         StartCoroutine(couritine);
     }
@@ -143,6 +144,7 @@ public class MessageAdder : MonoBehaviour
         print("Socorro");
         MessageClass[] messages = GetMessageList(action);
         currentMessages[currentConversation].InsertRange(0, messages);
+        Options.GetComponent<CanvasGroup>().alpha = 0;
         IEnumerator couritine = AddAllMessages(0);
         foreach (Transform child in Options.transform)
         {
@@ -320,7 +322,8 @@ public class MessageAdder : MonoBehaviour
             {
                 GameObject.Destroy(child.gameObject);
             }
-        TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
+        Options.GetComponent<CanvasGroup>().alpha = 0;
+    TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
         TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
 
 
