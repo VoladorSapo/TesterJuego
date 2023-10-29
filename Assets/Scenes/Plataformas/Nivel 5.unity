@@ -1229,6 +1229,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6880423813417941466, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 112.71675
+      objectReference: {fileID: 0}
     - target: {fileID: 6880423814430138174, guid: 5d65542b54e9c974db0916050e8d4b24, type: 3}
       propertyPath: m_Name
       value: ConversationButton
@@ -26491,7 +26495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: transitionWithPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8634504258092415648, guid: fc3a4b4e7c053904db767c291bcdc04d, type: 3}
       propertyPath: transitionList.Array.size
