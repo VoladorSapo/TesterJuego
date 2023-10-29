@@ -70,7 +70,7 @@ cole2_13;¿Tú no sabes nada sobre qué pudo pasar? ¿No hay rumores en la ofici
 cole2_14;Trabajo desde casa.;0;1;0;false;None
 cole2_15;Ah.;0;0;0;false;None
 cole2_16;Pues de algún modo tienes que enterarte.;0;0;0;false;None
-cole2_17;respuesta3-Pasota-Curioso;0;2;0;false;None
+cole2_17;respuesta3-Pasota-Curioso;2;0;0;false;None
 respuesta3_1_0;No sé tío, a mí mientras me paguen…;0;0;0;false;None
 respuesta3_1_1;Podría estar pagándote un asesino;0;0;0;false;None
 respuesta3_2_0;Vale. Veré cómo lo hago.;0;1;0;false;None
@@ -95,7 +95,7 @@ wagner5_9;No podría dejártelo ver ni aunque quisiera.;0;0;0;false;None
 wagner5_10;Y no quiero.;0;0;0;false;None
 wagner5_11;Así que mejor vuelve al trabajo y no vuelvas a mencionarme el tema.;0;0;0;false;None
 wagner5_12;Enseguida.;0;1;0;false;None
-julia_0;Hola, ¿Eres Julia Brian, de Pandemonium?;0;1;0;false;None
+julia_0;Hola, ¿Eres Julia Brian, de Pandemonium?;0;1;0;false;SceneZelda
 julia_1;Ya no trabajo ahí.;0;0;0;false;None
 julia_2;Si eres periodista, no me interesa. Preguntadle a Truman.;0;0;0;false;None
 julia_3;Te doy su número si quieres, pero me dejáis en paz.;0;0;0;false;None
@@ -120,7 +120,7 @@ julia_17;Sé lo mismo que tú. Desapareció de la noche a la mañana. Ni su fami
 julia_18;Creo que podría averiguarlo.;0;1;0;false;None
 julia_19;Te mando una copia.;0;0;0;false;None
 julia_20;Haz lo que te dé la gana con ella, pero a mí no me metas en líos.;0;0;0;false;None
-julia_21;Proxima_centauri.exe;0;0;0;false;Scene
+julia_21;Proxima_centauri.exe;0;0;0;false;SceneZelda
 wagner6_0;¿Qué coño haces?;0;0;0;false;None
 wagnerFinal_0;He intentado detenerte, chaval. Pero ese maldito juego es tan antiguo que no tenía forma de restringirte el acceso.;0;0;0;false;None
 wagnerFinal_1;Tendrías que haber seguido mis instrucciones.;0;0;0;false;None
