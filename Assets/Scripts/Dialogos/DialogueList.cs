@@ -34,7 +34,6 @@ public class DialogueList : MonoBehaviour
                     string trimString = strings[i].Trim();
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
-                        print(trimString);
                         string[] messagestring = trimString.Split(';');
                         MessageClass message = new MessageClass(messagestring[1], int.Parse(messagestring[2]), int.Parse(messagestring[3]), int.Parse(messagestring[4]), Convert.ToBoolean(messagestring[5]), messagestring[6]);
                         MessageHash.Add(messagestring[0], message);
@@ -51,7 +50,6 @@ public class DialogueList : MonoBehaviour
 
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
-                        print(trimString);
 
                         string[] dialoguestring = trimString.Split(';');
                         DialogueClass dialogue = new DialogueClass(dialoguestring[1], dialoguestring[2], int.Parse(dialoguestring[3]), int.Parse(dialoguestring[4]));
@@ -69,7 +67,6 @@ public class DialogueList : MonoBehaviour
                     string trimString = strings[i].Trim();
                     if (!string.IsNullOrWhiteSpace(trimString))
                     {
-                        print(trimString);
                         string[] dialoguestring = trimString.Split(';');
                         print(dialoguestring[0]);
                         print(dialoguestring[1]);

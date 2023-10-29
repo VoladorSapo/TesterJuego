@@ -14,6 +14,7 @@ public class ImageDictionary :MonoBehaviour, ISerializationCallbackReceiver
     public bool modifyvalues;
     private void Awake()
     {
+        print("soy el dictionary");
         if (Instance == null)
         {
             for (int i = 0; i < Mathf.Min(Data.Keys.Count, Data.Values.Count); i++)
@@ -49,12 +50,15 @@ public class ImageDictionary :MonoBehaviour, ISerializationCallbackReceiver
     {
         if (!modifyvalues)
         {
-            keys.Clear();
-            values.Clear();
-            for (int i = 0; i < Mathf.Min(Data.Keys.Count, Data.Values.Count); i++)
+            if (Data != null)
             {
-                keys.Add(Data.Keys[i]);
-                values.Add(Data.Values[i]);
+                keys.Clear();
+                values.Clear();
+                for (int i = 0; i < Mathf.Min(Data.Keys.Count, Data.Values.Count); i++)
+                {
+                    keys.Add(Data.Keys[i]);
+                    values.Add(Data.Values[i]);
+                }
             }
         }
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7855905061267932391}
   - component: {fileID: 7855905061267932390}
+  - component: {fileID: 2253945499847009618}
   m_Layer: 0
   m_Name: DialogueLists
   m_TagString: Untagged
@@ -44,5 +45,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4640bcdb601a54c845927d44635ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDialogue: {fileID: 4900000, guid: 657c24bc3c1fdb844bbce33817c2e615, type: 3}
-  textMessages: {fileID: 4900000, guid: 984f53517004bd04281b4f343c7fbf57, type: 3}
+  textDialogue: {fileID: 4900000, guid: fe561d3e7d974d643852bfb12d608882, type: 3}
+  textMessages: {fileID: 4900000, guid: cdb61f068c4a5cd448c631ecd6f9facb, type: 3}
+  textLog: {fileID: 4900000, guid: 37a04f96e62813c4d8e6de1cbfc27eb1, type: 3}
+--- !u!114 &2253945499847009618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855905061267932393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cd2e56067f7c8408fc0e3b25ebb968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 968cbb6da3b5c3f41a44f3efd25f4f40, type: 2}
+  keys:
+  - MrBeast
+  - MiTesoro
+  - MiVida
+  values:
+  - {fileID: 21300000, guid: 38d9baf8403992541a53f687bfc6627e, type: 3}
+  - {fileID: 21300000, guid: 4b04b715f89b7a74f9b3d682023ec1a1, type: 3}
+  - {fileID: 21300000, guid: c4e9939f1e6bdc34dbf445cfa82519a9, type: 3}
+  modifyvalues: 0

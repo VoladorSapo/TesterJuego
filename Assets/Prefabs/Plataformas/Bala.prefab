@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layersHit:
     serializedVersion: 2
-    m_Bits: 3648
+    m_Bits: 36416
   saveSpeed: {x: 0, y: 0}
 --- !u!50 &215248352847119103
 Rigidbody2D:

@@ -7,7 +7,7 @@ using TMPro;
 
 public class MessageAdder : MonoBehaviour
 {
-
+    [SerializeField] bool[] ShowConversations;
     public List<GameObject> TextConversations;
     [SerializeField] GameObject ButtonList;
     [SerializeField] GameObject conversationAdder;
@@ -170,35 +170,24 @@ public class MessageAdder : MonoBehaviour
     }
     public void AddMessageList(MessageClass[] messages, int conversation)
     {
-        if (currentMessages[conversation].Count == 0)
+        if (currentMessages[conversation].Count > 0)
         {
-            currentMessages[conversation].AddRange(messages);
-            wholeMessages[conversation].AddRange(messages);
-            currentConversation = conversation;
-            print(messages.Length);
-            print(currentMessages.Count);
-            AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation, currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
-            currentMessages[conversation].RemoveAt(0);
-            if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
-            {
-                print("hory shit");
-                IEnumerator courutine = AddAllMessages(2);
-                StartCoroutine(courutine);
-            }
+            ForceAddMessages(conversation);
         }
-        else
+        ShowConversations[conversation] = true;
+        ButtonList.transform.GetChild(conversation).gameObject.SetActive(true);
+        currentMessages[conversation].AddRange(messages);
+        wholeMessages[conversation].AddRange(messages);
+        currentConversation = conversation;
+        AddMessage(currentMessages[conversation][0].text, currentMessages[conversation][0].side, conversation, currentMessages[conversation][0].isButton, currentMessages[conversation][0].type);
+        currentMessages[conversation].RemoveAt(0);
+        if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
         {
-            currentMessages[conversation].AddRange(messages);
-            wholeMessages[conversation].AddRange(messages);
-            currentConversation = conversation;
-            if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1 && TextConversations[conversation].GetComponent<CanvasGroup>().alpha == 1)
-            {
-                print("omagat");
+            print("hory shit");
+            IEnumerator courutine = AddAllMessages(2);
+            StartCoroutine(courutine);
+        }
 
-                IEnumerator courutine = AddAllMessages(2);
-                StartCoroutine(courutine);
-            }
-        }
     }
     int WaitTime(string text, int time, bool waitfixed)
     {
@@ -235,6 +224,26 @@ public class MessageAdder : MonoBehaviour
             }
         }
     }
+    void ForceAddMessages(int conversation)
+    {
+        foreach (MessageClass message in currentMessages[conversation].ToArray())
+        {
+            if (message.type == 2 || message.type == 3)
+            {
+                foreach (MessageClass optionmessage in GetMessageList(message.text.Split('-')[0]+"_0"))
+                {
+                    AddMessage(optionmessage.text, optionmessage.side, currentConversation, optionmessage.isButton, optionmessage.type);
+
+                }
+            }
+            else {
+                AddMessage(message.text, message.side, currentConversation, message.isButton, message.type);
+                currentMessages[currentConversation].Remove(message);
+            }
+            currentMessages[currentConversation].Remove(message);
+
+        }
+    }
     public void SwitchBoard()
     {
         if (MessageBoard.GetComponent<CanvasGroup>().alpha == 1)
@@ -257,6 +266,13 @@ public class MessageAdder : MonoBehaviour
         {
             CheckPuzzlePista();
         }
+        for (int i = 0; i < TextConversations.Count-1; i++)
+        {
+            if (!ShowConversations[i])
+            {
+                ButtonList.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
         IEnumerator courutine = AddAllMessages(2);
         StartCoroutine(courutine);
 
@@ -271,32 +287,35 @@ public class MessageAdder : MonoBehaviour
     }
     public void ChangeConversation(int conver)
     {
-        TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
-        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
-
-        currentConversation = conver;
-        MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
-        TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
-        TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-        if (currentConversation != 0)
+        if (currentConversation != conver)
         {
-            foreach (Transform child in Options.transform)
+            TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 0;
+            TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+            currentConversation = conver;
+            MessageBoard.GetComponent<CanvasGroup>().alpha = 1;
+            TextConversations[currentConversation].GetComponent<CanvasGroup>().alpha = 1;
+            TextConversations[currentConversation].GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            if (currentConversation != 0)
             {
-                GameObject.Destroy(child.gameObject);
+                foreach (Transform child in Options.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
             }
-        }
-        if (currentMessages[currentConversation].Count > 0)
-        {
-            print("oooo noooo");
-            IEnumerator courutine = AddAllMessages(2);
-            StartCoroutine(courutine);
-        }
-        else
-        {
-            if(currentConversation == 0)
+            if (currentMessages[currentConversation].Count > 0)
             {
-                CheckPuzzlePista();
+                print("oooo noooo");
+                IEnumerator courutine = AddAllMessages(2);
+                StartCoroutine(courutine);
+            }
+            else
+            {
+                if (currentConversation == 0)
+                {
+                    CheckPuzzlePista();
+                }
             }
         }
     }
@@ -306,10 +325,14 @@ public class MessageAdder : MonoBehaviour
         if(SistemaPistas.Instance != null && SistemaPistas.Instance.startPuzzle && !SistemaPistas.Instance.ended)
         {
             Button newbutton = Instantiate(OptionButtonPrefab, Options.transform).GetComponent<Button>();
+            Options.GetComponent<CanvasGroup>().alpha = 1;
+
             newbutton.GetComponentInChildren<TMP_Text>().text = "Pedir ayuda";
-            newbutton.onClick.AddListener(delegate { SistemaPistas.Instance.PedirPista(); foreach (Transform child in Options.transform)
+            newbutton.onClick.AddListener(delegate { SistemaPistas.Instance.PedirPista(); Options.GetComponent<CanvasGroup>().alpha = 0; foreach (Transform child in Options.transform)
                 {
                     GameObject.Destroy(child.gameObject);
+                   
+
                 }
             });
         }
@@ -380,7 +403,10 @@ public class MessageAdder : MonoBehaviour
         OpenButton.interactable = false;
         foreach (Button button in ButtonList.GetComponentsInChildren<Button>())
         {
-            button.interactable = false;
+            if (button.transform.GetSiblingIndex() != currentConversation)
+            {
+                button.interactable = false;
+            }
         }
         PauseController.Instance.hardPause();
     }

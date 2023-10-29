@@ -13,6 +13,7 @@ public class bulletController : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("Bullet", false, transform.position, false);
             anim.SetBool("Boom", true);
+            GetComponent<Collider2D>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             GetComponent<Rigidbody2D>().gravityScale = 0;
         }

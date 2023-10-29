@@ -6,24 +6,28 @@ public class TriggerStoryEvent : MonoBehaviour
 {
     [SerializeField] string MessageKey;
     [SerializeField] int conversation;
-    [SerializeField]   KeyCode key = KeyCode.None;
+    [SerializeField] KeyCode key = KeyCode.None;
     [SerializeField] bool onLoad;
     [SerializeField] public string LoadStringEvent;
+    [SerializeField] int carNarrativeMoment = -1;
     public string[] summonkeys;
     [SerializeField] bool HardPause;
-    
+
     [Header("0 Mensaje,1 DebugLog, 2 Conversacion")]
     [SerializeField] int SpawnPlace;//0 Mensaje,1 DebugLog, 2 Conversacion
     [Header("Solo pa debug")]
     public bool HasTriggered;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TriggerEvent();
+        if ((carNarrativeMoment == -1 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) && (string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
+        {
+            TriggerEvent();
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
-        if (onLoad && (string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
+        if (onLoad && (carNarrativeMoment == -1 || carNarrativeMoment == SceneManagement.Instance.narrativeParts.CarNarrative) &&(string.IsNullOrWhiteSpace(LoadStringEvent) || LoadStringEvent == SceneManagement.Instance.actionName))
         {
             TriggerEvent();
         }

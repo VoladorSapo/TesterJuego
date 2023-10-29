@@ -29,20 +29,22 @@ public class SistemaPistas : MonoBehaviour
             Instance = this;
             if (startonload)
             {
-                currentWait = 0;
-                startPuzzle = true;
-                counting = true;
+                StartPuzzle();
             }
         }
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
-            startPuzzle = true;
-            counting = true;
+            StartPuzzle();
         }
+    }
+    public void StartPuzzle()
+    {
+        startPuzzle = true;
+        counting = true;
     }
     public void NextPuzzle(int i,string _key,float[] newwaits)
     {
