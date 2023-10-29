@@ -186,3 +186,78 @@ MonoBehaviour:
     volume: 0.191
     pitch: 1
     maxSoundDistance: 100
+  - name: ZeldaIntroStart
+    audioClip: {fileID: 8300000, guid: 805ecf7e1f8c79842b4d7af88723353b, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: ZeldaIntroLoop
+    audioClip: {fileID: 8300000, guid: 1dfbe7ad1cae2ce4795a49db9908ecb9, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Pausa1
+    audioClip: {fileID: 8300000, guid: 739e1a6efbaed3a429f9b64c201ca424, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Pausa2
+    audioClip: {fileID: 8300000, guid: f9b5a027213d7f145874fcef877fd069, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Pausa3
+    audioClip: {fileID: 8300000, guid: c54aefebafe338c4e87ab666558ff9db, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: PuertaZelda
+    audioClip: {fileID: 8300000, guid: db644bc3444ff2e40a679fc1c931cdb4, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: TextoAlto
+    audioClip: {fileID: 8300000, guid: db644bc3444ff2e40a679fc1c931cdb4, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: TextoBajo
+    audioClip: {fileID: 8300000, guid: db644bc3444ff2e40a679fc1c931cdb4, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: AudioLoco
+    audioClip: {fileID: 8300000, guid: 7fc2e51ef70b17547a206138b300ab2f, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Platform Music
+    audioClip: {fileID: 8300000, guid: e0900d18eca08a54c9f38ae9e3c80f0a, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: IglesiaMusic
+    audioClip: {fileID: 8300000, guid: e8ba8955524a6c54181df861c1d54ee7, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: TownMusic
+    audioClip: {fileID: 8300000, guid: 60f0c8250158dde42b0c8050ecdc5490, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Platform Menu Music
+    audioClip: {fileID: 8300000, guid: d2a8f546d91e47c45ac01c635e15078f, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Tower Music
+    audioClip: {fileID: 8300000, guid: 7b71aae25296c914aad71c29e220eb6a, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100
+  - name: Tension
+    audioClip: {fileID: 8300000, guid: 57d5bd9c2673e974f9aedf90e241cc67, type: 3}
+    volume: 0.191
+    pitch: 1
+    maxSoundDistance: 100

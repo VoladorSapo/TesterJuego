@@ -35,7 +35,7 @@ public class PositionRace : MonoBehaviour
             if (CarreraManager.Instance.currentLap <= CarreraManager.Instance.numberOfLaps)
                 CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 CarreraManager.Instance.currentLap + "/" + CarreraManager.Instance.numberOfLaps;
-            else if (!CarreraManager.Instance.canWinRace)
+            else if (!CarreraManager.Instance.canWinRace){
                 /* Codigo de diego pa mensajes  */
                 if (GameObject.Find("TriggerRace") != null)
                 {
@@ -43,6 +43,7 @@ public class PositionRace : MonoBehaviour
                 }
             CamaraGlobal.Instance.attachedCanvas.carUI.transform.GetChild(2).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text=
              " ̵̢̛͈̦͉̦͈̘͇͈̱̱̖̅̉̃͐͗̎̏̌͒͐̅̀̐͛̐̌̀̏͆̅͆͆͗̉͘͘̚͜ ̷̨̧̢̡̮̞͉̳̺̜̭̣̹̝̹̘̫̬͕̗̝̟͉̙̥̦̈́̃̊͑̽́́̒̊̎͑̑̀̐͒́̋͆̐̑̋̕͜ͅ"+"/"+CarreraManager.Instance.numberOfLaps;
+            }
 
         }
     }

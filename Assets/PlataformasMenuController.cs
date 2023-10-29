@@ -14,10 +14,12 @@ public class PlataformasMenuController : MonoBehaviour
 
   public  void StartGame()
     {
+        AudioManager.Instance.PlaySound("Menu confirm platform",false,this.transform.position,true);
         SceneManager.LoadScene("Nivel 1");
     }
     public void TryQuit()
     {
+        AudioManager.Instance.PlaySound("BackUI",false,this.transform.position,true);
         ConfirmBox.SetActive(true);
     }
     public void NoQuit()

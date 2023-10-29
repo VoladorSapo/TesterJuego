@@ -117,6 +117,8 @@ public class CarController : BasicCar, IPauseSystem
         else if(p<0){return -1;}
         else {return 0;}
     }
+
+    bool isMotorSound=false;
     protected override void FixedUpdate()
     {     
         if(!canMove) return;
@@ -126,13 +128,13 @@ public class CarController : BasicCar, IPauseSystem
         KillSideVelocity();
         ApplyTurn();
        
-        /*if(!isMotorSound && _accelerationInput>0 && _rb.velocity.magnitude>0.25f){
-            AudioManager.Instance.PlaySound("Motor",true,transform.position,true);
+        if(!isMotorSound && _accelerationInput>0 && _rb.velocity.magnitude>0.5f){
+            AudioManager.Instance.PlaySound("Moving Car",true,transform.position,true);
             isMotorSound=true;
-        }else if(isMotorSound && _accelerationInput<=0 && _rb.velocity.magnitude<=0.25f){
-          AudioManager.Instance.StopAllSoundsWithName("Motor");
+        }else if(isMotorSound && _accelerationInput<=0 && _rb.velocity.magnitude<=0.5f){
+          AudioManager.Instance.StopAllSoundsWithName("Moving Car");
             isMotorSound=false;
-        }*/
+        }
 
         //if(Input.GetKeyDown(KeyCode.E)){AudioManager.Instance.PlaySound("Horn",false,transform.position,true);}
     }

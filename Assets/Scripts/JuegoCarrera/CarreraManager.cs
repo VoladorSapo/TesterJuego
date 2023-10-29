@@ -202,8 +202,10 @@ public class CarreraManager : MonoBehaviour
         
         if(minStart==0){
         text.text=winner+" is the Winner!!";
+        AudioManager.Instance.PlaySound("Race Clear",false,this.transform.position,true);
         }else{
         text.text=winner+" Lost!!";
+        AudioManager.Instance.PlaySound("Lose Race",false,this.transform.position,true);
         }
         yield return new WaitForSeconds(1f);
         text.gameObject.SetActive(false);
@@ -223,10 +225,12 @@ public class CarreraManager : MonoBehaviour
         
         CamaraGlobal.Instance.attachedCanvas.carUI.SetActive(false);
 
-        if(NextStage=="")
+        if(NextStage==""){
         SceneManager.LoadScene("MenuCar");
+        AudioManager.Instance.ChangeMusicTo("Race Music",1f,"",0.25f);
+        }
         else if(SceneIsInBuild(NextStage)){
-        //DontDestroyOnLoad(GameObject.Find("PlayerCar").gameObject);
+        AudioManager.Instance.ChangeMusicTo("Race Music",1f,"",0.25f);
         GameObject.Find("PlayerCar").transform.position=newPositionPlayer;
         SceneManager.LoadScene(NextStage);
         }
