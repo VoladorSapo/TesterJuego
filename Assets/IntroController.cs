@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class IntroController : MonoBehaviour
 {
-    
+   [SerializeField] DialogueController dialog;
+    [SerializeField] GlobalWarpPoint warp;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,8 @@ public class IntroController : MonoBehaviour
     IEnumerator LateStart()
     {
         yield return new WaitForSeconds(1);
-        DialogueController.Instance.getConversation("cinematic1");
-        DialogueController.Instance.setEndConversation(endScene);
+        dialog.getConversation("cinematic1");
+        dialog.setEndConversation(endScene);
     }
     // Update is called once per frame
     void Update()
@@ -24,7 +25,9 @@ public class IntroController : MonoBehaviour
     }
     public void endScene()
     {
-        DialogueController.Instance.unsetEndConversation(endScene);
-        SceneManager.LoadScene("Bosque 1");
+        EventGallery.Instance.ClearEffects();
+        dialog.unsetEndConversation(endScene);
+        warp.DoTransition();
+       // SceneManager.LoadScene("Bosque 1");
     }
 }

@@ -20,6 +20,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] List<DialogueClass> CurrentConversation;
     [SerializeField] int currentChar;
     [SerializeField] int charpersec;
+    [SerializeField] bool isIntro;
     [SerializeField] Animator character;
     [SerializeField] TMP_Text nombre;
     CanvasGroup canvasgroup;
@@ -29,11 +30,17 @@ public class DialogueController : MonoBehaviour
     // Start is called before the first frame update
 
     void Awake(){
-        if(Instance==null){
-            Instance=this;
-            DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
-        }else{
-            Destroy(this.gameObject);
+        if (!isIntro)
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(this.gameObject.transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
     void Start()
@@ -89,6 +96,17 @@ public class DialogueController : MonoBehaviour
             text.text = CurrentConversation[0].text;
             character.SetInteger("Character", CurrentConversation[0].Character);
             character.SetInteger("Anim", CurrentConversation[0].anim);
+            if(SceneManager.GetActiveScene().name == "Intro" && CurrentConversation.Count == 1)
+            {
+                print("diad");
+                EventGallery.Instance.IntroGlitch();
+            }
+            else
+            {
+                print(SceneManager.GetActiveScene().name);
+                print(CurrentConversation.Count);
+                print("elsee");
+            }
             nombre.text = CurrentConversation[0].nombre;
             if(nombre.text == "None")
             {
